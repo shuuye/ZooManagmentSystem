@@ -45,4 +45,4 @@ echo "<br><br>";
 //unable to undo beccause no move already
 $inventoryManager->undoCommand();
 $inventoryManager->undoCommand();
-
+echo "hello";
