@@ -6,7 +6,7 @@ require_once 'InventoryCommand.php';
 class AddItemCommand implements InventoryCommand
 {
     private $inventory;
-    private $quantity;dddd
+    private $quantity;
 
     public function __construct($inventory, $quantity)
     {
