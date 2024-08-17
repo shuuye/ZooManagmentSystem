@@ -14,7 +14,7 @@ class AnimalInventory extends Inventory
     private $height;
     private $weight;
     private $healthStatus;
-    private $habitat;
+    private $habitat;dd
 
     public function __construct($inventory_id, $item_name, $species, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitat, $quantity = 0)
     {
