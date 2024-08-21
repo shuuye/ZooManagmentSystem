@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f2f2f2;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 20%;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+}
+
+.main {
+    width: 80%;
+    padding: 15px;
+}
+
+.purchase-order {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.purchase-order h2 {
+    margin-bottom: 10px;
+}
+
+.purchase-order .status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.purchase-order .status .draft {
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+}
+
+.purchase-order .progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.purchase-order .progress .step {
+    width: 10%;
+    text-align: center;
+}
+
+.purchase-order .progress .step .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ddd;
+}
+
+.purchase-order .progress .step .circle.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.purchase-order .progress .line {
+    width: 80%;
+    height: 2px;
+    background-color: #ddd;
+    margin: 0 auto;
+}
+
+.purchase-order .details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.purchase-order .details .column {
+    width: 48%;
+}
+
+.purchase-order .details .column .label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.purchase-order .details .column .value {
+    margin-bottom: 10px;
+}
+
+.purchase-order .table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.purchase-order .table th,
+.purchase-order .table td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.purchase-order .table th {
+    background-color: #f2f2f2;
+}
+
+.purchase-order .total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.purchase-order .total .label {
+    font-weight: bold;
+}
+
+footer {
+    background-color: #f2f2f2;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
