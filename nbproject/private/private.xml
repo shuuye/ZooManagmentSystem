@@ -3,11 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Config/AnimalDB/dbConnection.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Observer/Observer.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalController/HealthController.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Observer/HabitatObserver.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Observer/HealthRecord.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalModule/health_form.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Observer/HealthObserver.php</file>
         </group>
     </open-files>

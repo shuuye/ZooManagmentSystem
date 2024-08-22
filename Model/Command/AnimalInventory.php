@@ -1,10 +1,13 @@
 <?php
 
+require_once '../../Config/AnimalDB/dbConnection.php';
 require_once 'Inventory.php';
 require_once 'InventoryCommand.php';
 
 class AnimalInventory extends Inventory
 {
+    private $id; // animal id
+    private $name; // animal name
     private $species;
     private $age;
     private $gender;
@@ -14,24 +17,63 @@ class AnimalInventory extends Inventory
     private $height;
     private $weight;
     private $healthStatus;
-    private $habitat;dd
+    private $habitat;
+    private $category;
 
-    public function __construct($inventory_id, $item_name, $species, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitat, $quantity = 0)
-    {
-        parent::__construct($inventory_id, $item_name, $quantity);
-        $this->species = $species;
-        $this->age = $age;
-        $this->gender = $gender;
-        $this->date_of_birth = $date_of_birth;
-        $this->avg_lifespan = $avg_lifespan;
-        $this->description = $description;
-        $this->height = $height;
-        $this->weight = $weight;
-        $this->healthStatus = $healthStatus;
-        $this->habitat = $habitat;
-    }
+//    public function __construct($inventory_id, $item_name, $id, $name, $species, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitat ,$category, $quantity = 0)
+//    {
+//        parent::__construct($inventory_id, $item_name, $quantity);
+//        $this->id = $id;
+//        $this->name = $name;
+//        $this->species = $species;
+//        $this->age = $age;
+//        $this->gender = $gender;
+//        $this->date_of_birth = $date_of_birth;
+//        $this->avg_lifespan = $avg_lifespan;
+//        $this->description = $description;
+//        $this->height = $height;
+//        $this->weight = $weight;
+//        $this->healthStatus = $healthStatus;
+//        $this->habitat = $habitat;
+//        $this->category = $category;
+//    }
+    
+    public function __construct(
+    $id, $name, $species, $age, $gender, $description, 
+    $category, $inventory_id = null, $item_name = null, $date_of_birth = null, 
+    $avg_lifespan = null, $height = null, $weight = null, $healthStatus = null, 
+    $habitat = null, $quantity = 0
+) {
+    parent::__construct($inventory_id, $item_name, $quantity);
+    $this->id = $id;
+    $this->name = $name;
+    $this->species = $species;
+    $this->age = $age;
+    $this->gender = $gender;
+    $this->date_of_birth = $date_of_birth;
+    $this->avg_lifespan = $avg_lifespan;
+    $this->description = $description;
+    $this->height = $height;
+    $this->weight = $weight;
+    $this->healthStatus = $healthStatus;
+    $this->habitat = $habitat;
+    $this->category = $category;
+}
 
+    
     // Getters and setters for Animal-specific attributes
+    public function getId() {
+        return $this->id;
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+    
+    public function setName($name) {
+        $this->name = $name;
+    }
+    
     public function getSpecies()
     {
         return $this->species;
@@ -131,4 +173,23 @@ class AnimalInventory extends Inventory
     {
         $this->habitat = $habitat;
     }
+    
+    public function getCategory() {
+        return $this->category;
+    }
+
+    public function setCategory($category): void {
+        $this->category = $category;
+    }
+
+        
+    // Optionally, add a method to update the animal details in the database
+    // 
+//    public function updateAnimalInDatabase() {
+//        $db = new dbConnection();
+//        $pdo = $db->getPDO();
+//
+//        $stmt = $pdo->prepare("UPDATE animals SET name = ?, species = ?, age = ? WHERE id = ?");
+//        $stmt->execute([$this->name, $this->species, $this->age, $this->id]);
+//    }
 }
