@@ -1,0 +1,109 @@
+/*
+identify all structures of table in inventory system
+*/
+
+/*Inventory display table structure*/
+.displayingTable {
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    font-size: 18px;
+
+}
+
+.displayingTable th {
+    background-color: #f8fbfd;
+}
+
+.displayingTable td,.displayingTable th {
+    text-align: left;
+    padding: 18px;
+}
+
+.nextpage {
+    justify-content: right;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+/*button shape sturcture*/
+
+.prev, .next{
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+}
+
+.prev:hover, .next:hover{
+    cursor: pointer;
+}
+
+/*button single property*/
+.prev{
+    margin-right: 30px;
+    background-color: #849cb2;
+}
+
+.next{
+    margin-left: 30px;
+    background-color: #182939;
+}
+
+/*Inventory display table properties*/
+.displayingTable input[type='checkbox'] {
+    width: 20px;
+    height: 26px;
+}
+
+
+.updated {
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+}
+
+/*Inventory status update*/
+.stockstatus {
+    padding: 10px 30px;
+    justify-content: center;
+    color: white;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.lowstock{
+    background-color: orangered;
+}
+
+.instock{
+    background-color: green;
+}
+.outstock{
+    background-color: red;
+}
+
+/*PO status update*/
+.poStatus {
+    padding: 10px 30px;
+    justify-content: center;
+    color: white;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.received{
+    background-color: #67c16b;
+}
+
+.processing{
+    background-color: #6687db;
+}
+.awaiting{
+    background-color: #a176cb;
+}
+
+.approval{
+    background-color: #a2ca62;
+}

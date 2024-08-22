@@ -1,0 +1,127 @@
+/*control each page content body display*/
+.main-content{
+    position: relative;
+    background-color:  #f8fbfd; /*main color*/
+    padding:1rem;
+    margin: 1rem;
+}
+
+
+/* control the navigations */
+.inventoryNav{
+    font-size: 20px;
+}
+
+.inventoryNav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+}
+
+.inventoryNav ul li {
+    position: relative;
+    display: inline-block;
+}
+
+.inventoryNav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 40px;
+}
+
+.inventoryNav ul li a:hover {
+    background-color: #444;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    border: 1px solid #333;
+    margin: 0;
+    display: none;
+    z-index: 1000;
+    transition: display 0.5s;
+}
+
+
+.dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #444;
+}
+
+.dropdown-menu ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: 0;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    padding: 10px;
+    width: 200px; /* set a width for the submenu */
+    z-index: 1; /* make sure the submenu is on top of other elements */
+}
+
+.dropdown-menu li:hover > ul {
+    display: block;
+}
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu ul {
+    position: absolute;
+    top: 0;
+    left: 120%;
+    background-color: #333;
+    border: 1px solid #333;
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown-submenu ul li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-submenu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 3px 20px;
+}
+
+.dropdown-submenu ul li a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu:hover ul {
+    display: block;
+}
+
+
+.active {
+    background-color: pink;
+}
