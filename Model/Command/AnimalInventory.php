@@ -8,6 +8,7 @@ class AnimalInventory extends Inventory
 {
     private $id; // animal id
     private $name; // animal name
+    private $category;
     private $species;
     private $age;
     private $gender;
@@ -18,7 +19,9 @@ class AnimalInventory extends Inventory
     private $weight;
     private $healthStatus;
     private $habitat;
-    private $category;
+    
+
+
 
 //    public function __construct($inventory_id, $item_name, $id, $name, $species, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitat ,$category, $quantity = 0)
 //    {
@@ -39,14 +42,15 @@ class AnimalInventory extends Inventory
 //    }
     
     public function __construct(
-    $id, $name, $species, $age, $gender, $description, 
-    $category, $inventory_id = null, $item_name = null, $date_of_birth = null, 
+    $id, $name ,$category, $species, $age, $gender, $description, 
+    $inventory_id = null, $item_name = null, $date_of_birth = null, 
     $avg_lifespan = null, $height = null, $weight = null, $healthStatus = null, 
     $habitat = null, $quantity = 0
 ) {
     parent::__construct($inventory_id, $item_name, $quantity);
     $this->id = $id;
     $this->name = $name;
+    $this->category = $category;
     $this->species = $species;
     $this->age = $age;
     $this->gender = $gender;
@@ -57,7 +61,6 @@ class AnimalInventory extends Inventory
     $this->weight = $weight;
     $this->healthStatus = $healthStatus;
     $this->habitat = $habitat;
-    $this->category = $category;
 }
 
     
