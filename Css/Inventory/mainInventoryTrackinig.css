@@ -1,0 +1,34 @@
+
+/*Inventory function*/
+.recordingFunctions {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 20px;
+}
+
+.filter, .new-item, .edit {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.filter:hover, .new-item:hover, .edit:hover {
+    cursor: pointer;
+}
+
+.filter {
+
+}
+
+.new-item {
+
+}
+
+.edit {
+
+}
+
+.edit-icon, .filter-icon, .plus-icon{
+    margin-right: 5px;
+}

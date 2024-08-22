@@ -3,9 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Observer/HabitatObserver.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Observer/HealthRecord.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Observer/HealthObserver.php</file>
+=======
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/InventoryPage/TestMaster.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/displayingTable.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/mainInventoryTrackinig.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/suppliers.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/InventoryPage/InventoryMasterPage.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/InventoryPage/InventoryCatalog.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/InventoryPage/poTracking.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/InventoryPage/suppliers.php</file>
+>>>>>>> 17db692ce2fbbb973a537375577fa365267495de
         </group>
     </open-files>
 </project-private>
