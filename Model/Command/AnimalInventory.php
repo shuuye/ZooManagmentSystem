@@ -18,34 +18,13 @@ class AnimalInventory extends Inventory
     private $height;
     private $weight;
     private $healthStatus;
-    private $habitat;
-    
+    private $habitatid;
 
-
-
-//    public function __construct($inventory_id, $item_name, $id, $name, $species, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitat ,$category, $quantity = 0)
-//    {
-//        parent::__construct($inventory_id, $item_name, $quantity);
-//        $this->id = $id;
-//        $this->name = $name;
-//        $this->species = $species;
-//        $this->age = $age;
-//        $this->gender = $gender;
-//        $this->date_of_birth = $date_of_birth;
-//        $this->avg_lifespan = $avg_lifespan;
-//        $this->description = $description;
-//        $this->height = $height;
-//        $this->weight = $weight;
-//        $this->healthStatus = $healthStatus;
-//        $this->habitat = $habitat;
-//        $this->category = $category;
-//    }
-    
     public function __construct(
-    $id, $name ,$category, $species, $age, $gender, $description, 
+    $id , $name ,$category, $species, $age, $gender, $description, 
     $inventory_id = null, $item_name = null, $date_of_birth = null, 
     $avg_lifespan = null, $height = null, $weight = null, $healthStatus = null, 
-    $habitat = null, $quantity = 0
+    $habitatid = null, $quantity = 0
 ) {
     parent::__construct($inventory_id, $item_name, $quantity);
     $this->id = $id;
@@ -60,7 +39,7 @@ class AnimalInventory extends Inventory
     $this->height = $height;
     $this->weight = $weight;
     $this->healthStatus = $healthStatus;
-    $this->habitat = $habitat;
+    $this->habitatid = $habitatid;
 }
 
     
@@ -167,16 +146,15 @@ class AnimalInventory extends Inventory
         $this->healthStatus = $healthStatus;
     }
 
-    public function getHabitat()
-    {
-        return $this->habitat;
+    public function getHabitatid() {
+        return $this->habitatid;
     }
 
-    public function setHabitat($habitat)
-    {
-        $this->habitat = $habitat;
+    public function setHabitatid($habitatid): void {
+        $this->habitatid = $habitatid;
     }
-    
+
+        
     public function getCategory() {
         return $this->category;
     }
@@ -184,8 +162,42 @@ class AnimalInventory extends Inventory
     public function setCategory($category): void {
         $this->category = $category;
     }
-
+    
+    public function addAnimal() {
+        $db = new dbConnection();
+        $pdo = $db->getPDO();
         
+        $stmt = $pdo->prepare(
+            "INSERT INTO animals 
+            (animal_name, category, species, age, gender, date_of_birth, avg_lifespan, description, animal_height, animal_weight, health_status, habitat_id) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        );
+        
+        $stmt->execute([
+            $this->name, $this->category, $this->species, $this->age, $this->gender,
+            $this->date_of_birth, $this->avg_lifespan, $this->description, $this->height,
+            $this->weight, $this->healthStatus, $this->habitatid
+        ]);
+
+        return $pdo->lastInsertId();
+    }
+    
+ 
+//   public function addAnimal($name, $category, $species, $age, $gender, $description) {
+//    $db = new dbConnection();
+//    $pdo = $db->getPDO();
+//    
+//    // Correct SQL query (No NULL, placeholders must match the number of fields)
+//    $stmt = $pdo->prepare("INSERT INTO animals (animal_name, category, species, age, gender, description) VALUES (?, ?, ?, ?, ?, ?)");
+//    
+//    // Execute the query with the provided data
+//    $stmt->execute([$name, $category, $species, $age, $gender, $description]);
+//
+//    // Return the last inserted ID
+//    return $pdo->lastInsertId();
+//}
+
+
     // Optionally, add a method to update the animal details in the database
     // 
 //    public function updateAnimalInDatabase() {
@@ -195,4 +207,6 @@ class AnimalInventory extends Inventory
 //        $stmt = $pdo->prepare("UPDATE animals SET name = ?, species = ?, age = ? WHERE id = ?");
 //        $stmt->execute([$this->name, $this->species, $this->age, $this->id]);
 //    }
+    
+    
 }
