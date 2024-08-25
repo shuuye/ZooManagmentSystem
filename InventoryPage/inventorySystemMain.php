@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Dashboard</title>
-        <link rel="stylesheet" href="../Css/Inventory/inventoyr.css">
+        <link rel="stylesheet" href="../Css/Inventory/inventory.css">
     </head>
     <body>
         <div class="container">

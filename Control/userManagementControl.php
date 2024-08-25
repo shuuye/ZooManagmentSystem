@@ -30,7 +30,7 @@
             }
         } catch (PDOException $exception) {
             $_SESSION['error_message'] = "Error: " . $exception->getMessage();
-            header("Location: ../Boundary/userLoginPage.php");
+            header("Location: ../View/userLoginPage.php");
             exit();
         }
     }

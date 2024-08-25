@@ -6,10 +6,11 @@ require_once 'InventoryCommand.php';
 
 class AnimalInventory extends Inventory
 {
-    private $id; // animal id
-    private $name; // animal name
-    private $category;
-    private $species;
+    private $id; // animal id of individual animal
+    private $name; // animal name like Leo, Billion
+    //private $category;  replace with subspecies
+    private $species; //lion, giraffee
+    private $subspecies; //Panthera leo
     private $age;
     private $gender;
     private $date_of_birth;
