@@ -1,10 +1,12 @@
 <?php
+
 require_once 'Inventory.php';
 require_once 'CleaningInventory.php';
 
 class CleaningInventory extends Inventory {
-    private $cleaningType;
-    private $size;
+
+    private $cleaningType; //which type of cleaning item it is
+    private $size; 
     private $usageInstructions;
 
     public function __construct($id, $name, $quantity, $cleaningType, $size, $usageInstructions = null) {
@@ -30,8 +32,10 @@ class CleaningInventory extends Inventory {
         return $this->usageInstructions;
     }
 
-    public function update($newQuantity) {
-        // override update method to update quantity based on size
-        $this->quantity = $newQuantity * $this->size;
+    public function update($newQuantity, $newSize = null) {
+        $this->quantity = $newQuantity;
+        if ($newSize !== null) {
+            $this->size = $newSize;
+        }
     }
 }

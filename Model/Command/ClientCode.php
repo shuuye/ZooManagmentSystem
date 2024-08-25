@@ -46,3 +46,26 @@ echo "<br><br>";
 $inventoryManager->undoCommand();
 $inventoryManager->undoCommand();
 echo "hello";
+
+// Instantiate database and get a connection
+$database = new Database();
+$conn = $database->getConnection();
+
+// Create a FoodInventory object
+$foodInventory = new FoodInventory(1, "Apples", "Food", 101, "Cold Storage", 50, "Fruit", "Vitamins, Fiber", 5);
+
+// Fetch batches for this inventory item
+$batches = $foodInventory->fetchBatches($conn);
+
+// Display batch details
+if ($batches) {
+    foreach ($batches as $batch) {
+        echo "Batch ID: " . $batch->getBatchId() . "<br>";
+        echo "Quantity: " . $batch->getQuantity() . "<br>";
+        echo "Expiry Date: " . $batch->getExpiryDate() . "<br>";
+        echo "Unit Measure: " . $batch->getUnitMeasure() . "<br><br>";
+    }
+} else {
+    echo "No batches found for this inventory item.";
+}
+

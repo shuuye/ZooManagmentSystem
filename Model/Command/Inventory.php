@@ -1,57 +1,65 @@
 <?php
 
-class Inventory 
-{
-    protected $inventory_id;
-    protected $item_name;
-    protected $quantity;
+class Inventory {
+    protected $inventoryId; //the item not individual, each item exist in the system
+    protected $itemName; // girraffe, beef
+    protected $itemType; // which inventory it belongs to like cleaning, food
+    protected $supplierId; 
+    protected $storageLocation;
+    protected $reorderThreshold;
 
-    public function __construct($inventory_id, $item_name, $quantity = 0)
-    {
-        $this->inventory_id = $inventory_id;
-        $this->item_name = $item_name;
-        $this->quantity = $quantity;
+    public function __construct($inventoryId, $itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold) {
+        $this->inventoryId = $inventoryId;
+        $this->itemName = $itemName;
+        $this->itemType = $itemType;
+        $this->supplierId = $supplierId;
+        $this->storageLocation = $storageLocation;
+        $this->reorderThreshold = $reorderThreshold;
     }
 
-    public function add($quantity)
-    {
-        $this->quantity += $quantity;
-        echo "Added $quantity units. New quantity: " . $this->quantity . "\n";
+    public function getInventoryId() {
+        return $this->inventoryId;
     }
 
-    public function remove($quantity)
-    {
-        $this->quantity -= $quantity;
-        if ($this->quantity < 0) {
-            $this->quantity = 0;
-        }
-        echo "Removed $quantity units. New quantity: " . $this->quantity . "\n";
+    public function getItemName() {
+        return $this->itemName;
     }
 
-    public function update($newQuantity)
-    {
-        $this->quantity = $newQuantity;
-        echo "Quantity updated to: " . $this->quantity . "\n";
+    public function getItemType() {
+        return $this->itemType;
     }
 
-    public function getQuantity()
-    {
-        return $this->quantity;
+    public function getSupplierId() {
+        return $this->supplierId;
     }
 
-    // Common getters and setters for inventory
-    public function getInventoryId()
-    {
-        return $this->inventory_id;
+    public function getStorageLocation() {
+        return $this->storageLocation;
     }
 
-    public function getItemName()
-    {
-        return $this->item_name;
+    public function getReorderThreshold() {
+        return $this->reorderThreshold;
     }
 
-    public function setItemName($item_name)
-    {
-        $this->item_name = $item_name;
+    public function setItemName($itemName): void {
+        $this->itemName = $itemName;
     }
+
+    public function setItemType($itemType): void {
+        $this->itemType = $itemType;
+    }
+
+    public function setSupplierId($supplierId): void {
+        $this->supplierId = $supplierId;
+    }
+
+    public function setStorageLocation($storageLocation): void {
+        $this->storageLocation = $storageLocation;
+    }
+
+    public function setReorderThreshold($reorderThreshold): void {
+        $this->reorderThreshold = $reorderThreshold;
+    }
+
+
 }
