@@ -25,7 +25,7 @@
             echo "Phone Number: " . $customer->getPhoneNumber() . "<br>"; // Output: 123-456-7890
         */
             session_start();
-            require_once 'Boundary/userManagementUI.php';
+            require_once './View/userManagementUI.php';
 
             if (isset($_SESSION['error_message'])) {
                 echo '<div style="color: red;">' . $_SESSION['error_message'] . '</div>';
@@ -33,7 +33,7 @@
             }
 
             
-            require_once 'Boundary/userManagementUI.php';
+            require_once 'View/userManagementUI.php';
             userManagementUI::welcomeLoginBanner();
             userManagementUI::displayLoginForm();
          
