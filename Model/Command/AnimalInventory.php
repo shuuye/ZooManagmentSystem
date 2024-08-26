@@ -21,6 +21,7 @@ class AnimalInventory extends Inventory
     private $healthStatus;
     private $habitatid;
 
+    
     public function __construct(
     $id , $name ,$category, $species, $age, $gender, $description, 
     $inventory_id = null, $item_name = null, $date_of_birth = null, 
