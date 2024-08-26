@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal_list.css">
-    <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal_main.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal.css">
 </head>
 
 <body>
@@ -16,12 +15,10 @@
           <li><a href="animal_home.php">Animal Management</a></li> 
           <li><a href="habitat_home.php">Habitat Management</a></li>
         </ul>
-        
-  
      </div>
     
-    <div class="container">
-        <h1>List of Animals</h1>
+    <div class="container2">
+        <h2>List of Animals</h2>
         <div class="table-container">
             <table class="table">
             <thead>

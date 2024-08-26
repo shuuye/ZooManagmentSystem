@@ -67,6 +67,21 @@ class HabitatController {
             return null;
         }
     }
+    
+    public function displayAvailableHabitats() {
+    $db = new databaseConfig();
+    $pdo = $db->getConnection();
+
+    // Query to select available habitats
+    $stmt = $pdo->prepare("SELECT * FROM habitats WHERE availability = 'Available'");
+    $stmt->execute();
+
+    // Fetch all available habitats
+    $habitats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $habitats;
+}
+
 
 }
 ?>

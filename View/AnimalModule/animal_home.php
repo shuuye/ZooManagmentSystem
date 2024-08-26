@@ -4,7 +4,7 @@
     
 <head>
     <meta charset="UTF-8">
-   <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal_main.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal_main.css">
 </head>
 
 <body>
