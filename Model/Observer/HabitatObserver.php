@@ -1,11 +1,12 @@
 <?php
-require_once 'Observer.php';
+
+require_once 'Observer.php'; // Ensure this is your Observer interface
 
 class HabitatObserver implements Observer {
     public function update($subject) {
-        // Logic to handle updates when a habitat is added or edited
-        echo "Habitat has been updated: " . $subject->getName();
+        // You can define what happens when the habitat system is updated
+        // For example, logging or refreshing the UI
+        echo "Habitat system has been updated!";
     }
 }
-
-
+?>

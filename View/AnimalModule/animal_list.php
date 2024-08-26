@@ -16,6 +16,8 @@
           <li><a href="animal_home.php">Animal Management</a></li> 
           <li><a href="#">Habitat Management</a></li>
         </ul>
+        
+  
      </div>
     
     <div class="container">
@@ -38,7 +40,7 @@
             
             <tbody>
                 <?php
-                require_once '../../Config/AnimalDB/dbConnection.php';
+                require_once '../../Config/databaseConfig.php';
                 require_once '../../Model/Command/AnimalInventory.php';
                 require_once '../..//Model/Observer/AnimalManagementSystem.php';
                 
@@ -52,11 +54,11 @@
                 $animals = $animalManagementSystem->getAnimals();
                 
                 // Get the category from the URL (if provided)
-                $category = isset($_GET['category']) ? $_GET['category'] : null;
+                $categories = isset($_GET['categories']) ? $_GET['categories'] : null;
 
                 // Filter animals based on category (if provided)
-                $filteredAnimals = array_filter($animals, function ($animal) use ($category) {
-                    return $category === null || $animal->getCategory() === $category;
+                $filteredAnimals = array_filter($animals, function ($animal) use ($categories) {
+                    return $categories === null || $animal->getCategories() === $categories;
                 });
 
                 // Check if filtered animals exist in the array
@@ -65,9 +67,9 @@
                     foreach ($filteredAnimals as $animal) {
                         // Get the animal image
                         $animalImage = null;
-                        $db = new dbConnection();
-                        $pdo = $db->getPDO();
-                        $stmt = $pdo->prepare("SELECT * FROM animal_images WHERE animal_id = ?");
+                        $db = new databaseConfig();
+                        $pdo = $db->getConnection();
+                        $stmt = $pdo->prepare("SELECT * FROM animal_image WHERE animal_id = ?");
                         $stmt->execute([$animal->getId()]);
                         $imageResult = $stmt->fetch();
                         if ($imageResult) {
@@ -78,7 +80,7 @@
                         echo '<td><img src="' . $animalImage . '" alt="Animal Image" width="50" height="50"></td>';
                         echo '<td>' . htmlspecialchars($animal->getId()) . '</td>';
                         echo '<td>' . htmlspecialchars($animal->getName()) . '</td>';
-                        echo '<td>' . htmlspecialchars($animal->getCategory()) . '</td>';
+                        echo '<td>' . htmlspecialchars($animal->getCategories()) . '</td>';
                         echo '<td>' . htmlspecialchars($animal->getSpecies()) . '</td>';
                         echo '<td>' . htmlspecialchars($animal->getAge()) . '</td>';
                         echo '<td>' . htmlspecialchars($animal->getGender()) . '</td>';
@@ -94,14 +96,12 @@
         </table>
            
                 <!-- Conditionally display Add New Animal button based on category -->
-            <?php if ($category === 'amphibians') : ?>
-                <a href="add_animal.php?category=amphibians" class="button2">Add New Amphibian</a>
-            <?php elseif ($category === 'birds') : ?>
-                <a href="add_animal.php?category=birds" class="button2">Add New Bird</a>
-            <?php elseif ($category === 'fish') : ?>
-                <a href="add_animal.php?category=fish" class="button2">Add New Fish</a>
-            <?php elseif ($category === 'mammals') : ?>
-                <a href="add_animal.php?category=mammals" class="button2">Add New Mammal</a>
+            <?php if ($categories === 'Amphibians') : ?>
+                <a href="add_animal.php?categories=Amphibians" class="button2">Add New Amphibian</a>
+            <?php elseif ($categories === 'Birds') : ?>
+                <a href="add_animal.php?categories=Birds" class="button2">Add New Bird</a>
+            <?php elseif ($categories === 'Mammals') : ?>
+                <a href="add_animal.php?categories=Mammals" class="button2">Add New Mammal</a>
             <?php endif; ?>
                 
         </div>

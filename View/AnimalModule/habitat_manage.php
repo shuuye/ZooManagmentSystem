@@ -1,50 +1,46 @@
-<?php
-require_once '../../Model/Observer/Habitat.php';
-require_once '../../Control/AnimalController/HabitatController.php';
-
-$habitatModel = new Habitat();
-
-// Check if there's an ID parameter for editing an existing habitat
-$habitatId = $_GET['id'] ?? null;
-$habitat = null;
-
-// Fetch existing habitat details if an ID is provided
-if ($habitatId) {
-    $habitat = $habitatModel->getHabitatById($habitatId);
-}
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal_main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Habitat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
-<div class="sidebar">
-    <h1>Pam</h1>
-    <ul>
-        <li><a href="animal_home.php">Animal Management</a></li> 
-        <li><a href="habitat_manage.php">Habitat Management</a></li>
-    </ul>
-</div>
-
-<div class="content">
-    <div class="title">
-        <h1><?php echo $habitatId ? 'Edit Habitat' : 'Add New Habitat'; ?></h1>
-    </div>
-
     <div class="container">
-        <form method="POST" action="../../Control/AnimalController/HabitatController.php">
-            <input type="hidden" name="habitat_id" value="<?php echo htmlspecialchars($habitatId); ?>" />
-            <label for="habitat_name">Name:</label>
-            <input type="text" name="habitat_name" value="<?php echo htmlspecialchars($habitat ? $habitat['habitat_name'] : ''); ?>" required /><br />
-            <label for="availability">Availability:</label>
-            <input type="text" name="availability" value="<?php echo htmlspecialchars($habitat ? $habitat['availability'] : ''); ?>" required /><br />
-            <input type="submit" value="<?php echo $habitatId ? 'Update Habitat' : 'Add Habitat'; ?>" />
+        <h1>Add New Habitat</h1>
+        
+        <form action="add_habitat.php" method="POST">
+            <div class="form-group">
+                <label for="name">Habitat Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="availability">Availability</label>
+                <select class="form-control" id="availability" name="availability" required>
+                    <option value="Available">Available</option>
+                    <option value="Unavailable">Unavailable</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="capacity">Capacity</label>
+                <input type="number" class="form-control" id="capacity" name="capacity" required>
+            </div>
+            <div class="form-group">
+                <label for="environment">Environment</label>
+                <select class="form-control" id="environment" name="environment" required>
+                <option value="hot">Hot</option>
+                <option value="cold">Cold</option>
+                <option value="water">Water</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Habitat</button>
         </form>
+        
     </div>
-</div>
 </body>
 </html>

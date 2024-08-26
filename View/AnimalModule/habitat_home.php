@@ -1,76 +1,56 @@
-<?php
-require_once '../../Model/Observer/Habitat.php';
-
-class habitat_home {
-    private $habitatModel;
-
-    public function __construct() {
-        $this->habitatModel = new Habitat();
-    }
-
-    // Display all habitats in a table format
-    public function displayAllHabitats() {
-        $habitats = $this->habitatModel->getAllHabitats();
-
-        echo "<h1>Habitats List</h1>";
-        echo "<table border='1'>";
-        echo "<tr><th>ID</th><th>Name</th><th>Availability</th><th>Actions</th></tr>";
-
-        foreach ($habitats as $habitat) {
-            echo "<tr>";
-            echo "<td>{$habitat['habitat_id']}</td>";
-            echo "<td>{$habitat['habitat_name']}</td>";
-            echo "<td>{$habitat['availability']}</td>";
-            echo "<td>
-                    <a href='habitat_manage.php?id={$habitat['habitat_id']}'>Edit</a>
-                  </td>";
-            echo "</tr>";
-        }
-
-        echo "</table>";
-    }
-
-  
-}
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal_main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Habitats</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
-<div class="sidebar">
-    <h1>Pam</h1>
-    <ul>
-        <li><a href="animal_home.php">Animal Management</a></li> 
-        <li><a href="#">Habitat Management</a></li>
-    </ul>
-</div>
-    
-<div class="content">
-    <div class="title">
-        <h1>Animal Management</h1>
-    </div>
-
-    <div class="section-title">Our Habitats</div>
-  
     <div class="container">
-        <!-- Display the list of habitats -->
-        <?php
-        $habitatHome = new habitat_home();
-        $habitatHome->displayAllHabitats();
-        ?>
-        
-        <a href="habitat_manage.php" class="button2">Add New Habitat</a>
-    </div>
-    
-    
+        <h1>List of Habitats</h1>
+        <a href="habitat_manage.php" class="btn btn-success mb-3">Add New Habitat</a>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Availability</th>
+                        <th>Capacity</th>
+                        <th>Environment</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    require_once '../../Control/AnimalController/HabitatController.php';
 
-  
-  
-</div>
+                    // Initialize the controller
+                    $controller = new HabitatController();
+
+                    // Get the list of habitats
+                    $habitats = $controller->getHabitats();
+
+                    // Loop through the habitats and display them in the table
+                    if ($habitats) {
+                        foreach ($habitats as $habitat) {
+                            echo '<tr>';
+                            echo '<td>' . htmlspecialchars($habitat->getId()) . '</td>';
+                            echo '<td>' . htmlspecialchars($habitat->getName()) . '</td>';
+                            echo '<td>' . htmlspecialchars($habitat->getAvailability()) . '</td>';
+                            echo '<td>' . htmlspecialchars($habitat->getCapacity()) . '</td>';
+                            echo '<td>' . htmlspecialchars($habitat->getEnvironment()) . '</td>';
+                            echo '<td>' . htmlspecialchars($habitat->getDescription()) . '</td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="7">No habitats found.</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

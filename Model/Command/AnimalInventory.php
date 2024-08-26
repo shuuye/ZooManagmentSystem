@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../Config/AnimalDB/dbConnection.php';
+require_once '../../Config/databaseConfig.php';
 require_once 'Inventory.php';
 require_once 'InventoryCommand.php';
 
@@ -10,7 +10,7 @@ class AnimalInventory extends Inventory {
     private $name; // animal name like Leo, Billion
     private $species; //lion, giraffee
     private $subspecies; //Panthera leo
-    private $category;
+    private $categories;
     private $age;
     private $gender;
     private $date_of_birth;
@@ -21,12 +21,12 @@ class AnimalInventory extends Inventory {
     private $healthStatus;
     private $habitatid;
 
-    public function __construct($id, $name, $species, $subspecies, $category, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitatid) {
+    public function __construct($id, $name, $species, $subspecies, $categories, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitatid) {
         $this->id = $id;
         $this->name = $name;
         $this->species = $species;
         $this->subspecies = $subspecies;
-        $this->category = $category;
+        $this->categories = $categories;
         $this->age = $age;
         $this->gender = $gender;
         $this->date_of_birth = $date_of_birth;
@@ -157,53 +157,53 @@ class AnimalInventory extends Inventory {
         $this->habitat = $habitat;
     }
 
-    public function getCategory() {
-        return $this->category;
+    public function getCategories() {
+        return $this->categories;
     }
 
-    public function setCategory($category): void {
-        $this->category = $category;
+    public function setCategories($categories): void {
+        $this->categories = $categories;
     }
 
-    public function addAnimal() {
-        $db = new dbConnection();
-        $pdo = $db->getPDO();
+    
+    // Method to add a new animal to the database
+   public function addAnimal() {
+        $db = new databaseConfig();
+        $pdo = $db->getConnection();
 
         $stmt = $pdo->prepare(
-                "INSERT INTO animals 
-            (animal_name, category, species, age, gender, date_of_birth, avg_lifespan, description, animal_height, animal_weight, health_status, habitat_id) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO animalinventory 
+            (name, species, subspecies, categories, age, gender, date_of_birth, avg_lifespan, description, height, weight, healthStatus, habitat_id) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
 
         $stmt->execute([
-            $this->name, $this->category, $this->species, $this->age, $this->gender,
-            $this->date_of_birth, $this->avg_lifespan, $this->description, $this->height,
+            $this->name, $this->species, $this->subspecies, $this->categories, $this->age,
+            $this->gender, $this->date_of_birth, $this->avg_lifespan, $this->description, $this->height,
             $this->weight, $this->healthStatus, $this->habitatid
         ]);
 
         return $pdo->lastInsertId();
     }
+    }
 
-//   public function addAnimal($name, $category, $species, $age, $gender, $description) {
-//    $db = new dbConnection();
-//    $pdo = $db->getPDO();
-//    
-//    // Correct SQL query (No NULL, placeholders must match the number of fields)
-//    $stmt = $pdo->prepare("INSERT INTO animals (animal_name, category, species, age, gender, description) VALUES (?, ?, ?, ?, ?, ?)");
-//    
-//    // Execute the query with the provided data
-//    $stmt->execute([$name, $category, $species, $age, $gender, $description]);
-//
-//    // Return the last inserted ID
-//    return $pdo->lastInsertId();
-//}
-// Optionally, add a method to update the animal details in the database
-// 
+//    // Optionally, add a method to update the animal details in the database
 //    public function updateAnimalInDatabase() {
 //        $db = new dbConnection();
 //        $pdo = $db->getPDO();
 //
-//        $stmt = $pdo->prepare("UPDATE animals SET name = ?, species = ?, age = ? WHERE id = ?");
-//        $stmt->execute([$this->name, $this->species, $this->age, $this->id]);
+//        $stmt = $pdo->prepare(
+//            "UPDATE animalinventory 
+//            SET name = ?, species = ?, subspecies = ?, category = ?, age = ?, gender = ?, 
+//                date_of_birth = ?, avg_lifespan = ?, description = ?, height = ?, weight = ?, 
+//                healthStatus = ?, habitat_id = ? 
+//            WHERE id = ?"
+//        );
+//
+//        $stmt->execute([
+//            $this->name, $this->species, $this->subspecies, $this->category, $this->age,
+//            $this->gender, $this->date_of_birth, $this->avg_lifespan, $this->description,
+//            $this->height, $this->weight, $this->healthStatus, $this->habitatId, $this->id
+//        ]);
 //    }
-}
+

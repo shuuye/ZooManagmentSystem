@@ -6,7 +6,7 @@
 
 session_start(); // Ensure the session is started for authentication check
 
-require_once '../../Config/AnimalDB/dbConnection.php';
+require_once '../../Config/databaseConfig.php';
 require_once '../../Model/Command/AnimalInventory.php';
 
 // 1. Authentication Check
@@ -16,8 +16,8 @@ require_once '../../Model/Command/AnimalInventory.php';
 //}
 
 
-$db = new dbConnection();
-$pdo = $db->getPDO();
+$db = new databaseConfig();
+$pdo = $db->getConnection();
 
 // Fetch habitats for the dropdown
 $habitats = $pdo->query("SELECT habitat_id, habitat_name FROM habitats")->fetchAll(PDO::FETCH_ASSOC);
@@ -26,12 +26,12 @@ $habitats = $pdo->query("SELECT habitat_id, habitat_name FROM habitats")->fetchA
 $genders = ['Male', 'Female'];
 
 // Get category from the URL
-$category = isset($_GET['category']) ? $_GET['category'] : '';
+$categories = isset($_GET['$categories']) ? $_GET['$categories'] : '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the form data
     $name = $_POST['name'];
-    $category = $_POST['category'];
+    $categories = $_POST['categories'];
     $species = $_POST['species'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
@@ -87,17 +87,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         /// Add the new animal to the database
         $animalInventory = new AnimalInventory(
-            null, $name, $category, $species, $age, $gender, $date_of_birth, 
+            null, $name, $categories, $species, $age, $gender, $date_of_birth, 
             $avg_lifespan, $description, $height, $weight, $healthStatus, $habitat
         );
         $animal_id = $animalInventory->addAnimal();
 
         if ($animal_id) {
             // Insert image data into the database
-            $db = new dbConnection();
-            $pdo = $db->getPDO();
+            $db = new databaseConfig();
+            $pdo = $db->getConnection();
             
-            $stmt = $pdo->prepare("INSERT INTO animal_images (animal_id, image_path, description) VALUES (?, ?, ?)");
+            $stmt = $pdo->prepare("INSERT INTO animal_images (animal_id, image_path) VALUES (?, ?)");
             $stmt->execute([$animal_id, $destinationPath, $description]);
 
             if ($stmt->rowCount()) {
@@ -146,8 +146,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
             
-            <label for="category">Category:</label>
-            <input type="text" id="category" name="category" value="<?= htmlspecialchars($category) ?>" readonly><br><br>
+            <label for="categories">Category:</label>
+            <input type="text" id="category" name="category" value="<?= htmlspecialchars($categories) ?>" readonly><br><br>
             
             <label for="species">Species:</label>
             <input type="text" id="species" name="species" required><br><br>
