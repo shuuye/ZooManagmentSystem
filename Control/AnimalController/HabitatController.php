@@ -31,5 +31,42 @@ class HabitatController {
         // After adding the habitat, reload habitats from the database
         $this->habitatManagementSystem->loadHabitatsFromDatabase();
     }
+    
+    public function editHabitat($id, $name, $availability, $capacity, $environment, $description) {
+    $db = new databaseConfig();
+    $pdo = $db->getConnection();
+
+    // Update the habitat in the database
+    $stmt = $pdo->prepare("UPDATE habitats SET habitat_name = ?, availability = ?, capacity = ?, environment = ?, description = ? WHERE habitat_id = ?");
+    $stmt->execute([$name, $availability, $capacity, $environment, $description, $id]);
+
+    // After updating the habitat, reload habitats from the database
+    $this->habitatManagementSystem->loadHabitatsFromDatabase();
+}
+
+    public function getHabitatById($id) {
+        $db = new databaseConfig();
+        $pdo = $db->getConnection();
+
+        $stmt = $pdo->prepare("SELECT * FROM habitats WHERE habitat_id = ?");
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+
+        if ($result) {
+            $habitat = new Habitat(
+                $result['habitat_id'],
+                $result['habitat_name'],
+                $result['availability'],
+                $result['capacity'],
+                $result['environment'],
+                $result['description']
+            );
+            return $habitat;
+        } else {
+            return null;
+        }
+    }
+
 }
 ?>

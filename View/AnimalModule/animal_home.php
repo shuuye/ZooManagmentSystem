@@ -4,7 +4,7 @@
     
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal_main.css">
+   <link rel="stylesheet" type="text/css" href="../../Css/Animal/animal_main.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
   <h1>Pam</h1>
   <ul>
     <li><a href="animal_home.php">Animal Management</a></li> 
-    <li><a href="#">Habitat Management</a></li>
+    <li><a href="habitat_home.php">Habitat Management</a></li>
   </ul>
 </div>
     

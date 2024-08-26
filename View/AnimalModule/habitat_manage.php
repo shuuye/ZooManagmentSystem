@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Habitat</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/Animal/habitat.css">
+    
+    
 </head>
 <body>
+    
+     <div class="sidebar">
+        <h1>Pam</h1>
+        <ul>
+          <li><a href="animal_home.php">Animal Management</a></li> 
+          <li><a href="habitat_home.php">Habitat Management</a></li>
+        </ul>
+     </div>
+    
     <div class="container">
         <h1>Add New Habitat</h1>
         

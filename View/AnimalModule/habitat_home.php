@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../Css/Animal/habitat.css">
     <title>List of Habitats</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    
 </head>
 <body>
+    
+    <div class="sidebar">
+        <h1>Pam</h1>
+        <ul>
+          <li><a href="animal_home.php">Animal Management</a></li> 
+          <li><a href="habitat_home.php">Habitat Management</a></li>
+        </ul>
+     </div>
+    
     <div class="container">
         <h1>List of Habitats</h1>
-        <a href="habitat_manage.php" class="btn btn-success mb-3">Add New Habitat</a>
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <thead>
@@ -42,6 +52,7 @@
                             echo '<td>' . htmlspecialchars($habitat->getCapacity()) . '</td>';
                             echo '<td>' . htmlspecialchars($habitat->getEnvironment()) . '</td>';
                             echo '<td>' . htmlspecialchars($habitat->getDescription()) . '</td>';
+                            echo '<td><a href="edit_habitat.php?id=' . $habitat->getId() . '">Edit</a></td>';
                             echo '</tr>';
                         }
                     } else {
@@ -50,6 +61,8 @@
                     ?>
                 </tbody>
             </table>
+            
+        <a href="habitat_manage.php" class="btn btn-success mb-3">Add New Habitat</a>
         </div>
     </div>
 </body>
