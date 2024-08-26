@@ -31,19 +31,19 @@
     <div class="card">
       <img src="../../assests/AnimalImages/toad1.jpg" alt="amphibians">
       <h2>Amphibians</h2>
-      <a href="animal_list.php?category=amphibians" class="button2">View More</a>
+      <a href="animal_list.php?categories=amphibians" class="button2">View More</a>
     </div>
       
     <div class="card">a
       <img src="../../assests/AnimalImages/parrot1.jpg" alt="Birds">
       <h2>Birds</h2>
-      <a href="animal_list.php?category=birds" class="button2">View More</a>
+      <a href="animal_list.php?categories=birds" class="button2">View More</a>
     </div>
       
     <div class="card">
       <img src="../../assests/AnimalImages/giraffe1.jpg" alt="mammals">
       <h2>Mammals</h2>
-      <a href="animal_list.php?category=mammals" class="button2">View More</a>
+      <a href="animal_list.php?categories=mammals" class="button2">View More</a>
     </div>
    
   </div>

@@ -1,15 +1,16 @@
 
 <?php
 
-
 // AnimalManagementSystem.php
 // This is Subject Class of Observer Design Pattern.
 require_once '../../Config/AnimalDB/dbConnection.php';
 require_once '../../Model/Command/AnimalInventory.php';
 require_once 'subject.php';
+
 //require_once 'Animal.php';
 
 class AnimalManagementSystem implements Subject {
+
     private $observers = array();
     private $animals = array(); // This will be a list of all animals
 
@@ -39,32 +40,39 @@ class AnimalManagementSystem implements Subject {
     public function getAnimals() {
         return $this->animals;
     }
-    
+
     // Method to load all animals from the database
     public function loadAnimalsFromDatabase() {
         $db = new dbConnection();
         $pdo = $db->getPDO();
 
-        $stmt = $pdo->query("SELECT * FROM animals"); // Adjust table name if necessary
+        $stmt = $pdo->query("SELECT * FROM animalinventory"); // Adjust table name if necessary
         $results = $stmt->fetchAll();
 
         foreach ($results as $row) {
-            // Assuming you have an Animal class with a constructor that takes database row data
+           
+
             $animal = new AnimalInventory(
-            $row['animal_id'], 
-            $row['animal_name'], 
-            $row['category'],
-            $row['species'], 
-            $row['age'], 
-            $row['gender'], 
-            $row['description']
-            
-        );
+                    $row['id'],
+                    $row['name'],
+                    $row['species'],
+                    $row['subspecies'],
+                    $row['categories'],
+                    $row['age'],
+                    $row['gender'],
+                    $row['date_of_birth'],
+                    $row['avg_lifespan'],
+                    $row['description'],
+                    $row['height'],
+                    $row['weight'],
+                    $row['healthStatus'],
+                    $row['habitat_id']
+            );
             $this->animals[] = $animal;
         }
         // Notify observers that the animal list has been updated
         $this->notify();
     }
-    
 }
+
 ?>
