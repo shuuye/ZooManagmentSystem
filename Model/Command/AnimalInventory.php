@@ -22,7 +22,7 @@ class AnimalInventory extends Inventory {
     private $habitatid;
     private $habitat;
 
-    public function __construct($id, $name, $species, $subspecies, $category, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitatid, $habitat) {
+    public function __construct($id, $name, $species, $subspecies, $category, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitatid) {
         $this->id = $id;
         $this->name = $name;
         $this->species = $species;
@@ -37,7 +37,6 @@ class AnimalInventory extends Inventory {
         $this->weight = $weight;
         $this->healthStatus = $healthStatus;
         $this->habitatid = $habitatid;
-        $this->habitat = $habitat;
     }
 
     
