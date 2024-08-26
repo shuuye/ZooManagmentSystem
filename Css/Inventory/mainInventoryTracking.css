@@ -7,10 +7,13 @@
     margin: 20px;
 }
 
-.filter, .new-item, .edit {
+
+.filter, .new-item a, .edit {
     display: flex;
     align-items: center;
     margin-right: 30px;
+    text-decoration: none;
+    color: black;
 }
 
 .filter:hover, .new-item:hover, .edit:hover {
@@ -21,9 +24,7 @@
 
 }
 
-.new-item {
 
-}
 
 .edit {
 

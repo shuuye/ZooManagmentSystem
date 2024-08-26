@@ -1,6 +1,6 @@
 <?php
-define('INVENTORY_PAGE_PATH', '../InventoryPage/');
-define('INVENTORY_CSS_PATH', '../Css/Inventory/');
+define('INVENTORY_PAGE_PATH', '../InventoryView/');
+define('INVENTORY_CSS_PATH', '../../Css/Inventory/');
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +8,8 @@ define('INVENTORY_CSS_PATH', '../Css/Inventory/');
     <head>
         <meta charset="UTF-8">
         <title><?php echo ($activePage == 'Dashboard') ? 'active' : ''; ?></title>
-        <link rel="stylesheet" href="../Css/Inventory/InventoryMasterPage.css">
-        <link rel="stylesheet" href="../Css/Inventory/displayingTable.css">
+        <link rel="stylesheet" href="../../Css/Inventory/InventoryMasterPage.css">
+        <link rel="stylesheet" href="../../Css/Inventory/displayingTable.css">
         <?php
         if (isset($pageCss)) {
             echo '<link rel="stylesheet" href="' . INVENTORY_CSS_PATH . $pageCss . '">';

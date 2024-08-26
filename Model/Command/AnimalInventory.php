@@ -39,23 +39,7 @@ class AnimalInventory extends Inventory {
     }
 
     
-//    public function __construct($inventory_id, $item_name, $id, $name, $species, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitat ,$category, $quantity = 0)
-//    {
-//        parent::__construct($inventory_id, $item_name, $quantity);
-//        $this->id = $id;
-//        $this->name = $name;
-//        $this->species = $species;
-//        $this->age = $age;
-//        $this->gender = $gender;
-//        $this->date_of_birth = $date_of_birth;
-//        $this->avg_lifespan = $avg_lifespan;
-//        $this->description = $description;
-//        $this->height = $height;
-//        $this->weight = $weight;
-//        $this->healthStatus = $healthStatus;
-//        $this->habitat = $habitat;
-//        $this->category = $category;
-//    }
+
 // Getters and setters for Animal-specific attributes
     public function getId() {
         return $this->id;

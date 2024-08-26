@@ -9,16 +9,16 @@ class FoodInventory extends Inventory {
     private $nutritionInfo; 
     private $daily_quantity_required;
     private $batches; // store the batch they come together, only food have expiry date so only food use
-
-    public function __construct($inventoryId, $itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $foodType, $nutritionInfo, $dailyQuantityRequired) {
-        parent::__construct($inventoryId, $itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
+    
+    
+    public function __construct($foodType = null, $nutritionInfo= null, $daily_quantity_required= null, $batches= null) {
         $this->foodType = $foodType;
         $this->nutritionInfo = $nutritionInfo;
-        $this->dailyQuantityRequired = $dailyQuantityRequired;
-        $this->batches = [];
+        $this->daily_quantity_required = $daily_quantity_required;
+        $this->batches = $batches;
     }
 
-    public function getFoodType() {
+        public function getFoodType() {
         return $this->foodType;
     }
 

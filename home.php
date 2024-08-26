@@ -16,6 +16,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 echo '<div style="color: red;">' . $_SESSION['error_message'] . '</div>';
                 unset($_SESSION['error_message']); // Clear the error message after displaying it
             }
+            
+            
         ?>
     </body>
 </html>

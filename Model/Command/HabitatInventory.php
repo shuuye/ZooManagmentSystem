@@ -5,7 +5,6 @@ require_once 'HabitatInventory.php';
 
 class HabitatInventory extends Inventory {
     
-    private $itemType; //same with the name in inventory
     private $description; 
     private $habitatType; // e.g. aquarium, terrarium, etc.
     private $material;
@@ -13,18 +12,13 @@ class HabitatInventory extends Inventory {
     private $installation_instructions;
     private $disposal_instructions;
 
-    public function __construct($itemType, $description, $habitatType, $material, $expected_lifetime, $installation_instructions, $disposal_instructions) {
-        $this->itemType = $itemType;
+    public function __construct($description, $habitatType, $material, $expected_lifetime, $installation_instructions, $disposal_instructions) {
         $this->description = $description;
         $this->habitatType = $habitatType;
         $this->material = $material;
         $this->expected_lifetime = $expected_lifetime;
         $this->installation_instructions = $installation_instructions;
         $this->disposal_instructions = $disposal_instructions;
-    }
-
-    public function getItemType() {
-        return $this->itemType;
     }
 
     public function getDescription() {

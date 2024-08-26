@@ -9,7 +9,7 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-include './InventoryMasterPage.php';
+include __DIR__ . '/InventoryMasterPage.php';
 ?>
 
 

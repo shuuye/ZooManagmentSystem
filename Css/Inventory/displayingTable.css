@@ -36,6 +36,12 @@ identify all structures of table in inventory system
     border-radius: 20px;
 }
 
+
+.prev a:visited, .next a:visited{
+    text-decoration: none; 
+    color: white;
+}
+
 .prev:hover, .next:hover{
     cursor: pointer;
 }
