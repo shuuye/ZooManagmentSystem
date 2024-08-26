@@ -1,7 +1,7 @@
 <?php
 class dbConnection {
     private $host = 'localhost';
-    private $db = 'zoo_management';
+    private $db = 'zoomanagementdb';
     private $user = 'root';
     private $pass = '';
     private $charset = 'utf8mb4';
