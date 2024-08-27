@@ -1,4 +1,6 @@
 <?php
+//used to route users to the pages
+
 include_once '../../Model/InventoryModel.php';
 
 class InventoryController extends InventoryModel {

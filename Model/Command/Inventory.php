@@ -1,8 +1,13 @@
 <?php
-require_once __DIR__ . '/../Factory/InventoryFactory.php';
+//used as the inventory controller -> interact with the model(call function from model) and view(called by logic page controller)
+//initialize id by getting it from database!!! for all inventory
+//put abstract function that has to exist in each inventory(factory pattern)
+//
+
+//require_once __DIR__ . '/../Factory/InventoryFactory.php';
 require_once '../../Model/InventoryModel.php';
 
-class Inventory extends InventoryModel implements InventoryFactory {
+abstract class Inventory extends InventoryModel  {
     protected $inventoryId; //the item not individual, each item exist in the system
     protected $itemName; // girraffe, beef
     protected $itemType; // which inventory it belongs to like cleaning, food
@@ -18,15 +23,27 @@ class Inventory extends InventoryModel implements InventoryFactory {
         $this->reorderThreshold = $reorderThreshold;
     }
     
+    //put abstract function that has to exist in each inventory(factory pattern)
+    
     public function addNewItem(){
         if($this->emptyInput() == false){
             echo '<script>alert("Required fields cannot be empty!");</script>';
 //            header("location: ../../View/InventoryView/index3.php");
-            echo "inventory ";
             exit();
         }
         
-        $this->addInventory($this->itemName, $this->itemType, $this->supplierId, $this->storageLocation, $this->reorderThreshold);
+        $this->addInventoryIntoDB($this->itemName, $this->itemType, $this->supplierId, $this->storageLocation, $this->reorderThreshold);
+        //initialize id by getting it from database
+    }
+    
+    public function removeItem(){
+        if($this->emptyInput() == false){
+            echo '<script>alert("Required fields cannot be empty!");</script>';
+//            header("location: ../../View/InventoryView/index3.php");
+            exit();
+        }
+        
+        $this->removeInventoryIntoDB($this->inventoryId);// retrieve id and remove from record
     }
     
     private function emptyInput(){
@@ -41,12 +58,7 @@ class Inventory extends InventoryModel implements InventoryFactory {
             $result = true;
         }
         return $result;
-    }
-
-
-    public function addStock() {
-        echo '<br> stock added <br>';   
-    }
+    }   
 
     public function getInventoryId() {
         return $this->inventoryId;

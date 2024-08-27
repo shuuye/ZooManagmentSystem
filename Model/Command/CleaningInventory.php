@@ -9,8 +9,8 @@ class CleaningInventory extends Inventory {
     private $size; 
     private $usageInstructions;
 
-    public function __construct($id, $name, $quantity, $cleaningType, $size, $usageInstructions = null) {
-        parent::__construct($id, $name, $quantity);
+    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $cleaningType = null, $size = null, $usageInstructions = null) {
+        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
         $this->cleaningType = $cleaningType;
         $this->size = $size;
         $this->usageInstructions = $usageInstructions;

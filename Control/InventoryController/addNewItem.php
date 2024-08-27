@@ -1,4 +1,5 @@
 <?php
+//controller(logic page) for add new item page
 
 // grab data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,11 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once '../../Model/Command/HabitatInventory.php';
     include_once '../../Model/Command/FoodInventory.php';
     include_once '../../Model/Command/AnimalInventory.php';
-    $inventory = new Inventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
+    //createItem
+    $inventoryManager = new InventoryItemFactory();
+    $inventory = $inventoryManager->createItem($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
 
 //running error handling
-    echo $inventory->getItemName();
-    $inventory->addNewItem();
+    $inventoryManager = new InventoryManagement();
+    $inventoryManager->executeCommand(new AddItemCommand($inventory));
 
 //going back to front page
     echo '<script>alert("New Item successfully added!");</script>';

@@ -21,8 +21,9 @@ class AnimalInventory extends Inventory {
     private $healthStatus;
     private $habitatid;
 
-    public function __construct($id, $name, $species, $subspecies, $categories, $age, $gender, $date_of_birth, $avg_lifespan, $description, $height, $weight, $healthStatus, $habitatid) {
-        $this->id = $id;
+    //deleted id from constructor because id is auto generated in database
+    public function __construct($inventoryId, $itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $name = null, $species = null, $subspecies = null, $categories = null, $age = null, $gender = null, $date_of_birth = null, $avg_lifespan = null, $description = null, $height = null, $weight = null, $healthStatus = null, $habitatid = null) {
+        parent::__construct($inventoryId, $itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
         $this->name = $name;
         $this->species = $species;
         $this->subspecies = $subspecies;
@@ -37,8 +38,6 @@ class AnimalInventory extends Inventory {
         $this->healthStatus = $healthStatus;
         $this->habitatid = $habitatid;
     }
-
-    
 
 // Getters and setters for Animal-specific attributes
     public function getId() {
@@ -149,14 +148,13 @@ class AnimalInventory extends Inventory {
         $this->categories = $categories;
     }
 
-    
     // Method to add a new animal to the database
-   public function addAnimal() {
+    public function addAnimal() {
         $db = new databaseConfig();
         $pdo = $db->getConnection();
 
         $stmt = $pdo->prepare(
-            "INSERT INTO animalinventory 
+                "INSERT INTO animalinventory 
             (name, species, subspecies, categories, age, gender, date_of_birth, avg_lifespan, description, height, weight, healthStatus, habitat_id) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
@@ -169,7 +167,7 @@ class AnimalInventory extends Inventory {
 
         return $pdo->lastInsertId();
     }
-    }
+}
 
 //    // Optionally, add a method to update the animal details in the database
 //    public function updateAnimalInDatabase() {

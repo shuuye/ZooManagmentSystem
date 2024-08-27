@@ -28,7 +28,7 @@ class InventoryModel {
         return $result->fetch(PDO::FETCH_ASSOC)['totalRecords'];
     }
 
-    protected function addInventory($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold) {
+    protected function addInventoryIntoDB($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold) {
         // Create a new database connection object
      
         $database = new databaseConfig();
@@ -44,5 +44,23 @@ class InventoryModel {
             exit();
         }
         $result = null;
+    }
+    
+    protected function removeInventoryIntoDB() {
+        // Create a new database connection object
+     
+        $database = new databaseConfig();
+        $this->db = $database->getConnection();
+
+//        $query = "INSERT INTO Inventory (itemName, itemType, supplierId, storageLocation, reorderThreshold) VALUES "
+//                . "(?,?,?,?,?)";
+//        $result = $this->db->prepare($query);
+//
+//        if (!$result->execute(array($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold))) {
+//            $result = null;
+////            header("location: ../../View/InventoryView/index2.php");
+//            exit();
+//        }
+//        $result = null;
     }
 }

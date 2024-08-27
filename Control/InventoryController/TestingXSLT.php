@@ -10,15 +10,4 @@ $xmlCreater = new createXMLFromDatabase();
 
 $xmlCreater->createXMLFileByTableName("inventory", "../../Xml/inventory.xml", "inventories", "inventory");
 
-
-$FoodInventory = new FoodInventoryFactory();
-$meat = $FoodInventory->createItem();
-
-echo '<br>end<br>';
-
-echo "lets add stock<br>";
-$meat->addStock();
-echo '<br>end<br>';
-
-
   
