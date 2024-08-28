@@ -40,7 +40,8 @@ class InventoryModel {
 
         if (!$result->execute(array($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold))) {
             $result = null;
-//            header("location: ../../View/InventoryView/index2.php");
+            echo '<script>alert("Successfully added to database!");</script>';
+            header("location: ../../View/InventoryView/index.php");
             exit();
         }
         $result = null;

@@ -2,7 +2,6 @@
 
 require_once '../../Config/databaseConfig.php';
 require_once 'Inventory.php';
-require_once 'InventoryCommand.php';
 
 class AnimalInventory extends Inventory {
 
@@ -22,8 +21,8 @@ class AnimalInventory extends Inventory {
     private $habitatid;
 
     //deleted id from constructor because id is auto generated in database
-    public function __construct($inventoryId, $itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $name = null, $species = null, $subspecies = null, $categories = null, $age = null, $gender = null, $date_of_birth = null, $avg_lifespan = null, $description = null, $height = null, $weight = null, $healthStatus = null, $habitatid = null) {
-        parent::__construct($inventoryId, $itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
+    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $name = null, $species = null, $subspecies = null, $categories = null, $age = null, $gender = null, $date_of_birth = null, $avg_lifespan = null, $description = null, $height = null, $weight = null, $healthStatus = null, $habitatid = null) {
+        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
         $this->name = $name;
         $this->species = $species;
         $this->subspecies = $subspecies;

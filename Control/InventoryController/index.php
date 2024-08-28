@@ -1,9 +1,9 @@
 <?php
 
 require_once '../../Config/databaseConfig.php';
-require_once '../../Model/InventoryModel.php';
-require_once '../../Control/InventoryController/InventoryController.php';
-require_once 'InventoryView.php';
+require_once '../../Model/Inventory/InventoryModel.php';
+require_once 'InventoryController.php';
+require_once '../../View/InventoryView/InventoryView.php';
 
 // Create a new database connection object
 $database = new databaseConfig();

@@ -4,8 +4,7 @@
 //put abstract function that has to exist in each inventory(factory pattern)
 //
 
-//require_once __DIR__ . '/../Factory/InventoryFactory.php';
-require_once '../../Model/InventoryModel.php';
+require_once '../../Model/Inventory/InventoryModel.php';
 
 abstract class Inventory extends InventoryModel  {
     protected $inventoryId; //the item not individual, each item exist in the system
@@ -30,9 +29,13 @@ abstract class Inventory extends InventoryModel  {
             echo '<script>alert("Required fields cannot be empty!");</script>';
 //            header("location: ../../View/InventoryView/index3.php");
             exit();
+        }else{
+            echo '<script>alert("Successfull added!");</script>';
+             $this->addInventoryIntoDB($this->itemName, $this->itemType, $this->supplierId, $this->storageLocation, $this->reorderThreshold);
+             //            header("location: ../../View/InventoryView/index3.php");
         }
         
-        $this->addInventoryIntoDB($this->itemName, $this->itemType, $this->supplierId, $this->storageLocation, $this->reorderThreshold);
+       
         //initialize id by getting it from database
     }
     

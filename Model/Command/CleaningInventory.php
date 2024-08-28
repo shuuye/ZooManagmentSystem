@@ -1,7 +1,6 @@
 <?php
 
 require_once 'Inventory.php';
-require_once 'CleaningInventory.php';
 
 class CleaningInventory extends Inventory {
 

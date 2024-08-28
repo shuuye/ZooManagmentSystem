@@ -1,7 +1,8 @@
 <?php
 //used to route users to the pages
 
-include_once '../../Model/InventoryModel.php';
+include_once '../../Model/Inventory/InventoryModel.php';
+require_once '../../View/InventoryView/InventoryView.php';
 
 class InventoryController extends InventoryModel {
     private $model;

@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Inventory.php';
-require_once 'InventoryCommand.php';
+
 
 class FoodInventory extends Inventory {
 

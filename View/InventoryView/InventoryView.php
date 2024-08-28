@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../Model/InventoryModel.php';
+include_once '../../Model/Inventory/InventoryModel.php';
 
 class InventoryView extends InventoryModel {
 

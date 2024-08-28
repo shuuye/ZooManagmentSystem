@@ -1,7 +1,6 @@
 <?php
 
 require_once 'Inventory.php';
-require_once 'HabitatInventory.php';
 
 class HabitatInventory extends Inventory {
     
