@@ -21,8 +21,8 @@ class AnimalInventory extends Inventory {
     private $habitatid;
 
     //deleted id from constructor because id is auto generated in database
-    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $name = null, $species = null, $subspecies = null, $categories = null, $age = null, $gender = null, $date_of_birth = null, $avg_lifespan = null, $description = null, $height = null, $weight = null, $healthStatus = null, $habitatid = null) {
-        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
+    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity = null, $name = null, $species = null, $subspecies = null, $categories = null, $age = null, $gender = null, $date_of_birth = null, $avg_lifespan = null, $description = null, $height = null, $weight = null, $healthStatus = null, $habitatid = null) {
+        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity);
         $this->name = $name;
         $this->species = $species;
         $this->subspecies = $subspecies;
@@ -36,6 +36,10 @@ class AnimalInventory extends Inventory {
         $this->weight = $weight;
         $this->healthStatus = $healthStatus;
         $this->habitatid = $habitatid;
+    }
+    
+    public function addItemRecord() {
+        
     }
 
 // Getters and setters for Animal-specific attributes
@@ -147,7 +151,7 @@ class AnimalInventory extends Inventory {
         $this->categories = $categories;
     }
 
-    // Method to add a new animal to the database
+    // Method to add a new animal to the database !!!!!!!!!!!should put in model
     public function addAnimal() {
         $db = new databaseConfig();
         $pdo = $db->getConnection();

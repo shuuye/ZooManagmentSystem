@@ -35,6 +35,7 @@ $content = '
             <th>Supplier ID</th>
             <th>Storage Location</th>
             <th>Reorder Threshold</th>
+            <th>Quantity</th>
         </tr>';
 foreach ($data["inventory"] as $row) {
     $content .= '
@@ -46,6 +47,7 @@ foreach ($data["inventory"] as $row) {
             <td>' . $row["supplierId"] . '</td>
             <td>' . $row["storageLocation"] . '</td>
             <td>' . $row["reorderThreshold"] . '</td>
+            <td>' . $row["quantity"] . '</td>
         </tr>';
 }
 $content .= '</table>

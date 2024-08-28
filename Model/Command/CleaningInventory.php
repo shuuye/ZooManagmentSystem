@@ -5,11 +5,11 @@ require_once 'Inventory.php';
 class CleaningInventory extends Inventory {
 
     private $cleaningType; //which type of cleaning item it is
-    private $size; 
+    private $size;
     private $usageInstructions;
 
-    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $cleaningType = null, $size = null, $usageInstructions = null) {
-        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
+    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity = null, $cleaningType = null, $size = null, $usageInstructions = null) {
+        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity);
         $this->cleaningType = $cleaningType;
         $this->size = $size;
         $this->usageInstructions = $usageInstructions;

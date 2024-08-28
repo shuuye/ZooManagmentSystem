@@ -2,7 +2,6 @@
 
 require_once 'Inventory.php';
 
-
 class FoodInventory extends Inventory {
 
     private $foodType; //meat, vege, fruit (the name is in the inventory)
@@ -10,8 +9,8 @@ class FoodInventory extends Inventory {
     private $daily_quantity_required;
     private $batches; // store the batch they come together, only food have expiry date so only food use
 
-    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $foodType = null, $nutritionInfo = null, $daily_quantity_required = null, $batches = null) {
-        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
+    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity = null, $foodType = null, $nutritionInfo = null, $daily_quantity_required = null, $batches = null) {
+        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity);
         $this->foodType = $foodType;
         $this->nutritionInfo = $nutritionInfo;
         $this->daily_quantity_required = $daily_quantity_required;

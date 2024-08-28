@@ -3,16 +3,16 @@
 require_once 'Inventory.php';
 
 class HabitatInventory extends Inventory {
-    
-    private $description; 
+
+    private $description;
     private $habitatType; // e.g. aquarium, terrarium, etc.
     private $material;
     private $expected_lifetime;
     private $installation_instructions;
     private $disposal_instructions;
 
-     public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $description = null, $habitatType = null, $material = null, $expected_lifetime = null, $installation_instructions = null, $disposal_instructions = null) {
-        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold);
+    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity = null, $description = null, $habitatType = null, $material = null, $expected_lifetime = null, $installation_instructions = null, $disposal_instructions = null) {
+        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity);
         $this->description = $description;
         $this->habitatType = $habitatType;
         $this->material = $material;
@@ -77,6 +77,6 @@ class HabitatInventory extends Inventory {
         return "Habitat Item: " . $this->name . "<br>" .
                 "Item Type: " . $this->itemType . "<br>" .
                 "Description: " . $this->description . "<br>" .
-                "Habitat Type: " . $this->habitatType . "<br>" ;
+                "Habitat Type: " . $this->habitatType . "<br>";
     }
 }

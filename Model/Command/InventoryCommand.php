@@ -20,7 +20,7 @@ class AddItemCommand implements InventoryCommand
 
     public function execute()
     {
-        $this->inventory->addNewItem();
+        $this->inventory->addNewItem(); 
     }
 
     public function undo()
@@ -73,6 +73,27 @@ class UpdateItemCommand implements InventoryCommand
     public function undo()
     {
         $this->inventory->update($this->oldQuantity);
+    }
+}
+
+class AddItemRecordCommand implements InventoryCommand
+{
+    private $inventory;
+
+    public function __construct(Inventory $inventory)
+    {
+        $this->inventory = $inventory;
+    }
+
+    public function execute()
+    {
+        $this->inventory->addItemRecord(); 
+    }
+
+    public function undo()
+    {
+        $this->inventory->remove($this->quantity);
+        echo '<br>undo successfull<br>';
     }
 }
 

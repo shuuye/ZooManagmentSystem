@@ -5,12 +5,8 @@ require_once '../../Model/Inventory/InventoryModel.php';
 require_once 'InventoryController.php';
 require_once '../../View/InventoryView/InventoryView.php';
 
-// Create a new database connection object
-$database = new databaseConfig();
-$db = $database->getConnection();
-
 // Create a new inventory model object
-$model = new InventoryModel($db);
+$model = new InventoryModel();
 
 // Create a new inventory controller object
 $controller = new InventoryController($model, new InventoryView('InventoryMasterPage.php'));
