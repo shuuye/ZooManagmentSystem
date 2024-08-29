@@ -7,6 +7,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 1</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>2</inventoryId>
@@ -15,6 +16,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 2</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>3</inventoryId>
@@ -23,6 +25,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 3</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>4</inventoryId>
@@ -31,6 +34,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 4</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>5</inventoryId>
@@ -39,6 +43,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 5</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>6</inventoryId>
@@ -47,6 +52,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 6</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>7</inventoryId>
@@ -55,6 +61,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 7</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>8</inventoryId>
@@ -63,6 +70,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 8</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>9</inventoryId>
@@ -71,6 +79,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 9</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>10</inventoryId>
@@ -79,6 +88,7 @@
     <supplierId>4</supplierId>
     <storageLocation>Enclosure 10</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>11</inventoryId>
@@ -87,6 +97,7 @@
     <supplierId>17</supplierId>
     <storageLocation>Aquatic</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>12</inventoryId>
@@ -95,6 +106,7 @@
     <supplierId>18</supplierId>
     <storageLocation>Aviary</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>13</inventoryId>
@@ -103,6 +115,7 @@
     <supplierId>19</supplierId>
     <storageLocation>Forest</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>14</inventoryId>
@@ -111,6 +124,7 @@
     <supplierId>20</supplierId>
     <storageLocation>Aquatic</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>15</inventoryId>
@@ -119,6 +133,7 @@
     <supplierId>21</supplierId>
     <storageLocation>Aviary</storageLocation>
     <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>16</inventoryId>
@@ -127,6 +142,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 1</storageLocation>
     <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>17</inventoryId>
@@ -135,6 +151,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 2</storageLocation>
     <reorderThreshold>200</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>18</inventoryId>
@@ -143,6 +160,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 3</storageLocation>
     <reorderThreshold>150</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>19</inventoryId>
@@ -151,6 +169,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 4</storageLocation>
     <reorderThreshold>50</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>20</inventoryId>
@@ -159,6 +178,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 5</storageLocation>
     <reorderThreshold>20</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>21</inventoryId>
@@ -167,6 +187,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 6</storageLocation>
     <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>22</inventoryId>
@@ -175,6 +196,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 7</storageLocation>
     <reorderThreshold>50</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>23</inventoryId>
@@ -183,6 +205,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 8</storageLocation>
     <reorderThreshold>30</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>24</inventoryId>
@@ -191,6 +214,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 9</storageLocation>
     <reorderThreshold>20</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>25</inventoryId>
@@ -199,6 +223,7 @@
     <supplierId>3</supplierId>
     <storageLocation>Habitat Storage 10</storageLocation>
     <reorderThreshold>15</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>26</inventoryId>
@@ -207,6 +232,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>20</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>27</inventoryId>
@@ -215,6 +241,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>15</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>28</inventoryId>
@@ -223,6 +250,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>30</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>29</inventoryId>
@@ -231,6 +259,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>40</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>30</inventoryId>
@@ -239,6 +268,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>25</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>31</inventoryId>
@@ -247,6 +277,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>35</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>32</inventoryId>
@@ -255,6 +286,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>20</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>33</inventoryId>
@@ -263,6 +295,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>10</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>34</inventoryId>
@@ -271,6 +304,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>5</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>35</inventoryId>
@@ -279,6 +313,7 @@
     <supplierId>2</supplierId>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>5</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>36</inventoryId>
@@ -287,6 +322,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Fruit Storage</storageLocation>
     <reorderThreshold>200</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>37</inventoryId>
@@ -295,6 +331,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Vegetable Storage</storageLocation>
     <reorderThreshold>150</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>38</inventoryId>
@@ -303,6 +340,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Fruit Storage</storageLocation>
     <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>39</inventoryId>
@@ -311,6 +349,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Grain Storage</storageLocation>
     <reorderThreshold>500</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>40</inventoryId>
@@ -319,6 +358,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Vegetable Storage</storageLocation>
     <reorderThreshold>120</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>41</inventoryId>
@@ -327,6 +367,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Vegetable Storage</storageLocation>
     <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>42</inventoryId>
@@ -335,6 +376,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>50</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>43</inventoryId>
@@ -343,6 +385,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Vegetable Storage</storageLocation>
     <reorderThreshold>30</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>44</inventoryId>
@@ -351,6 +394,7 @@
     <supplierId>5</supplierId>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>10</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>45</inventoryId>
@@ -359,189 +403,6 @@
     <supplierId>5</supplierId>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>8</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>46</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>47</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>48</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>49</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>50</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>51</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>52</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>53</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>54</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>55</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>56</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>57</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>58</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>59</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>60</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>61</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>habitat</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>62</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>63</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>64</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>65</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>cleaning</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>66</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>cleaning</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>67</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>cleaning</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-  </inventory>
-  <inventory>
-    <inventoryId>68</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>animal</itemType>
-    <supplierId>1</supplierId>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
+    <quantity>1</quantity>
   </inventory>
 </inventories>
