@@ -103,10 +103,61 @@
                 echo "The file $xmlFileName does not exist.";
             }
         }
+        
+        public function transformXMLUsingXSLT($xmlFileName, $xsltFileName, $outputFileName) { //pamela
+            if (file_exists($xmlFileName) && file_exists($xsltFileName)) {
+                $xml = new DOMDocument();
+                $xml->load($xmlFileName);
+
+                $xsl = new DOMDocument();
+                $xsl->load($xsltFileName);
+
+                $proc = new XSLTProcessor();
+                $proc->importStyleSheet($xsl);
+
+                $output = $proc->transformToXML($xml);
+                file_put_contents($outputFileName, $output);
+
+                echo "Transformation complete. Output saved to $outputFileName";
+            } else {
+                echo "One or both files do not exist.";
+            }
+        }
+        
+        public function queryXMLUsingXPath($xmlFileName, $xpathQuery) {
+            if (file_exists($xmlFileName)) {
+                $xml = new DOMDocument();
+                $xml->load($xmlFileName);
+
+                $xpath = new DOMXPath($xml);
+                $entries = $xpath->query($xpathQuery);
+
+                foreach ($entries as $entry) {
+                    echo $entry->nodeValue . "<br/>";
+                }
+            } else {
+                echo "The file $xmlFileName does not exist.";
+            }
+        }
+
+
 
     }
     
     //$xmlGenerator = new createXMLFromDatabase();
     //$xmlGenerator->createXMLFileByTableName("", "");
+
+ 
     
+ // health_records table
+ // Generate XML from the health_records table
+ // Apply XSLT Transformation
+    // Query XML Data using XPath
+    $xmlGenerator = new createXMLFromDatabase();
+    $xmlGenerator->createXMLFileByTableName("health_records", "health_records.xml", "HealthRecords", "HealthRecord", "hRecord_id");
+    $xmlGenerator->displayXMLData("health_records.xml");
+    $xmlGenerator->transformXMLUsingXSLT("health_records.xml", "../Xsl/health_records.xsl", "animal_health_report.html");
+    $xmlGenerator->queryXMLUsingXPath("health_records.xml", "//HealthRecord[healthStatus='Healthy']");
+    
+
 ?>

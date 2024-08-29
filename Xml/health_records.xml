@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HealthRecords>
+  <HealthRecord>
+    <hRecord_id>1</hRecord_id>
+    <animal_id>1</animal_id>
+    <last_checkup>2024-01-23</last_checkup>
+    <treatments>Vaccination</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>2</hRecord_id>
+    <animal_id>2</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>3</hRecord_id>
+    <animal_id>3</animal_id>
+    <last_checkup>2024-01-15</last_checkup>
+    <treatments>Dental check</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>4</hRecord_id>
+    <animal_id>11</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>5</hRecord_id>
+    <animal_id>4</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>6</hRecord_id>
+    <animal_id>12</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>7</hRecord_id>
+    <animal_id>5</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>Dental check</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>8</hRecord_id>
+    <animal_id>6</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>Dental check</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>9</hRecord_id>
+    <animal_id>7</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>10</hRecord_id>
+    <animal_id>8</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>11</hRecord_id>
+    <animal_id>9</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>Dental check</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>12</hRecord_id>
+    <animal_id>10</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>13</hRecord_id>
+    <animal_id>13</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>14</hRecord_id>
+    <animal_id>14</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>15</hRecord_id>
+    <animal_id>15</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>16</hRecord_id>
+    <animal_id>16</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord>
+    <hRecord_id>17</hRecord_id>
+    <animal_id>17</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+</HealthRecords>
