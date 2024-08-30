@@ -10,7 +10,7 @@ require_once 'subject.php';
 
 //require_once 'Animal.php';
 
-class AnimalManagementSystem implements Subject {
+class AnimalManagementSystem extends databaseConfig implements Subject{
 
     private $observers = array();
     private $animals = array(); // This will be a list of all animals
