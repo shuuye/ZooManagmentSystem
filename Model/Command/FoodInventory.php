@@ -151,4 +151,8 @@ class FoodInventory extends Inventory {
             echo "Error logging expired batch: " . $exception->getMessage();
         }
     }
+
+    public function addItemRecord() {
+        
+    }
 }

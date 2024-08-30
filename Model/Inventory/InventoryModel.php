@@ -1,7 +1,7 @@
 <?php
 
 include_once '../../Config/databaseConfig.php';
-include_once '../Command/AnimalInventory.php';
+//include_once '../Command/AnimalInventory.php';
 
 class InventoryModel extends databaseConfig {
 

@@ -1,3 +1,8 @@
+<?php
+define('INVENTORY_PAGE_PATH', '../InventoryView/');
+define('INVENTORY_CSS_PATH', '../../Css/Inventory/');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -98,15 +103,22 @@
                     </li>
                 </ul>
             </nav>
-
-            <h1><?php echo $activePage; ?></h1>
+            <h1> <?php echo $activePage; ?></h1>
         </header>
         <main>
-            <!-- Dynamic content will be inserted here -->
-            {{content}}
+            <?php echo $content; ?>
         </main>
         <footer>
             <p>© 2024 My Website</p>
         </footer>
     </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').click(function (e) {
+            e.preventDefault();
+            $(this).parent().toggleClass('open');
+        });
+    });
+</script>

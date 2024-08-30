@@ -79,4 +79,8 @@ class HabitatInventory extends Inventory {
                 "Description: " . $this->description . "<br>" .
                 "Habitat Type: " . $this->habitatType . "<br>";
     }
+
+    public function addItemRecord() {
+        
+    }
 }
