@@ -24,7 +24,7 @@
             return $stmt;
         }
     
-        private function setXMLElements($xml, $dataOfTable, $rootElementName, $elementsName) {
+        private function setXMLElements($xml, $dataOfTable, $rootElementName, $elementsName, $attributeForFirstElement) {
             // Create root element
             $root = $xml->createElement($rootElementName);
             $xml->appendChild($root);
@@ -37,9 +37,9 @@
                 // Get the first column key
                 $firstColumnKey = key($row);
 
-                // Check if the first column is 'id'
-                if ($firstColumnKey === 'id') {
-                    $elementInRoot->setAttribute('id', htmlspecialchars($row[$firstColumnKey]));
+                // Check if the first column is same as the attribute passed in
+                if ($firstColumnKey === $attributeForFirstElement) {
+                    $elementInRoot->setAttribute($attributeForFirstElement, htmlspecialchars($row[$firstColumnKey]));
                     unset($row[$firstColumnKey]); // Remove 'id' from the row to avoid duplication as child element
                 }
                 
@@ -55,7 +55,7 @@
             return $xml;
         }
         
-        private function generateXMLDataFromTable($tableName, $outputFileName, $db, $rootElementName, $elementsName){
+        private function generateXMLDataFromTable($tableName, $outputFileName, $db, $rootElementName, $elementsName, $attributeForFirstElement){
             try {
                 $dataOfTable = $this->fetchData($tableName, $db);
 
@@ -64,7 +64,7 @@
                     $xml = new DOMDocument('1.0', 'UTF-8');
                     $xml->formatOutput = true;
 
-                    $xml = $this->setXMLElements($xml, $dataOfTable, $rootElementName, $elementsName);
+                    $xml = $this->setXMLElements($xml, $dataOfTable, $rootElementName, $elementsName, $attributeForFirstElement);
 
                     // Save the XML file
                     $xml->save($outputFileName);
@@ -79,12 +79,12 @@
             
         }
         
-        public function createXMLFileByTableName($tableName = "",  $outputFileName = "", $rootElementName = "", $elementsName = ""){
+        public function createXMLFileByTableName($tableName = "",  $outputFileName = "", $rootElementName = "", $elementsName = "", $attributeForFirstElement = ""){
             $database = new databaseConfig();
             $db = $database->getConnection();
             
             if(!empty($tableName) && !empty($outputFileName)){
-                $this->generateXMLDataFromTable($tableName, $outputFileName, $db, $rootElementName, $elementsName);
+                $this->generateXMLDataFromTable($tableName, $outputFileName, $db, $rootElementName, $elementsName, $attributeForFirstElement);
             }else{
                 echo "tableName or outputFileName cannot be Empty";
             }

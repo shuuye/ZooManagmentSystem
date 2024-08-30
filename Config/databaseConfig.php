@@ -7,7 +7,7 @@
         private $password = 'alibaba123';
         private $conn;
 
-        protected function getConnection() {
+        public function getConnection() {
             $this->conn = null;
 
             try {
