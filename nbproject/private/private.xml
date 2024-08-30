@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/habitatView.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/AnimalControllerObserver.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/index.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/HabitatModel.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/subject.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/HabitatControllerObserver.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/Observer.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animalView.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_list.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/InventoryModel.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalModule/add_animal.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/add_animal.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/AnimalModel.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/AnimalController.php</file>
         </group>
     </open-files>
 </project-private>
