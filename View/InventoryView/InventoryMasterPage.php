@@ -106,11 +106,14 @@ define('INVENTORY_CSS_PATH', '../../Css/Inventory/');
             <h1> <?php echo $activePage; ?></h1>
         </header>
         <main>
-            <?php echo $content; ?>
+            <?php
+
+            if (!$xslt_transform) {
+                echo $content;
+            }
+            ?>
         </main>
-        <footer>
-            <p>© 2024 My Website</p>
-        </footer>
+
     </body>
 </html>
 

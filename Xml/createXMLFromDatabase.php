@@ -125,22 +125,14 @@ class createXMLFromDatabase {
         }
     }
 
-    public function XSLTTransformation($xmlfilename, $xslfilename) {
-        //without saving to file
-        if (file_exists($xmlFileName) && file_exists($xsltFileName)) {
-            $xml = new DOMDocument();
-            $xml->load($xmlfilename);
-
-            $xsl = new DOMDocument();
-            $xsl->load($xslfilename);
-
-            $proc = new XSLTProcessor();
-            $proc->importStylesheet($xsl);
-
-            echo $proc->transformToXml($xml);
-        } else {
-            echo "One or both files do not exist.";
-        }
+    public function transformXmlWithXsl($xml, $xsl) {
+        $xmlDoc = new DOMDocument();
+        $xmlDoc->loadXML($xml);
+        $xslDoc = new DOMDocument();
+        $xslDoc->load($xsl);
+        $proc = new XSLTProcessor();
+        $proc->importStylesheet($xslDoc);
+        return $proc->transformToXML($xmlDoc);
     }
 
     public function queryXMLUsingXPath($xmlFileName, $xpathQuery) {

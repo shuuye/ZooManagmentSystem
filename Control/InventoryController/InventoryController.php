@@ -1,10 +1,12 @@
 <?php
+
 //used to route users to the pages
 
 include_once '../../Model/Inventory/InventoryModel.php';
 require_once '../../View/InventoryView/InventoryView.php';
 
 class InventoryController extends InventoryModel {
+
     private $model;
     private $view;
 
@@ -14,31 +16,44 @@ class InventoryController extends InventoryModel {
     }
 
     // Method to handle the default page (Inventory Catalog)
+//    public function index() {
+//        $pageNum = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+//        $recordsPerPage = 10;
+//        $offset = ($pageNum - 1) * $recordsPerPage;
+//
+//        $inventory = $this->model->getInventory($offset, $recordsPerPage);
+//        $totalRecords = $this->model->getTotalRecords();
+//        $totalPages = ceil($totalRecords / $recordsPerPage);
+//
+//        $data = [
+//            'inventory' => $inventory,
+//            'pageNum' => $pageNum,  
+//            'totalPages' => $totalPages,
+//            'activePage' => 'Inventory Management',
+//            'pageCss' => 'mainInventoryTracking.css'
+//        ];
+//
+//        $this->view->render('InventoryCatalog', $data);
+//    }
     public function index() {
-        $pageNum = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-        $recordsPerPage = 10;
-        $offset = ($pageNum - 1) * $recordsPerPage;
-
-        $inventory = $this->model->getInventory($offset, $recordsPerPage);
-        $totalRecords = $this->model->getTotalRecords();
-        $totalPages = ceil($totalRecords / $recordsPerPage);
-
+        $xmlFile = '../../Xml/inventory.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryCatalog.xsl';
         $data = [
-            'inventory' => $inventory,
-            'pageNum' => $pageNum,
-            'totalPages' => $totalPages,
             'activePage' => 'Inventory Management',
-            'pageCss' => 'mainInventoryTracking.css'
-        ];
+            'pageCss' => 'mainInventoryTracking.css',
+            'xslt_transform'=> true
+        ]; 
 
-        $this->view->render('InventoryCatalog', $data);
+        $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
     }
 
     // Method to handle the Add Inventory Item page
     public function addInventoryItem() {
         $data = [
             'activePage' => 'Add Inventory Item',
-            'pageCss' => 'addInventoryItem.css'
+            'pageCss' => 'addInventoryItem.css',
+            'xslt_transform'=> false
         ];
 
         $this->view->render('AddNewInventItem', $data);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:output method="html" encoding="UTF-8" />
-    <xsl:template match="/inventoryData">
+    <xsl:template match="/">
         <div class="main-content">
             <h2>Inventory</h2>
             <div class="recordingFunctions">
@@ -31,7 +31,7 @@
                     <th>Reorder Threshold</th>
                     <th>Quantity</th>
                 </tr>
-                <xsl:for-each select="inventory">
+                <xsl:for-each select="inventories/inventory">
                     <tr>
                         <td><input type="checkbox" name="record[]" value="{inventoryId}" /></td>
                         <td><xsl:value-of select="inventoryId" /></td>
