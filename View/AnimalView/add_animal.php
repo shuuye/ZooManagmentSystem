@@ -1,11 +1,3 @@
-<?php
-// Include the controller
-include_once '../../Control/AnimalControllerN/AnimalController.php';
-
-// Create an instance of the controller
-$animalController = new AnimalController();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +8,8 @@ $animalController = new AnimalController();
 </head>
 <body>
     <h1>Add New Animal</h1>
-    <form action="../Controller/AnimalController.php" method="POST">
+    
+    <form action="../../Control/AnimalControllerN/AnimalController.php" method="POST">
         <label for="animalName">Animal Name:</label>
         <input type="text" id="animalName" name="animalName" required><br>
 
@@ -39,15 +32,6 @@ $animalController = new AnimalController();
             <option value="Treatment">Treatment</option>
             <option value="Warning">Warning</option>
         </select><br>
-
-        <label for="supplierId">Supplier ID:</label>
-        <input type="number" id="supplierId" name="supplierId" required><br>
-
-        <label for="storageLocation">Storage Location:</label>
-        <input type="text" id="storageLocation" name="storageLocation" required><br>
-
-        <label for="reorderThreshold">Reorder Threshold:</label>
-        <input type="number" id="reorderThreshold" name="reorderThreshold" required><br>
 
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" required><br>

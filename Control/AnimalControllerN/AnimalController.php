@@ -1,7 +1,8 @@
 <?php
+
 include_once '../../Model/ObserverN/AnimalModel.php';
 
-class AnimalController {
+class AnimalController{
 
     private $animalModel;
 
@@ -11,33 +12,38 @@ class AnimalController {
     }
 
     private function handleRequest() {
-        if (isset($_POST['submit'])) {
-            $animalName = $_POST['animalName'];
-            $species = $_POST['species'];
-            $height = $_POST['height'];
-            $weight = $_POST['weight'];
-            $habitatId = $_POST['habitatId'];
-            $healthStatus = $_POST['healthStatus'];
-            $supplierId = $_POST['supplierId'];
-            $storageLocation = $_POST['storageLocation'];
-            $reorderThreshold = $_POST['reorderThreshold'];
-            $quantity = $_POST['quantity'];
+    if (isset($_POST['submit'])) {
+        $animalName = $_POST['animalName'];
+        $species = $_POST['species'];
+        $height = $_POST['height'];
+        $weight = $_POST['weight'];
+        $habitatId = $_POST['habitatId'];
+        $healthStatus = $_POST['healthStatus'];
+        $quantity = $_POST['quantity'];
 
-            $success = $this->animalModel->addNewAnimal($animalName, $species, $height, $weight, $habitatId, $healthStatus, $supplierId, $storageLocation, $reorderThreshold, $quantity);
+        // Call the model method with default values for supplierId, storageLocation, and reorderThreshold
+        $success = $this->animalModel->addNewAnimal($animalName, $species, $height, $weight, $habitatId, $healthStatus, $quantity);
 
-            if ($success) {
-//                header("Location: /ZooManagementSystem/success.php");
-                echo 'successful adding animal';
-            } else {
-                $_SESSION['error_message'] = "Failed to add animal.";
-                header("Location: ../../View/AnimalView/add_animal.php");
-            }
+        if ($success) {
+            // Redirect or display success message
+            // header("Location: /ZooManagementSystem/success.php");
+            echo 'Successfully added animal';
+        } else {
+            // Handle the failure
+            $_SESSION['error_message'] = "Failed to add animal.";
+            header("Location: ../../View/AnimalView/add_animal.php");
         }
     }
+}
+
     
-    public function displayAnimals($category = null) {
-        $animals = $this->animalModel->getAnimals($category);
-        include '../../View/AnimalView/animal_list.php';
+     public function displayAnimals($category = null) {
+        if ($category) {
+            $animals = $this->animalModel->getAnimalsByCategory($category);
+        } else {
+            $animals = $this->animalModel->getAnimalsByCategory(); // Assuming you want to fetch all if no category is provided
+        }
+        return $animals;
     }
 }
 

@@ -1,14 +1,15 @@
 <?php
 
 require_once '../../Model/ObserverN/Observer.php';
-require_once '../../Model/ObserverN/HabitatModel.php';
+require_once '../../Model/ObserverN/AnimalModel.php';
 require_once '../../View/AnimalView/habitatView.php';
 
 class HabitatControllerObserver implements Observer {
     private $model;
     private $view;
+    
 
-    public function __construct(HabitatModel $model, animalView $view) {
+    public function __construct(AnimalModel $model, AimalView $view) {
         $this->model = $model;
         $this->view = $view;
         $this->model->attach($this);  // Attach the controller as an observer

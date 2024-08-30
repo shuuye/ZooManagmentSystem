@@ -2,20 +2,22 @@
 
 
 class XSLTransformation {
+    private $xml;
+    private $xsl;
+    private $proc;
+
     public function __construct($xmlfilename, $xslfilename) {
-        $xml = new DOMDocument();
-        $xml ->load($xmlfilename);
-        
-        $xsl = new DOMDocument();
-        $xsl->load($xslfilename);
-        
-        $proc = new XSLTProcessor();
-        $proc->importStylesheet($xsl);
-        
-        echo $proc->transformToXml($xml);
-        
+        $this->xml = new DOMDocument();
+        $this->xml->load($xmlfilename);
+
+        $this->xsl = new DOMDocument();
+        $this->xsl->load($xslfilename);
+
+        $this->proc = new XSLTProcessor();
+        $this->proc->importStylesheet($this->xsl);
+    }
+
+    public function transform() {
+        return $this->proc->transformToXml($this->xml);
     }
 }
-
-
-$worker = new XSLTransformation("inventory.xml", "../Xsl/inventory.xsl");

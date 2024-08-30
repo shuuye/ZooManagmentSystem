@@ -37,4 +37,8 @@ class CleaningInventory extends Inventory {
             $this->size = $newSize;
         }
     }
+
+    public function addItemRecord() {
+        
+    }
 }

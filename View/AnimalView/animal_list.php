@@ -2,10 +2,10 @@
 include_once '../../Control/AnimalControllerN/AnimalController.php';
 
 $animalController = new AnimalController();
-$category = isset($_GET['$categories']) ? $_GET['$categories'] : null;
-$animalController->displayAnimals($category);
+$category = isset($_GET['category']) ? $_GET['category'] : null;
+$animals = $animalController->displayAnimals($category);
 
-$categories = ['Mammals', 'Birds', 'Amphibians'];
+$categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these categories dynamically from the database if needed
 ?>
 
 <!DOCTYPE html>
@@ -49,10 +49,10 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
                 <th>Animal ID</th>
                 <th>Name</th>
                 <th>Species</th>
-                <th>Age</th>
-                <th>Gender</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Habitat ID</th>
                 <th>Health Status</th>
-                <th>Habitat</th>
                 <th>Category</th>
             </tr>
         </thead>
@@ -60,14 +60,14 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
             <?php if (!empty($animals)) : ?>
                 <?php foreach ($animals as $animal) : ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($animal['animalID']); ?></td>
-                        <td><?php echo htmlspecialchars($animal['animalName']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['id']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['name']); ?></td>
                         <td><?php echo htmlspecialchars($animal['species']); ?></td>
-                        <td><?php echo htmlspecialchars($animal['age']); ?></td>
-                        <td><?php echo htmlspecialchars($animal['gender']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['height']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['weight']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['habitat_id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['healthStatus']); ?></td>
-                        <td><?php echo htmlspecialchars($animal['habitat']); ?></td>
-                        <td><?php echo htmlspecialchars($animal['category']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['categories']); ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
@@ -79,4 +79,3 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
     </table>
 </body>
 </html>
-

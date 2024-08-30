@@ -1,50 +1,76 @@
 <?php
 
-require_once '../../Model/Observer/Observer.php';
+require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
+require_once '../../Model/ObserverN/AnimalModel.php';
 
-class habitatView implements Observer {
-    
-      public function update($subject) { // function from observer model
-        $this->render($subject->getHabitatData());
+// Create instances of the model and view
+$model = new AnimalModel();
+$view = new HabitatView();
+
+// Create the controller and pass the model and view to it
+$controller = new HabitatControllerObserver($model, $view);
+
+// Display habitats
+$controller->displayHabitats();
+
+class HabitatView {
+
+    public function renderHabitat($habitatData) {
+        // Render the habitat form or any other habitat-related view
+        // Example form for adding/updating habitat
+        ?>
+        <form method="POST" action="../../Control/AnimalControllerN/HabitatControllerObserver.php">
+            <input type="hidden" name="habitat_id" value="<?= htmlspecialchars($habitatData['habitat_id'] ?? '') ?>">
+            <label for="habitat_name">Habitat Name:</label>
+            <input type="text" name="habitat_name" value="<?= htmlspecialchars($habitatData['habitat_name'] ?? '') ?>" required>
+            <label for="availability">Availability:</label>
+            <input type="text" name="availability" value="<?= htmlspecialchars($habitatData['availability'] ?? '') ?>" required>
+            <label for="type">Type:</label>
+            <input type="text" name="type" value="<?= htmlspecialchars($habitatData['type'] ?? '') ?>" required>
+            <label for="capacity">Capacity:</label>
+            <input type="number" name="capacity" value="<?= htmlspecialchars($habitatData['capacity'] ?? '') ?>" required>
+            <label for="environment">Environment:</label>
+            <input type="text" name="environment" value="<?= htmlspecialchars($habitatData['environment'] ?? '') ?>" required>
+            <label for="description">Description:</label>
+            <textarea name="description" required><?= htmlspecialchars($habitatData['description'] ?? '') ?></textarea>
+            <input type="submit" value="Save Habitat">
+        </form>
+        <?php
     }
-   
-    // Render a single habitat form (for add/edit)
-    public function renderHabitatForm($habitat = null) {
-        $habitat_id = $habitat['habitat_id'] ?? '';
-        $habitat_name = $habitat['habitat_name'] ?? '';
-        $availability = $habitat['availability'] ?? '';
-        $type = $habitat['type'] ?? '';
-        $capacity = $habitat['capacity'] ?? '';
-        $environment = $habitat['environment'] ?? '';
-        $description = $habitat['description'] ?? '';
 
-        echo '<form method="POST" action="habitat_save.php">';
-        echo '<input type="hidden" name="habitat_id" value="' . htmlspecialchars($habitat_id) . '">';
-        echo 'Habitat Name: <input type="text" name="habitat_name" value="' . htmlspecialchars($habitat_name) . '"><br>';
-        echo 'Availability: <input type="text" name="availability" value="' . htmlspecialchars($availability) . '"><br>';
-        echo 'Type: <input type="text" name="type" value="' . htmlspecialchars($type) . '"><br>';
-        echo 'Capacity: <input type="number" name="capacity" value="' . htmlspecialchars($capacity) . '"><br>';
-        echo 'Environment: <input type="text" name="environment" value="' . htmlspecialchars($environment) . '"><br>';
-        echo 'Description: <textarea name="description">' . htmlspecialchars($description) . '</textarea><br>';
-        echo '<input type="submit" value="Save Habitat">';
-        echo '</form>';
-    }
-
-    // Render a list of habitats
     public function renderHabitatsList($habitats) {
-        echo '<h2>List of Habitats</h2>';
-        echo '<table border="1">';
-        echo '<tr><th>ID</th><th>Name</th><th>Availability</th><th>Type</th><th>Capacity</th><th>Environment</th><th>Description</th><th>Actions</th></tr>';
-        foreach ($habitats as $habitat) {
-            echo '<tr>';
-            echo '<td>' . htmlspecialchars($habitat['habitat_id']) . '</td>';
-            echo '<td>' . htmlspecialchars($habitat['habitat_name']) . '</td>';
-            echo '<td>' . htmlspecialchars($habitat['availability']) . '</td>';
-            echo '<td>' . htmlspecialchars($habitat['type']) . '</td>';
-            echo '<td>' . htmlspecialchars($habitat['capacity']) . '</td>';
-            echo '<td>' . htmlspecialchars($habitat['environment']) . '</td>';
-            echo '<td>' . htmlspecialchars($habitat['description']) . '</td>';
-            echo '<td><a href="edit_habitat.php?id=' . htmlspecialchars($habitat['habitat_id']);
-        }
+        // Render the list of habitats
+        ?>
+        <h2>Habitats List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Availability</th>
+                    <th>Type</th>
+                    <th>Capacity</th>
+                    <th>Environment</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($habitats as $habitat): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($habitat['habitat_id']) ?></td>
+                        <td><?= htmlspecialchars($habitat['habitat_name']) ?></td>
+                        <td><?= htmlspecialchars($habitat['availability']) ?></td>
+                        <td><?= htmlspecialchars($habitat['type']) ?></td>
+                        <td><?= htmlspecialchars($habitat['capacity']) ?></td>
+                        <td><?= htmlspecialchars($habitat['environment']) ?></td>
+                        <td><?= htmlspecialchars($habitat['description']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?php
     }
 }
+
+
+?>

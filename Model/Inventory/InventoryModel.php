@@ -1,7 +1,7 @@
 <?php
 
 include_once '../../Config/databaseConfig.php';
-include_once '../Command/AnimalInventory.php';
+//include_once '../Command/AnimalInventory.php';
 
 class InventoryModel extends databaseConfig {
 
@@ -57,7 +57,7 @@ class InventoryModel extends databaseConfig {
         }
     }
 
-    protected function getInventoryIdByName($itemName) {
+    public function getInventoryIdByName($itemName) {
         $this->db = new databaseConfig();
         // Prepare the SQL query to fetch the inventory ID based on itemType
         $query = "SELECT inventoryId FROM Inventory WHERE itemType = ?";
@@ -92,7 +92,7 @@ class InventoryModel extends databaseConfig {
         return $results; // Return the array of results
     }
 
-    protected function addInventoryIntoDB($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity) {
+    public function addInventoryIntoDB($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity) {
         // Create a new database connection object
         $this->db = new databaseConfig();
 
