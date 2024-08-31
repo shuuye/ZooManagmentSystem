@@ -14,10 +14,10 @@
                 <td>
                     <select name="item_type" required>
                         <option value="">Select Species</option>
-                        <option value="animal">Animal</option>
-                        <option value="cleaning">Cleaning Supplies</option>
-                        <option value="habitat">Habitat Item</option>
-                        <option value="food">Food</option>
+                        <option value="Animal">Animal</option>
+                        <option value="Cleaning">Cleaning Supplies</option>
+                        <option value="Habitat">Habitat Item</option>
+                        <option value="Food">Food</option>
                     </select>
                 </td>
             </tr>

@@ -1,6 +1,7 @@
 <?php
 
 include_once '../../Config/databaseConfig.php';
+
 //include_once '../Command/AnimalInventory.php';
 
 class InventoryModel extends databaseConfig {
@@ -42,10 +43,10 @@ class InventoryModel extends databaseConfig {
                 case 'animal':
                     // Create and return an AnimalInventory object
                     return new AnimalInventory(
-                            $record['itemName'],$record['itemType'],$record['supplierId'],$record['storageLocation'],
-                            $record['reorderThreshold'],$record['name'],$record['species'],$record['subspecies'],$record['categories'],
-                            $record['age'],$record['gender'],$record['date_of_birth'],$record['avg_lifespan'],$record['description'],
-                            $record['height'],$record['weight'],$record['healthStatus'],$record['habitatid']
+                            $record['itemName'], $record['itemType'], $record['supplierId'], $record['storageLocation'],
+                            $record['reorderThreshold'], $record['name'], $record['species'], $record['subspecies'], $record['categories'],
+                            $record['age'], $record['gender'], $record['date_of_birth'], $record['avg_lifespan'], $record['description'],
+                            $record['height'], $record['weight'], $record['healthStatus'], $record['habitatid']
                     );
                 // Add more cases for other subclasses as needed
                 default:
@@ -106,6 +107,7 @@ class InventoryModel extends databaseConfig {
         }
         $lastInsertId = $this->db->getConnection()->lastInsertId();
         $result = null;
+        $this->updateXML();
 
         return $lastInsertId;
     }
@@ -127,4 +129,16 @@ class InventoryModel extends databaseConfig {
 //        }
 //        $result = null;
     }
+
+    protected function updateXML() {//if want more can add $table and use it to determine which xml to update
+        require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\XmlGenerator.php';
+        $xmlGenerator = new createXMLFromDatabase();
+        $xmlGenerator->createXMLFileByTableName("inventory", "inventory.xml", "inventories", "inventory");
+    }
+
+//     protected function updateXML() {//if want more can add $table and use it to determine which xml to update
+//        require_once '../../Xml/createXMLFromDatabase.php';
+//        $xmlGenerator = new createXMLFromDatabase();
+//        $xmlGenerator->createXMLFileByTableName("inventory", "../../Xml/inventory.xml", "inventories", "inventory");
+//    }
 }

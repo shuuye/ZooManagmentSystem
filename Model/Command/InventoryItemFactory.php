@@ -12,16 +12,16 @@ class InventoryItemFactory {
     public static function createItem($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold): Inventory {
         echo $item_type;
         switch ($item_type) {
-            case 'animal':
+            case 'Animal':
                 return new AnimalInventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
 
-            case 'food':
+            case 'Food':
                 return new FoodInventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
 
-            case 'cleaning':
+            case 'Cleaning':
                 return new CleaningInventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
 
-            case 'habitat':
+            case 'Habitat':
                 return new HabitatInventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
 
             default:

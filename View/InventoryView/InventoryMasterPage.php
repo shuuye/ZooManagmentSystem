@@ -28,27 +28,27 @@ define('INVENTORY_CSS_PATH', '../../Css/Inventory/');
                         </ul>
                     </li>
                     <li class="dropdown <?php echo ($activePage == 'Inventory Management') ? 'active' : ''; ?>">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventory Management <b class="caret"></b></a>
+                        <a href="?action=index" class="dropdown-toggle" data-toggle="dropdown">Inventory Management <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown"><a href="#">Habitat Items</a>
+                            <li class="dropdown"><a href="?action=habitatItem">Habitat Items</a>
                                 <ul class="dropdown-submenu">
-                                    <li><a href="view-all-habitat-items.php">View All</a></li>
+                                    <li><a href="?action=habitatItem">View All</a></li>
                                     <li><a href="add-new-habitat-item.php">Add New Item</a></li>
                                     <li><a href="bulk-update-habitat-items.php">Bulk Update</a></li>
                                     <li><a href="generate-habitat-items-report.php">Generate Report</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Food Inventory</a>
+                            <li><a href="?action=foodItem">Food Inventory</a>
                                 <ul class="dropdown-submenu">
-                                    <li><a href="view-all-food-items.php">View All</a></li>
+                                    <li><a href="?action=foodItem">View All</a></li>
                                     <li><a href="add-new-food-item.php">Add New Item</a></li>
                                     <li><a href="bulk-update-food-items.php">Bulk Update</a></li>
                                     <li><a href="generate-food-items-report.php">Generate Report</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Cleaning Inventory</a>
+                            <li><a href="?action=cleaningItem">Cleaning Inventory</a>
                                 <ul class="dropdown-submenu">
-                                    <li><a href="view-all-cleaning-items.php">View All</a></li>
+                                    <li><a href="?action=cleaningItem">View All</a></li>
                                     <li><a href="add-new-cleaning-item.php">Add New Item</a></li>
                                     <li><a href="bulk-update-cleaning-items.php">Bulk Update</a></li>
                                     <li><a href="generate-cleaning-items-report.php">Generate Report</a></li>
