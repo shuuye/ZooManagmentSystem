@@ -37,7 +37,7 @@ class AnimalModel extends databaseConfig implements subject{
         }
     }
     
-    private function notifyObservers($animalId) {
+    private function notifyObservers($animalId) { // need to remove , this is the animal parts
         foreach ($this->observers as $observer) {
             $observer->update($animalId);
         }
@@ -113,24 +113,23 @@ class AnimalModel extends databaseConfig implements subject{
     }
     
     // Function for habitat-------------------------------------------------------------------------------------------------------
-    
     // Function to insert a new habitat
-    public function insertNewHabitat($habitat_name, $availability, $type, $capacity, $environment, $description) {
+    public function insertNewHabitat($habitat_name, $availability, $capacity, $environment, $description) {
         try {
-            $pdo = $this->connect();
-            $sql = "INSERT INTO habitats (habitat_name, availability, type, capacity, environment, description) 
-                    VALUES (:habitat_name, :availability, :type, :capacity, :environment, :description)";
+            $pdo = $this->db->getConnection();
+            $sql = "INSERT INTO habitats (habitat_name, availability, capacity, environment, description) 
+                    VALUES (:habitat_name, :availability, :capacity, :environment, :description)";
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindParam(':habitat_name', $habitat_name);
             $stmt->bindParam(':availability', $availability);
-            $stmt->bindParam(':type', $type);
             $stmt->bindParam(':capacity', $capacity);
             $stmt->bindParam(':environment', $environment);
             $stmt->bindParam(':description', $description);
 
             if ($stmt->execute()) {
                 echo "New habitat added successfully.";
+                header('Location: list_habitats.php');
             } else {
                 echo "Failed to add new habitat.";
             }
@@ -138,12 +137,28 @@ class AnimalModel extends databaseConfig implements subject{
             echo "Error: " . $e->getMessage();
         }
     }
-
+    
+    public function getHabitatById($habitat_id) {
+      try {
+          $pdo = $this->db->getConnection();
+          $sql = "SELECT * FROM habitats WHERE habitat_id = :habitat_id";
+          $stmt = $pdo->prepare($sql);
+          $stmt->bindParam(':habitat_id', $habitat_id);
+          $stmt->execute();
+          $habitat = $stmt->fetch(PDO::FETCH_ASSOC);
+          if (!$habitat) {
+              throw new Exception("Habitat not found with ID: $habitat_id");
+          }
+          return $habitat;
+      } catch (PDOException $e) {
+          echo "Error: " . $e->getMessage();
+      }
+  }
     // Function to update an existing habitat
-    public function updateHabitat($habitat_id, $habitat_name, $availability, $type, $capacity, $environment, $description) {
+    public function updateHabitat($habitat_id, $habitat_name, $availability, $capacity, $environment, $description) {
         try {
-            $pdo = $this->connect();
-            $sql = "UPDATE habitats SET habitat_name = :habitat_name, availability = :availability, type = :type,
+            $pdo = $this->db->getConnection();
+            $sql = "UPDATE habitats SET habitat_name = :habitat_name, availability = :availability,
                     capacity = :capacity, environment = :environment, description = :description 
                     WHERE habitat_id = :habitat_id";
             $stmt = $pdo->prepare($sql);
@@ -151,13 +166,13 @@ class AnimalModel extends databaseConfig implements subject{
             $stmt->bindParam(':habitat_id', $habitat_id);
             $stmt->bindParam(':habitat_name', $habitat_name);
             $stmt->bindParam(':availability', $availability);
-            $stmt->bindParam(':type', $type);
             $stmt->bindParam(':capacity', $capacity);
             $stmt->bindParam(':environment', $environment);
             $stmt->bindParam(':description', $description);
 
             if ($stmt->execute()) {
                 echo "Habitat updated successfully.";
+                
             } else {
                 echo "Failed to update habitat.";
             }
@@ -169,7 +184,7 @@ class AnimalModel extends databaseConfig implements subject{
     // Function to get all habitats
     public function getAllHabitats() {
         try {
-            $pdo = $this->connect();
+            $pdo = $this->db->getConnection();
             $sql = "SELECT * FROM habitats";
             $stmt = $pdo->query($sql);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -178,9 +193,16 @@ class AnimalModel extends databaseConfig implements subject{
         }
     }
     
+    public function deleteHabitat($habitat_id) {
+        $sql = "DELETE FROM habitats WHERE habitat_id = :habitat_id";
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->bindParam(':habitat_id', $habitat_id);
+        return $stmt->execute();
+    }
     
-
-
+    
+    // health function ----------------Use Xml and database update both-----------------------------------------------------------------------------
+    
 }
 ?>
 
