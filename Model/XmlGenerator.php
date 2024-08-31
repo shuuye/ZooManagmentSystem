@@ -118,4 +118,5 @@ class XmlGenerator extends databaseConfig {
         }
     }
 }
+
 ?>

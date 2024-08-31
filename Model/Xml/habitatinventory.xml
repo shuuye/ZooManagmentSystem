@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<habitatinventories>
+  <habitatinventory>
+    <id>1</id>
+    <inventoryId>16</inventoryId>
+    <itemType>Sand</itemType>
+    <description>Fine sand for desert habitats</description>
+    <habitatType>Desert</habitatType>
+    <material>Silica</material>
+    <expected_lifetime>5</expected_lifetime>
+    <installation_instructions>Spread evenly on the habitat floor.</installation_instructions>
+    <disposal_instructions>Dispose of in accordance with local regulations.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>2</id>
+    <inventoryId>17</inventoryId>
+    <itemType>Rocks</itemType>
+    <description>Decorative rocks for various habitats</description>
+    <habitatType>General</habitatType>
+    <material>Stone</material>
+    <expected_lifetime>10</expected_lifetime>
+    <installation_instructions>Place strategically in the habitat.</installation_instructions>
+    <disposal_instructions>Recycle or dispose of in accordance with local regulations.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>3</id>
+    <inventoryId>18</inventoryId>
+    <itemType>Branches</itemType>
+    <description>Natural branches for climbing animals</description>
+    <habitatType>Forest</habitatType>
+    <material>Wood</material>
+    <expected_lifetime>3</expected_lifetime>
+    <installation_instructions>Securely attach to the habitat structure.</installation_instructions>
+    <disposal_instructions>Compost or dispose of in accordance with local regulations.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>4</id>
+    <inventoryId>19</inventoryId>
+    <itemType>Water Bowl</itemType>
+    <description>Essential water bowl for animals</description>
+    <habitatType>General</habitatType>
+    <material>Plastic</material>
+    <expected_lifetime>2</expected_lifetime>
+    <installation_instructions>Place in an accessible location for animals.</installation_instructions>
+    <disposal_instructions>Recycle plastic components.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>5</id>
+    <inventoryId>20</inventoryId>
+    <itemType>Heat Lamp</itemType>
+    <description>Heat lamp for reptile habitats</description>
+    <habitatType>Reptile</habitatType>
+    <material>Metal/Glass</material>
+    <expected_lifetime>2</expected_lifetime>
+    <installation_instructions>Install according to manufacturer instructions.</installation_instructions>
+    <disposal_instructions>Recycle electronic components.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>6</id>
+    <inventoryId>21</inventoryId>
+    <itemType>Plants</itemType>
+    <description>Artificial plants for decoration</description>
+    <habitatType>General</habitatType>
+    <material>Plastic</material>
+    <expected_lifetime>5</expected_lifetime>
+    <installation_instructions>Place in various locations within the habitat.</installation_instructions>
+    <disposal_instructions>Recycle plastic components.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>7</id>
+    <inventoryId>22</inventoryId>
+    <itemType>Substrate</itemType>
+    <description>Coconut fiber substrate for terrariums</description>
+    <habitatType>Terrarium</habitatType>
+    <material>Coconut Fiber</material>
+    <expected_lifetime>1</expected_lifetime>
+    <installation_instructions>Spread evenly on the habitat floor.</installation_instructions>
+    <disposal_instructions>Compost or dispose of in accordance with local regulations.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>8</id>
+    <inventoryId>23</inventoryId>
+    <itemType>Hiding Spot</itemType>
+    <description>Hiding spot for small animals</description>
+    <habitatType>General</habitatType>
+    <material>Wood</material>
+    <expected_lifetime>4</expected_lifetime>
+    <installation_instructions>Place in a secluded area of the habitat.</installation_instructions>
+    <disposal_instructions>Compost or dispose of in accordance with local regulations.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>9</id>
+    <inventoryId>24</inventoryId>
+    <itemType>Climbing Structure</itemType>
+    <description>Climbing structure for primates</description>
+    <habitatType>Forest</habitatType>
+    <material>Wood/Metal</material>
+    <expected_lifetime>7</expected_lifetime>
+    <installation_instructions>Assemble according to instructions.</installation_instructions>
+    <disposal_instructions>Recycle or dispose of in accordance with local regulations.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>10</id>
+    <inventoryId>25</inventoryId>
+    <itemType>Water Filter</itemType>
+    <description>Water filter for aquatic habitats</description>
+    <habitatType>Aquarium</habitatType>
+    <material>Plastic/Metal</material>
+    <expected_lifetime>3</expected_lifetime>
+    <installation_instructions>Install according to manufacturer instructions.</installation_instructions>
+    <disposal_instructions>Recycle electronic components.</disposal_instructions>
+  </habitatinventory>
+</habitatinventories>

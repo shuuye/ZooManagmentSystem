@@ -1,8 +1,11 @@
-body {
-    font-family: sans-serif;
-}
+/*
+the container structure
+*/
 .container {
     display: flex;
+    margin: 2%;
+    font-size: 22px;
+    /*    background-color: red;*/
 }
 .left {
     width: 30%;
@@ -11,29 +14,10 @@ body {
 .right {
     width: 70%;
 }
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #ddd;
-}
-.header-left {
-    display: flex;
-    align-items: center;
-}
-.header-left img {
-    margin-right: 10px;
-}
-.header-right {
-    display: flex;
-    align-items: center;
-}
-.header-right img {
-    margin-left: 10px;
-    border-radius: 50%;
-}
+
+/*
+Animal > Banana
+*/
 .navigation {
     display: flex;
     padding: 10px;
@@ -46,11 +30,17 @@ body {
 .navigation a.active {
     font-weight: bold;
 }
+
+/*
+left panel
+*/
 .image {
     padding: 10px;
 }
 .image img {
     max-width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
 }
 .description {
     padding: 10px;
@@ -59,40 +49,37 @@ body {
     list-style: disc;
     margin-left: 20px;
 }
+
+
+/*
+right panel
+*/
 .details {
-    padding: 10px;
+    padding: 20px;
 }
 .details table {
+    background-color: white;
     width: 100%;
     border-collapse: collapse;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.details table th,.details table td{
+    text-align: left;
+    padding: 20px 58px ;
+}
+.productName{
+    text-align: left !important;
+    font-size: 22px;
 }
 .details table th {
-    text-align: left;
-    padding: 8px;
-    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    width:30%;
 }
 .details table td {
-    padding: 8px;
     border-bottom: 1px solid #ddd;
 }
 .details table td.available {
-    background-color: #e0ffe0;
-}
-.details button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.details .show-more {
-    margin-top: 10px;
-}
-.details .show-more a {
-    text-decoration: none;
-    color: #333;
-}
-.details .show-more a:hover {
-    text-decoration: underline;
+    color: greenyellow;
 }

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PHP: XSL - Manual </title>
+
+ <link rel="icon" type="image/svg+xml" sizes="any" href="https://www.php.net/favicon.svg?v=2">
+ <link rel="icon" type="image/png" sizes="196x196" href="https://www.php.net/favicon-196x196.png?v=2">
+ <link rel="icon" type="image/png" sizes="32x32" href="https://www.php.net/favicon-32x32.png?v=2">
+ <link rel="icon" type="image/png" sizes="16x16" href="https://www.php.net/favicon-16x16.png?v=2">
+ <link rel="shortcut icon" href="https://www.php.net/favicon.ico?v=2">
+
+ <link rel="search" type="application/opensearchdescription+xml" href="http://php.net/phpnetimprovedsearch.src" title="Add PHP.net search">
+ <link rel="alternate" type="application/atom+xml" href="https://www.php.net/releases/feed.php" title="PHP Release feed">
+ <link rel="alternate" type="application/atom+xml" href="https://www.php.net/feed.atom" title="PHP: Hypertext Preprocessor">
+
+ <link rel="canonical" href="https://www.php.net/manual/en/book.xsl.php">
+ <link rel="shorturl" href="https://www.php.net/xsl">
+ <link rel="alternate" href="https://www.php.net/xsl" hreflang="x-default">
+
+ <link rel="contents" href="https://www.php.net/manual/en/index.php">
+ <link rel="index" href="https://www.php.net/manual/en/refs.xml.php">
+ <link rel="prev" href="https://www.php.net/manual/en/xmlwriter.writeraw.php">
+ <link rel="next" href="https://www.php.net/manual/en/intro.xsl.php">
+
+ <link rel="alternate" href="https://www.php.net/manual/en/book.xsl.php" hreflang="en">
+ <link rel="alternate" href="https://www.php.net/manual/de/book.xsl.php" hreflang="de">
+ <link rel="alternate" href="https://www.php.net/manual/es/book.xsl.php" hreflang="es">
+ <link rel="alternate" href="https://www.php.net/manual/fr/book.xsl.php" hreflang="fr">
+ <link rel="alternate" href="https://www.php.net/manual/it/book.xsl.php" hreflang="it">
+ <link rel="alternate" href="https://www.php.net/manual/ja/book.xsl.php" hreflang="ja">
+ <link rel="alternate" href="https://www.php.net/manual/pt_BR/book.xsl.php" hreflang="pt_BR">
+ <link rel="alternate" href="https://www.php.net/manual/ru/book.xsl.php" hreflang="ru">
+ <link rel="alternate" href="https://www.php.net/manual/tr/book.xsl.php" hreflang="tr">
+ <link rel="alternate" href="https://www.php.net/manual/uk/book.xsl.php" hreflang="uk">
+ <link rel="alternate" href="https://www.php.net/manual/zh/book.xsl.php" hreflang="zh">
+
+<link rel="stylesheet" type="text/css" href="/cached.php?t=1707321815&amp;f=/fonts/Fira/fira.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/cached.php?t=1707321815&amp;f=/fonts/Font-Awesome/css/fontello.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/cached.php?t=1723177202&amp;f=/styles/theme-base.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/cached.php?t=1720213803&amp;f=/styles/theme-medium.css" media="screen">
+
+ <base href="https://www.php.net/manual/en/book.xsl.php">
+
+<meta name="Description" content="PHP is a popular general-purpose scripting language that powers everything from your blog to the most popular websites in the world." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@official_php" />
+<meta name="twitter:title" content="PHP: Hypertext Preprocessor" />
+<meta name="twitter:description" content="PHP is a popular general-purpose scripting language that powers everything from your blog to the most popular websites in the world." />
+<meta name="twitter:creator" content="@official_php" />
+<meta name="twitter:image:src" content="https://www.php.net/images/meta-image.png" />
+
+<meta itemprop="name" content="PHP: Hypertext Preprocessor" />
+<meta itemprop="description" content="PHP is a popular general-purpose scripting language that powers everything from your blog to the most popular websites in the world." />
+<meta itemprop="image" content="https://www.php.net/images/meta-image.png" />
+
+<meta property="og:image" content="https://www.php.net/images/meta-image.png" />
+<meta property="og:description" content="PHP is a popular general-purpose scripting language that powers everything from your blog to the most popular websites in the world." />
+
+<link href="https://fosstodon.org/@php" rel="me" />
+</head>
+<body class="docs ">
+
+<nav id="head-nav" class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <a href="/" class="brand"><img src="/images/logos/php-logo.svg" width="48" height="24" alt="php"></a>
+    <div id="mainmenu-toggle-overlay"></div>
+    <input type="checkbox" id="mainmenu-toggle">
+    <ul class="nav">
+      <li class=""><a href="/downloads">Downloads</a></li>
+      <li class="active"><a href="/docs.php">Documentation</a></li>
+      <li class=""><a href="/get-involved" >Get Involved</a></li>
+      <li class=""><a href="/support">Help</a></li>
+      <li class="">
+        <a href="/releases/8.3/index.php">
+          <img src="/images/php8/logo_php8_3.svg" alt="php8.3" height="22" width="60">
+        </a>
+      </li>
+    </ul>
+    <form class="navbar-search" id="topsearch" action="/search.php">
+      <input type="hidden" name="show" value="quickref">
+      <input type="search" name="pattern" class="search-query" placeholder="Search" accesskey="s">
+    </form>
+  </div>
+  <div id="flash-message"></div>
+</nav>
+<div class="headsup"><a href='/index.php#2024-08-29-3'>PHP 8.3.11 Released!</a></div>
+<nav id="trick"><div><dl>
+<dt><a href='/manual/en/getting-started.php'>Getting Started</a></dt>
+	<dd><a href='/manual/en/introduction.php'>Introduction</a></dd>
+	<dd><a href='/manual/en/tutorial.php'>A simple tutorial</a></dd>
+<dt><a href='/manual/en/langref.php'>Language Reference</a></dt>
+	<dd><a href='/manual/en/language.basic-syntax.php'>Basic syntax</a></dd>
+	<dd><a href='/manual/en/language.types.php'>Types</a></dd>
+	<dd><a href='/manual/en/language.variables.php'>Variables</a></dd>
+	<dd><a href='/manual/en/language.constants.php'>Constants</a></dd>
+	<dd><a href='/manual/en/language.expressions.php'>Expressions</a></dd>
+	<dd><a href='/manual/en/language.operators.php'>Operators</a></dd>
+	<dd><a href='/manual/en/language.control-structures.php'>Control Structures</a></dd>
+	<dd><a href='/manual/en/language.functions.php'>Functions</a></dd>
+	<dd><a href='/manual/en/language.oop5.php'>Classes and Objects</a></dd>
+	<dd><a href='/manual/en/language.namespaces.php'>Namespaces</a></dd>
+	<dd><a href='/manual/en/language.enumerations.php'>Enumerations</a></dd>
+	<dd><a href='/manual/en/language.errors.php'>Errors</a></dd>
+	<dd><a href='/manual/en/language.exceptions.php'>Exceptions</a></dd>
+	<dd><a href='/manual/en/language.fibers.php'>Fibers</a></dd>
+	<dd><a href='/manual/en/language.generators.php'>Generators</a></dd>
+	<dd><a href='/manual/en/language.attributes.php'>Attributes</a></dd>
+	<dd><a href='/manual/en/language.references.php'>References Explained</a></dd>
+	<dd><a href='/manual/en/reserved.variables.php'>Predefined Variables</a></dd>
+	<dd><a href='/manual/en/reserved.exceptions.php'>Predefined Exceptions</a></dd>
+	<dd><a href='/manual/en/reserved.interfaces.php'>Predefined Interfaces and Classes</a></dd>
+	<dd><a href='/manual/en/reserved.attributes.php'>Predefined Attributes</a></dd>
+	<dd><a href='/manual/en/context.php'>Context options and parameters</a></dd>
+	<dd><a href='/manual/en/wrappers.php'>Supported Protocols and Wrappers</a></dd>
+</dl>
+<dl>
+<dt><a href='/manual/en/security.php'>Security</a></dt>
+	<dd><a href='/manual/en/security.intro.php'>Introduction</a></dd>
+	<dd><a href='/manual/en/security.general.php'>General considerations</a></dd>
+	<dd><a href='/manual/en/security.cgi-bin.php'>Installed as CGI binary</a></dd>
+	<dd><a href='/manual/en/security.apache.php'>Installed as an Apache module</a></dd>
+	<dd><a href='/manual/en/security.sessions.php'>Session Security</a></dd>
+	<dd><a href='/manual/en/security.filesystem.php'>Filesystem Security</a></dd>
+	<dd><a href='/manual/en/security.database.php'>Database Security</a></dd>
+	<dd><a href='/manual/en/security.errors.php'>Error Reporting</a></dd>
+	<dd><a href='/manual/en/security.variables.php'>User Submitted Data</a></dd>
+	<dd><a href='/manual/en/security.hiding.php'>Hiding PHP</a></dd>
+	<dd><a href='/manual/en/security.current.php'>Keeping Current</a></dd>
+<dt><a href='/manual/en/features.php'>Features</a></dt>
+	<dd><a href='/manual/en/features.http-auth.php'>HTTP authentication with PHP</a></dd>
+	<dd><a href='/manual/en/features.cookies.php'>Cookies</a></dd>
+	<dd><a href='/manual/en/features.sessions.php'>Sessions</a></dd>
+	<dd><a href='/manual/en/features.file-upload.php'>Handling file uploads</a></dd>
+	<dd><a href='/manual/en/features.remote-files.php'>Using remote files</a></dd>
+	<dd><a href='/manual/en/features.connection-handling.php'>Connection handling</a></dd>
+	<dd><a href='/manual/en/features.persistent-connections.php'>Persistent Database Connections</a></dd>
+	<dd><a href='/manual/en/features.commandline.php'>Command line usage</a></dd>
+	<dd><a href='/manual/en/features.gc.php'>Garbage Collection</a></dd>
+	<dd><a href='/manual/en/features.dtrace.php'>DTrace Dynamic Tracing</a></dd>
+</dl>
+<dl>
+<dt><a href='/manual/en/funcref.php'>Function Reference</a></dt>
+	<dd><a href='/manual/en/refs.basic.php.php'>Affecting PHP's Behaviour</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.audio.php'>Audio Formats Manipulation</a></dd>
+	<dd><a href='/manual/en/refs.remote.auth.php'>Authentication Services</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.cmdline.php'>Command Line Specific Extensions</a></dd>
+	<dd><a href='/manual/en/refs.compression.php'>Compression and Archive Extensions</a></dd>
+	<dd><a href='/manual/en/refs.crypto.php'>Cryptography Extensions</a></dd>
+	<dd><a href='/manual/en/refs.database.php'>Database Extensions</a></dd>
+	<dd><a href='/manual/en/refs.calendar.php'>Date and Time Related Extensions</a></dd>
+	<dd><a href='/manual/en/refs.fileprocess.file.php'>File System Related Extensions</a></dd>
+	<dd><a href='/manual/en/refs.international.php'>Human Language and Character Encoding Support</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.image.php'>Image Processing and Generation</a></dd>
+	<dd><a href='/manual/en/refs.remote.mail.php'>Mail Related Extensions</a></dd>
+	<dd><a href='/manual/en/refs.math.php'>Mathematical Extensions</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.nontext.php'>Non-Text MIME Output</a></dd>
+	<dd><a href='/manual/en/refs.fileprocess.process.php'>Process Control Extensions</a></dd>
+	<dd><a href='/manual/en/refs.basic.other.php'>Other Basic Extensions</a></dd>
+	<dd><a href='/manual/en/refs.remote.other.php'>Other Services</a></dd>
+	<dd><a href='/manual/en/refs.search.php'>Search Engine Extensions</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.server.php'>Server Specific Extensions</a></dd>
+	<dd><a href='/manual/en/refs.basic.session.php'>Session Extensions</a></dd>
+	<dd><a href='/manual/en/refs.basic.text.php'>Text Processing</a></dd>
+	<dd><a href='/manual/en/refs.basic.vartype.php'>Variable and Type Related Extensions</a></dd>
+	<dd><a href='/manual/en/refs.webservice.php'>Web Services</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.windows.php'>Windows Only Extensions</a></dd>
+	<dd><a href='/manual/en/refs.xml.php'>XML Manipulation</a></dd>
+	<dd><a href='/manual/en/refs.ui.php'>GUI Extensions</a></dd>
+</dl>
+<dl>
+<dt>Keyboard Shortcuts</dt><dt>?</dt>
+<dd>This help</dd>
+<dt>j</dt>
+<dd>Next menu item</dd>
+<dt>k</dt>
+<dd>Previous menu item</dd>
+<dt>g p</dt>
+<dd>Previous man page</dd>
+<dt>g n</dt>
+<dd>Next man page</dd>
+<dt>G</dt>
+<dd>Scroll to bottom</dd>
+<dt>g g</dt>
+<dd>Scroll to top</dd>
+<dt>g h</dt>
+<dd>Goto homepage</dd>
+<dt>g s</dt>
+<dd>Goto search<br>(current page)</dd>
+<dt>/</dt>
+<dd>Focus search box</dd>
+</dl></div></nav>
+<div id="goto">
+    <div class="search">
+         <div class="text"></div>
+         <div class="results"><ul></ul></div>
+   </div>
+</div>
+
+  <div id="breadcrumbs" class="clearfix">
+    <div id="breadcrumbs-inner">
+          <div class="next">
+        <a href="intro.xsl.php">
+          Introduction &raquo;
+        </a>
+      </div>
+              <div class="prev">
+        <a href="xmlwriter.writeraw.php">
+          &laquo; XMLWriter::writeRaw        </a>
+      </div>
+          <ul>
+            <li><a href='index.php'>PHP Manual</a></li>      <li><a href='funcref.php'>Function Reference</a></li>      <li><a href='refs.xml.php'>XML Manipulation</a></li>      </ul>
+    </div>
+  </div>
+
+
+
+
+<div id="layout" class="clearfix">
+  <section id="layout-content">
+  <div class="page-tools">
+    <div class="change-language">
+      <form action="/manual/change.php" method="get" id="changelang" name="changelang">
+        <fieldset>
+          <label for="changelang-langs">Change language:</label>
+          <select onchange="document.changelang.submit()" name="page" id="changelang-langs">
+            <option value='en/book.xsl.php' selected="selected">English</option>
+            <option value='de/book.xsl.php'>German</option>
+            <option value='es/book.xsl.php'>Spanish</option>
+            <option value='fr/book.xsl.php'>French</option>
+            <option value='it/book.xsl.php'>Italian</option>
+            <option value='ja/book.xsl.php'>Japanese</option>
+            <option value='pt_BR/book.xsl.php'>Brazilian Portuguese</option>
+            <option value='ru/book.xsl.php'>Russian</option>
+            <option value='tr/book.xsl.php'>Turkish</option>
+            <option value='uk/book.xsl.php'>Ukrainian</option>
+            <option value='zh/book.xsl.php'>Chinese (Simplified)</option>
+            <option value='help-translate.php'>Other</option>
+          </select>
+        </fieldset>
+      </form>
+    </div>
+  </div><div id="book.xsl" class="book">
+ 
+ <h1 class="title">XSL</h1>
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+<ul class="chunklist chunklist_book"><li><a href="intro.xsl.php">Introduction</a></li><li><a href="xsl.setup.php">Installing/Configuring</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="xsl.requirements.php">Requirements</a></li><li><a href="xsl.installation.php">Installation</a></li></ul></li><li><a href="xsl.constants.php">Predefined Constants</a></li><li><a href="xsl.examples.php">Examples</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="xsl.examples-collection.php">Example collection.xml and collection.xsl files</a></li><li><a href="xsl.examples-errors.php">Error handling with libxml error handling functions</a></li></ul></li><li><a href="class.xsltprocessor.php">XSLTProcessor</a> — The XSLTProcessor class<ul class="chunklist chunklist_book chunklist_children"><li><a href="xsltprocessor.construct.php">XSLTProcessor::__construct</a> — Creates a new XSLTProcessor object</li><li><a href="xsltprocessor.getparameter.php">XSLTProcessor::getParameter</a> — Get value of a parameter</li><li><a href="xsltprocessor.getsecurityprefs.php">XSLTProcessor::getSecurityPrefs</a> — Get security preferences</li><li><a href="xsltprocessor.hasexsltsupport.php">XSLTProcessor::hasExsltSupport</a> — Determine if PHP has EXSLT support</li><li><a href="xsltprocessor.importstylesheet.php">XSLTProcessor::importStylesheet</a> — Import stylesheet</li><li><a href="xsltprocessor.registerphpfunctions.php">XSLTProcessor::registerPHPFunctions</a> — Enables the ability to use PHP functions as XSLT functions</li><li><a href="xsltprocessor.removeparameter.php">XSLTProcessor::removeParameter</a> — Remove parameter</li><li><a href="xsltprocessor.setparameter.php">XSLTProcessor::setParameter</a> — Set value for a parameter</li><li><a href="xsltprocessor.setprofiling.php">XSLTProcessor::setProfiling</a> — Sets profiling output file</li><li><a href="xsltprocessor.setsecurityprefs.php">XSLTProcessor::setSecurityPrefs</a> — Set security preferences</li><li><a href="xsltprocessor.transformtodoc.php">XSLTProcessor::transformToDoc</a> — Transform to a document</li><li><a href="xsltprocessor.transformtouri.php">XSLTProcessor::transformToUri</a> — Transform to URI</li><li><a href="xsltprocessor.transformtoxml.php">XSLTProcessor::transformToXml</a> — Transform to XML</li></ul></li></ul></div>    <div class="contribute">
+      <h3 class="title">Improve This Page</h3>
+      <div>
+         
+      </div>
+      <div class="edit-bug">
+        <a href="https://github.com/php/doc-base/blob/master/README.md" title="This will take you to our contribution guidelines on GitHub." target="_blank" rel="noopener noreferrer">Learn How To Improve This Page</a>
+        •
+        <a href="https://github.com/php/doc-en/blob/master/reference/xsl/book.xml">Submit a Pull Request</a>
+        •
+        <a href="https://github.com/php/doc-en/issues/new?body=From%20manual%20page:%20https:%2F%2Fphp.net%2Fbook.xsl%0A%0A---">Report a Bug</a>
+      </div>
+    </div><section id="usernotes">
+ <div class="head">
+  <span class="action"><a href="/manual/add-note.php?sect=book.xsl&amp;redirect=https://www.php.net/manual/en/book.xsl.php">＋<small>add a note</small></a></span>
+  <h3 class="title">User Contributed Notes <span class="count">23 notes</span></h3>
+ </div><div id="allnotes">
+  <div class="note" id="63264">  <div class="votes">
+    <div id="Vu63264">
+    <a href="/manual/vote-note.php?id=63264&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd63264">
+    <a href="/manual/vote-note.php?id=63264&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V63264" title="69% like this...">
+    5
+    </div>
+  </div>
+  <a href="#63264" class="name"><strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#63264"> &para;</a><div class="date" title="2006-03-17 09:14"><strong>18 years ago</strong></div>
+  <div class="text" id="Hcom63264">
+<div class="phpcode"><code><span class="html">In response to appletalk at gmail dot com<br />&lt;snip&gt;<br />As many of you may have noticed, DOM parser gives errors if the '&amp;nbsp;' entity is present. The E_WARN message looks like:<br />Warning: DOMDocument::load() [function.load]: Entity 'nbsp' not defined in ...<br />There're many ways to solve this:<br />.....<br />b) Defining &amp;nbsp;<br />At the top of the document, after the &lt;?xml?&gt; definition, add:<br />   &lt;!DOCTYPE xsl:stylesheet [<br />   &lt;!ENTITY nbsp "&amp;#160;" &gt;<br />   ]&gt;<br />.......&lt;/snip&gt;<br />Just wanted to let people know that option b does NOT work. I'm not sure why this isn't implemented correctly, but it isn't, so don't waste your time. It's unfortunate the DOMXSL transform is so much less capable than the old xslt function.</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="69661">  <div class="votes">
+    <div id="Vu69661">
+    <a href="/manual/vote-note.php?id=69661&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd69661">
+    <a href="/manual/vote-note.php?id=69661&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V69661" title="71% like this...">
+    3
+    </div>
+  </div>
+  <a href="#69661" class="name">
+  <strong class="user"><em>adrian at foeder dot de</em></strong></a><a class="genanchor" href="#69661"> &para;</a><div class="date" title="2006-09-14 02:45"><strong>17 years ago</strong></div>
+  <div class="text" id="Hcom69661">
+<div class="phpcode"><code><span class="html">If you want to use the document()-function inside your XSL stylesheet, please note that you have to use an absolute path there.<br />Important for windows users: the absolute path *has* to be with forward slashes, so subsitute windows-path-backslashes to forward slashes before you transform the document.<br /><br />Examples:<br />This will NOT work:<br />&lt;xsl:copy-of select="document('test.xml')" /&gt;<br /><br />This will also NOT work:<br />&lt;xsl:copy-of select="document('c:\temp\test.xml')" /&gt;<br /><br />But this WILL work:<br />&lt;xsl:copy-of select="document('c:/temp/test.xml')" /&gt;</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="104572">  <div class="votes">
+    <div id="Vu104572">
+    <a href="/manual/vote-note.php?id=104572&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd104572">
+    <a href="/manual/vote-note.php?id=104572&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V104572" title="60% like this...">
+    2
+    </div>
+  </div>
+  <a href="#104572" class="name">
+  <strong class="user"><em>Jaroslaw Zabiello</em></strong></a><a class="genanchor" href="#104572"> &para;</a><div class="date" title="2011-06-23 07:10"><strong>13 years ago</strong></div>
+  <div class="text" id="Hcom104572">
+<div class="phpcode"><code><span class="html">This is more usefull, no files needed, it just takes XML and XSL strings as input parameters and returns transformed XML<br /><br /><span class="default">&lt;?php<br /></span><span class="comment">/**<br /> * @param  $xml<br /> * @param  $xsl<br /> * @return string xml<br /> */<br /></span><span class="keyword">function </span><span class="default">transform</span><span class="keyword">(</span><span class="default">$xml</span><span class="keyword">, </span><span class="default">$xsl</span><span class="keyword">) {<br />   </span><span class="default">$xslt </span><span class="keyword">= new </span><span class="default">XSLTProcessor</span><span class="keyword">();<br />   </span><span class="default">$xslt</span><span class="keyword">-&gt;</span><span class="default">importStylesheet</span><span class="keyword">(new  </span><span class="default">SimpleXMLElement</span><span class="keyword">(</span><span class="default">$xsl</span><span class="keyword">));<br />   return </span><span class="default">$xslt</span><span class="keyword">-&gt;</span><span class="default">transformToXml</span><span class="keyword">(new </span><span class="default">SimpleXMLElement</span><span class="keyword">(</span><span class="default">$xml</span><span class="keyword">));<br />}<br /></span><span class="default">?&gt;</span></span></code></div>
+  </div>
+ </div>
+  <div class="note" id="81755">  <div class="votes">
+    <div id="Vu81755">
+    <a href="/manual/vote-note.php?id=81755&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd81755">
+    <a href="/manual/vote-note.php?id=81755&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V81755" title="66% like this...">
+    1
+    </div>
+  </div>
+  <a href="#81755" class="name">
+  <strong class="user"><em>emilise dot victor at gmail dot com</em></strong></a><a class="genanchor" href="#81755"> &para;</a><div class="date" title="2008-03-12 08:10"><strong>16 years ago</strong></div>
+  <div class="text" id="Hcom81755">
+<div class="phpcode"><code><span class="html">Here is a way to get an output without using &lt;xml:message&gt; : use the var_dump function of php : <br />- First bind the php functions with<br />&lt;? $xslt-&gt;registerPHPFunctions() ?&gt; <br />and xmlns:php="<a href="http://php.net/xsl" rel="nofollow" target="_blank">http://php.net/xsl</a>" in the stylesheet<br />- Then you can call the var_dump function like this : &lt;xsl:variable name="a" select="php:function('var_dump', $return)" /&gt;<br /><br />I couldn't find a way to call the function and have it really print the result without creating a variable, but well, it's just for debugging...</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="75055">  <div class="votes">
+    <div id="Vu75055">
+    <a href="/manual/vote-note.php?id=75055&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd75055">
+    <a href="/manual/vote-note.php?id=75055&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V75055" title="66% like this...">
+    1
+    </div>
+  </div>
+  <a href="#75055" class="name">
+  <strong class="user"><em>gabriel dot birke at web dot de</em></strong></a><a class="genanchor" href="#75055"> &para;</a><div class="date" title="2007-05-10 03:19"><strong>17 years ago</strong></div>
+  <div class="text" id="Hcom75055">
+<div class="phpcode"><code><span class="html">Each &lt;xsl:message&gt; tag will generate a PHP error (level Warning). If you want to collect and pretty-print them, you could use a custom error handling function that collects the warnings in a static variable.</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="63764">  <div class="votes">
+    <div id="Vu63764">
+    <a href="/manual/vote-note.php?id=63764&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd63764">
+    <a href="/manual/vote-note.php?id=63764&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V63764" title="66% like this...">
+    1
+    </div>
+  </div>
+  <a href="#63764" class="name">
+  <strong class="user"><em>Fabrice Bonny</em></strong></a><a class="genanchor" href="#63764"> &para;</a><div class="date" title="2006-03-30 01:34"><strong>18 years ago</strong></div>
+  <div class="text" id="Hcom63764">
+<div class="phpcode"><code><span class="html">In response to how to use entities from DTD (internal or external) in XSLT. It works if you do this way:<br /><br />$xsl = new DOMDocument;<br />$xsl-&gt;resolveExternals = TRUE;<br />$xsl-&gt;substituteEntities = TRUE;<br />$xsl-&gt;load(...);<br /><br />Hope this helps! ;-)</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="48416">  <div class="votes">
+    <div id="Vu48416">
+    <a href="/manual/vote-note.php?id=48416&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd48416">
+    <a href="/manual/vote-note.php?id=48416&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V48416" title="66% like this...">
+    1
+    </div>
+  </div>
+  <a href="#48416" class="name">
+  <strong class="user"><em>kekoajs at yahoo dot com</em></strong></a><a class="genanchor" href="#48416"> &para;</a><div class="date" title="2004-12-22 02:07"><strong>19 years ago</strong></div>
+  <div class="text" id="Hcom48416">
+<div class="phpcode"><code><span class="html">Wow, I spent the better part of a day looking for how one could pass an entire test expression to an XSL stylesheet.  It seems that the XSLT 1.0 specification doesn't support it but PHP 5 (and maybe 4s) inclusion of  EXSLT allows one to do exactly that...<br /><br />simply add these lines...<br /><br />xmlns:dyn="<a href="http://exslt.org/dynamic" rel="nofollow" target="_blank">http://exslt.org/dynamic</a>"<br />extension-element-prefixes="dyn"<br /><br />to the &lt;xsl:stylesheet&gt; element and when using an expression stored in a &lt;xsl:param&gt; element write<br /><br />&lt;xsl:if test="dyn:evaluate($param-name)"&gt;<br /><br />and viola!  you can now use expressions generated externally in your stylesheet!<br /><br />EXSLT adds many useful functions that can be integrated into your XSL in a similar fashion.  You can go to <a href="http://exslt.org/" rel="nofollow" target="_blank">http://exslt.org/</a> to learn more...</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="45950">  <div class="votes">
+    <div id="Vu45950">
+    <a href="/manual/vote-note.php?id=45950&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd45950">
+    <a href="/manual/vote-note.php?id=45950&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V45950" title="66% like this...">
+    1
+    </div>
+  </div>
+  <a href="#45950" class="name">
+  <strong class="user"><em>rd at jerntorget dot se</em></strong></a><a class="genanchor" href="#45950"> &para;</a><div class="date" title="2004-09-24 03:58"><strong>19 years ago</strong></div>
+  <div class="text" id="Hcom45950">
+<div class="phpcode"><code><span class="html">If you get the following warning message:<br /><br />xsltApplyOneTemplate: _if_ was not compiled in (if can for example be apply-template or some other method), i've found that the problem seems to be an &amp;nbsp; directly before the &lt;xsl:if&gt; or what ever is causing the problem.<br /><br />One way to get thru the problem is to use span tags around &amp;nbsp;  like : &lt;span&gt;&amp;nbsp;&lt;/span&gt;</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="43514">  <div class="votes">
+    <div id="Vu43514">
+    <a href="/manual/vote-note.php?id=43514&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd43514">
+    <a href="/manual/vote-note.php?id=43514&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V43514" title="55% like this...">
+    2
+    </div>
+  </div>
+  <a href="#43514" class="name">
+  <strong class="user"><em>rojaro</em></strong></a><a class="genanchor" href="#43514"> &para;</a><div class="date" title="2004-06-23 07:43"><strong>20 years ago</strong></div>
+  <div class="text" id="Hcom43514">
+<div class="phpcode"><code><span class="html">If you're want to use XML from a variable e.g. $xmldata but the XSLT-StyleSheet from a file, you can do it also the following way:<br /><br /><span class="default">&lt;?php<br />$xslt </span><span class="keyword">= new </span><span class="default">xsltProcessor</span><span class="keyword">;<br /></span><span class="default">$xslt</span><span class="keyword">-&gt;</span><span class="default">importStyleSheet</span><span class="keyword">(</span><span class="default">DomDocument</span><span class="keyword">::</span><span class="default">load</span><span class="keyword">(</span><span class="string">'filename.xsl'</span><span class="keyword">));<br />print </span><span class="default">$xslt</span><span class="keyword">-&gt;</span><span class="default">transformToXML</span><span class="keyword">(</span><span class="default">DomDocument</span><span class="keyword">::</span><span class="default">loadXML</span><span class="keyword">(</span><span class="default">$xmldata</span><span class="keyword">));<br /></span><span class="default">?&gt;</span></span></code></div>
+  </div>
+ </div>
+  <div class="note" id="63738">  <div class="votes">
+    <div id="Vu63738">
+    <a href="/manual/vote-note.php?id=63738&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd63738">
+    <a href="/manual/vote-note.php?id=63738&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V63738" title="60% like this...">
+    1
+    </div>
+  </div>
+  <a href="#63738" class="name">
+  <strong class="user"><em>basslines at gmail dot com</em></strong></a><a class="genanchor" href="#63738"> &para;</a><div class="date" title="2006-03-29 10:07"><strong>18 years ago</strong></div>
+  <div class="text" id="Hcom63738">
+<div class="phpcode"><code><span class="html">As far as I can tell, the most recent stable versions of LibXML/LibXSLT/LibEXSLT do NOT support xPath 2.0 / XSLT 2.0 transformations. The only support for XSLT 2.0 that I've found is in Java's SAXON processor (<a href="http://saxon.sourceforge.net/" rel="nofollow" target="_blank">http://saxon.sourceforge.net/</a>).</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="49694">  <div class="votes">
+    <div id="Vu49694">
+    <a href="/manual/vote-note.php?id=49694&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd49694">
+    <a href="/manual/vote-note.php?id=49694&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V49694" title="57% like this...">
+    1
+    </div>
+  </div>
+  <a href="#49694" class="name">
+  <strong class="user"><em>appletalk at gmail dot com</em></strong></a><a class="genanchor" href="#49694"> &para;</a><div class="date" title="2005-02-04 10:32"><strong>19 years ago</strong></div>
+  <div class="text" id="Hcom49694">
+<div class="phpcode"><code><span class="html">As many of you may have noticed, DOM parser gives errors if the '&amp;nbsp;' entity is present. The E_WARN message looks like:<br /><br />Warning: DOMDocument::load() [function.load]: Entity 'nbsp' not defined in ...<br /><br />There're many ways to solve this:<br />a) The hard way<br />&lt;xsl:text disable-output-escaping="yes"&gt; &amp;amp;nbsp;&lt;/xsl:text&gt;<br /><br />b) Defining &amp;nbsp;<br />At the top of the document, after the &lt;?xml?&gt; definition, add:<br />   &lt;!DOCTYPE xsl:stylesheet [ <br />    &lt;!ENTITY nbsp "&amp;#160;" &gt;<br />    ]&gt;<br /><br />c) External Doctype<br />Just in case you want need other HTML entities, you can call an external doctype with the proper definitions<br /><br />&lt;!DOCTYPE page SYSTEM "<a href="http://gv.ca/dtd/character-entities.dtd" rel="nofollow" target="_blank">http://gv.ca/dtd/character-entities.dtd</a>"&gt;<br /><br />Of course, you can download the file and place it in your server.</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="75025">  <div class="votes">
+    <div id="Vu75025">
+    <a href="/manual/vote-note.php?id=75025&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd75025">
+    <a href="/manual/vote-note.php?id=75025&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V75025" title="100% like this...">
+    2
+    </div>
+  </div>
+  <a href="#75025" class="name">
+  <strong class="user"><em>mnot at mnot dot net</em></strong></a><a class="genanchor" href="#75025"> &para;</a><div class="date" title="2007-05-08 08:59"><strong>17 years ago</strong></div>
+  <div class="text" id="Hcom75025">
+<div class="phpcode"><code><span class="html">You can set an HTTP proxy for the XSLT document() function to use (as well as DTD external references) by setting http_proxy in the environment.<br /><br />E.g., in Apache configuration;<br /><br />SetEnv http_proxy <a href="http://127.0.0.1:3128/" rel="nofollow" target="_blank">http://127.0.0.1:3128/</a></span></code></div>
+  </div>
+ </div>
+  <div class="note" id="76132">  <div class="votes">
+    <div id="Vu76132">
+    <a href="/manual/vote-note.php?id=76132&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd76132">
+    <a href="/manual/vote-note.php?id=76132&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V76132" title="54% like this...">
+    1
+    </div>
+  </div>
+  <a href="#76132" class="name">
+  <strong class="user"><em>geoffreyj dot lee at gmail dot com</em></strong></a><a class="genanchor" href="#76132"> &para;</a><div class="date" title="2007-07-01 11:02"><strong>17 years ago</strong></div>
+  <div class="text" id="Hcom76132">
+<div class="phpcode"><code><span class="html">Here are a couple useful tips for those who care about cross-browser compatibility.<br /><br />Given:<br /><br />&lt;script type="text/javascript" src="test.js"&gt;&lt;/script&gt;<br /><br />XSLT will automatically condense it to:<br /><br />&lt;script type="text/javascript" src="test.js"/&gt;<br /><br />While this is good, Internet Explorer breaks on empty script tags. So, the simple solution is to add something to prevent an empty tag. For example:<br /><br />&lt;script type="text/javascript" src="test.js"&gt;&lt;xsl:comment/&gt;&lt;/script&gt;<br /><br />Produces:<br /><br />&lt;script type="text/javascript" src="test.js"&gt;<br /><br />&lt;/script&gt;<br /><br />------------------------<br /><br />Also, here is a way to use IE's conditional comments:<br /><br />&lt;xsl:comment&gt;[if gte IE 5]&amp;#62;<br />&amp;#60;link rel="stylesheet" type="text/css" href="ie.css" /&amp;#62;<br />&amp;#60;![endif]&lt;/xsl:comment&gt;<br /><br />Produces:<br /><br />&lt;!--[if gte IE 5]&gt;<br />&lt;link rel="stylesheet" type="text/css" href="ie.css" /&gt;<br />&lt;![endif]--&gt;<br /><br />This will let you isolate IE-related CSS without needing to use ugly CSS hacks.</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="65277">  <div class="votes">
+    <div id="Vu65277">
+    <a href="/manual/vote-note.php?id=65277&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd65277">
+    <a href="/manual/vote-note.php?id=65277&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V65277" title="54% like this...">
+    1
+    </div>
+  </div>
+  <a href="#65277" class="name"><strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#65277"> &para;</a><div class="date" title="2006-04-27 06:26"><strong>18 years ago</strong></div>
+  <div class="text" id="Hcom65277">
+<div class="phpcode"><code><span class="html">Enable libxslt library, PHP 5, under windows:<br /><br />To Enable:<br />In your php.ini<br />1. Uncomment ;extension=php_xsl.dll<br />2. Change extension_dir to<br />     extension_dir = "./ext"<br /><br />To Confirm:<br />1. In a test.php page:<br /><span class="default">&lt;?php phpinfo</span><span class="keyword">() </span><span class="default">?&gt;<br /></span>2. Run test.php<br />3. Search for "libxslt Version". It should return a version number in a XSL headed table.<br /><br />Further info Google<br />"Configuring and Testing PHP Servers for XSL Support"</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="90510">  <div class="votes">
+    <div id="Vu90510">
+    <a href="/manual/vote-note.php?id=90510&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd90510">
+    <a href="/manual/vote-note.php?id=90510&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V90510" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#90510" class="name">
+  <strong class="user"><em>sudhir dot vis at gmail dot com</em></strong></a><a class="genanchor" href="#90510"> &para;</a><div class="date" title="2009-04-25 11:40"><strong>15 years ago</strong></div>
+  <div class="text" id="Hcom90510">
+<div class="phpcode"><code><span class="html">Here is a simplest way to transform the xml from php <br /><br /><span class="default">&lt;?php<br />$sXml  </span><span class="keyword">= </span><span class="string">"&lt;xml&gt;"</span><span class="keyword">;<br /></span><span class="default">$sXml </span><span class="keyword">.= </span><span class="string">"&lt;sudhir&gt;hello sudhir&lt;/sudhir&gt;"</span><span class="keyword">;<br /></span><span class="default">$sXml </span><span class="keyword">.= </span><span class="string">"&lt;/xml&gt;"</span><span class="keyword">;<br /><br /></span><span class="comment"># LOAD XML FILE<br /></span><span class="default">$XML </span><span class="keyword">= new </span><span class="default">DOMDocument</span><span class="keyword">();<br /></span><span class="default">$XML</span><span class="keyword">-&gt;</span><span class="default">loadXML</span><span class="keyword">( </span><span class="default">$sXml </span><span class="keyword">);<br /><br /></span><span class="comment"># START XSLT<br /></span><span class="default">$xslt </span><span class="keyword">= new </span><span class="default">XSLTProcessor</span><span class="keyword">();<br /></span><span class="default">$XSL </span><span class="keyword">= new </span><span class="default">DOMDocument</span><span class="keyword">();<br /></span><span class="default">$XSL</span><span class="keyword">-&gt;</span><span class="default">load</span><span class="keyword">( </span><span class="string">'xsl/index.xsl'</span><span class="keyword">, </span><span class="default">LIBXML_NOCDATA</span><span class="keyword">);<br /></span><span class="default">$xslt</span><span class="keyword">-&gt;</span><span class="default">importStylesheet</span><span class="keyword">( </span><span class="default">$XSL </span><span class="keyword">);<br /></span><span class="comment">#PRINT<br /></span><span class="keyword">print </span><span class="default">$xslt</span><span class="keyword">-&gt;</span><span class="default">transformToXML</span><span class="keyword">( </span><span class="default">$XML </span><span class="keyword">);<br /></span><span class="default">?&gt;</span></span></code></div>
+  </div>
+ </div>
+  <div class="note" id="78436">  <div class="votes">
+    <div id="Vu78436">
+    <a href="/manual/vote-note.php?id=78436&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd78436">
+    <a href="/manual/vote-note.php?id=78436&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V78436" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#78436" class="name">
+  <strong class="user"><em>pb at online-magazin dot at</em></strong></a><a class="genanchor" href="#78436"> &para;</a><div class="date" title="2007-10-11 03:13"><strong>16 years ago</strong></div>
+  <div class="text" id="Hcom78436">
+<div class="phpcode"><code><span class="html">Calling the Saxon XSLT Processor is a very esay task to do!<br /><br />You just need to do some simple task<br /><br />1. Install the JavaBridge for PHP<br /><br />2. Download the freeware (B) Saxon distribution from <a href="http://saxon.sourceforge.net/" rel="nofollow" target="_blank">http://saxon.sourceforge.net/</a><br /><br />3. Put the jar files in a directory whre you have access<br /><br />4. Use this sample of code<br /><br />// Directory where the jar files are located<br />define("SAXON_DIR", $_SERVER['DOCUMENT_ROOT']."/saxonb8.9.0/");<br /><br />// include the jars<br />java_require(SAXON_DIR."saxon8.jar;".SAXON_DIR."saxon8-dom.jar");<br /> <br /> <br />$sXslFile = $_SERVER['DOCUMENT_ROOT']."/myfirst.xsl"; // The xsl file<br />$sXmlFile = $_SERVER['DOCUMENT_ROOT']."/myfirst.xml"; // The xml file<br /><br />try<br />{<br />  $oXslSource = new java("javax.xml.transform.stream.StreamSource", "file://".$sXslFile);<br />  $oXmlSource = new java("javax.xml.transform.stream.StreamSource", "file://".$sXmlFile);<br /><br />  $oFeatureKeys = new JavaClass("net.sf.saxon.FeatureKeys");<br /><br />  // Create the Factory<br />  $oTransformerFactory = new java("net.sf.saxon.TransformerFactoryImpl");<br /><br />  //Disable source document validation<br />  $oTransformerFactory-&gt;setAttribute($oFeatureKeys-&gt;SCHEMA_VALIDATION, 4);<br /><br />  // Create a new Transformer<br />  $oTransFormer = $oTransformerFactory-&gt;newTransformer($oXslSource);<br />    <br />  // Create a StreamResult to store the output<br />  $oResultStringWriter = new java("java.io.StringWriter");<br />  $oResultStream = new java("javax.xml.transform.stream.StreamResult", $oResultStringWriter);<br />  <br />  // Transform<br />  $oTransFormer-&gt;transform($oXmlSource, $oResultStream);<br />  <br />  // Echo the output from the transformation<br />  echo java_cast($oResultStringWriter-&gt;toString(), "string");<br />  <br />}<br />catch(JavaException $e){<br />   echo java_cast($e-&gt;getCause()-&gt;toString(), "string");<br />   exit;<br />}<br /><br />5. Enjoy<br /><br />This is working quite well.</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="77244">  <div class="votes">
+    <div id="Vu77244">
+    <a href="/manual/vote-note.php?id=77244&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd77244">
+    <a href="/manual/vote-note.php?id=77244&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V77244" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#77244" class="name">
+  <strong class="user"><em>Vasil Rangelov</em></strong></a><a class="genanchor" href="#77244"> &para;</a><div class="date" title="2007-08-21 07:31"><strong>17 years ago</strong></div>
+  <div class="text" id="Hcom77244">
+<div class="phpcode"><code><span class="html">@basslines at gmail dot com<br />"<br />As far as I can tell, the most recent stable versions of LibXML/LibXSLT/LibEXSLT do NOT support xPath 2.0 / XSLT 2.0 transformations. The only support for XSLT 2.0 that I've found is in Java's SAXON processor (<a href="http://saxon.sourceforge.net/" rel="nofollow" target="_blank">http://saxon.sourceforge.net/</a>).<br />"<br /><br />Using SAXON or AltovaXML by using their JAVA bindings could prove to be a difficult task to do, and .NET seems to be buggy (at least for me). However, I've made a class that uses SAXON or AltovaXML from the command line. AltovaXML could also be used with COM, provided it's registered as a COM component.<br /><br />You can download my wrapper from:<br /><a href="http://xslt2processor.sourceforge.net/" rel="nofollow" target="_blank">http://xslt2processor.sourceforge.net/</a><br /><br />I still need to implement a more graceful error handling (the way the XSL extension uses the Libxml functions), and once the bug<br /><a href="http://bugs.php.net/bug.php?id=41577" rel="nofollow" target="_blank">http://bugs.php.net/bug.php?id=41577</a><br />is fixed, I'll implement the .NET interfaces too.<br /><br />I'll appreciate any feedback.</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="50472">  <div class="votes">
+    <div id="Vu50472">
+    <a href="/manual/vote-note.php?id=50472&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd50472">
+    <a href="/manual/vote-note.php?id=50472&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V50472" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#50472" class="name">
+  <strong class="user"><em>venkatesh at lammersmedical dot com</em></strong></a><a class="genanchor" href="#50472"> &para;</a><div class="date" title="2005-03-01 06:17"><strong>19 years ago</strong></div>
+  <div class="text" id="Hcom50472">
+<div class="phpcode"><code><span class="html">Here is function to read from the XSL sheet which is saved as a text file.<br /><br />function ReadExcelSheet($filename){<br />             $test=file($filename);<br />             $ar1=str_replace("~[^\t]*\t","\t",$test);<br />             $ar2=str_replace("~","",$ar1);<br />             $ar=str_replace("?","",$ar2);<br />             $temp=array();<br />             for ($i=0; $i&lt;count($ar); $i++) {<br />                       if((substr($ar[$i],0,1)!= "\t")){<br />                           if($ar[$i]!=="\r\n"){<br />                           array_push($temp,$ar[$i]);<br />            }<br />        }<br />    }<br />    $name=split("\t",$temp[0]);<br />    $ExcelList=array();<br />    for($i=1;$i&lt;count($temp);$i++){<br />        $split_result=split("\t",$temp[$i]);<br />        array_push($ExcelList,$split_result);<br />    }<br />    $result=insert_into_array($ExcelList,0,$name);<br />    return($result);<br />}</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="45415">  <div class="votes">
+    <div id="Vu45415">
+    <a href="/manual/vote-note.php?id=45415&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd45415">
+    <a href="/manual/vote-note.php?id=45415&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V45415" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#45415" class="name">
+  <strong class="user"><em>jw at jwscripts dot com</em></strong></a><a class="genanchor" href="#45415"> &para;</a><div class="date" title="2004-09-06 02:23"><strong>19 years ago</strong></div>
+  <div class="text" id="Hcom45415">
+<div class="phpcode"><code><span class="html">The following code is a wrapper to support calls to some of the old xslt_* functions:<br /><br />&lt;?<br /><br />if (PHP_VERSION &gt;= 5) {<br />    // Emulate the old xslt library functions<br />    function xslt_create() {<br />        return new XsltProcessor();<br />    }<br /><br />    function xslt_process($xsltproc, <br />                          $xml_arg, <br />                          $xsl_arg, <br />                          $xslcontainer = null, <br />                          $args = null, <br />                          $params = null) {<br />        // Start with preparing the arguments<br />        $xml_arg = str_replace('arg:', '', $xml_arg);<br />        $xsl_arg = str_replace('arg:', '', $xsl_arg);<br /><br />        // Create instances of the DomDocument class<br />        $xml = new DomDocument;<br />        $xsl = new DomDocument;<br /><br />        // Load the xml document and the xsl template<br />        $xml-&gt;loadXML($args[$xml_arg]);<br />        $xsl-&gt;loadXML($args[$xsl_arg]);<br /><br />        // Load the xsl template<br />        $xsltproc-&gt;importStyleSheet($xsl);<br /><br />        // Set parameters when defined<br />        if ($params) {<br />            foreach ($params as $param =&gt; $value) {<br />                $xsltproc-&gt;setParameter("", $param, $value);<br />            }<br />        }<br /><br />        // Start the transformation<br />        $processed = $xsltproc-&gt;transformToXML($xml);<br /><br />        // Put the result in a file when specified<br />        if ($xslcontainer) {<br />            return @file_put_contents($xslcontainer, $processed);<br />        } else {<br />            return $processed;<br />        }<br /><br />    }<br /><br />    function xslt_free($xsltproc) {<br />        unset($xsltproc);<br />    }<br />}<br /><br />$arguments = array(<br />    '/_xml' =&gt; file_get_contents("newxslt.xml"),<br />    '/_xsl' =&gt; file_get_contents("newxslt.xslt")<br />);<br /><br />$xsltproc = xslt_create();<br />$html = xslt_process(<br />    $xsltproc, <br />    'arg:/_xml', <br />    'arg:/_xsl', <br />    null, <br />    $arguments<br />);<br /><br />xslt_free($xsltproc);<br />print $html;<br /><br />?&gt;</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="85852">  <div class="votes">
+    <div id="Vu85852">
+    <a href="/manual/vote-note.php?id=85852&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd85852">
+    <a href="/manual/vote-note.php?id=85852&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V85852" title="42% like this...">
+    -1
+    </div>
+  </div>
+  <a href="#85852" class="name">
+  <strong class="user"><em>visual77 at gmail dot com</em></strong></a><a class="genanchor" href="#85852"> &para;</a><div class="date" title="2008-09-20 04:35"><strong>15 years ago</strong></div>
+  <div class="text" id="Hcom85852">
+<div class="phpcode"><code><span class="html">The XSLTProcessor is kind of a pain to use to generate an entire website, mostly due to the tedious process of building an XML tree through DOMDocument's createElement and appendChild functions.<br /><br />To get an entire website out of nothing but XML and XSL (which really is a superior system to just echoing out the HTML), you could use an object that does all the PHP data structure to XML data tree conversion, and combines with the XSLTProcessor for rendering. A good object like this is DOMi, which you can find at <a href="http://domi.sourceforge.net." rel="nofollow" target="_blank">http://domi.sourceforge.net.</a></span></code></div>
+  </div>
+ </div>
+  <div class="note" id="74883">  <div class="votes">
+    <div id="Vu74883">
+    <a href="/manual/vote-note.php?id=74883&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd74883">
+    <a href="/manual/vote-note.php?id=74883&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V74883" title="37% like this...">
+    -2
+    </div>
+  </div>
+  <a href="#74883" class="name">
+  <strong class="user"><em>Ryan D. Hatch</em></strong></a><a class="genanchor" href="#74883"> &para;</a><div class="date" title="2007-05-02 01:14"><strong>17 years ago</strong></div>
+  <div class="text" id="Hcom74883">
+<div class="phpcode"><code><span class="html">Looking for php_xsl.dll?<br /><br />If you installed on Windows using the MSI Installer - you may not have it.<br /><br />1.) Add/Remove Programs and Change PHP Installation.  Select XSL Extension.<br /><br />OR<br /><br />2.) Download complete .zip file of PHP and you can copy php_xsl.dll into your PHP/etc directory.<br /><br />Just a note.<br /><br />Ryan D. Hatch</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="80348">  <div class="votes">
+    <div id="Vu80348">
+    <a href="/manual/vote-note.php?id=80348&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd80348">
+    <a href="/manual/vote-note.php?id=80348&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V80348" title="33% like this...">
+    -2
+    </div>
+  </div>
+  <a href="#80348" class="name">
+  <strong class="user"><em>shangxiao at php dot net</em></strong></a><a class="genanchor" href="#80348"> &para;</a><div class="date" title="2008-01-10 05:38"><strong>16 years ago</strong></div>
+  <div class="text" id="Hcom80348">
+<div class="phpcode"><code><span class="html">When using the DOM api to add xsl commands to your stylesheet dynamically, be sure to use createElementNS() rather than createElement() otherwise the XSLTProcessor will not recognise these DOM nodes.<br /><br />Eg:<br />$xsl-&gt;createElementNS('<a href="http://www.w3.org/1999/XSL/Transform" rel="nofollow" target="_blank">http://www.w3.org/1999/XSL/Transform</a>', 'xsl:element');</span></code></div>
+  </div>
+ </div>
+  <div class="note" id="90395">  <div class="votes">
+    <div id="Vu90395">
+    <a href="/manual/vote-note.php?id=90395&amp;page=book.xsl&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd90395">
+    <a href="/manual/vote-note.php?id=90395&amp;page=book.xsl&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V90395" title="28% like this...">
+    -3
+    </div>
+  </div>
+  <a href="#90395" class="name">
+  <strong class="user"><em>allens at nospam dot com</em></strong></a><a class="genanchor" href="#90395"> &para;</a><div class="date" title="2009-04-19 08:45"><strong>15 years ago</strong></div>
+  <div class="text" id="Hcom90395">
+<div class="phpcode"><code><span class="html">Problem:<br />Getting Netbeans error message:<br />Fatal error: Class 'xsltprocessor' not found<br /><br />Solution:<br />place copy of php.ini in the c:\windows directory!<br /><br />by default the php.ini file has xsl disabled......search for the line <br /><br />;extension=php_xsl.dll<br /><br />to enable XSL....remove ; so that the extension gets included<br /><br />Then if Netbeans gives you the following message:<br />PHP Startup: Unable to load dynamic library './php_xsl.dll'<br /><br />then you need to run the php-5.2.9-1-win32-installer.msi again<br />this time selecting the XSL extension!</span></code></div>
+  </div>
+ </div></div>
+<div class="foot"><a href="/manual/add-note.php?sect=book.xsl&amp;redirect=https://www.php.net/manual/en/book.xsl.php">＋<small>add a note</small></a></div>
+</section>    </section><!-- layout-content -->
+        <aside class='layout-menu'>
+
+        <ul class='parent-menu-list'>
+                                    <li>
+                <a href="refs.xml.php">XML Manipulation</a>
+
+                                    <ul class='child-menu-list'>
+
+                                                <li class="">
+                            <a href="book.dom.php" title="DOM">DOM</a>
+                        </li>
+                                                <li class="">
+                            <a href="book.libxml.php" title="libxml">libxml</a>
+                        </li>
+                                                <li class="">
+                            <a href="book.simplexml.php" title="SimpleXML">SimpleXML</a>
+                        </li>
+                                                <li class="">
+                            <a href="book.wddx.php" title="WDDX">WDDX</a>
+                        </li>
+                                                <li class="">
+                            <a href="book.xmldiff.php" title="XMLDiff">XMLDiff</a>
+                        </li>
+                                                <li class="">
+                            <a href="book.xml.php" title="XML Parser">XML Parser</a>
+                        </li>
+                                                <li class="">
+                            <a href="book.xmlreader.php" title="XMLReader">XMLReader</a>
+                        </li>
+                                                <li class="">
+                            <a href="book.xmlwriter.php" title="XMLWriter">XMLWriter</a>
+                        </li>
+                                                <li class="current">
+                            <a href="book.xsl.php" title="XSL">XSL</a>
+                        </li>
+                        
+                    </ul>
+                
+            </li>
+                        
+                    </ul>
+    </aside>
+
+
+  </div><!-- layout -->
+
+  <footer>
+    <div class="container footer-content">
+      <div class="row-fluid">
+      <ul class="footmenu">
+        <li><a href="/manual/en/copyright.php">Copyright &copy; 2001-2024 The PHP Documentation Group</a></li>
+        <li><a href="/my.php">My PHP.net</a></li>
+        <li><a href="/contact.php">Contact</a></li>
+        <li><a href="/sites.php">Other PHP.net sites</a></li>
+        <li><a href="/privacy.php">Privacy policy</a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+
+    
+ <!-- External and third party libraries. -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/cached.php?t=1707321815&amp;f=/js/ext/hogan-3.0.2.min.js"></script>
+<script src="/cached.php?t=1723177202&amp;f=/js/ext/typeahead.jquery.min.js"></script>
+<script src="/cached.php?t=1723177202&amp;f=/js/ext/FuzzySearch.min.js"></script>
+<script src="/cached.php?t=1707321815&amp;f=/js/ext/mousetrap.min.js"></script>
+<script src="/cached.php?t=1707321815&amp;f=/js/ext/jquery.scrollTo.min.js"></script>
+<script src="/cached.php?t=1723177202&amp;f=/js/search.js"></script>
+<script src="/cached.php?t=1707321815&amp;f=/js/common.js"></script>
+
+<a id="toTop" href="javascript:;"><span id="toTopHover"></span><img width="40" height="40" alt="To Top" src="/images/to-top@2x.png"></a>
+
+</body>
+</html>

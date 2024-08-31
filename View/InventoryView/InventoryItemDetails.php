@@ -7,34 +7,19 @@
         <link rel="stylesheet" href="../../Css/Inventory/InventoryItemDetails.css">
     </head>
     <body>
+
+        <div class="navigation">
+            <a href="#">Medications</a>
+            <span>></span>
+            <a href="#">Pain Relievers</a>
+            <span>></span>
+            <a href="#">Tylenol (Acetaminophen)</a>
+        </div>
         <div class="container">
             <div class="left">
-                <div class="header">
-                    <div class="header-left">
-                        <img src="https://www.rosewoodhospital.com/sites/default/files/styles/site_logo/public/images/rosewood-logo.png?itok=77h2i1G1" alt="Rosewood Hospital Logo">
-                        <h2>Rosewood Hospital</h2>
-                    </div>
-                    <div class="header-right">
-                        <img src="https://cdn.pixabay.com/photo/20150423/121716/woman-734586_960_720.jpg" alt="Sarah Nixon">
-                        <span>Sarah Nixon</span>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <a href="#" class="active">Medications</a>
-                    <a href="#">Medical Supply</a>
-                    <a href="#">Procurement</a>
-                    <a href="#">Suppliers</a>
-                    <a href="#">Reports</a>
-                </div>
-                <div class="navigation">
-                    <a href="#">Medications</a>
-                    <span>></span>
-                    <a href="#">Pain Relievers</a>
-                    <span>></span>
-                    <a href="#">Tylenol (Acetaminophen)</a>
-                </div>
+
                 <div class="image">
-                    <img src="https://www.drugstore.com/images/products/55380/large/tylenol-extra-strength-cap-200-ct.jpg" alt="Tylenol (Acetaminophen) Image">
+                    <img src="../../assests/InventoryImages/glassCleaner.jpg" alt="Tylenol (Acetaminophen) Image">
                 </div>
                 <div class="description">
                     <h3>Medication Description</h3>
@@ -49,7 +34,7 @@
                 <div class="details">
                     <table>
                         <tr>
-                            <th>Last Supply Price</th>
+                            <th class="productName">Last Supply Price</th>
                             <td class="available">$10.82/bottle</td>
                         </tr>
                         <tr>

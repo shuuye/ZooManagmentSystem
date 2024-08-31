@@ -132,8 +132,16 @@ class InventoryModel extends databaseConfig {
 
     protected function updateXML() {//if want more can add $table and use it to determine which xml to update
         require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\XmlGenerator.php';
-        $xmlGenerator = new createXMLFromDatabase();
+        $xmlGenerator = new XmlGenerator();
         $xmlGenerator->createXMLFileByTableName("inventory", "inventory.xml", "inventories", "inventory");
+        $xmlGenerator->createXMLFileByTableName("cleaninginventory", "cleaninginventory.xml", "cleaninginventories", "cleaninginventory");
+        $xmlGenerator->createXMLFileByTableName("foodinventory", "foodinventory.xml", "foodinventories", "foodinventory");
+        $xmlGenerator->createXMLFileByTableName("habitatinventory", "habitatinventory.xml", "habitatinventories", "habitatinventory");
+        $xmlGenerator->createXMLFileByTableName("purchaseorder", "purchaseorder.xml", "purchaseorders", "purchaseorder");
+        $xmlGenerator->createXMLFileByTableName("purchaseorderlineitem", "purchaseorderlineitem.xml", "purchaseorderlineitems", "purchaseorderlineitem");
+        $xmlGenerator->createXMLFileByTableName("supplier", "supplier.xml", "suppliers", "supplier");
+        $xmlGenerator->createXMLFileByTableName("batch", "batch.xml", "batchs", "batch");
+        
     }
 
 //     protected function updateXML() {//if want more can add $table and use it to determine which xml to update

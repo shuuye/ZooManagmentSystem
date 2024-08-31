@@ -11,7 +11,7 @@ define('INVENTORY_CSS_PATH', '../../Css/Inventory/');
         <link rel="stylesheet" href="../../Css/Inventory/InventoryMasterPage.css">
         <link rel="stylesheet" href="../../Css/Inventory/displayingTable.css">
         <?php
-        if (isset($pageCss)) {
+        if (isset($pageCss)) { 
             echo '<link rel="stylesheet" href="' . INVENTORY_CSS_PATH . $pageCss . '">';
         }
         ?>
@@ -66,10 +66,10 @@ define('INVENTORY_CSS_PATH', '../../Css/Inventory/');
                     </li>
                     <li class="dropdown <?php echo ($activePage == 'Item Details') ? 'active' : ''; ?>">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Item Details <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu"> 
                             <li><a href="habitat-item-details.php">Habitat Item Details</a></li>
                             <li><a href="food-item-details.php">Food Item Details</a></li>
-                            <li><a href="cleaning-item-details.php">Cleaning Item Details</a></li>
+                            <li><a href="?action=viewCleaningDetails">Cleaning Item Details</a></li>
                             <li><a href="animal-item-details.php">Animal Item Details</a></li>
                         </ul>
                     </li>

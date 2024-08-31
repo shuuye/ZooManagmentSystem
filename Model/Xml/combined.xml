@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<root>
+  <cleaninginventory>
+    <id>1</id>
+    <inventoryId>26</inventoryId>
+    <cleaningType>Disinfectant</cleaningType>
+    <size>5L</size>
+    <usageInstructions>Dilute with water and use for surface cleaning.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>2</id>
+    <inventoryId>27</inventoryId>
+    <cleaningType>Glass Cleaner</cleaningType>
+    <size>1L</size>
+    <usageInstructions>Spray directly on glass surfaces and wipe clean.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>3</id>
+    <inventoryId>28</inventoryId>
+    <cleaningType>Floor Cleaner</cleaningType>
+    <size>10L</size>
+    <usageInstructions>Mix with water and mop the floor.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>4</id>
+    <inventoryId>29</inventoryId>
+    <cleaningType>Detergent</cleaningType>
+    <size>2kg</size>
+    <usageInstructions>Use for washing animal bedding and clothes.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>5</id>
+    <inventoryId>30</inventoryId>
+    <cleaningType>Sanitizer</cleaningType>
+    <size>500ml</size>
+    <usageInstructions>Apply directly on hands and rub until dry.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>6</id>
+    <inventoryId>31</inventoryId>
+    <cleaningType>Bleach</cleaningType>
+    <size>4L</size>
+    <usageInstructions>Use for disinfecting surfaces and removing stains.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>7</id>
+    <inventoryId>32</inventoryId>
+    <cleaningType>Deodorizer</cleaningType>
+    <size>1L</size>
+    <usageInstructions>Spray in animal enclosures to remove odors.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>8</id>
+    <inventoryId>33</inventoryId>
+    <cleaningType>Scrub Brush</cleaningType>
+    <size>Medium</size>
+    <usageInstructions>Use for scrubbing tough stains.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>9</id>
+    <inventoryId>34</inventoryId>
+    <cleaningType>Mop</cleaningType>
+    <size>Large</size>
+    <usageInstructions>Use for mopping floors.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>10</id>
+    <inventoryId>35</inventoryId>
+    <cleaningType>Broom</cleaningType>
+    <size>Standard</size>
+    <usageInstructions>Use for sweeping floors.</usageInstructions>
+  </cleaninginventory>
+
+  <purchaseorder>
+    <poId>1</poId>
+    <orderDate>2024-01-01</orderDate>
+    <supplierId>1</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>2</poId>
+    <orderDate>2024-02-01</orderDate>
+    <supplierId>2</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>3</poId>
+    <orderDate>2024-03-01</orderDate>
+    <supplierId>3</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>4</poId>
+    <orderDate>2024-04-01</orderDate>
+    <supplierId>4</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>5</poId>
+    <orderDate>2024-05-01</orderDate>
+    <supplierId>5</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>6</poId>
+    <orderDate>2024-06-01</orderDate>
+    <supplierId>6</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>7</poId>
+    <orderDate>2024-07-01</orderDate>
+    <supplierId>7</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>8</poId>
+    <orderDate>2024-08-01</orderDate>
+    <supplierId>8</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>9</poId>
+    <orderDate>2024-09-01</orderDate>
+    <supplierId>9</supplierId>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>10</poId>
+    <orderDate>2024-10-01</orderDate>
+    <supplierId>10</supplierId>
+  </purchaseorder>
+
+  <purchaseorderlineitem>
+    <poLineItemId>1</poLineItemId>
+    <poId>1</poId>
+    <batchId>1</batchId>
+    <quantity>100</quantity>
+    <costPerUnit>15.99</costPerUnit>
+    <purchaseDate>2024-01-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>2</poLineItemId>
+    <poId>2</poId>
+    <batchId>2</batchId>
+    <quantity>200</quantity>
+    <costPerUnit>10.99</costPerUnit>
+    <purchaseDate>2024-02-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>3</poLineItemId>
+    <poId>3</poId>
+    <batchId>3</batchId>
+    <quantity>300</quantity>
+    <costPerUnit>5.99</costPerUnit>
+    <purchaseDate>2024-03-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>4</poLineItemId>
+    <poId>4</poId>
+    <batchId>4</batchId>
+    <quantity>400</quantity>
+    <costPerUnit>20.99</costPerUnit>
+    <purchaseDate>2024-04-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>5</poLineItemId>
+    <poId>5</poId>
+    <batchId>5</batchId>
+    <quantity>500</quantity>
+    <costPerUnit>25.99</costPerUnit>
+    <purchaseDate>2024-05-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>6</poLineItemId>
+    <poId>6</poId>
+    <batchId>6</batchId>
+    <quantity>600</quantity>
+    <costPerUnit>30.99</costPerUnit>
+    <purchaseDate>2024-06-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>7</poLineItemId>
+    <poId>7</poId>
+    <batchId>7</batchId>
+    <quantity>700</quantity>
+    <costPerUnit>35.99</costPerUnit>
+    <purchaseDate>2024-07-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>8</poLineItemId>
+    <poId>8</poId>
+    <batchId>8</batchId>
+    <quantity>800</quantity>
+    <costPerUnit>40.99</costPerUnit>
+    <purchaseDate>2024-08-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>9</poLineItemId>
+    <poId>9</poId>
+    <batchId>9</batchId>
+    <quantity>900</quantity>
+    <costPerUnit>45.99</costPerUnit>
+    <purchaseDate>2024-09-01</purchaseDate>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>10</poLineItemId>
+    <poId>10</poId>
+    <batchId>10</batchId>
+    <quantity>1000</quantity>
+    <costPerUnit>50.99</costPerUnit>
+    <purchaseDate>2024-10-01</purchaseDate>
+  </purchaseorderlineitem>
+
+  <inventory>
+    <inventoryId>1</inventoryId>
+    <itemName>Lion</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 1</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>2</inventoryId>
+    <itemName>Tiger</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 2</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>3</inventoryId>
+    <itemName>Elephant</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 3</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>4</inventoryId>
+    <itemName>Giraffe</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 4</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>5</inventoryId>
+    <itemName>Monkey</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 5</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>6</inventoryId>
+    <itemName>Zebra</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 6</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>7</inventoryId>
+    <itemName>Kangaroo</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 7</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>8</inventoryId>
+    <itemName>Panda</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 8</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>9</inventoryId>
+    <itemName>Penguin</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 9</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>10</inventoryId>
+    <itemName>Koala</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>4</supplierId>
+    <storageLocation>Enclosure 10</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>11</inventoryId>
+    <itemName>Newt</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>17</supplierId>
+    <storageLocation>Aquatic</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>12</inventoryId>
+    <itemName>Parrot</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>18</supplierId>
+    <storageLocation>Aviary</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>13</inventoryId>
+    <itemName>Bear</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>19</supplierId>
+    <storageLocation>Forest</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>14</inventoryId>
+    <itemName>Toad</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>20</supplierId>
+    <storageLocation>Aquatic</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>15</inventoryId>
+    <itemName>Sparrow</itemName>
+    <itemType>Animal</itemType>
+    <supplierId>21</supplierId>
+    <storageLocation>Aviary</storageLocation>
+    <reorderThreshold>1</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>16</inventoryId>
+    <itemName>Desert Sand</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 1</storageLocation>
+    <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>17</inventoryId>
+    <itemName>Rocks</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 2</storageLocation>
+    <reorderThreshold>200</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>18</inventoryId>
+    <itemName>Branches</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 3</storageLocation>
+    <reorderThreshold>150</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>19</inventoryId>
+    <itemName>Water Bowl</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 4</storageLocation>
+    <reorderThreshold>50</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>20</inventoryId>
+    <itemName>Heat Lamp</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 5</storageLocation>
+    <reorderThreshold>20</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>21</inventoryId>
+    <itemName>Plants</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 6</storageLocation>
+    <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>22</inventoryId>
+    <itemName>Substrate</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 7</storageLocation>
+    <reorderThreshold>50</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>23</inventoryId>
+    <itemName>Hiding Spot</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 8</storageLocation>
+    <reorderThreshold>30</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>24</inventoryId>
+    <itemName>Climbing Structure</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 9</storageLocation>
+    <reorderThreshold>20</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>25</inventoryId>
+    <itemName>Water Filter</itemName>
+    <itemType>Habitat</itemType>
+    <supplierId>3</supplierId>
+    <storageLocation>Habitat Storage 10</storageLocation>
+    <reorderThreshold>15</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>26</inventoryId>
+    <itemName>Disinfectant</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>20</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>27</inventoryId>
+    <itemName>Glass Cleaner</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>15</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>28</inventoryId>
+    <itemName>Floor Cleaner</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>30</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>29</inventoryId>
+    <itemName>Detergent</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>40</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>30</inventoryId>
+    <itemName>Sanitizer</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>25</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>31</inventoryId>
+    <itemName>Bleach</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>35</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>32</inventoryId>
+    <itemName>Deodorizer</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>20</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>33</inventoryId>
+    <itemName>Scrub Brush</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>10</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>34</inventoryId>
+    <itemName>Mop</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>5</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>35</inventoryId>
+    <itemName>Broom</itemName>
+    <itemType>Cleaning</itemType>
+    <supplierId>2</supplierId>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>5</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>36</inventoryId>
+    <itemName>Bananas</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Fruit Storage</storageLocation>
+    <reorderThreshold>200</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>37</inventoryId>
+    <itemName>Acacia Leaves</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Vegetable Storage</storageLocation>
+    <reorderThreshold>150</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>38</inventoryId>
+    <itemName>Apples</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Fruit Storage</storageLocation>
+    <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>39</inventoryId>
+    <itemName>Hay</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Grain Storage</storageLocation>
+    <reorderThreshold>500</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>40</inventoryId>
+    <itemName>Carrots</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Vegetable Storage</storageLocation>
+    <reorderThreshold>120</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>41</inventoryId>
+    <itemName>Bamboo</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Vegetable Storage</storageLocation>
+    <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>42</inventoryId>
+    <itemName>Fish</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Meat Storage</storageLocation>
+    <reorderThreshold>50</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>43</inventoryId>
+    <itemName>Eucalyptus Leaves</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Vegetable Storage</storageLocation>
+    <reorderThreshold>30</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>44</inventoryId>
+    <itemName>Beef</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Meat Storage</storageLocation>
+    <reorderThreshold>10</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>45</inventoryId>
+    <itemName>Chicken</itemName>
+    <itemType>Food</itemType>
+    <supplierId>5</supplierId>
+    <storageLocation>Meat Storage</storageLocation>
+    <reorderThreshold>8</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+</root>
