@@ -5,6 +5,7 @@ include_once '../../Config/databaseConfig.php';
 require_once '../../Model/Inventory/InventoryModel.php';
 require_once 'subject.php';
 require_once 'HealthObserver.php';
+require_once 'HabitatObserver.php';
 
 class AnimalModel extends databaseConfig implements subject{
 
@@ -18,6 +19,7 @@ class AnimalModel extends databaseConfig implements subject{
         $this->inventoryModel = new InventoryModel();
         // Add observers
         $this->attach(new HealthObserver());
+        $this->attach(new HabitatObserver());
     }
     
     // Observer methods ---------------------------------------------------------------------
@@ -154,6 +156,8 @@ class AnimalModel extends databaseConfig implements subject{
           echo "Error: " . $e->getMessage();
       }
   }
+  
+  
     // Function to update an existing habitat
     public function updateHabitat($habitat_id, $habitat_name, $availability, $capacity, $environment, $description) {
         try {
@@ -202,7 +206,101 @@ class AnimalModel extends databaseConfig implements subject{
     
     
     // health function ----------------Use Xml and database update both-----------------------------------------------------------------------------
+    // Health record functions -------------------------------------------------------------------------
     
+    public function getAllHealthRecords() {
+        $query = "SELECT * FROM health_records";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    
+    public function getAllAnimalIds() {
+        $query = "SELECT id FROM animalinventory";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute();
+        $animalIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        return $animalIds;
+    }
+
+    
+    public function insertHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus) {
+      $conn = $this->db->getConnection();
+
+      // Prepare the query to insert a new health record
+      $query = "INSERT INTO health_records (animal_id, last_checkup, treatments, healthStatus)
+                VALUES (:animal_id, :last_checkup, :treatments, :healthStatus)";
+
+      $stmt = $conn->prepare($query);
+      $stmt->bindParam(':animal_id', $animalId);
+      $stmt->bindParam(':last_checkup', $lastCheckup);
+      $stmt->bindParam(':treatments', $treatments);
+      $stmt->bindParam(':healthStatus', $healthStatus);
+      $stmt->execute();
+
+      // Retrieve the last inserted ID
+      $healthRecordId = $conn->lastInsertId();
+
+      return $healthRecordId;
+  }
+
+   public function updateAnimalHealthRecordId($animalId, $healthRecordId) {
+    $conn = $this->db->getConnection();
+
+    $query = "UPDATE animalinventory
+               SET health_id = :health_id
+               WHERE id = :animal_id";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':health_id', $healthRecordId);
+    $stmt->bindParam(':animal_id', $animalId);
+    $stmt->execute();
+}
+
+  public function getAnimalsWithoutCompleteHealthRecords() {
+    // Select animals without complete health records
+    $query = "SELECT a.id 
+              FROM animalinventory a 
+              LEFT JOIN health_records hr ON a.id = hr.animal_id 
+              WHERE hr.animal_id IS NULL 
+              OR (hr.last_checkup IS NULL OR hr.treatments IS NULL OR hr.healthStatus IS NULL)";
+
+    $stmt = $this->db->getConnection()->prepare($query);
+    $stmt->execute();
+
+    $animalIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+    return $animalIds;
+}
+    
+
+    public function editHealthRecord($healthRecordId, $animalId, $lastCheckup, $treatments, $healthStatus) {
+        $query = "UPDATE health_records SET animal_id = :animal_id, last_checkup = :last_checkup, 
+                  treatments = :treatments, healthStatus = :healthStatus 
+                  WHERE hRecord_id = :health_record_id";
+        $stmt = $this->db->getConnection()->prepare($query);
+
+        $stmt->bindParam(':health_record_id', $healthRecordId, PDO::PARAM_INT);
+        $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
+        $stmt->bindParam(':last_checkup', $lastCheckup, PDO::PARAM_STR);
+        $stmt->bindParam(':treatments', $treatments, PDO::PARAM_STR);
+        $stmt->bindParam(':healthStatus', $healthStatus, PDO::PARAM_STR);
+
+        $stmt->execute();
+        $this->notify($healthRecordId);
+    }
+
+    public function removeHealthRecord($healthRecordId) {
+        $query = "DELETE FROM health_records WHERE hRecord_id = :health_record_id";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->bindParam(':health_record_id', $healthRecordId, PDO::PARAM_INT);
+        $stmt->execute();
+        $this->notify($healthRecordId);
+    }
+    
+  
+
 }
 ?>
 
