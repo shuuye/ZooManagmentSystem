@@ -1,52 +1,78 @@
 <?php
 
 include_once '../../Model/ObserverN/AnimalModel.php';
+require_once '../../Model/Inventory/InventoryModel.php';
 
 class AnimalController{
 
     private $animalModel;
+    private $inventoryModel;
 
     public function __construct() {
         $this->animalModel = new AnimalModel();
-        $this->handleRequest();
+        $this->inventoryModel = new InventoryModel();
+//        $this->handleRequest();
+    }
+    
+      // Show the form to select item names and add animal details
+    public function showForm() {
+        $itemNames = $this->inventoryModel->getAnimalItemNames();
+        include '../../View/AnimalView/animal_form.php'; // Pass the item names to the view
     }
 
-    private function handleRequest() {
-    if (isset($_POST['submit'])) {
-        $animalName = $_POST['animalName'];
-        $species = $_POST['species'];
-        $height = $_POST['height'];
-        $weight = $_POST['weight'];
-        $habitatId = $_POST['habitatId'];
-        $healthStatus = $_POST['healthStatus'];
-        $quantity = $_POST['quantity'];
+    // Process the form submission
+    public function processForm() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $itemName = $_POST['itemName'];
 
-        // Call the model method with default values for supplierId, storageLocation, and reorderThreshold
-        $success = $this->animalModel->addNewAnimal($animalName, $species, $height, $weight, $habitatId, $healthStatus, $quantity);
+            // Get inventory ID
+            $inventoryId = $this->inventoryModel->getInventoryIdByName($itemName);
 
-        if ($success) {
-            // Redirect or display success message
-            // header("Location: /ZooManagementSystem/success.php");
-            echo 'Successfully added animal';
-        } else {
-            // Handle the failure
-            $_SESSION['error_message'] = "Failed to add animal.";
-            header("Location: ../../View/AnimalView/add_animal.php");
+            if ($inventoryId) {
+                // Collect additional animal details from the form
+                $animalDetails = [
+                    'name' => $_POST['name'],
+                    'species' => $_POST['species'],
+                    'subspecies' => $_POST['subspecies'],
+                    'categories' => $_POST['categories'],
+                    'age' => $_POST['age'],
+                    'gender' => $_POST['gender'],
+                    'date_of_birth' => $_POST['date_of_birth'],
+                    'avg_lifespan' => $_POST['avg_lifespan'],
+                    'description' => $_POST['description'],
+                    'height' => $_POST['height'],
+                    'weight' => $_POST['weight'],
+                    'habitat_id' => $_POST['habitat_id']
+                ];
+
+                // Add animal details
+                $success = $this->animalModel->addAnimal($inventoryId, $animalDetails);
+
+                if ($success) {
+                    $message = "Animal added successfully.";
+                } else {
+                    $message = "Failed to add animal.";
+                }
+            } else {
+                $message = "Invalid item name.";
+            }
+
+            include '../../View/AnimalView/animal_result.php'; // Show the result to the user
         }
     }
-}
 
     
      public function displayAnimals($category = null) {
         if ($category) {
             $animals = $this->animalModel->getAnimalsByCategory($category);
         } else {
-            $animals = $this->animalModel->getAnimalsByCategory(); // Assuming you want to fetch all if no category is provided
+            $animals = $this->animalModel->getAnimalsByCategory(); //  all if no category is provided
         }
         return $animals;
     }
 }
 
 // Initialize controller
-new AnimalController();
+$controller = new AnimalController();
+
 ?>

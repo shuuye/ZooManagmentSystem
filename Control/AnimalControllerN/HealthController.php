@@ -37,7 +37,7 @@ class HealthController {
        $this->healthObserver->update($this->animalModel);
 
        // Redirect or return a success message
-       header('Location: ../../View/AnimalView/list_healthRecords.php');
+       echo'Successful update';
        exit();
    }
 

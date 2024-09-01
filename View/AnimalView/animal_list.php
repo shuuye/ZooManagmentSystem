@@ -52,7 +52,6 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
                 <th>Height</th>
                 <th>Weight</th>
                 <th>Habitat ID</th>
-                <th>Health Status</th>
                 <th>Category</th>
             </tr>
         </thead>
@@ -66,7 +65,6 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
                         <td><?php echo htmlspecialchars($animal['height']); ?></td>
                         <td><?php echo htmlspecialchars($animal['weight']); ?></td>
                         <td><?php echo htmlspecialchars($animal['habitat_id']); ?></td>
-                        <td><?php echo htmlspecialchars($animal['healthStatus']); ?></td>
                         <td><?php echo htmlspecialchars($animal['categories']); ?></td>
                     </tr>
                 <?php endforeach; ?>

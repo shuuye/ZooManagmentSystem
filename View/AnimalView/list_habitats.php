@@ -68,5 +68,12 @@
             <?php endif; ?>
         </tbody>
     </table>
+    
+     <div>
+        <form action="add_habitat.php" method="get">
+            <button type="submit">Add New Habitat</button>
+        </form>
+    </div>
+    
 </body>
 </html>
