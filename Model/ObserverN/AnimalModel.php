@@ -13,6 +13,8 @@ class AnimalModel extends databaseConfig implements subject{
     private $observers = array(); // Observer pattern methods
     private $inventoryModel;
     private $habitatData;
+     private $id; // this is animal id
+    private $healthRecordId;
     
     public function __construct() {
         $this->db = new databaseConfig();
@@ -58,6 +60,15 @@ class AnimalModel extends databaseConfig implements subject{
         return $this->habitatData;
     }
     
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id): void {
+        $this->id = $id;
+    }
+
+        
     
     // Animal function -------------------------------------------------------------------------------------------------------------------
     public function addNewAnimal($animalName, $species, $height, $weight, $habitatId, $healthStatus, $quantity) {
@@ -91,10 +102,13 @@ class AnimalModel extends databaseConfig implements subject{
 
         // Execute query
         $stmt->execute();
+        // Retrieve the last inserted ID
+        
+        $this->id = $this->db->getConnection()->lastInsertId();
 
         // Notify observers
-        $this->notifyObservers($inventoryId);
-
+        $this->notify();
+        
         // Return success
         return true;
     }
@@ -216,16 +230,24 @@ class AnimalModel extends databaseConfig implements subject{
     }
     
     
-    public function getAllAnimalIds() {
+    public function getAllAnimalIds() { 
         $query = "SELECT id FROM animalinventory";
         $stmt = $this->db->getConnection()->prepare($query);
         $stmt->execute();
         $animalIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
         return $animalIds;
     }
+    
+    public function getHealthRecordIdByAnimalId($animalId) {
+        $query = "SELECT health_id FROM animalinventory WHERE id = :animal_id";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn(); // returns health_id if it exists
+    }
 
     
-    public function insertHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus) {
+    public function insertHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus) { // add new health record
       $conn = $this->db->getConnection();
 
       // Prepare the query to insert a new health record
@@ -245,7 +267,7 @@ class AnimalModel extends databaseConfig implements subject{
       return $healthRecordId;
   }
 
-   public function updateAnimalHealthRecordId($animalId, $healthRecordId) {
+   public function updateAnimalHealthRecordId($animalId, $healthRecordId) { // update to animal id and health id  inventory table
     $conn = $this->db->getConnection();
 
     $query = "UPDATE animalinventory
@@ -257,28 +279,14 @@ class AnimalModel extends databaseConfig implements subject{
     $stmt->bindParam(':animal_id', $animalId);
     $stmt->execute();
 }
-
-  public function getAnimalsWithoutCompleteHealthRecords() {
-    // Select animals without complete health records
-    $query = "SELECT a.id 
-              FROM animalinventory a 
-              LEFT JOIN health_records hr ON a.id = hr.animal_id 
-              WHERE hr.animal_id IS NULL 
-              OR (hr.last_checkup IS NULL OR hr.treatments IS NULL OR hr.healthStatus IS NULL)";
-
-    $stmt = $this->db->getConnection()->prepare($query);
-    $stmt->execute();
-
-    $animalIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
-
-    return $animalIds;
-}
-    
-
+ 
     public function editHealthRecord($healthRecordId, $animalId, $lastCheckup, $treatments, $healthStatus) {
         $query = "UPDATE health_records SET animal_id = :animal_id, last_checkup = :last_checkup, 
                   treatments = :treatments, healthStatus = :healthStatus 
                   WHERE hRecord_id = :health_record_id";
+        
+        $this->healthRecordId = $healthRecordId;
+        
         $stmt = $this->db->getConnection()->prepare($query);
 
         $stmt->bindParam(':health_record_id', $healthRecordId, PDO::PARAM_INT);
@@ -288,16 +296,17 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->bindParam(':healthStatus', $healthStatus, PDO::PARAM_STR);
 
         $stmt->execute();
-        $this->notify($healthRecordId);
+        $this->notify($healthRecordId); // notify observer
     }
-
-    public function removeHealthRecord($healthRecordId) {
-        $query = "DELETE FROM health_records WHERE hRecord_id = :health_record_id";
+    
+        public function getHealthRecord($healthRecordId) {
+        $query = "SELECT * FROM health_records WHERE hRecord_id = :health_record_id";
         $stmt = $this->db->getConnection()->prepare($query);
         $stmt->bindParam(':health_record_id', $healthRecordId, PDO::PARAM_INT);
         $stmt->execute();
-        $this->notify($healthRecordId);
+        return $stmt->fetch();
     }
+
     
   
 

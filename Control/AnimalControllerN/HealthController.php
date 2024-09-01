@@ -3,6 +3,7 @@
 require_once '../../Model/ObserverN/AnimalModel.php';
 require_once '../../Model/ObserverN/HealthObserver.php';
 require_once '../../Model/XmlGenerator.php';
+require_once '../../View/AnimalView/list_healthRecords.php';
 
 class HealthController {
     
@@ -17,27 +18,29 @@ class HealthController {
         return $this->animalModel->getAllAnimalIds();
     }
     
- 
- 
-    public function getAnimalsWithoutCompleteHealthRecords() { // only allow user add the animal which records are imcomplete
-        return $this->animalModel->getAnimalsWithoutCompleteHealthRecords();
-    }
 
-   
-    public function addHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus) {
-    // Insert new health record
-   $healthRecordId = $this->animalModel->insertHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus);
+    public function manageHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus) {
+       // Check if the animal already has a health record
+       $healthRecordId = $this->animalModel->getHealthRecordIdByAnimalId($animalId);
 
-    // Update the animalinventory table with the new health record ID
-    $this->animalModel->updateAnimalHealthRecordId($animalId, $healthRecordId);
+       if ($healthRecordId) {
+           // Update the existing health record
+           $this->animalModel->editHealthRecord($healthRecordId, $animalId, $lastCheckup, $treatments, $healthStatus);
+       } else {
+           // Insert a new health record
+           $healthRecordId = $this->animalModel->insertHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus);
+           // Update the animal inventory table with the new health record ID
+           $this->animalModel->updateAnimalHealthRecordId($animalId, $healthRecordId);
+       }
 
-    // Notify the observers
-    $this->healthObserver->update($this->animalModel);
+       // Notify the observers
+       $this->healthObserver->update($this->animalModel);
 
-    // Redirect to a success page or show a success message
-    echo 'Successfully added new records';
-    exit();
-}
+       // Redirect or return a success message
+       header('Location: ../../View/AnimalView/list_healthRecords.php');
+       exit();
+   }
+
     
      public function handleAddHealthRecordForm() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -45,20 +48,10 @@ class HealthController {
             $lastCheckup = $_POST['last_checkup'];
             $treatments = $_POST['treatments'];
             $healthStatus = $_POST['healthStatus'];
-            $this->addHealthRecord($animal_id, $lastCheckup, $treatments, $healthStatus);
+            $this->manageHealthRecord($animal_id, $lastCheckup, $treatments, $healthStatus);
         }
     }
 
-    public function updateHealthRecord($healthRecordId, $animalId, $lastCheckup, $treatments, $healthStatus) {
-        $this->animalModel->editHealthRecord($healthRecordId, $animalId, $lastCheckup, $treatments, $healthStatus);
-        // Redirect or return a success message
-    }
-
-    public function deleteHealthRecord($healthRecordId) {
-        $this->animalModel->removeHealthRecord($healthRecordId);
-        // Redirect or return a success message
-    }
-    
    public function displayHealthRecords() {
         $xmlGenerator = new XmlGenerator();
         
@@ -81,7 +74,6 @@ class HealthController {
         // Render HTML
         include 'animal_health_report.html';
     }
-  
-
+    
     
 }

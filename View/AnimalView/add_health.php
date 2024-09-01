@@ -6,7 +6,7 @@ include_once '../../Control/AnimalControllerN/HealthController.php';
 $controller = new HealthController();
 
 // Get the animal IDs without complete health records from the controller
-$animalIds = $controller->getAnimalsWithoutCompleteHealthRecords();
+$animalIds = $controller->getAnimalIds();
 
 // Handle form submission
 $controller ->handleAddHealthRecordForm();

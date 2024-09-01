@@ -14,21 +14,21 @@
   </HealthRecord>
   <HealthRecord hRecord_id="3">
     <animal_id>3</animal_id>
-    <last_checkup>2024-01-15</last_checkup>
-    <treatments>Dental check</treatments>
-    <healthStatus>Unknown</healthStatus>
+    <last_checkup>2024-09-20</last_checkup>
+    <treatments>dddqd</treatments>
+    <healthStatus>Healthy</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="4">
     <animal_id>11</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
+    <last_checkup>2024-09-10</last_checkup>
+    <treatments>pi</treatments>
+    <healthStatus>Treatment</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="5">
     <animal_id>4</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
+    <last_checkup>2024-10-02</last_checkup>
+    <treatments>dcvas</treatments>
+    <healthStatus>Treatment</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="6">
     <animal_id>12</animal_id>
@@ -38,9 +38,9 @@
   </HealthRecord>
   <HealthRecord hRecord_id="7">
     <animal_id>5</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>Dental check</treatments>
-    <healthStatus>Unknown</healthStatus>
+    <last_checkup>2024-09-15</last_checkup>
+    <treatments>ef</treatments>
+    <healthStatus>Warning</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="8">
     <animal_id>6</animal_id>
@@ -56,9 +56,9 @@
   </HealthRecord>
   <HealthRecord hRecord_id="10">
     <animal_id>8</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
+    <last_checkup>2024-09-20</last_checkup>
+    <treatments>juj</treatments>
+    <healthStatus>Treatment</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="11">
     <animal_id>9</animal_id>
@@ -95,5 +95,35 @@
     <last_checkup>2024-01-01</last_checkup>
     <treatments>No treatment</treatments>
     <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="29">
+    <animal_id>17</animal_id>
+    <last_checkup>2024-09-10</last_checkup>
+    <treatments>rg</treatments>
+    <healthStatus>Treatment</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="30">
+    <animal_id>10</animal_id>
+    <last_checkup>2024-09-18</last_checkup>
+    <treatments>ewfw</treatments>
+    <healthStatus>Treatment</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="31">
+    <animal_id>9</animal_id>
+    <last_checkup>2024-09-19</last_checkup>
+    <treatments>hthtr</treatments>
+    <healthStatus>Warning</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="32">
+    <animal_id>9</animal_id>
+    <last_checkup>2024-09-11</last_checkup>
+    <treatments>dfg</treatments>
+    <healthStatus>Warning</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="33">
+    <animal_id>12</animal_id>
+    <last_checkup>2024-09-18</last_checkup>
+    <treatments>feasf</treatments>
+    <healthStatus>Warning</healthStatus>
   </HealthRecord>
 </HealthRecords>
