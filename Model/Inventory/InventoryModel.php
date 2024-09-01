@@ -57,15 +57,25 @@ class InventoryModel extends databaseConfig {
             return null; // No matching record found
         }
     }
-
-    public function getInventoryIdByName($itemName) {
+    
+     public function getAnimalItemNames() { // Pam add ver
+        $query = "SELECT itemName FROM inventory WHERE itemType = 'Animal'";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+    
+    public function getInventoryIdByName($itemName) { //Pam ver
         $this->db = new databaseConfig();
-        // Prepare the SQL query to fetch the inventory ID based on itemType
-        $query = "SELECT inventoryId FROM Inventory WHERE itemType = ?";
+        // Prepare the SQL query to fetch the inventory ID based on itemName
+        $query = "SELECT inventoryId FROM Inventory WHERE itemName = :itemName";
         $stmt = $this->db->getConnection()->prepare($query);
 
-        // Execute the query with the provided itemType
-        $stmt->execute([$itemName]);
+        // Bind the itemName parameter
+        $stmt->bindParam(':itemName', $itemName, PDO::PARAM_STR);
+
+        // Execute the query
+        $stmt->execute();
 
         // Fetch the result
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -76,7 +86,28 @@ class InventoryModel extends databaseConfig {
         } else {
             return null; // or handle the case where no matching record is found
         }
-    }
+}
+
+
+//    public function getInventoryIdByName($itemName) {
+//        $this->db = new databaseConfig();
+//        // Prepare the SQL query to fetch the inventory ID based on itemType
+//        $query = "SELECT inventoryId FROM Inventory WHERE itemType = ?";
+//        $stmt = $this->db->getConnection()->prepare($query);
+//
+//        // Execute the query with the provided itemType
+//        $stmt->execute([$itemName]);
+//
+//        // Fetch the result
+//        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+//
+//        // Check if the inventoryId was found
+//        if ($result) {
+//            return $result['inventoryId'];
+//        } else {
+//            return null; // or handle the case where no matching record is found
+//        }
+//    }
 
     protected function getAllRecordsByType($itemType) {
         $this->db = new databaseConfig();

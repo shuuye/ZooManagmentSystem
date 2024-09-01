@@ -26,7 +26,7 @@
                     </xsl:for-each>
                 </table>
                 <br/>
-                <a href="add_health.php"><button>Add New Health Record</button></a>
+                <a href="../../View/AnimalView/add_health.php"><button>Add New Health Record</button></a>
             </body>
         </html>
     </xsl:template>
