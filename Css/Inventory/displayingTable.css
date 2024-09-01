@@ -28,6 +28,16 @@ identify all structures of table in inventory system
     margin-right: 30px;
 }
 
+.hrefText{
+    text-decoration: none; 
+    color: black;
+}
+
+.hrefText:hover{
+    cursor: pointer;
+    font-weight: 600;
+}
+
 /*button shape sturcture*/
 
 .prev, .next{

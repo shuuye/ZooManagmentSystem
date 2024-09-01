@@ -43,7 +43,7 @@ class InventoryModel extends databaseConfig {
                 case 'animal':
                     // Create and return an AnimalInventory object
                     return new AnimalInventory(
-                            $record['itemName'], $record['itemType'], $record['supplierId'], $record['storageLocation'],
+                            $record['itemName'], $record['itemType'], $record['storageLocation'],
                             $record['reorderThreshold'], $record['name'], $record['species'], $record['subspecies'], $record['categories'],
                             $record['age'], $record['gender'], $record['date_of_birth'], $record['avg_lifespan'], $record['description'],
                             $record['height'], $record['weight'], $record['healthStatus'], $record['habitatid']
@@ -93,15 +93,15 @@ class InventoryModel extends databaseConfig {
         return $results; // Return the array of results
     }
 
-    public function addInventoryIntoDB($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity) {
+    public function addInventoryIntoDB($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity) {
         // Create a new database connection object
         $this->db = new databaseConfig();
 
-        $query = "INSERT INTO Inventory (itemName, itemType, supplierId, storageLocation, reorderThreshold, quantity) VALUES "
-                . "(?,?,?,?,?,?)";
+        $query = "INSERT INTO Inventory (itemName, itemType, storageLocation, reorderThreshold, quantity) VALUES "
+                . "(?,?,?,?,?)";
         $result = $this->db->getConnection()->prepare($query);
 
-        if (!$result->execute(array($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity))) {
+        if (!$result->execute(array($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity))) {
             $result = null;
             exit();
         }
@@ -141,6 +141,7 @@ class InventoryModel extends databaseConfig {
         $xmlGenerator->createXMLFileByTableName("purchaseorderlineitem", "purchaseorderlineitem.xml", "purchaseorderlineitems", "purchaseorderlineitem");
         $xmlGenerator->createXMLFileByTableName("supplier", "supplier.xml", "suppliers", "supplier");
         $xmlGenerator->createXMLFileByTableName("batch", "batch.xml", "batchs", "batch");
+        $xmlGenerator->createXMLFileByTableName("item_image", "itemimage.xml", "itemimages", "itemimage");
         
     }
 

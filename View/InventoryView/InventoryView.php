@@ -23,7 +23,13 @@ class InventoryView extends InventoryModel {
     public function renderXML($xmlfilename, $xslfilename, $data) {
         $xslTransformation = new XSLTransformation($xmlfilename, $xslfilename);
         if (isset($data['inventoryID'])) {
-            $xslTransformation->setParameter('id', $data['inventoryID']);
+            $xslTransformation->setParameter('inventoryID', $data['inventoryID']);
+        }
+        if (isset($data['itemID'])) {
+            $xslTransformation->setParameter('itemID', $data['itemID']);
+        }
+        if (isset($data['imageDirectory'])) {
+            $xslTransformation->setParameter('imageDirectory', $data['imageDirectory']);
         }
         $transformedContent = $xslTransformation->transform();
         ob_start();

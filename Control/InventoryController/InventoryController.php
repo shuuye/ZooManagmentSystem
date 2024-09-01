@@ -33,8 +33,16 @@ class InventoryController extends InventoryModel {
             case 'cleaningItem':
                 $this->viewCleaningItem();
                 break;
-            case 'viewCleaningDetails':
-                $this->viewCleaningDetails();
+            case 'viewItembasedOnInventoryID':
+                $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
+                $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                $this->viewItembasedOnInventoryID($inventoryId, $itemType);
+                break;
+            case 'viewSpecificDetails':
+                $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
+                 $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
+                $this->viewSpecific($inventoryId, $itemType,$itemID);
                 break;
             case 'index':
             default:
@@ -126,19 +134,75 @@ class InventoryController extends InventoryModel {
         echo $output;
     }
 
-    public function viewCleaningDetails() {
+    public function viewSpecific($inventoryId, $itemType, $itemID) {
         $xmlFiles = [
             '../../Model/Xml/cleaninginventory.xml',
+            '../../Model/Xml/foodinventory.xml',
+            '../../Model/Xml/habitatinventory.xml',
             '../../Model/Xml/purchaseorder.xml',
             '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml'
+            '../../Model/Xml/inventory.xml',
+            '../../Model/Xml/itemImage.xml'
         ];
-        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\CleaningInventoryItemDetails.xsl';
+        
+        switch ($itemType) {
+            case 'Food':
+                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\FoodInventoryItemDetails.xsl';
+                break;
+            case 'Habitat':
+                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\HabitatInventoryItemDetails.xsl';
+                break;
+            case 'Cleaning':
+                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\CleaningInventoryItemDetails.xsl';
+                break;
+            // add more cases for other item types
+            default:
+                throw new Exception("Unknown itemType: $itemType");
+        }
+        
         $data = [
             'activePage' => 'Inventory Management',
             'pageCss' => 'InventoryItemDetails.css',
             'xslt_transform' => true,
-            'inventoryID' => '3'
+            'inventoryID' => $inventoryId,
+            'itemID' => $itemID,
+            'imageDirectory' => '../../assests/InventoryImages/'
+        ];
+
+        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
+        echo $output;
+    }
+
+    public function viewItembasedOnInventoryID($inventoryId, $itemType) {
+        $xmlFiles = [
+            '../../Model/Xml/cleaninginventory.xml',
+            '../../Model/Xml/foodinventory.xml',
+            '../../Model/Xml/habitatinventory.xml',
+            '../../Model/Xml/purchaseorder.xml',
+            '../../Model/Xml/purchaseorderlineitem.xml',
+            '../../Model/Xml/inventory.xml'
+        ];
+
+        switch ($itemType) {
+            case 'Food':
+                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDFooditem.xsl';
+                break;
+            case 'Habitat':
+                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDHabitatItem.xsl';
+                break;
+            case 'Cleaning':
+                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDCleaningItem.xsl';
+                break;
+            // add more cases for other item types
+            default:
+                throw new Exception("Unknown itemType: $itemType");
+        }
+
+        $data = [
+            'activePage' => 'Inventory Management',
+            'pageCss' => 'mainInventoryTracking.css',
+            'inventoryID' => $inventoryId,
+            'xslt_transform' => true
         ];
 
         $output = $this->view->renderXML($xmlFiles, $xslFile, $data);

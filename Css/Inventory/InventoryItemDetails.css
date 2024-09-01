@@ -35,13 +35,18 @@ Animal > Banana
 left panel
 */
 .image {
-    padding: 10px;
+    width: 100%; /* make the image container take up the full width of its parent */
 }
+
 .image img {
-    max-width: 100%;
+    width: 100%; /* make the image take up the full width of its container */
+    object-fit: cover; /* scale the image to fit the container while maintaining aspect ratio */
+    border-radius: 10px; /* add a slight border radius for a nicer look */
+    margin: 10px; /* add some margin around the image */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
 }
+
 .description {
     padding: 10px;
 }

@@ -26,21 +26,50 @@
                     <th>Inventory ID</th>
                     <th>Item Name</th>
                     <th>Item Type</th>
-                    <th>Supplier ID</th>
                     <th>Storage Location</th>
                     <th>Reorder Threshold</th>
                     <th>Quantity</th>
                 </tr>
                 <xsl:for-each select="inventories/inventory">
                     <tr>
-                        <td><input type="checkbox" name="record[]" value="{inventoryId}" /></td>
-                        <td><xsl:value-of select="inventoryId" /></td>
-                        <td><xsl:value-of select="itemName" /></td>
-                        <td><xsl:value-of select="itemType" /></td>
-                        <td><xsl:value-of select="supplierId" /></td>
-                        <td><xsl:value-of select="storageLocation" /></td>
-                        <td><xsl:value-of select="reorderThreshold" /></td>
-                        <td><xsl:value-of select="quantity" /></td>
+                        <td>
+                            <input type="checkbox" name="record[]" value="{inventoryId}" />
+                        </td>
+                        <td>
+                            <xsl:value-of select="inventoryId" />
+                        </td>
+                        <td>
+                            <a class="hrefText">
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="concat('?action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                </xsl:attribute>
+                                <xsl:value-of select="itemName" />
+                            </a>
+                        </td>
+                        <td>
+                            <a class="hrefText">
+                                <xsl:attribute name="href">
+                                    <xsl:choose>
+                                        <xsl:when test="itemType = 'Food'">?action=foodItem</xsl:when>
+                                        <xsl:when test="itemType = 'Habitat'">?action=habitatItem</xsl:when>
+                                        <xsl:when test="itemType = 'Cleaning'">?action=cleaningItem</xsl:when>
+                                        <xsl:otherwise>index.php</xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:attribute>
+                                <xsl:value-of select="itemType" />
+                            </a>
+
+
+                        </td>
+                        <td>
+                            <xsl:value-of select="storageLocation" />
+                        </td>
+                        <td>
+                            <xsl:value-of select="reorderThreshold" />
+                        </td>
+                        <td>
+                            <xsl:value-of select="quantity" />
+                        </td>
                     </tr>
                 </xsl:for-each>
             </table>

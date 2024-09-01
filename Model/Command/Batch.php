@@ -1,18 +1,23 @@
 <?php
 
 class Batch { //store different batch of inventory come
+
     private $batchId;
     private $inventoryId;
     private $quantity;
+    private $manufactureDate;
     private $expiryDate;
-    private $unitMeasure;
+    private $supplierId;
+    private $status;
 
-    public function __construct($batchId, $inventoryId, $quantity, $expiryDate, $unitMeasure) {
+    public function __construct($batchId, $inventoryId, $quantity, $manufactureDate, $expiryDate, $supplierId, $status) {
         $this->batchId = $batchId;
         $this->inventoryId = $inventoryId;
         $this->quantity = $quantity;
+        $this->manufactureDate = $manufactureDate;
         $this->expiryDate = $expiryDate;
-        $this->unitMeasure = $unitMeasure;
+        $this->supplierId = $supplierId;
+        $this->status = $status;
     }
 
     public function getBatchId() {
@@ -30,14 +35,4 @@ class Batch { //store different batch of inventory come
     public function getExpiryDate() {
         return $this->expiryDate;
     }
-
-    public function getUnitMeasure() {
-        return $this->unitMeasure;
-    }
-
-    public function updateQuantity($newQuantity) {
-        $this->quantity = $newQuantity;
-    }
-
-    
 }

@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     //createItem
     $inventoryCreater = new InventoryItemFactory();
-    $inventory = $inventoryCreater->createItem($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
+    $inventory = $inventoryCreater->createItem($item_name, $item_type, $storageLocation, $reorder_threshold);
     
 //running error handling
     include_once '../../Model/Command/InventoryManagement.php';

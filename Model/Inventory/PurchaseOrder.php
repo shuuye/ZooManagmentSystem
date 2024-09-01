@@ -5,12 +5,17 @@ class PurchaseOrder {
     private $poId;
     private $orderDate;
     private $supplierId;
+    private $deliveryDate;
+    private $totalAmount;
     private $lineItems = []; // Array of PurchaseOrderLineItem objects
 
-    public function __construct($poId, $orderDate, $supplierId) {
+
+    public function __construct($poId, $orderDate, $supplierId, $deliveryDate = null, $totalAmount = null) {
         $this->poId = $poId;
         $this->orderDate = $orderDate;
         $this->supplierId = $supplierId;
+        $this->deliveryDate = $deliveryDate;
+        $this->totalAmount = $totalAmount;
     }
 
     public function addLineItem($inventoryId, $quantity, $costPerUnit) {

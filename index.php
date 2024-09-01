@@ -1,10 +1,11 @@
 <?php
 // Initialize the application
 require_once 'Config/databaseConfig.php';
+require_once 'Control/InventoryController/InventoryController.php';
 
 // Define routes
 $routes = array(
-    '/Control/InventoryController' => 'InventoryController@index'
+    '/Control/Inventory/Controller/InventoryController' => 'InventoryController@indexaction'
    
 );
 
@@ -15,9 +16,10 @@ $url = $_SERVER['REQUEST_URI'];
 foreach ($routes as $route => $controllerAction) {
     if (preg_match("#^$route#i", $url)) {
         list($controller, $action) = explode('@', $controllerAction);
-        $controller = ucfirst($controller) . 'Controller';
-        $action = $action . 'Action';
         break;
+    }else{
+        $controller = 'InventoryController';
+        $action = 'indexaction';
     }
 }
 
