@@ -29,7 +29,7 @@ identify all structures of table in inventory system
 }
 
 .hrefText{
-    text-decoration: none; 
+    text-decoration: none;
     color: black;
 }
 
@@ -48,7 +48,7 @@ identify all structures of table in inventory system
 
 
 .prev a:visited, .next a:visited{
-    text-decoration: none; 
+    text-decoration: none;
     color: white;
 }
 
@@ -98,6 +98,26 @@ identify all structures of table in inventory system
 }
 .outstock{
     background-color: red;
+}
+
+.lowstock:hover,
+.instock:hover,
+.outstock:hover {
+    background-color: yellow; /* Change background to yellow */
+    color: black; /* Change text color to black */
+    content: "Replenish"; /* This doesn't work on its own for text change */
+}
+
+/* Text change on hover using pseudo-element */
+.lowstock:hover::before,
+.instock:hover::before,
+.outstock:hover::before {
+    content: "Replenish";
+    color: black; /* Text color for "Replenish" */
+    position: absolute;
+    z-index: 1;
+    background-color: yellow; /* Change background to yellow */
+    padding: 0px 7px;
 }
 
 /*PO status update*/

@@ -353,7 +353,7 @@
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 1</storageLocation>
     <reorderThreshold>1</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>10</quantity>
   </inventory>
   <inventory>
     <inventoryId>2</inventoryId>
@@ -481,7 +481,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 2</storageLocation>
     <reorderThreshold>200</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>300</quantity>
   </inventory>
   <inventory>
     <inventoryId>18</inventoryId>

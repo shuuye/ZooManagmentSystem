@@ -3,17 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/add_health.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/AnimalModel.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/HealthController.php</file>
-=======
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryView.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/cleaninginventory.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/habitatinventory.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/FoodInventoryItemDetails.xsl</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/CleaningInventoryItemDetails.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/InventoryItemDetails.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/combined.xml</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryCatalog.xsl</file>
->>>>>>> Stashed changes
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/foodinventory.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/itemimage.xml</file>
         </group>
     </open-files>
 </project-private>
