@@ -46,6 +46,7 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
     <table>
         <thead>
             <tr>
+                <th>Image</th>
                 <th>Animal ID</th>
                 <th>Name</th>
                 <th>Species</th>
@@ -59,6 +60,13 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
             <?php if (!empty($animals)) : ?>
                 <?php foreach ($animals as $animal) : ?>
                     <tr>
+                        <td>
+                            <?php if ($animal['image']) : ?>
+                                <img src="<?php echo htmlspecialchars($animal['image']); ?>" alt="Animal Image" width="50" height="50">
+                            <?php else : ?>
+                                No Image
+                            <?php endif; ?>
+                        </td>
                         <td><?php echo htmlspecialchars($animal['id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['name']); ?></td>
                         <td><?php echo htmlspecialchars($animal['species']); ?></td>

@@ -71,7 +71,7 @@ class AnimalModel extends databaseConfig implements subject{
     }
 
     
-    // Animal function -------------------------------------------------------------------------------------------------------------------
+  // Animal function -------------------------------------------------------------------------------------------------------------------
  
  // Add new animal details
     public function addAnimal($inventoryId, $animalDetails) {
@@ -114,6 +114,24 @@ class AnimalModel extends databaseConfig implements subject{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    public function getAnimalImage($animalId) {
+        $pdo = $this->db->getConnection();
+        $stmt = $pdo->prepare("SELECT image_path FROM animal_image WHERE animal_id = ?");
+        $stmt->execute([$animalId]);
+        
+        $imageResult = $stmt->fetch();
+        
+        return $imageResult ? $imageResult['image_path'] : null;
+    }
+    
+    public function addAnimalImage($animalId, $imagePath) {
+        $query = "INSERT INTO animal_image (animal_id, image_path) VALUES (:animal_id, :image_path)";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
+        $stmt->bindParam(':image_path', $imagePath);
+        return $stmt->execute();
+}
+    
     // Function for habitat-------------------------------------------------------------------------------------------------------
     // Function to insert a new habitat
     public function insertNewHabitat($habitat_name, $availability, $capacity, $environment, $description) {
@@ -139,6 +157,14 @@ class AnimalModel extends databaseConfig implements subject{
             echo "Error: " . $e->getMessage();
         }
     }
+    
+    public function getAvailableHabitats() { //use at add animal form
+        $query = "SELECT habitat_id, habitat_name FROM habitats WHERE availability = 'Available'";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     
     public function getHabitatById($habitat_id) {
       try {
