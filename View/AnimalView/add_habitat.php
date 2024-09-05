@@ -18,6 +18,14 @@ $habitatController->handleFormSubmission();
     <link rel="stylesheet" type="text/css" href="../../Css/Habitat/habitat.css">
 </head>
 <body>
+    
+      <nav>
+        <ul>
+            <li><a href="?action=editHabitat">Edit and Delete Habitat</a></li>
+            <li><a href="?action=ViewHabitat">View Habitat</a></li>
+        </ul>
+    </nav>
+    
     <h1>Add New Habitat</h1>
     
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

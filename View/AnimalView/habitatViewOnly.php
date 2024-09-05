@@ -1,12 +1,10 @@
  <?php
-            // Include the controller
-            require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
+// Include the controller
+require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
 
-            // Create an instance of the controller
-            $habitatController = new HabitatControllerObserver();
-            $habitatController->route();
-            // Handle form submissions
-            $habitatController->handleFormSubmission();
+// Create an instance of the controller
+$habitatController = new HabitatControllerObserver();
+$habitatController->route();
 ?>
 
 <!DOCTYPE html>
@@ -14,14 +12,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit & Delete of Habitats</title>
+    <title>List of Habitats</title>
     <link rel="stylesheet" type="text/css" href="../../Css/Habitat/habitat.css">
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="?action=addHabitat">Add New Habitat</a></li>
-            <li><a href="?action=ViewHabitat">View Habitat</a></li>
+            <li><a href="?action=editHabitat">Edit and Delete Habitat</a></li>
         </ul>
     </nav>
     <h1>List of Habitats</h1>
@@ -34,8 +32,6 @@
                 <th>Capacity</th>
                 <th>Environment</th>
                 <th>Description</th>
-                <th>#</th>
-                <th>#</th>
             </tr>
         </thead>
         <tbody>
@@ -52,20 +48,6 @@
                         <td><?php echo htmlspecialchars($habitat['capacity']); ?></td>
                         <td><?php echo htmlspecialchars($habitat['environment']); ?></td>
                         <td><?php echo htmlspecialchars($habitat['description']); ?></td>
-                        <td>
-                            <form action="edit_habitat.php" method="post">
-                                <input type="hidden" name="habitat_id" value="<?php echo $habitat['habitat_id']; ?>">
-                                <input type="submit" value="Edit">
-                            </form>
-                        </td>
-                        <td>
-                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                                <input type="hidden" name="action" value="delete">
-                                <input type="hidden" name="habitat_id" value="<?php echo $habitat['habitat_id']; ?>">
-                                <input type="submit" value="Delete">
-                            </form>
-                        </td>
-                        
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -75,12 +57,6 @@
             <?php endif; ?>
         </tbody>
     </table>
-    
-<!--     <div>
-        <form action="add_habitat.php" method="get">
-            <button type="submit">Add New Habitat</button>
-        </form>
-    </div>-->
-    
+
 </body>
 </html>

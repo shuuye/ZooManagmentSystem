@@ -7,7 +7,6 @@
 <body>
     <nav>
         <ul>
-            <li><a href="animal_form.php">Add New Animal</a></li>
             <li><a href="animal_list.php">View Animals</a></li>
         </ul>
     </nav>
