@@ -11,14 +11,39 @@ class AnimalController{
     public function __construct() {
         $this->animalModel = new AnimalModel();
         $this->inventoryModel = new InventoryModel();
-//        $this->handleRequest();
+
     }
     
-      // Show the form to select item names and add animal details
+   public function route(){
+        $action = isset($_GET['action']) ? $_GET['action'] : 'home';
+
+        switch ($action) {
+            case 'home' :
+                include '../../View/AnimalView/animal_home.php';
+                break;
+            case 'displayAnimals':
+                include '../../View/AnimalView/animal_list.php';
+                break;
+            case 'showForm':
+                $this->showForm();
+                break;
+            case 'processForm':
+                $this->processForm();
+                break;
+            default:
+                echo "Invalid action.";
+                break;
+        }
+    }
+
+    // Show the form to select item names and add animal details
     public function showForm() {
+        // Log or output information to verify it's being called
+        error_log("showForm called");
         $itemNames = $this->inventoryModel->getAnimalItemNames();
         $availableHabitats = $this->animalModel->getAvailableHabitats();  // Fetch available habitats
         include '../../View/AnimalView/animal_form.php'; // Pass the item names to the view
+        exit();
     }
 
     // Process the form submission
@@ -105,14 +130,13 @@ class AnimalController{
             }
         } else {
             $message = "Invalid item name.";
+          }
+            include '../../View/AnimalView/animal_result.php'; // Show the result to the user
+          exit();
         }
-
-        include '../../View/AnimalView/animal_result.php'; // Show the result to the user
     }
-}
-
     
-     public function displayAnimals($category = null) {
+    public function displayAnimals($category = null) {
         if ($category) {
             $animals = $this->animalModel->getAnimalsByCategory($category);
         } else {
@@ -125,6 +149,7 @@ class AnimalController{
         }
         return $animals;
     }
+
 }
 
 // Initialize controller

@@ -1,3 +1,13 @@
+ <?php
+            // Include the controller
+            require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
+
+            // Create an instance of the controller
+            $habitatController = new HabitatControllerObserver();
+            // Handle form submissions
+            $habitatController->handleFormSubmission();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,16 +33,9 @@
         </thead>
         <tbody>
             <?php
-            // Include the controller
-            require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
-
-            // Create an instance of the controller
-            $habitatController = new HabitatControllerObserver();
-
             // Fetch all habitats
             $habitats = $habitatController->displayHabitats();
             ?>
-
             <?php if (!empty($habitats)): ?>
                 <?php foreach ($habitats as $habitat): ?>
                     <tr>
@@ -49,15 +52,12 @@
                             </form>
                         </td>
                         <td>
-                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="habitat_id" value="<?php echo $habitat['habitat_id']; ?>">
                                 <input type="submit" value="Delete">
                             </form>
                         </td>
-                        <?php
-                        $habitatController->handleFormSubmission();
-                        ?>
                         
                     </tr>
                 <?php endforeach; ?>

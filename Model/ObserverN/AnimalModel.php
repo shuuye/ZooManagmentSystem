@@ -1,6 +1,6 @@
 <?php
 
-//This model represents the data for an animal. When the animal's information changes, it will notify all observers.
+//This model represents the data for an animal. When the animal's information changes, it will notify all observers. It is the concrete subject
 include_once '../../Config/databaseConfig.php';
 require_once '../../Model/Inventory/InventoryModel.php';
 require_once 'subject.php';
@@ -44,17 +44,8 @@ class AnimalModel extends databaseConfig implements subject{
   // Setter and Getter-------------------------------------------------------------------------
   
     // Set habitat data and notify observers
-    public function setHabitatData($habitat_id, $habitat_name, $availability, $capacity, $environment, $description) {
-        $this->habitatData = [
-            'habitat_id' => $habitat_id,
-            'habitat_name' => $habitat_name,
-            'availability' => $availability,
-            'capacity' => $capacity,
-            'environment' => $environment,
-            'description' => $description
-        ];
-
-        // Notify observers after setting the data
+    public function setHabitatData($habitatData) {
+        $this->habitatData = $habitatData;
         $this->notify();
     }
     
