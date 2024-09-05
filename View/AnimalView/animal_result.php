@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,13 @@
     <title>Result</title>
 </head>
 <body>
-    <p><?php echo htmlspecialchars($message); ?></p>
-    <a href="index.php?action=showForm">Back to Form</a>
+    <nav>
+        <ul>
+            <li><a href="animal_form.php">Add New Animal</a></li>
+            <li><a href="animal_list.php">View Animals</a></li>
+        </ul>
+    </nav>
+    <p>Successfully Add new animal</p>
+    
 </body>
 </html>

@@ -2,6 +2,7 @@
 include_once '../../Control/AnimalControllerN/AnimalController.php';
 
 $animalController = new AnimalController();
+$animalController->route();
 $category = isset($_GET['category']) ? $_GET['category'] : null;
 $animals = $animalController->displayAnimals($category);
 
@@ -29,6 +30,11 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="?action=showForm">Add New Animal</a></li>
+        </ul>
+    </nav>
     <h1>Animal List</h1>
 
     <form method="GET" action="">

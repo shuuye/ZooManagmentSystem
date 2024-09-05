@@ -102,4 +102,10 @@
     <treatments>Vaccination</treatments>
     <healthStatus>Treatment</healthStatus>
   </HealthRecord>
+  <HealthRecord hRecord_id="22">
+    <animal_id>42</animal_id>
+    <last_checkup>2024-09-10</last_checkup>
+    <treatments>sxssx</treatments>
+    <healthStatus>Normal</healthStatus>
+  </HealthRecord>
 </HealthRecords>

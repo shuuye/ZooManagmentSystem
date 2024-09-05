@@ -3,7 +3,6 @@
 require_once '../../Model/ObserverN/AnimalModel.php';
 require_once '../../Model/ObserverN/HealthObserver.php';
 require_once '../../Model/XmlGenerator.php';
-require_once '../../View/AnimalView/list_healthRecords.php';
 
 class HealthController {
     
