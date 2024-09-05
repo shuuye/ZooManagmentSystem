@@ -9,20 +9,20 @@ include_once 'HabitatInventory.php';
 
 class InventoryItemFactory {
 
-    public static function createItem($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold): Inventory {
+    public static function createItem($item_name, $item_type, $storageLocation, $reorder_threshold): Inventory {
         echo $item_type;
         switch ($item_type) {
             case 'Animal':
-                return new AnimalInventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
+                return new AnimalInventory($item_name, $item_type, $storageLocation, $reorder_threshold);
 
             case 'Food':
-                return new FoodInventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
+                return new FoodInventory($item_name, $item_type, $storageLocation, $reorder_threshold);
 
             case 'Cleaning':
-                return new CleaningInventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
+                return new CleaningInventory($item_name, $item_type, $storageLocation, $reorder_threshold);
 
             case 'Habitat':
-                return new HabitatInventory($item_name, $item_type, $supplier_id, $storageLocation, $reorder_threshold);
+                return new HabitatInventory($item_name, $item_type, $storageLocation, $reorder_threshold);
 
             default:
                 throw new Exception("Unknown inventory item type");

@@ -9,15 +9,20 @@
                 <a href="#">Cleaning Supplies</a>
                 <span>> </span>
                 <a href="#">
-                    <xsl:value-of select="cleaninginventory[id = $id]/cleaningType" />
+                    <xsl:value-of select="inventory[inventoryId = $inventoryID]/itemName" />
+                </a>
+                <span>> </span>
+                <a href="#">
+                    <xsl:value-of select="cleaninginventory[id = $itemID]/cleaningName" />
                 </a>
             </div>
             <div class="container">
-                <xsl:for-each select="cleaninginventory[id = $id]">
+                <xsl:for-each select="cleaninginventory[id = $itemID]">
                     <div class="left">
                         <div class="image">
-                            <img src="../../assests/InventoryImages/glassCleaner.jpg" alt="Cleaning Product Image"/>
+                           <img src="{$imageDirectory}{/root/itemimage[cleaningId=$itemID]/image_path}"/>
                         </div>
+                       
                         <div class="description">
                             <h3>Description</h3>
                             <ul>
@@ -32,25 +37,25 @@
                             <table>
                                 <tr>
                                     <th colspan="2" class="productName">
-                                        <xsl:value-of select="cleaningType" />
+                                        <xsl:value-of select="cleaningName" />
                                     </th>
                                 </tr>
                                 <tr>
                                     <th>Last Supply Price</th>
                                     <td >
-                                        <xsl:value-of select="/root/purchaseorderlineitem[poId = /root/cleaninginventory[id=$id]/id]/costPerUnit" />
+                                        <xsl:value-of select="/root/purchaseorderlineitem[inventoryId=$inventoryID and cleaningId=$itemID][last()]/unitPrice" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Current Stock</th>
                                     <td>
-                                        <xsl:value-of select="/root/inventory[inventoryId=/root/cleaninginventory[id=$id]/inventoryId]/quantity" />
+                                        <xsl:value-of select="/root/inventory[inventoryId=/root/cleaninginventory[id=$itemID]/inventoryId]/quantity" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Category</th>
                                     <td>
-                                        <xsl:value-of select="cleaningType" />
+                                        <xsl:value-of select="/root/inventory[inventoryId = $inventoryID]/itemName" />
                                     </td>
                                 </tr>
                                 <tr>

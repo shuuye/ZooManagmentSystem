@@ -3,70 +3,70 @@
   <cleaninginventory>
     <id>1</id>
     <inventoryId>26</inventoryId>
-    <cleaningType>Disinfectant</cleaningType>
+    <cleaningName>Lysol Disinfectant</cleaningName>
     <size>5L</size>
     <usageInstructions>Dilute with water and use for surface cleaning.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>2</id>
     <inventoryId>27</inventoryId>
-    <cleaningType>Glass Cleaner</cleaningType>
+    <cleaningName>Windex Glass Cleaner</cleaningName>
     <size>1L</size>
     <usageInstructions>Spray directly on glass surfaces and wipe clean.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>3</id>
     <inventoryId>28</inventoryId>
-    <cleaningType>Floor Cleaner</cleaningType>
+    <cleaningName>Mr. Clean Floor Cleaner</cleaningName>
     <size>10L</size>
     <usageInstructions>Mix with water and mop the floor.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>4</id>
     <inventoryId>29</inventoryId>
-    <cleaningType>Detergent</cleaningType>
+    <cleaningName>Tide Detergent</cleaningName>
     <size>2kg</size>
     <usageInstructions>Use for washing animal bedding and clothes.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>5</id>
     <inventoryId>30</inventoryId>
-    <cleaningType>Sanitizer</cleaningType>
+    <cleaningName>Purell Sanitizer</cleaningName>
     <size>500ml</size>
     <usageInstructions>Apply directly on hands and rub until dry.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>6</id>
     <inventoryId>31</inventoryId>
-    <cleaningType>Bleach</cleaningType>
+    <cleaningName>Clorox Bleach</cleaningName>
     <size>4L</size>
     <usageInstructions>Use for disinfecting surfaces and removing stains.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>7</id>
     <inventoryId>32</inventoryId>
-    <cleaningType>Deodorizer</cleaningType>
+    <cleaningName>Febreze Deodorizer</cleaningName>
     <size>1L</size>
     <usageInstructions>Spray in animal enclosures to remove odors.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>8</id>
     <inventoryId>33</inventoryId>
-    <cleaningType>Scrub Brush</cleaningType>
+    <cleaningName>Scotch-Brite Scrub Brush</cleaningName>
     <size>Medium</size>
     <usageInstructions>Use for scrubbing tough stains.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>9</id>
     <inventoryId>34</inventoryId>
-    <cleaningType>Mop</cleaningType>
+    <cleaningName>O-Cedar Mop</cleaningName>
     <size>Large</size>
     <usageInstructions>Use for mopping floors.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>10</id>
     <inventoryId>35</inventoryId>
-    <cleaningType>Broom</cleaningType>
+    <cleaningName>Rubbermaid Broom</cleaningName>
     <size>Standard</size>
     <usageInstructions>Use for sweeping floors.</usageInstructions>
   </cleaninginventory>

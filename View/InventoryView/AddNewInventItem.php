@@ -22,10 +22,6 @@
                 </td>
             </tr>
             <tr>
-                <td>Supplier ID:</td>
-                <td><input type="text" name="supplier_id"></td>
-            </tr>
-            <tr>
                 <td>Storage Location:</td>
                 <td><input type="text" name="storageLocation" required></td>
             </tr>

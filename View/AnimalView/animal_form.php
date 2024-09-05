@@ -6,20 +6,19 @@
 </head>
 <body>
     <form action="index.php?action=processForm" method="post" enctype="multipart/form-data">
-        <label for="itemName">Select Item Name:</label>
         
-        <select name="itemName" id="itemName">
+        <label for="itemName">Select Item Name:</label>
+        <select name="itemName" id="itemName"onchange="updateSpecies()" required>
             <?php foreach ($itemNames as $itemName): ?>
                 <option value="<?php echo htmlspecialchars($itemName); ?>"><?php echo htmlspecialchars($itemName); ?></option>
             <?php endforeach; ?>
         </select><br>
 
-        <!-- Add other fields for animal details here -->
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required><br>
 
         <label for="species">Species:</label>
-        <input type="text" name="species" id="species"><br>
+        <input type="text" name="species" id="species" readonly><br>
 
         <label for="subspecies">Subspecies:</label>
         <input type="text" name="subspecies" id="subspecies"><br>
@@ -71,5 +70,21 @@
 
         <button type="submit">Submit</button>
     </form>
+    
+      <script>
+        const itemSpeciesMap = {
+            <?php foreach ($itemNames as $itemName): ?>
+            "<?php echo htmlspecialchars($itemName); ?>": "<?php echo htmlspecialchars($itemName); ?>",
+            <?php endforeach; ?>
+        };
+
+        function updateSpecies() {
+            const selectedItem = document.getElementById('itemName').value;
+            document.getElementById('species').value = itemSpeciesMap[selectedItem];
+        }
+
+        // Initialize the species field when the form loads
+        window.onload = updateSpecies;
+    </script>
 </body>
 </html>

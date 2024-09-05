@@ -62,7 +62,7 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
                     <tr>
                         <td>
                             <?php if ($animal['image']) : ?>
-                                <img src="<?php echo htmlspecialchars($animal['image']); ?>" alt="Animal Image" width="50" height="50">
+                                <img src="<?php echo htmlspecialchars($animal['image']); ?>" alt="Animal Image" width="80" height="75">
                             <?php else : ?>
                                 No Image
                             <?php endif; ?>

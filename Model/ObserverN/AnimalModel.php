@@ -104,7 +104,7 @@ class AnimalModel extends databaseConfig implements subject{
         if ($category) {
             $query .= " WHERE categories = :category";
         }
-        $query .= " ORDER BY species ASC";
+        $query .= " ORDER BY id ASC";
 
         $stmt = $this->db->getConnection()->prepare($query);
         if ($category) {
@@ -114,6 +114,19 @@ class AnimalModel extends databaseConfig implements subject{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    public function getLastInsertedAnimalId() {
+        $query = "SELECT id FROM animalinventory ORDER BY id DESC LIMIT 1";
+        $statement = $this->db->getConnection()->prepare($query);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            return $result['id'];
+        } else {
+            return false; 
+        }
+    }
+
     public function getAnimalImage($animalId) {
         $pdo = $this->db->getConnection();
         $stmt = $pdo->prepare("SELECT image_path FROM animal_image WHERE animal_id = ?");
@@ -130,7 +143,9 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
         $stmt->bindParam(':image_path', $imagePath);
         return $stmt->execute();
-}
+    }
+    
+    
     
     // Function for habitat-------------------------------------------------------------------------------------------------------
     // Function to insert a new habitat

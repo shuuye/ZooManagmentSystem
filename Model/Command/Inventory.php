@@ -11,15 +11,13 @@ abstract class Inventory extends InventoryModel {
     protected $inventoryId; //the item not individual, each item exist in the system
     protected $itemName; // girraffe, beef
     protected $itemType; // which inventory it belongs to like cleaning, food
-    protected $supplierId;
     protected $storageLocation;
     protected $reorderThreshold;
     protected $quantity;
 
-    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity = null) {
+    public function __construct($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity = null) {
         $this->itemName = $itemName;
         $this->itemType = $itemType;
-        $this->supplierId = $supplierId;
         $this->storageLocation = $storageLocation;
         $this->reorderThreshold = $reorderThreshold;
         $this->quantity = $quantity;
@@ -33,7 +31,7 @@ abstract class Inventory extends InventoryModel {
             echo '<script>alert("Required fields cannot be empty!");</script>';
             exit();
         } else {
-            $this->inventoryId = $this->addInventoryIntoDB($this->itemName, $this->itemType, $this->supplierId, $this->storageLocation, $this->reorderThreshold, 0);
+            $this->inventoryId = $this->addInventoryIntoDB($this->itemName, $this->itemType, $this->storageLocation, $this->reorderThreshold, 0);
         }
 
         //initialize id by getting it from database
@@ -75,11 +73,7 @@ abstract class Inventory extends InventoryModel {
     public function getItemType() {
         return $this->itemType;
     }
-
-    public function getSupplierId() {
-        return $this->supplierId;
-    }
-
+    
     public function getStorageLocation() {
         return $this->storageLocation;
     }
@@ -94,10 +88,6 @@ abstract class Inventory extends InventoryModel {
 
     public function setItemType($itemType): void {
         $this->itemType = $itemType;
-    }
-
-    public function setSupplierId($supplierId): void {
-        $this->supplierId = $supplierId;
     }
 
     public function setStorageLocation($storageLocation): void {

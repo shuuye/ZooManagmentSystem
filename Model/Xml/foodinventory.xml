@@ -3,81 +3,81 @@
   <foodinventory>
     <id>1</id>
     <inventoryId>44</inventoryId>
-    <foodType>Meat</foodType>
-    <nutritionInfo>Beef: High protein, rich in iron and vitamins</nutritionInfo>
+    <foodName>Angus Beef</foodName>
+    <nutritionInfo>High protein, rich in iron and vitamins</nutritionInfo>
     <daily_quantity_required>10.00</daily_quantity_required>
-    <batches>[{"batchId": 1, "quantity": 100, "expiryDate": "2024-12-31"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>2</id>
     <inventoryId>45</inventoryId>
-    <foodType>Meat</foodType>
-    <nutritionInfo>Chicken: High protein, low fat, rich in vitamins</nutritionInfo>
+    <foodName>Tyson Chicken Breast</foodName>
+    <nutritionInfo>High protein, low fat, rich in vitamins</nutritionInfo>
     <daily_quantity_required>8.00</daily_quantity_required>
-    <batches>[{"batchId": 2, "quantity": 80, "expiryDate": "2024-11-30"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>3</id>
     <inventoryId>36</inventoryId>
-    <foodType>Fruit</foodType>
-    <nutritionInfo>Bananas: High fiber, rich in potassium and vitamins</nutritionInfo>
+    <foodName>Dole Bananas</foodName>
+    <nutritionInfo>High fiber, rich in potassium and vitamins</nutritionInfo>
     <daily_quantity_required>50.00</daily_quantity_required>
-    <batches>[{"batchId": 3, "quantity": 500, "expiryDate": "2024-10-31"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>4</id>
     <inventoryId>37</inventoryId>
-    <foodType>Vegetable</foodType>
-    <nutritionInfo>Acacia Leaves: High fiber, rich in nutrients</nutritionInfo>
+    <foodName>Acacia Leaves by Timothy Hay</foodName>
+    <nutritionInfo>High fiber, rich in nutrients</nutritionInfo>
     <daily_quantity_required>30.00</daily_quantity_required>
-    <batches>[{"batchId": 4, "quantity": 300, "expiryDate": "2024-09-30"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>5</id>
     <inventoryId>38</inventoryId>
-    <foodType>Fruit</foodType>
-    <nutritionInfo>Apples: Balanced diet, rich in fiber and vitamins</nutritionInfo>
+    <foodName>Gala Apples</foodName>
+    <nutritionInfo>Balanced diet, rich in fiber and vitamins</nutritionInfo>
     <daily_quantity_required>5.00</daily_quantity_required>
-    <batches>[{"batchId": 5, "quantity": 50, "expiryDate": "2024-08-31"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>6</id>
     <inventoryId>39</inventoryId>
-    <foodType>Vegetable</foodType>
-    <nutritionInfo>Hay: High fiber, essential for digestion</nutritionInfo>
+    <foodName>Timothy Hay by Oxbow</foodName>
+    <nutritionInfo>High fiber, essential for digestion</nutritionInfo>
     <daily_quantity_required>20.00</daily_quantity_required>
-    <batches>[{"batchId": 6, "quantity": 200, "expiryDate": "2024-07-31"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>7</id>
     <inventoryId>40</inventoryId>
-    <foodType>Vegetable</foodType>
-    <nutritionInfo>Carrots: Balanced diet, rich in vitamins and minerals</nutritionInfo>
+    <foodName>Dole Baby Carrots</foodName>
+    <nutritionInfo>Balanced diet, rich in vitamins and minerals</nutritionInfo>
     <daily_quantity_required>15.00</daily_quantity_required>
-    <batches>[{"batchId": 7, "quantity": 150, "expiryDate": "2024-06-30"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>8</id>
     <inventoryId>41</inventoryId>
-    <foodType>Vegetable</foodType>
-    <nutritionInfo>Bamboo: High fiber, essential for digestion</nutritionInfo>
+    <foodName>Bamboo Shoots by Native Forest</foodName>
+    <nutritionInfo>High fiber, essential for digestion</nutritionInfo>
     <daily_quantity_required>10.00</daily_quantity_required>
-    <batches>[{"batchId": 8, "quantity": 100, "expiryDate": "2024-05-31"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>9</id>
     <inventoryId>42</inventoryId>
-    <foodType>Meat</foodType>
-    <nutritionInfo>Fish: High protein, rich in omega-3 fatty acids</nutritionInfo>
+    <foodName>Salmon Fillets by Wild Alaskan</foodName>
+    <nutritionInfo>High protein, rich in omega-3 fatty acids</nutritionInfo>
     <daily_quantity_required>5.00</daily_quantity_required>
-    <batches>[{"batchId": 9, "quantity": 50, "expiryDate": "2024-04-30"}]</batches>
+    <batches/>
   </foodinventory>
   <foodinventory>
     <id>10</id>
     <inventoryId>43</inventoryId>
-    <foodType>Vegetable</foodType>
-    <nutritionInfo>Eucalyptus Leaves: Rich in fiber and essential oils</nutritionInfo>
+    <foodName>Eucalyptus Leaves by Petco</foodName>
+    <nutritionInfo>Rich in fiber and essential oils</nutritionInfo>
     <daily_quantity_required>3.00</daily_quantity_required>
-    <batches>[{"batchId": 10, "quantity": 30, "expiryDate": "2024-03-31"}]</batches>
+    <batches/>
   </foodinventory>
 </foodinventories>

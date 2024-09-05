@@ -3,24 +3,21 @@
 class PurchaseOrderLineItem {
     private $poLineItemId;
     private $poId;
-    private $batchId;
+    private $inventoryId;
     private $quantity;
     private $costPerUnit;
-    private $purchaseDate;
+    private $totalAmount;
 
-    public function __construct($poLineItemId, $poId, $batchId, $quantity, $costPerUnit, $purchaseDate) {
+
+    public function __construct($poLineItemId, $poId, $inventoryId, $quantity, $costPerUnit, $totalAmount) {
         $this->poLineItemId = $poLineItemId;
         $this->poId = $poId;
-        $this->batchId = $batchId;
+        $this->inventoryId = $inventoryId;
         $this->quantity = $quantity;
         $this->costPerUnit = $costPerUnit;
-        $this->purchaseDate = $purchaseDate;
+        $this->totalAmount = $totalAmount;
     }
-
-    public function getBatchId() {
-        return $this->batchId;
-    }
-
+    
     public function getQuantity() {
         return $this->quantity;
     }

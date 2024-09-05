@@ -11,8 +11,8 @@ class HabitatInventory extends Inventory {
     private $installation_instructions;
     private $disposal_instructions;
 
-    public function __construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity = null, $description = null, $habitatType = null, $material = null, $expected_lifetime = null, $installation_instructions = null, $disposal_instructions = null) {
-        parent::__construct($itemName, $itemType, $supplierId, $storageLocation, $reorderThreshold, $quantity);
+    public function __construct($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity = null, $description = null, $habitatType = null, $material = null, $expected_lifetime = null, $installation_instructions = null, $disposal_instructions = null) {
+        parent::__construct($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity);
         $this->description = $description;
         $this->habitatType = $habitatType;
         $this->material = $material;

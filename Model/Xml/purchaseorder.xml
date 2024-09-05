@@ -2,52 +2,34 @@
 <purchaseorders>
   <purchaseorder>
     <poId>1</poId>
-    <orderDate>2024-01-01</orderDate>
     <supplierId>1</supplierId>
+    <orderDate>2024-08-01 00:00:00</orderDate>
+    <deliveryDate>2024-08-07 00:00:00</deliveryDate>
+    <totalAmount>750.00</totalAmount>
+    <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
     <poId>2</poId>
-    <orderDate>2024-02-01</orderDate>
     <supplierId>2</supplierId>
+    <orderDate>2024-08-10 00:00:00</orderDate>
+    <deliveryDate>2024-08-15 00:00:00</deliveryDate>
+    <totalAmount>750.00</totalAmount>
+    <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
     <poId>3</poId>
-    <orderDate>2024-03-01</orderDate>
     <supplierId>3</supplierId>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>4</poId>
-    <orderDate>2024-04-01</orderDate>
-    <supplierId>4</supplierId>
+    <orderDate>2024-08-15 00:00:00</orderDate>
+    <deliveryDate>2024-08-21 00:00:00</deliveryDate>
+    <totalAmount>450.00</totalAmount>
+    <status>Pending</status>
   </purchaseorder>
   <purchaseorder>
     <poId>5</poId>
-    <orderDate>2024-05-01</orderDate>
-    <supplierId>5</supplierId>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>6</poId>
-    <orderDate>2024-06-01</orderDate>
-    <supplierId>6</supplierId>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>7</poId>
-    <orderDate>2024-07-01</orderDate>
-    <supplierId>7</supplierId>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>8</poId>
-    <orderDate>2024-08-01</orderDate>
-    <supplierId>8</supplierId>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>9</poId>
-    <orderDate>2024-09-01</orderDate>
-    <supplierId>9</supplierId>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>10</poId>
-    <orderDate>2024-10-01</orderDate>
-    <supplierId>10</supplierId>
+    <supplierId>3</supplierId>
+    <orderDate>2024-08-15 00:00:00</orderDate>
+    <deliveryDate>2024-08-21 00:00:00</deliveryDate>
+    <totalAmount>400.00</totalAmount>
+    <status>Pending</status>
   </purchaseorder>
 </purchaseorders>
