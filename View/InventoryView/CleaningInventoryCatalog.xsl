@@ -65,6 +65,7 @@
                     <th>Storage Location</th>
                     <th>Reorder Threshold</th>
                     <th>Quantity</th>
+                    <th>Status</th>
                 </tr>
                 <xsl:for-each select="inventories/inventory[itemType = 'Cleaning']">
                     <tr>
@@ -94,6 +95,25 @@
                         </td>
                         <td>
                             <xsl:value-of select="quantity" />
+                        </td>
+                        <td> 
+                            <a class="hrefText reorder">
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="concat('?action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                </xsl:attribute>
+                                <xsl:choose>
+                                    <xsl:when test="quantity &lt;= 0">
+                                        <div class="stockstatus outstock">Out of Stock</div>
+                                    </xsl:when>
+                                    <xsl:when test="quantity &lt;= reorderThreshold">
+                                        <div class="stockstatus lowstock">Low Stock</div>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <div class="stockstatus instock">In Stock</div>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                            
                         </td>
                     </tr>
                 </xsl:for-each>

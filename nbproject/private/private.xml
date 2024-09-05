@@ -3,26 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_form.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_result.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/index.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_list.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/AnimalModel.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/AnimalController.php</file>
-=======
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryView.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/supplierRecord.xml</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/cleaninginventory.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/displayingTable.css</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/habitatinventory.xml</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/FoodInventoryItemDetails.xsl</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/CleaningInventoryItemDetails.xsl</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/InventoryItemDetails.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/InventoryModel.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/PurchaseOrder.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/combined.xml</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/foodinventory.xml</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/itemimage.xml</file>
->>>>>>> 3715590670908096fea3a3c0a4e0f9286fa2e10b
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/purchaseorder.css</file>
         </group>
     </open-files>
 </project-private>

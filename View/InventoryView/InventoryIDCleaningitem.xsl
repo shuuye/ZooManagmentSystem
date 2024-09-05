@@ -23,6 +23,7 @@
                     <th>Cleaning Supply Name</th>
                     <th>Size</th>
                     <th>Usage Instructions</th>
+                    <th></th>
                 </tr>
                 <xsl:for-each select="cleaninginventory[inventoryId = $inventoryID]">
                     <tr>
@@ -48,6 +49,14 @@
                         </td>
                         <td>
                             <xsl:value-of select="usageInstructions" />
+                        </td>
+                        <td> 
+                            <a class="hrefText reorder">
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="concat('?action=createPO&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
+                                </xsl:attribute>
+                                <div class="stockstatus createPO">Create PO</div>
+                            </a>
                         </td>
                     </tr>
                 </xsl:for-each>

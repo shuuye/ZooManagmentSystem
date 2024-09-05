@@ -23,6 +23,7 @@
                     <th>Food Name</th>
                     <th>Nutrition Info</th>
                     <th>Daily Quantity Required</th>
+                    <th></th>
                 </tr>
                 <xsl:for-each select="foodinventory[inventoryId = $inventoryID]">
                     <tr>
@@ -48,6 +49,14 @@
                         </td>
                         <td>
                             <xsl:value-of select="daily_quantity_required" />
+                        </td>
+                         <td> 
+                            <a class="hrefText reorder">
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="concat('?action=createPO&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
+                                </xsl:attribute>
+                                <div class="stockstatus createPO">Create PO</div>
+                            </a>
                         </td>
                     </tr>
                 </xsl:for-each>

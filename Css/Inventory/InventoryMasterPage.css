@@ -1,3 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+
 /*control each page content body display*/
 .main-content{
     position: relative;
