@@ -27,6 +27,7 @@
                     <th>Expected Life Time</th>
                     <th>Installation Instruction</th>
                     <th>Disposal Instruction</th>
+                    <th></th>
                 </tr>
                 <xsl:for-each select="habitatinventory[inventoryId = $inventoryID]">
                     <tr>
@@ -64,6 +65,14 @@
                         </td>
                         <td>
                             <xsl:value-of select="disposal_instructions" />
+                        </td>
+                         <td> 
+                            <a class="hrefText reorder">
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="concat('?action=createPO&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
+                                </xsl:attribute>
+                                <div class="stockstatus createPO">Create PO</div>
+                            </a>
                         </td>
                     </tr>
                 </xsl:for-each>

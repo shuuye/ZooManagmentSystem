@@ -38,33 +38,86 @@ class InventoryModel extends databaseConfig {
         $record = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($record) {
-            // Determine which subclass to instantiate based on itemType or another attribute
+            // Determine which subclass to instantiate based on itemType
             switch ($record['itemType']) {
-                case 'animal':
-                    // Create and return an AnimalInventory object
-                    return new AnimalInventory(
-                            $record['itemName'], $record['itemType'], $record['storageLocation'],
-                            $record['reorderThreshold'], $record['name'], $record['species'], $record['subspecies'], $record['categories'],
-                            $record['age'], $record['gender'], $record['date_of_birth'], $record['avg_lifespan'], $record['description'],
-                            $record['height'], $record['weight'], $record['healthStatus'], $record['habitatid']
-                    );
-                // Add more cases for other subclasses as needed
+                case 'Animal':
+                    return $this->getAnimalInventory($inventoryId, $record);
+                case 'Habitat':
+                    return $this->getHabitatInventory($inventoryId, $record);
+                case 'Cleaning':
+                    return $this->getCleaningInventory($inventoryId, $record);
+                case 'Food':
+                    return $this->getFoodInventory($inventoryId, $record);
                 default:
-                    // Handle cases where no subclass matches (optional)
-                    return null;
+                    return null; // Handle cases where no subclass matches
             }
         } else {
             return null; // No matching record found
         }
     }
-    
-     public function getAnimalItemNames() { // Pam add ver
+
+    private function getAnimalInventory($inventoryId, $record) {
+        $query = "SELECT * FROM AnimalInventory WHERE inventoryId = ?";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute([$inventoryId]);
+        $animalRecord = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return new AnimalInventory(
+                $record['itemName'], $record['itemType'], $record['storageLocation'],
+                $record['reorderThreshold'], $animalRecord['name'], $animalRecord['species'], $animalRecord['subspecies'],
+                $animalRecord['categories'], $animalRecord['age'], $animalRecord['gender'], $animalRecord['date_of_birth'],
+                $animalRecord['avg_lifespan'], $animalRecord['description'], $animalRecord['height'], $animalRecord['weight'],
+                $animalRecord['healthStatus'], $animalRecord['habitat_id']
+        );
+    }
+
+    private function getHabitatInventory($inventoryId, $record) {
+        $query = "SELECT * FROM HabitatInventory WHERE inventoryId = ?";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute([$inventoryId]);
+        $habitatRecord = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return new HabitatInventory(
+                $record['itemName'], $record['itemType'], $record['storageLocation'],
+                $record['reorderThreshold'], $habitatRecord['habitatItemName'], $habitatRecord['description'],
+                $habitatRecord['habitatType'], $habitatRecord['material'], $habitatRecord['expected_lifetime'],
+                $habitatRecord['installation_instructions'], $habitatRecord['disposal_instructions']
+        );
+    }
+
+    private function getCleaningInventory($inventoryId, $record) {
+        $query = "SELECT * FROM CleaningInventory WHERE inventoryId = ?";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute([$inventoryId]);
+        $cleaningRecord = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return new CleaningInventory(
+                $record['itemName'], $record['itemType'], $record['storageLocation'],
+                $record['reorderThreshold'], $cleaningRecord['cleaningName'], $cleaningRecord['size'],
+                $cleaningRecord['usageInstructions']
+        );
+    }
+
+    private function getFoodInventory($inventoryId, $record) {
+        $query = "SELECT * FROM FoodInventory WHERE inventoryId = ?";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute([$inventoryId]);
+        $foodRecord = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return new FoodInventory(
+                $record['itemName'], $record['itemType'], $record['storageLocation'],
+                $record['reorderThreshold'], $foodRecord['foodName'], $foodRecord['nutritionInfo'],
+                $foodRecord['daily_quantity_required']
+        );
+    }
+
+    public function getAnimalItemNames() { // Pam add ver
         $query = "SELECT itemName FROM inventory WHERE itemType = 'Animal'";
         $stmt = $this->db->getConnection()->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
-    
+
     public function getInventoryIdByName($itemName) { //Pam ver
         $this->db = new databaseConfig();
         // Prepare the SQL query to fetch the inventory ID based on itemName
@@ -86,28 +139,7 @@ class InventoryModel extends databaseConfig {
         } else {
             return null; // or handle the case where no matching record is found
         }
-}
-
-
-//    public function getInventoryIdByName($itemName) {
-//        $this->db = new databaseConfig();
-//        // Prepare the SQL query to fetch the inventory ID based on itemType
-//        $query = "SELECT inventoryId FROM Inventory WHERE itemType = ?";
-//        $stmt = $this->db->getConnection()->prepare($query);
-//
-//        // Execute the query with the provided itemType
-//        $stmt->execute([$itemName]);
-//
-//        // Fetch the result
-//        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-//
-//        // Check if the inventoryId was found
-//        if ($result) {
-//            return $result['inventoryId'];
-//        } else {
-//            return null; // or handle the case where no matching record is found
-//        }
-//    }
+    }
 
     protected function getAllRecordsByType($itemType) {
         $this->db = new databaseConfig();
@@ -122,6 +154,29 @@ class InventoryModel extends databaseConfig {
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $results; // Return the array of results
+    }
+
+    protected function getLatestPOID() {
+        try {
+            // Initialize database connection
+            $this->db = new databaseConfig();
+
+            // Query to get the latest purchaseOrderId from the purchaseorder table
+            $query = "SELECT poID FROM purchaseorder ORDER BY poID DESC LIMIT 1;";
+
+            // Prepare and execute the query
+            $stmt = $this->db->getConnection()->prepare($query);
+            $stmt->execute();
+
+            // Fetch the result (latest purchaseOrderId)
+            $latestPOID = $stmt->fetchColumn();
+
+            return $latestPOID;
+        } catch (PDOException $e) {
+            // Handle any errors
+            echo "Error: " . $e->getMessage();
+            return null;
+        }
     }
 
     public function addInventoryIntoDB($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity) {
@@ -161,6 +216,136 @@ class InventoryModel extends databaseConfig {
 //        $result = null;
     }
 
+    public function getItemNameById($itemId, $itemType) {
+        // Ensure that the itemType is valid
+        $validItemTypes = ['Food', 'Habitat', 'Cleaning'];
+        if (!in_array($itemType, $validItemTypes)) {
+            return ['error' => 'Invalid item type'];
+        }
+
+        // Define the table and field names based on the item type
+        $table = '';
+        $nameField = '';
+
+        switch ($itemType) {
+            case 'Food':
+                $table = 'foodinventory'; // Replace with your actual table name for food items
+                $nameField = 'foodName'; // Replace with your actual field name for food names
+                break;
+            case 'Habitat':
+                $table = 'habitatinventory'; // Replace with your actual table name for habitat items
+                $nameField = 'habitatItemName'; // Replace with your actual field name for habitat item names
+                break;
+            case 'Cleaning':
+                $table = 'cleaninginventory'; // Replace with your actual table name for cleaning items
+                $nameField = 'cleaningName'; // Replace with your actual field name for cleaning item names
+                break;
+        }
+
+        try {
+            // Prepare the query
+            $query = "SELECT $nameField FROM $table WHERE id = ?";
+            $stmt = $this->db->getConnection()->prepare($query);
+
+            if (!$stmt) {
+                throw new Exception('Query preparation failed: ' . implode(' ', $this->db->getConnection()->errorInfo()));
+            }
+
+            // Execute the query
+            if (!$stmt->execute([$itemId])) {
+                throw new Exception('Query execution failed: ' . implode(' ', $stmt->errorInfo()));
+            }
+
+            // Fetch the result
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($result === false) {
+                return ['error' => 'No item found with the provided ID'];
+            }
+
+            return $result[$nameField];
+        } catch (Exception $e) {
+            // Log the error message and return a user-friendly message
+            error_log($e->getMessage());
+            return ['error' => 'An error occurred: ' . $e->getMessage()];
+        }
+    }
+
+    protected function getSupplyUnitPrice($itemId, $itemType) {
+        // Determine the correct column name based on itemType
+        switch ($itemType) {
+            case 'Cleaning':
+                $column = 'cleaningId';
+                break;
+            case 'Habitat':
+                $column = 'habitatId';
+                break;
+            case 'Food':
+                $column = 'foodId';
+                break;
+            default:
+                throw new Exception('Invalid item type');
+        }
+
+        // SQL query to get the supplyUnitPrice based on itemId and itemType
+        $query = "SELECT supplyUnitPrice FROM supplierRecord WHERE $column = ?";
+        $result = $this->db->getConnection()->prepare($query);
+
+        if (!$result->execute([$itemId])) {
+            $result = null;
+            exit();
+        }
+
+        // Fetch the supplyUnitPrice from the result
+        $row = $result->fetch(PDO::FETCH_ASSOC);
+        return $row ? $row['supplyUnitPrice'] : null;
+    }
+
+    public function getSupplierIdBasedOnItemId($itemId, $itemType) {
+        // Determine the appropriate column to query based on itemType
+        $itemColumn = '';
+        switch ($itemType) {
+            case 'Cleaning':
+                $itemColumn = 'cleaningId';
+                break;
+            case 'Habitat':
+                $itemColumn = 'habitatId';
+                break;
+            case 'Food':
+                $itemColumn = 'foodId';
+                break;
+            default:
+                throw new InvalidArgumentException('Invalid item type provided.');
+        }
+
+        // Prepare and execute the query to get supplierIds
+        $query = "SELECT supplierId FROM supplierRecord WHERE $itemColumn = ?";
+        $result = $this->db->getConnection()->prepare($query);
+
+        if (!$result->execute([$itemId])) {
+            $result = null;
+            exit();
+        }
+
+        // Fetch all supplier IDs
+        return $result->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    // Method to get Supplier object based on supplierId
+    public function getSupplierDetailsById($supplierId) {
+        $query = "SELECT * FROM Supplier WHERE supplierId = ?";
+        $result = $this->db->getConnection()->prepare($query);
+
+        if (!$result->execute([$supplierId])) {
+            $result = null;
+            exit();
+        }
+
+        $supplierData = $result->fetch(PDO::FETCH_ASSOC);
+
+        return $supplierData;
+    }
+
     protected function updateXML() {//if want more can add $table and use it to determine which xml to update
         require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\XmlGenerator.php';
         $xmlGenerator = new XmlGenerator();
@@ -173,7 +358,7 @@ class InventoryModel extends databaseConfig {
         $xmlGenerator->createXMLFileByTableName("supplier", "supplier.xml", "suppliers", "supplier");
         $xmlGenerator->createXMLFileByTableName("batch", "batch.xml", "batchs", "batch");
         $xmlGenerator->createXMLFileByTableName("item_image", "itemimage.xml", "itemimages", "itemimage");
-        
+        $xmlGenerator->createXMLFileByTableName("supplierRecord", "supplierRecord.xml", "supplierRecords", "supplierRecord");
     }
 
 //     protected function updateXML() {//if want more can add $table and use it to determine which xml to update
@@ -182,3 +367,21 @@ class InventoryModel extends databaseConfig {
 //        $xmlGenerator->createXMLFileByTableName("inventory", "../../Xml/inventory.xml", "inventories", "inventory");
 //    }
 }
+
+//$new = new InventoryModel();
+//$get = $new->getSupplierIdBasedOnItemId("7", "Food");
+//
+//foreach ($get as $supplierId) {
+//    echo "Supplier ID: " . $supplierId . "<br>";
+//    $details = $new->getSupplierDetailsById($supplierId);
+//    if ($details) {
+//        $supplierDetails[$supplierId] = $details; // Store details with supplierId as key
+//    }
+//}
+//
+//foreach ($supplierDetails as $supplierdetail) {
+//    if ($supplierdetail) {
+//        echo $supplierdetail['supplierId'] . "<br>";
+//        echo $supplierdetail['supplierName'] . "<br>";
+//    }
+//}

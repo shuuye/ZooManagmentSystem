@@ -1,4 +1,7 @@
- <?php
+<!--This page is only for display purpose, which is for read only admin see only--> 
+
+
+<?php
 // Include the controller
 require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
 
@@ -17,6 +20,7 @@ $habitatController = new HabitatControllerObserver();
 <body>
     <nav>
         <ul>
+            <li><a href="animal_home.php">Back</a></li>
             <li><a href="add_habitat.php">Add New Habitat</a></li>
             <li><a href="list_habitats.php">Edit and Delete Habitat</a></li>
         </ul>

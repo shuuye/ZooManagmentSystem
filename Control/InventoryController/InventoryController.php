@@ -40,9 +40,15 @@ class InventoryController extends InventoryModel {
                 break;
             case 'viewSpecificDetails':
                 $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
-                 $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
                 $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
-                $this->viewSpecific($inventoryId, $itemType,$itemID);
+                $this->viewSpecific($inventoryId, $itemType, $itemID);
+                break;
+            case 'createPO':
+                $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
+                $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
+                $this->createPO($inventoryId, $itemType, $itemID);
                 break;
             case 'index':
             default:
@@ -144,7 +150,7 @@ class InventoryController extends InventoryModel {
             '../../Model/Xml/inventory.xml',
             '../../Model/Xml/itemImage.xml'
         ];
-        
+
         switch ($itemType) {
             case 'Food':
                 $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\FoodInventoryItemDetails.xsl';
@@ -159,7 +165,7 @@ class InventoryController extends InventoryModel {
             default:
                 throw new Exception("Unknown itemType: $itemType");
         }
-        
+
         $data = [
             'activePage' => 'Inventory Management',
             'pageCss' => 'InventoryItemDetails.css',
@@ -207,5 +213,70 @@ class InventoryController extends InventoryModel {
 
         $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
         echo $output;
+    }
+
+//    public function createPO($itemType, $itemID) {
+//        $xmlFiles = [
+//            '../../Model/Xml/cleaninginventory.xml',
+//            '../../Model/Xml/foodinventory.xml',
+//            '../../Model/Xml/habitatinventory.xml',
+//            '../../Model/Xml/purchaseorder.xml',
+//            '../../Model/Xml/purchaseorderlineitem.xml',
+//            '../../Model/Xml/inventory.xml'
+//        ];
+//
+//        switch ($itemType) {
+//            case 'Food':
+//                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDFooditem.xsl';
+//                break;
+//            case 'Habitat':
+//                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDHabitatItem.xsl';
+//                break;
+//            case 'Cleaning':
+//                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDCleaningItem.xsl';
+//                break;
+//            // add more cases for other item types
+//            default:
+//                throw new Exception("Unknown itemType: $itemType");
+//        }
+//
+//        $data = [
+//            'activePage' => 'Inventory Management',
+//            'pageCss' => 'purchaseorder.css',
+//            'inventoryID' => $inventoryId,
+//            'itemID' => $itemID,
+//            'xslt_transform' => true
+//        ];
+//
+//        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
+//        echo $output;
+//    }
+    // Method to handle the default page (Inventory Catalog)
+    public function createPO($inventoryId, $itemType, $itemID) {
+        $POid = $this->model->getLatestPOID() + 1;
+        $itemName = $this->model->getItemNameById($itemID, $itemType);
+        $price = $this->model->getSupplyUnitPrice($itemID, $itemType);
+        $suppliersID = $this->model->getSupplierIdBasedOnItemId($itemID, $itemType);
+
+        foreach ($suppliersID as $supplierId) {
+            $details = $this->model->getSupplierDetailsById($supplierId);
+            if ($details) {
+                $supplierDetails[$supplierId] = $details; // Store details with supplierId as key
+            }
+        }
+
+        $data = [
+            'POid' => $POid,
+            'itemName' => $itemName,
+            'itemID' => $itemID,
+            'price' => $price,
+            'supplierDetails' => $supplierDetails,
+            'image' => "../../assests/InventoryImages/" . $itemType . "_" . $inventoryId . "_" . $itemID . ".jpg",
+            'activePage' => 'Inventory Management',
+            'pageCss' => 'purchaseorder.css',
+            'xslt_transform' => false
+        ];
+
+        $this->view->render('PurchaseOrder', $data);
     }
 }

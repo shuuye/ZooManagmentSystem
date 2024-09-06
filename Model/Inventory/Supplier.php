@@ -40,7 +40,7 @@ class Supplier {
         $this->deliveryTime = $deliveryTime;
         $this->supplierNotes = $supplierNotes;
     }
-
+    
     // Getters and setters for Supplier attributes
     public function getSupplierId() {
         return $this->supplierId;

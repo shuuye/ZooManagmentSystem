@@ -120,6 +120,9 @@ identify all structures of table in inventory system
     padding: 0px 7px;
 }
 
+.createPO{
+    background-color: #67c16b;
+}
 /*PO status update*/
 .poStatus {
     padding: 10px 30px;

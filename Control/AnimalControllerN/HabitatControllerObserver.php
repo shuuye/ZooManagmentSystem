@@ -13,27 +13,6 @@ class HabitatControllerObserver {
         $habitatObserver = new HabitatObserver();
         $this->animalModel->attach($habitatObserver);
     }
-    
-      public function route(){
-        $action = isset($_GET['action']) ? $_GET['action'] : 'home';
-
-        switch ($action) {
-            case 'home' :
-                include '../../View/AnimalView/animal_home.php';
-                break;
-//            case 'addHabitat':
-//                include '../../View/AnimalView/add_habitat.php';
-//                exit();
-//                break;
-//            case 'editHabitat':
-//                include '../../View/AnimalView/list_habitats.php';
-//                exit();
-//                break;
-            default:
-                echo "Invalid action.";
-                break;
-        }
-    }
 
     // Function to add or update a habitat based on ID
         public function saveHabitat($habitatData) {

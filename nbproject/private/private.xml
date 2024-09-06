@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/supplierRecord.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/cleaninginventory.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/displayingTable.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/habitatinventory.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/InventoryModel.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/PurchaseOrder.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/combined.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/foodinventory.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/itemimage.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/purchaseorder.css</file>
+        </group>
+>>>>>>> 363ba41badf437c1c23e94c17b22dd2d3d954d85
     </open-files>
 </project-private>

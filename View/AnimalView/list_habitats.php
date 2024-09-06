@@ -1,13 +1,13 @@
- <?php
-            // Include the controller
-            require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
+<!--This page is for edit and delete table, which for modification table display.--> 
 
-            // Create an instance of the controller
-            $habitatController = new HabitatControllerObserver();
-            $habitatController->route();
-            
-            // Handle form submissions
-            $habitatController->handleFormSubmission();
+<?php
+    // Include the controller
+    require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
+
+    // Create an instance of the controller
+    $habitatController = new HabitatControllerObserver();
+    // Handle form submissions
+    $habitatController->handleFormSubmission();
 ?>
 
 <!DOCTYPE html>
