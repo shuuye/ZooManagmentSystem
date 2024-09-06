@@ -118,11 +118,36 @@ class XmlGenerator extends databaseConfig {
         }
     }
     
-    public function transformXMLUsingXSLT($xmlFileName, $xsltFileName, $outputFileName) { //pamela
-        //applies an XSLT transformation to an XML file and saves the result to a new file.
+    public function transformXMLUsingXSLTForDisplay($xmlFileName, $xsltFileName) { //pam
+        // Applies an XSLT transformation to an XML file and directly displays the result.
         if (file_exists($xmlFileName) && file_exists($xsltFileName)) {
             $xml = new DOMDocument();
             $xml->load($xmlFileName);
+
+            $xsl = new DOMDocument();
+            $xsl->load($xsltFileName);
+
+            $proc = new XSLTProcessor();
+            $proc->importStyleSheet($xsl);
+
+            // Transform the XML and display the output directly
+            $output = $proc->transformToXML($xml);
+            if ($output) {
+                echo $output; // Display the transformed XML as HTML
+            } else {
+                echo "Transformation failed.";
+            }
+        } else {
+            echo "One or both files do not exist.";
+        }
+    }
+
+    
+        public function transformFilteredXMLUsingXSLT($filteredXmlContent, $xsltFileName, $outputFileName) { //pam
+        // Transforms filtered XML content using XSLT and saves the result to a file.
+        if ($filteredXmlContent && file_exists($xsltFileName)) {
+            $xml = new DOMDocument();
+            $xml->loadXML($filteredXmlContent);
 
             $xsl = new DOMDocument();
             $xsl->load($xsltFileName);
@@ -135,9 +160,37 @@ class XmlGenerator extends databaseConfig {
 
             echo "Transformation complete. Output saved to $outputFileName";
         } else {
-            echo "One or both files do not exist.";
+            echo "Filtered XML content is empty or XSLT file does not exist.";
         }
     }
+
+    
+    public function queryXMLUsingXPath($xmlFileName, $xpathQuery) { //pam
+        // Queries an XML file using an XPath expression and returns the filtered XML content.
+        if (file_exists($xmlFileName)) {
+            $xml = new DOMDocument();
+            $xml->load($xmlFileName);
+
+            $xpath = new DOMXPath($xml);
+            $entries = $xpath->query($xpathQuery);
+
+            $newXml = new DOMDocument();
+            $root = $newXml->createElement("HealthRecords");
+
+            foreach ($entries as $entry) {
+                $importedNode = $newXml->importNode($entry, true);
+                $root->appendChild($importedNode);
+            }
+
+            $newXml->appendChild($root);
+            return $newXml->saveXML();
+        } else {
+            echo "The file $xmlFileName does not exist.";
+            return null;
+        }
+    }
+
+
 
     public function transformXmlWithXsl($xml, $xsl) {
         $xmlDoc = new DOMDocument();
@@ -149,22 +202,7 @@ class XmlGenerator extends databaseConfig {
         return $proc->transformToXML($xmlDoc);
     }
 
-    public function queryXMLUsingXPath($xmlFileName, $xpathQuery) {
-        //queries an XML file using an XPath expression and displays the results.
-        if (file_exists($xmlFileName)) {
-            $xml = new DOMDocument();
-            $xml->load($xmlFileName);
-
-            $xpath = new DOMXPath($xml);
-            $entries = $xpath->query($xpathQuery);
-
-            foreach ($entries as $entry) {
-                echo $entry->nodeValue . "<br/>";
-            }
-        } else {
-            echo "The file $xmlFileName does not exist.";
-        }
-    }
+   
 }
 
 ?>

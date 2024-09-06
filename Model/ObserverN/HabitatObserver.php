@@ -8,7 +8,7 @@ class HabitatObserver implements Observer {
         if ($subject instanceof AnimalModel) {
             $habitatData = $subject->getHabitatData();
             // Send success message
-            echo "Habitat updated successfully. Habitat ID: " . $habitatData['habitat_id'];
+            echo "Habitat updated successfully.";
         }
     }
 }

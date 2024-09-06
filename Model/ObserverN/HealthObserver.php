@@ -13,8 +13,12 @@ class HealthObserver implements Observer {
             if (isset($subject->healthRecordId)) {
                 echo "HealthObserver: Health record with ID {$subject->healthRecordId} for animal with ID $animalId has been updated.";
             } else {
-                echo "HealthObserver: Animal with ID $animalId has been added.";
+                echo "Health Observer notify: Animal has successfully added new health records.";
             }
+            
+            // Redirect to the animal_home.php page after successful operation
+            header("Location: list_healthRecords.php");
+            exit();
         }
     }
 

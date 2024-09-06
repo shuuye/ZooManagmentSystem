@@ -63,13 +63,30 @@ class HealthController {
             "hRecord_id"
         );
         
-        // Transform XML using XSLT
-        $xmlGenerator->transformXMLUsingXSLT(
+        $xmlGenerator->transformXMLUsingXSLTForDisplay(
             "../../Model/Xml/health_records.xml",
-            "../../Model/ObserverN/health_records.xsl",
+            "../../Model/ObserverN/health_records.xsl"
+        );
+        // Load and filter XML with XPath
+        $filteredXmlContent = $xmlGenerator->queryXMLUsingXPath(
+            "../../Model/Xml/health_records.xml",
+            "//HealthRecord[healthStatus='Warning']"
+        );
+
+        // Transform the filtered XML using XSLT and save to output file
+        $xmlGenerator->transformFilteredXMLUsingXSLT(
+            $filteredXmlContent,
+            "../../Model/ObserverN/health2_records.xsl",
             "animal_health_report.html"
         );
         
+//        // Transform XML using XSLT
+//        $xmlGenerator->transformXMLUsingXSLT(
+//            "../../Model/Xml/health_records.xml",
+//            "../../Model/ObserverN/health_records.xsl",
+//            "animal_health_report.html"
+//        );
+//        
         // Render HTML
         include 'animal_health_report.html';
     }
