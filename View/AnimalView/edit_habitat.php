@@ -22,6 +22,8 @@ $habitat = $habitatController->getHabitatById($habitat_id);
     <link rel="stylesheet" type="text/css" href="../../Css/Habitat/habitat.css">
 </head>
 
+<body>
+   
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
     <input type="hidden" name="habitat_id" value="<?php echo $habitat_id; ?>">
     <label for="habitat_name">Habitat Name:</label>
@@ -44,6 +46,7 @@ $habitat = $habitatController->getHabitatById($habitat_id);
     <input type="submit" value="Update Habitat">
 </form>
 
+</body>
 <?php
 
 $habitatController->handleFormSubmission();

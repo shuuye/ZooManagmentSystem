@@ -4,7 +4,6 @@ include_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
 
 // Create an instance of the controller
 $habitatController = new HabitatControllerObserver();
-
 // Handle form submission
 $habitatController->handleFormSubmission();
 ?>
@@ -21,8 +20,8 @@ $habitatController->handleFormSubmission();
     
       <nav>
         <ul>
-            <li><a href="?action=editHabitat">Edit and Delete Habitat</a></li>
-            <li><a href="?action=ViewHabitat">View Habitat</a></li>
+            <li><a href="habitatViewOnly.php">Back </a></li>
+            <li><a href="list_habitats.php">Edit and Delete Habitat</a></li>
         </ul>
     </nav>
     

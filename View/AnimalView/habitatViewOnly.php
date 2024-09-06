@@ -4,7 +4,6 @@ require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
 
 // Create an instance of the controller
 $habitatController = new HabitatControllerObserver();
-$habitatController->route();
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +17,11 @@ $habitatController->route();
 <body>
     <nav>
         <ul>
-            <li><a href="?action=addHabitat">Add New Habitat</a></li>
-            <li><a href="?action=editHabitat">Edit and Delete Habitat</a></li>
+            <li><a href="add_habitat.php">Add New Habitat</a></li>
+            <li><a href="list_habitats.php">Edit and Delete Habitat</a></li>
         </ul>
     </nav>
-    <h1>List of Habitats</h1>
+    <h1> Habitats for View</h1>
     <table>
         <thead>
             <tr>

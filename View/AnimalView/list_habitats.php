@@ -5,6 +5,7 @@
             // Create an instance of the controller
             $habitatController = new HabitatControllerObserver();
             $habitatController->route();
+            
             // Handle form submissions
             $habitatController->handleFormSubmission();
 ?>
@@ -20,11 +21,11 @@
 <body>
     <nav>
         <ul>
-            <li><a href="?action=addHabitat">Add New Habitat</a></li>
-            <li><a href="?action=ViewHabitat">View Habitat</a></li>
+            <li><a href="add_habitat.php">Add New Habitat</a></li>
+            <li><a href="habitatViewOnly.php">View Habitat</a></li>
         </ul>
     </nav>
-    <h1>List of Habitats</h1>
+    <h1>Edit and Delete of Habitats</h1>
     <table>
         <thead>
             <tr>

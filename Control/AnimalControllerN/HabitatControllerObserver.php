@@ -21,18 +21,14 @@ class HabitatControllerObserver {
             case 'home' :
                 include '../../View/AnimalView/animal_home.php';
                 break;
-            case 'addHabitat':
-                include '../../View/AnimalView/add_habitat.php';
-                exit();
-                break;
-            case 'editHabitat':
-                include '../../View/AnimalView/list_habitats.php';
-                exit();
-                break;
-            case 'ViewHabitat':
-                include '../../View/AnimalView/habitatViewOnly.php';
-                exit();
-                break;
+//            case 'addHabitat':
+//                include '../../View/AnimalView/add_habitat.php';
+//                exit();
+//                break;
+//            case 'editHabitat':
+//                include '../../View/AnimalView/list_habitats.php';
+//                exit();
+//                break;
             default:
                 echo "Invalid action.";
                 break;
