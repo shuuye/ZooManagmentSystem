@@ -118,7 +118,7 @@ class InventoryModel extends databaseConfig {
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public function getInventoryIdByName($itemName) { //Pam ver
+    protected function getInventoryIdByName($itemName) { //Pam ver
         $this->db = new databaseConfig();
         // Prepare the SQL query to fetch the inventory ID based on itemName
         $query = "SELECT inventoryId FROM Inventory WHERE itemName = :itemName";
@@ -179,7 +179,7 @@ class InventoryModel extends databaseConfig {
         }
     }
 
-    public function addInventoryIntoDB($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity) {
+    protected function addInventoryIntoDB($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity) {
         // Create a new database connection object
         $this->db = new databaseConfig();
 
@@ -216,7 +216,7 @@ class InventoryModel extends databaseConfig {
 //        $result = null;
     }
 
-    public function getItemNameById($itemId, $itemType) {
+    protected function getItemNameById($itemId, $itemType) {
         // Ensure that the itemType is valid
         $validItemTypes = ['Food', 'Habitat', 'Cleaning'];
         if (!in_array($itemType, $validItemTypes)) {
@@ -297,11 +297,10 @@ class InventoryModel extends databaseConfig {
         }
 
         // Fetch the supplyUnitPrice from the result
-        $row = $result->fetch(PDO::FETCH_ASSOC);
-        return $row ? $row['supplyUnitPrice'] : null;
+        return $result->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public function getSupplierIdBasedOnItemId($itemId, $itemType) {
+    protected function getSupplierIdBasedOnItemId($itemId, $itemType) {
         // Determine the appropriate column to query based on itemType
         $itemColumn = '';
         switch ($itemType) {
@@ -332,7 +331,7 @@ class InventoryModel extends databaseConfig {
     }
 
     // Method to get Supplier object based on supplierId
-    public function getSupplierDetailsById($supplierId) {
+    protected function getSupplierDetailsById($supplierId) {
         $query = "SELECT * FROM Supplier WHERE supplierId = ?";
         $result = $this->db->getConnection()->prepare($query);
 
@@ -361,15 +360,50 @@ class InventoryModel extends databaseConfig {
         $xmlGenerator->createXMLFileByTableName("supplierRecord", "supplierRecord.xml", "supplierRecords", "supplierRecord");
     }
 
-//     protected function updateXML() {//if want more can add $table and use it to determine which xml to update
-//        require_once '../../Xml/createXMLFromDatabase.php';
-//        $xmlGenerator = new createXMLFromDatabase();
-//        $xmlGenerator->createXMLFileByTableName("inventory", "../../Xml/inventory.xml", "inventories", "inventory");
-//    }
+    protected function addPOIntoDB($supplierId, $orderDate, $deliveryDate, $totalAmount, $status) {
+        // Create a new database connection object
+        $this->db = new databaseConfig();
+
+        $query = "INSERT INTO purchaseorder (supplierId, orderDate, deliveryDate, totalAmount, status) VALUES "
+                . "(?, ?, ?, ?, ?)";
+        $result = $this->db->getConnection()->prepare($query);
+
+        if ($result->execute(array($supplierId, $orderDate, $deliveryDate, $totalAmount, $status))) {
+            $lastInsertId = $this->db->getConnection()->lastInsertId();
+            echo '<script>alert("retrieve id: ' . $lastInsertId . '");</script>';
+
+            $this->updateXML();
+
+            return $lastInsertId;
+        } else {
+            return null;
+        }
+    }
+
+    protected function addPOLineIntoDB($poId, $inventoryId, $cleaningId, $habitatId, $foodId, $quantity, $unitPrice) {
+        // Create a new database connection object
+        $this->db = new databaseConfig();
+
+        $query = "INSERT INTO purchaseorderlineitem (poId, inventoryId, cleaningId, habitatId, foodId, quantity, unitPrice) VALUES "
+                . "(?, ?, ?, ?, ?, ?, ?)";
+        $result = $this->db->getConnection()->prepare($query);
+
+        if (!$result->execute(array($poId, $inventoryId, $cleaningId, $habitatId, $foodId, $quantity, $unitPrice))) {
+            $result = null;
+            exit();
+        }
+        $lastInsertId = $this->db->getConnection()->lastInsertId();
+        echo "Last Insert ID: " . $lastInsertId; // Add this line for debugging
+        $result = null;
+        $this->updateXML();
+        return $lastInsertId;
+    }
 }
 
+//
 //$new = new InventoryModel();
 //$get = $new->getSupplierIdBasedOnItemId("7", "Food");
+//$price = $new->getSupplyUnitPrice("7", "Food");
 //
 //foreach ($get as $supplierId) {
 //    echo "Supplier ID: " . $supplierId . "<br>";
@@ -378,10 +412,26 @@ class InventoryModel extends databaseConfig {
 //        $supplierDetails[$supplierId] = $details; // Store details with supplierId as key
 //    }
 //}
+//print_r($price);
+//echo $price[0];
 //
+//$int = 0;
+//foreach ($price as $oneRecord) {
+//
+//    if ($oneRecord) {
+//        $Allprice[$get[$int]] = $oneRecord; // Store details with supplierId as key
+//        $int++;
+//    }
+//}
+//
+//print_r($Allprice);
+
 //foreach ($supplierDetails as $supplierdetail) {
 //    if ($supplierdetail) {
 //        echo $supplierdetail['supplierId'] . "<br>";
 //        echo $supplierdetail['supplierName'] . "<br>";
 //    }
 //}
+//
+//echo "hello" . $supplierDetails[$get[0]]['supplierName'];
+

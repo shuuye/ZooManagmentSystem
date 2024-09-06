@@ -77,11 +77,11 @@ class XmlGenerator extends databaseConfig {
             $dataOfTable = $this->fetchData($tableName, $db);
 
             if ($dataOfTable->rowCount() > 0) {
-// Start the XML document
+                // Start the XML document
                 $xml = new DOMDocument('1.0', 'UTF-8');
                 $xml->formatOutput = true;
 
-//set the value in the elements
+                //set the value in the elements
                 $xml = $this->setXMLElements($xml, $dataOfTable, $rootElementName, $elementsName, $attributeForFirstElement);
 
                 $this->saveXmlFile($xml, $outputFileName);
@@ -117,9 +117,9 @@ class XmlGenerator extends databaseConfig {
             echo "The file $xmlFileName does not exist.";
         }
     }
-    
+
     public function transformXMLUsingXSLT($xmlFileName, $xsltFileName, $outputFileName) { //pamela
-        //applies an XSLT transformation to an XML file and saves the result to a new file.
+//applies an XSLT transformation to an XML file and saves the result to a new file.
         if (file_exists($xmlFileName) && file_exists($xsltFileName)) {
             $xml = new DOMDocument();
             $xml->load($xmlFileName);
@@ -150,7 +150,7 @@ class XmlGenerator extends databaseConfig {
     }
 
     public function queryXMLUsingXPath($xmlFileName, $xpathQuery) {
-        //queries an XML file using an XPath expression and displays the results.
+//queries an XML file using an XPath expression and displays the results.
         if (file_exists($xmlFileName)) {
             $xml = new DOMDocument();
             $xml->load($xmlFileName);
@@ -165,6 +165,8 @@ class XmlGenerator extends databaseConfig {
             echo "The file $xmlFileName does not exist.";
         }
     }
+
 }
+
 
 ?>

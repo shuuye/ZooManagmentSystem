@@ -1,4 +1,5 @@
 <?php
+/*
 // Initialize the application
 require_once 'Config/databaseConfig.php';
 require_once 'Control/InventoryController/InventoryController.php';
@@ -31,4 +32,4 @@ if (isset($controller) && isset($action)) {
     // 404 Not Found
     header('HTTP/1.0 404 Not Found');
     exit;
-}
+}*/
