@@ -317,6 +317,100 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->execute();
         return $stmt->fetch();
     }
+    
+    
+    // Function for animal food management ...........................................................................................................................
+    // Retrieve food inventory
+    
+    public function getFoodInventory() {
+        $stmt = $this->db->getConnection()->prepare("SELECT * FROM foodinventory");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function getAllFeedingRecords() {
+        $stmt = $this->db->getConnection()->prepare("SELECT * FROM animalfeeding");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function feedingRecordExists($animal_id) {
+     $stmt = $this->db->getConnection()->prepare(
+         "SELECT COUNT(*) FROM animalfeeding 
+          WHERE animal_id = :animal_id"
+     );
+     $stmt->execute([
+         ':animal_id' => $animal_id
+     ]);
+     return $stmt->fetchColumn() > 0;
+ }
+
+    
+public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $quantity_fed) {
+    if ($this->feedingRecordExists($animal_id)) {
+        // Update existing record
+        $stmt = $this->db->getConnection()->prepare(
+            "UPDATE animalfeeding 
+             SET food_id = :food_id, feeding_time = :feeding_time, quantity_fed = :quantity_fed 
+             WHERE animal_id = :animal_id"
+        );
+        $stmt->execute([
+            ':animal_id' => $animal_id,
+            ':food_id' => $food_id,
+            ':feeding_time' => $feeding_time,
+            ':quantity_fed' => $quantity_fed
+        ]);
+    } else {
+        // Insert new record
+        $stmt = $this->db->getConnection()->prepare(
+            "INSERT INTO animalfeeding (animal_id, food_id, feeding_time, quantity_fed) 
+             VALUES (:animal_id, :food_id, :feeding_time, :quantity_fed)"
+        );
+        $stmt->execute([
+            ':animal_id' => $animal_id,
+            ':food_id' => $food_id,
+            ':feeding_time' => $feeding_time,
+            ':quantity_fed' => $quantity_fed
+        ]);
+    }
+    $this->notify(); // Notify observers after adding or updating a feeding record
+}
+
+
+//    // Add a new feeding record
+//    public function addFeedingRecord($animal_id, $food_id, $feeding_time, $quantity_fed) {
+//        $stmt = $this->db->getConnection()->prepare("INSERT INTO animalfeeding (animal_id, food_id, feeding_time, quantity_fed) VALUES (:animal_id, :food_id, :feeding_time, :quantity_fed)");
+//        $stmt->execute([
+//            ':animal_id' => $animal_id,
+//            ':food_id' => $food_id,
+//            ':feeding_time' => $feeding_time,
+//            ':quantity_fed' => $quantity_fed
+//        ]);
+//        $this->notify(); // Notify observers after adding a feeding record
+//    }
+
+    // Retrieve consumption patterns for a specific animal
+    public function getConsumptionPatterns($animal_id, $start_date, $end_date) {
+        $stmt = $this->db->getConnection()->prepare("SELECT * FROM foodconsumption WHERE animal_id = :animal_id AND start_date >= :start_date AND end_date <= :end_date");
+        $stmt->execute([
+            ':animal_id' => $animal_id,
+            ':start_date' => $start_date,
+            ':end_date' => $end_date
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Add a new consumption record
+    public function addConsumptionRecord($animal_id, $total_quantity_fed, $start_date, $end_date) {
+        $stmt = $this->db->getConnection()->prepare("INSERT INTO foodconsumption (animal_id, total_quantity_fed, start_date, end_date) VALUES (:animal_id, :total_quantity_fed, :start_date, :end_date)");
+        $stmt->execute([
+            ':animal_id' => $animal_id,
+            ':total_quantity_fed' => $total_quantity_fed,
+            ':start_date' => $start_date,
+            ':end_date' => $end_date
+        ]);
+        $this->notify(); // Notify observers after adding a consumption record
+    }
 
     
   
