@@ -20,8 +20,10 @@ $controller ->handleAddHealthRecordForm();
 <body>
     <h2>Add New Health Record</h2>
     
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <form method="POST" action="add_health.php">
         
+         <input type="hidden" name="form_type" value="health_form">
+         
         <label for="animal_id">Select an animal ID:</label>
         <select name="animal_id" id="animal_id">
             <?php foreach ($animalIds as $id) { ?>

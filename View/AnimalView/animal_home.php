@@ -12,7 +12,7 @@
             <li><a href="animal_list.php">Animal Management</a></li>
             <li><a href="habitatViewOnly.php">Animal Habitat Management</a></li>
             <li><a href="list_healthRecords.php">Animal Health Management</a></li>
-            <li><a href="#">Animal Food Management</a></li>
+            <li><a href="feeding_report.php">Animal Food Management</a></li>
         </ul>
     </nav>
     

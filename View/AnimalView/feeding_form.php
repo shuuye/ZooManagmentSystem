@@ -22,7 +22,7 @@ $controller->handleAddfeedingRecordForm();
 </head>
 <body>
     <h1>Animal Feeding Form</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+    <form action="feeding_form.php" method="POST">
         
         <label for="animal_id">Select an animal ID:</label>
         <select name="animal_id" id="animal_id">

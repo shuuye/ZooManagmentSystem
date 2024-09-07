@@ -13,6 +13,10 @@ class HealthController {
         $this->healthObserver = new HealthObserver();
     }
     
+     public function handleRequest() {
+           $this->displayHealthRecords(); // Default action
+    }
+    
     public function getAnimalIds() {
         return $this->animalModel->getAllAnimalIds();
     }
@@ -34,15 +38,18 @@ class HealthController {
 
        // Notify the observers
        $this->healthObserver->update($this->animalModel);
+       
+       $_SESSION['success_message'] = "Health record successfully updated!";
+        header('Location: ../../View/AnimalView/list_healthRecords.php');
+        exit();
 
-       // Redirect or return a success message
-       echo'Successful update';
-       exit();
+//       echo'Successful update';
+//       exit();
    }
 
     
      public function handleAddHealthRecordForm() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['form_type'] === 'health_form') {
             $animal_id = $_POST['animal_id'];
             $lastCheckup = $_POST['last_checkup'];
             $treatments = $_POST['treatments'];
@@ -67,6 +74,7 @@ class HealthController {
             "../../Model/Xml/health_records.xml",
             "../../Model/ObserverN/health_records.xsl"
         );
+        
         // Load and filter XML with XPath
         $filteredXmlContent = $xmlGenerator->queryXMLUsingXPath(
             "../../Model/Xml/health_records.xml",
@@ -78,18 +86,12 @@ class HealthController {
             $filteredXmlContent,
             "../../Model/ObserverN/health2_records.xsl",
             "animal_health_report.html"
-        );
+        ); 
         
-//        // Transform XML using XSLT
-//        $xmlGenerator->transformXMLUsingXSLT(
-//            "../../Model/Xml/health_records.xml",
-//            "../../Model/ObserverN/health_records.xsl",
-//            "animal_health_report.html"
-//        );
-//        
-        // Render HTML
-        include 'animal_health_report.html';
     }
     
-    
 }
+
+// Initialize and handle the request
+$controller = new HealthController();
+?>

@@ -24,7 +24,7 @@ class FoodManagementController {
     public function addFeedingRecord($animal_id, $food_id, $feeding_time, $quantity_fed) {
         $this->model->addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $quantity_fed);
         header('Location: ../../View/AnimalView/feeding_report.php');
-        exit();
+        exit('Redirecting to Feeding Report...');
     }
 
 
@@ -41,7 +41,7 @@ class FoodManagementController {
     }
 
     public function handleAddfeedingRecordForm() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['form_type'] === 'feeding_report') {
             $animal_id = $_POST['animal_id'];
             $food_id = $_POST['food_id'];
             $feeding_time = $_POST['feeding_time'];

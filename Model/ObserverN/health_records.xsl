@@ -4,6 +4,11 @@
         <html>
             <head>
                 <title>Health Records</title>
+                  <style>
+                    .report-button {
+                        margin-top: 20px;
+                    }
+                </style>
             </head>
             <body>
                 <h2>Health Records</h2>
@@ -26,6 +31,9 @@
                     </xsl:for-each>
                 </table>
                 <br/>
+                <a href="animal_health_report.html" target="_blank">
+                    <button class="report-button">View Reports</button>
+                </a>
                 <a href="../../View/AnimalView/add_health.php"><button>Add New Health Record</button></a>
             </body>
         </html>
