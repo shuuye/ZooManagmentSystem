@@ -1,43 +1,36 @@
 <?php
-
-class PurchaseOrder {
+include_once '../../Model/Inventory/InventoryModel.php';
+class PurchaseOrder extends InventoryModel {
 
     private $poId;
-    private $orderDate;
     private $supplierId;
+    private $orderDate;
     private $deliveryDate;
     private $totalAmount;
+    private $status;
     private $lineItems = []; // Array of PurchaseOrderLineItem objects
 
-
-    public function __construct($poId, $orderDate, $supplierId, $deliveryDate = null, $totalAmount = null) {
-        $this->poId = $poId;
-        $this->orderDate = $orderDate;
+    function __construct($supplierId, $orderDate, $deliveryDate, $totalAmount, $status) {
         $this->supplierId = $supplierId;
+        $this->orderDate = $orderDate;
         $this->deliveryDate = $deliveryDate;
         $this->totalAmount = $totalAmount;
+        $this->status = $status;
     }
 
-    public function addLineItem($inventoryId, $quantity, $costPerUnit) {
-        $lineItem = new PurchaseOrderLineItem($inventoryId, $quantity, $costPerUnit);
+    public function addLineItem($poId, $inventoryId, $quantity, $unitPrice, $cleaningId = null, $habitatId = null, $foodId = null) {
+        $lineItem = new PurchaseOrderLineItem($poId, $inventoryId, $cleaningId, $habitatId, $foodId, $quantity, $unitPrice);
         $this->lineItems[] = $lineItem;
+        
+        return $lineItem;
     }
 
-    public function getLineItems() {
-        return $this->lineItems;
-    }
+    public function addNewPO() {
+        $this->poId = $this->addPOIntoDB($this->supplierId, $this->orderDate, $this->deliveryDate, $this->totalAmount, $this->status);
 
-    // Getters and setters for PO attributes
-    public function getPoId() {
+        //initialize id by getting it from database
+        echo '<script>alert("New PO added with ID: ' . $this->poId . '");</script>';
+        
         return $this->poId;
     }
-
-    public function getOrderDate() {
-        return $this->orderDate;
-    }
-
-    public function getSupplierId() {
-        return $this->supplierId;
-    }
-
 }

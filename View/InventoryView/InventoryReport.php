@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Inventory Reports</title>
-        <link rel="stylesheet" href="../Css/Inventory/InventoryReport.css">
+        <link rel="stylesheet" href="../../Css/Inventory/InventoryReport.css">
     </head>
     <body>
         <header>

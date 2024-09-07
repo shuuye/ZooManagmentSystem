@@ -57,26 +57,6 @@ class InventoryController extends InventoryModel {
         }
     }
 
-    // Method to handle the default page (Inventory Catalog)
-//    public function index() {
-//        $pageNum = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-//        $recordsPerPage = 10;
-//        $offset = ($pageNum - 1) * $recordsPerPage;
-//
-//        $inventory = $this->model->getInventory($offset, $recordsPerPage);
-//        $totalRecords = $this->model->getTotalRecords();
-//        $totalPages = ceil($totalRecords / $recordsPerPage);
-//
-//        $data = [
-//            'inventory' => $inventory,
-//            'pageNum' => $pageNum,  
-//            'totalPages' => $totalPages,
-//            'activePage' => 'Inventory Management',
-//            'pageCss' => 'mainInventoryTracking.css'
-//        ];
-//
-//        $this->view->render('InventoryCatalog', $data);
-//    }
     public function index() {
         $xmlFile = '../../Model/Xml/inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryCatalog.xsl';
@@ -255,7 +235,7 @@ class InventoryController extends InventoryModel {
     public function createPO($inventoryId, $itemType, $itemID) {
         $POid = $this->model->getLatestPOID() + 1;
         $itemName = $this->model->getItemNameById($itemID, $itemType);
-        $price = $this->model->getSupplyUnitPrice($itemID, $itemType);
+        $Allprice = $this->model->getSupplyUnitPrice($itemID, $itemType);
         $suppliersID = $this->model->getSupplierIdBasedOnItemId($itemID, $itemType);
 
         foreach ($suppliersID as $supplierId) {
@@ -264,8 +244,22 @@ class InventoryController extends InventoryModel {
                 $supplierDetails[$supplierId] = $details; // Store details with supplierId as key
             }
         }
+        $int = 0;
+        foreach ($Allprice as $oneRecord) {
+
+            if ($oneRecord) {
+                $price[$suppliersID[$int]] = $oneRecord; // Store details with supplierId as key
+                $int++;
+            }
+        }
+        $inventoryDetails = [
+            'inventoryId' => $inventoryId,
+            'itemType' => $itemType,
+            'itemID' => $itemID,
+        ];
 
         $data = [
+            'InventoryDetails' => $inventoryDetails,
             'POid' => $POid,
             'itemName' => $itemName,
             'itemID' => $itemID,
