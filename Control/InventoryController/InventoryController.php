@@ -52,8 +52,12 @@ class InventoryController extends InventoryModel {
                 break;
             case 'index':
             default:
-                $this->index();
-                break;
+                require_once '../../Model/Inventory/PurchaseOrder.php';
+               $email = isset($_GET['email']) ? $_GET['email'] : 'default';
+                $controller = new PurchaseOrder();
+                $controller->showPO($email);
+//                $this->index();
+//                break;
         }
     }
 

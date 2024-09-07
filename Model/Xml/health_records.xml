@@ -2,9 +2,9 @@
 <HealthRecords>
   <HealthRecord hRecord_id="1">
     <animal_id>1</animal_id>
-    <last_checkup>2024-09-03</last_checkup>
-    <treatments>oo</treatments>
-    <healthStatus>Warning</healthStatus>
+    <last_checkup>2024-01-23</last_checkup>
+    <treatments>Vaccination</treatments>
+    <healthStatus>Healthy</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="2">
     <animal_id>2</animal_id>
@@ -20,15 +20,15 @@
   </HealthRecord>
   <HealthRecord hRecord_id="4">
     <animal_id>11</animal_id>
-    <last_checkup>2024-09-23</last_checkup>
-    <treatments>ada</treatments>
-    <healthStatus>Warning</healthStatus>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="5">
     <animal_id>4</animal_id>
-    <last_checkup>2024-09-02</last_checkup>
-    <treatments>qq</treatments>
-    <healthStatus>Warning</healthStatus>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="6">
     <animal_id>12</animal_id>
@@ -74,44 +74,32 @@
   </HealthRecord>
   <HealthRecord hRecord_id="13">
     <animal_id>13</animal_id>
-    <last_checkup>2024-09-02</last_checkup>
-    <treatments>daf</treatments>
-    <healthStatus>Warning</healthStatus>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="14">
     <animal_id>14</animal_id>
-    <last_checkup>2024-09-16</last_checkup>
-    <treatments>qq</treatments>
-    <healthStatus>Warning</healthStatus>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="15">
     <animal_id>15</animal_id>
-    <last_checkup>2024-09-02</last_checkup>
-    <treatments>okok</treatments>
-    <healthStatus>Warning</healthStatus>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="16">
     <animal_id>16</animal_id>
-    <last_checkup>2024-09-10</last_checkup>
-    <treatments>[[</treatments>
-    <healthStatus>Warning</healthStatus>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="21">
     <animal_id>17</animal_id>
     <last_checkup>2024-09-17</last_checkup>
     <treatments>Vaccination</treatments>
     <healthStatus>Treatment</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="22">
-    <animal_id>42</animal_id>
-    <last_checkup>2024-09-30</last_checkup>
-    <treatments>r</treatments>
-    <healthStatus>Warning</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="23">
-    <animal_id>18</animal_id>
-    <last_checkup>2024-09-10</last_checkup>
-    <treatments>lll</treatments>
-    <healthStatus>Warning</healthStatus>
   </HealthRecord>
 </HealthRecords>

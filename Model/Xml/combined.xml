@@ -375,6 +375,22 @@
     <totalAmount>50.00</totalAmount>
     <status>Draft</status>
   </purchaseorder>
+  <purchaseorder>
+    <poId>16</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-06 19:58:41</orderDate>
+    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
+    <totalAmount>50.00</totalAmount>
+    <status>Draft</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>17</poId>
+    <supplierId>4</supplierId>
+    <orderDate>2024-09-07 04:32:44</orderDate>
+    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
+    <totalAmount>20.00</totalAmount>
+    <status>Draft</status>
+  </purchaseorder>
 
   <purchaseorderlineitem>
     <poLineItemId>1</poLineItemId>

@@ -120,4 +120,20 @@
     <totalAmount>50.00</totalAmount>
     <status>Draft</status>
   </purchaseorder>
+  <purchaseorder>
+    <poId>17</poId>
+    <supplierId>4</supplierId>
+    <orderDate>2024-09-07 04:32:44</orderDate>
+    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
+    <totalAmount>20.00</totalAmount>
+    <status>Draft</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>18</poId>
+    <supplierId>4</supplierId>
+    <orderDate>2024-09-07 15:43:50</orderDate>
+    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
+    <totalAmount>27.00</totalAmount>
+    <status>Draft</status>
+  </purchaseorder>
 </purchaseorders>

@@ -3,41 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_home.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/index.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/add_health.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/health2_records.xsl</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/health_records.xsl</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/list_healthRecords.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/AnimalModel.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/HealthController.php</file>
-=======
-<<<<<<< Updated upstream
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/PurchaseOrder.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Command/Inventory.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/addNewItem.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/PurchaseOrderLineItem.php</file>
-=======
->>>>>>> Stashed changes
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryView.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/PurchaseOrder.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/cleaninginventory.xml</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/habitatinventory.xml</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/InventoryModel.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/PurchaseOrder.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/createPO.php</file>
-<<<<<<< Updated upstream
-=======
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Command/Inventory.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/addNewItem.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/PurchaseOrderLineItem.php</file>
->>>>>>> Stashed changes
->>>>>>> ddb2391f9c43b3276cd4f60e507d5eb38a71d16a
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/restClient.php</file>
         </group>
     </open-files>
 </project-private>

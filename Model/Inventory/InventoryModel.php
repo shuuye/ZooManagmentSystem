@@ -398,6 +398,8 @@ class InventoryModel extends databaseConfig {
         $this->updateXML();
         return $lastInsertId;
     }
+
+   
 }
 
 //

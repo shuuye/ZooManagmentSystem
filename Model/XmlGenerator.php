@@ -202,22 +202,22 @@ class XmlGenerator extends databaseConfig {
         return $proc->transformToXML($xmlDoc);
     }
 
-    public function queryXMLUsingXPath($xmlFileName, $xpathQuery) {
-//queries an XML file using an XPath expression and displays the results.
-        if (file_exists($xmlFileName)) {
-            $xml = new DOMDocument();
-            $xml->load($xmlFileName);
-
-            $xpath = new DOMXPath($xml);
-            $entries = $xpath->query($xpathQuery);
-
-            foreach ($entries as $entry) {
-                echo $entry->nodeValue . "<br/>";
-            }
-        } else {
-            echo "The file $xmlFileName does not exist.";
-        }
-    }
+//    public function queryXMLUsingXPath($xmlFileName, $xpathQuery) {
+////queries an XML file using an XPath expression and displays the results.
+//        if (file_exists($xmlFileName)) {
+//            $xml = new DOMDocument();
+//            $xml->load($xmlFileName);
+//
+//            $xpath = new DOMXPath($xml);
+//            $entries = $xpath->query($xpathQuery);
+//
+//            foreach ($entries as $entry) {
+//                echo $entry->nodeValue . "<br/>";
+//            }
+//        } else {
+//            echo "The file $xmlFileName does not exist.";
+//        }
+//    }
 
 }
 
