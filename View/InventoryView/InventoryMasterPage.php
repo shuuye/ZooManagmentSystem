@@ -85,7 +85,7 @@ define('INVENTORY_CSS_PATH', '../../Css/Inventory/');
                         </ul>
                     </li>
                     <li class="dropdown <?php echo ($activePage == 'Purchase Order Management') ? 'active' : ''; ?>">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Purchase Order Management <b class="caret"></b></a>
+                        <a href="?action=showPO" class="dropdown-toggle" data-toggle="dropdown">Purchase Order Management <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="create-new-order.php">Create New Order</a></li>
                             <li><a href="view-all-orders.php">View All Orders</a></li>

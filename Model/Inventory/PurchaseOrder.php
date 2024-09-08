@@ -8,16 +8,28 @@ class PurchaseOrder extends InventoryModel {
     private $supplierId;
     private $orderDate;
     private $deliveryDate;
+    private $billingAddress;
+    private $shippingAddress;
     private $totalAmount;
     private $status;
     private $lineItems = []; // Array of PurchaseOrderLineItem objects
 
-    function __construct($supplierId, $orderDate, $deliveryDate, $totalAmount, $status) {
+    public function __construct(
+            $supplierId = null,
+            $orderDate = null,
+            $deliveryDate = null,
+            $billingAddress = null,
+            $shippingAddress = null,
+            $totalAmount = null,
+            $status = null
+    ) {
         $this->supplierId = $supplierId;
         $this->orderDate = $orderDate;
         $this->deliveryDate = $deliveryDate;
         $this->totalAmount = $totalAmount;
         $this->status = $status;
+        $this->billingAddress = $billingAddress;
+        $this->shippingAddress = $shippingAddress;
     }
 
     public function addLineItem($poId, $inventoryId, $quantity, $unitPrice, $cleaningId = null, $habitatId = null, $foodId = null) {
@@ -28,13 +40,30 @@ class PurchaseOrder extends InventoryModel {
     }
 
     public function addNewPO() {
-        $this->poId = $this->addPOIntoDB($this->supplierId, $this->orderDate, $this->deliveryDate, $this->totalAmount, $this->status);
+        $this->poId = $this->addPOIntoDB($this->supplierId, $this->orderDate, $this->deliveryDate, $this->billingAddress, $this->shippingAddress, $this->totalAmount, $this->status);
 
         //initialize id by getting it from database
         echo '<script>alert("New PO added with ID: ' . $this->poId . '");</script>';
 
         return $this->poId;
     }
+
+    public function deletePurchaseOrder($poId) {
+        $success = $this->removePOfromDB($poId);
+        return $success;
+    }
+    
+    public function  updatePurchaseOrder($poId,$status) {
+        $success = $this->updatePOStatusDB($poId, $status);
+        return $success;
+    }
+    
+    
+    public function updateInventoryQuantity($poId){
+        $success = $this->updateInventoryQuantityDB($poId);
+        return $success;
+    }
+   
 
 //    public function showPO($email) {
 //        require_once 'InventoryModel.php';

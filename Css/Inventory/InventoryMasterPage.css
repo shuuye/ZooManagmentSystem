@@ -2,6 +2,37 @@
     font-family: sans-serif;
 }
 
+/* Add this to your CSS file or <style> section */
+.alert {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text color */
+    border: 1px solid #f5c6cb; /* Light red border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 15px; /* Add some padding */
+    margin: 15px 0; /* Space above and below */
+    font-family: Arial, sans-serif; /* Font style */
+    font-size: 16px; /* Font size */
+}
+
+.alert-success {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text color */
+    border: 1px solid #c3e6cb; /* Light green border */
+}
+
+.alert-error {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text color */
+    border: 1px solid #f5c6cb; /* Light red border */
+}
+
+.alert-warning {
+    background-color: #fff3cd; /* Light yellow background */
+    color: #856404; /* Dark yellow text color */
+    border: 1px solid #ffeeba; /* Light yellow border */
+}
+
+
 /*control each page content body display*/
 .main-content{
     position: relative;

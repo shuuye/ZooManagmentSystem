@@ -22,10 +22,10 @@ class PurchaseOrderLineItem extends InventoryModel{
     }
     
     public function addNewPOLine() {
-        $this->$poLineItemId = $this->addPOLineIntoDB($this->poId, $this->inventoryId, $this->cleaningId, $this->habitatId, $this->foodId, $this->quantity, $this->unitPrice);
+        $this->poLineItemId = $this->addPOLineIntoDB($this->poId, $this->inventoryId, $this->cleaningId, $this->habitatId, $this->foodId, $this->quantity, $this->unitPrice);
 
         //initialize id by getting it from database
         
-        return $this->$poLineItemId;
+        return $this->poLineItemId;
     }
 }

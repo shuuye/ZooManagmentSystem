@@ -1,27 +1,33 @@
 <?php
+
 // use to bind witht the inventory to execute command
 // $inventoryManager->executeCommand(new AddItemCommand($inventory)); --> /Model/Command/InventoryCommand.php
 
 require_once 'Inventory.php';
 require_once 'InventoryCommand.php';
 
-class InventoryManagement
-{
-    protected $commandHistory = [];
-    public function executeCommand(InventoryCommand $command)
-    {
-        $command->execute();
-        array_push($this->commandHistory,$command);
-    }   
+class InventoryManagement {
 
-    public function undoCommand()
-    {
-        if (count($this->commandHistory) != 0){
+    protected $commandHistory = [];
+
+    public function executeCommand(InventoryCommand $command) {
+        try {
+            $command->execute();
+            array_push($this->commandHistory, $command);
+            return true; // Command executed successfully
+        } catch (Exception $e) {
+            // Log the exception or handle it as needed
+            // echo "Error: " . $e->getMessage(); // Optional: for debugging
+            return false; // Command execution failed
+        }
+    }
+
+    public function undoCommand() {
+        if (count($this->commandHistory) != 0) {
             $command = array_pop($this->commandHistory);
             $command->undo();
-        }else{
+        } else {
             echo "<br>No undo available.<br>";
         }
-        
     }
 }

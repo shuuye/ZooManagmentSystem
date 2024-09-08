@@ -3,7 +3,7 @@
 //
 $content = '
         <div class="main-content">
-        <form action="../../Control/InventoryController/createPO.php?inventoryId='. $InventoryDetails['inventoryId'].'&amp;itemType='. $InventoryDetails['itemType']. '&amp;itemID='.$InventoryDetails['itemID'].'" method="post" class="poform">
+        <form action="../../Control/InventoryController/createPO.php?inventoryId=' . $InventoryDetails['inventoryId'] . '&amp;itemType=' . $InventoryDetails['itemType'] . '&amp;itemID=' . $InventoryDetails['itemID'] . '" method="post" class="poform">
             
             <h1>Purchase Orders <span>&gt;</span> New Purchase Order #' . $POid . '</h1>
             <p>The purchase order has been generated based on the previous order #2022 from 07/05/2021. You can edit it if changes are required.</p>
@@ -21,7 +21,7 @@ $content = '
                     <td class="photo"><img src="' . $image . '" alt="' . $itemName . '"></td>
                     <td class="name">' . $itemName . '</td>
                     <td class="price">
-                        RM <input type="text" id="priceInput" value="0.00" disabled>
+                        RM <input type="text" id="priceInput" value="0.00" disabled required>
                         <input type="hidden" name="price" id="hiddenPrice" value="0.00">
                     </td>
                     <td class="quantity">
@@ -45,7 +45,6 @@ $supplierOptions = '';
 foreach ($supplierDetails as $supplierdetail) {
     if ($supplierdetail) {
         $supplierOptions .= "<option value=\"" . htmlspecialchars($supplierdetail['supplierId']) . "\">" . htmlspecialchars($supplierdetail['supplierName']) . "</option>";
-        $supplierDetailswithKey[$supplierdetail['supplierId']] = $supplierdetail; // Store details by supplier ID
     }
 }
 $content .= '
@@ -53,22 +52,18 @@ $content .= '
             <div class="order-details">
                 <div class="field">
                     <label for="supplier">Supplier:</label>
-                    <select id="supplier" name="supplierId">
-                        <option value="0">Select a supplier</option>
+                    <select id="supplier" name="supplierId" required>
+                        <option value="" disabled selected>Select a supplier</option>
                         ' . $supplierOptions . '
                     </select>
                 </div>
                 <div class="field">
                     <label for="billing-address">Billing Address:</label>
-                    <select id="billing-address" name="billingAddress">
-                        <option value="ohio-columbus">Ohio, Columbus, 5303 Fisher Rd</option>
-                    </select>
+                    <input type="text" id="billingAddress" name="billingAddress" value="">
                 </div>
                 <div class="field">
-                    <label for="shipping-address">Shipping Address:</label>
-                    <select id="shipping-address" name="shippingAddress">
-                        <option value="ohio-columbus">Ohio, Columbus, 5303 Fisher Rd</option>
-                    </select>
+                    <label for="shippingAddress">Shipping Address:</label>
+                    <input type="text" id="shippingAddress" name="shippingAddress" value="Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor" required>
                 </div>
                 <div class="field">
                     <label for="shipping-method">Shipping Method:</label>
@@ -78,10 +73,14 @@ $content .= '
                 </div>
                 <div class="field">
                     <label for="shipping-date">Preferred Shipping Date:</label>
-                    <select id="shipping-date" name="shippingDate">
-                        <option value="08-25-2021">08/25/2021, 2:00 PM</option>
-                    </select>
+                    <input type="date" id="shipping-date" name="shippingDate" required>
                 </div>
+
+                <div class="field">
+                    <label for="shipping-time">Preferred Shipping Time:</label>
+                    <input type="time" id="shipping-time" name="shippingTime" min="09:00" max="17:00" required>
+                </div>
+
             </div>
 
             <button class="create-purchase-order">Create purchase order</button>
@@ -89,6 +88,19 @@ $content .= '
         </div>
         
 <script>
+    var today = new Date();
+    today.setDate(today.getDate() + 3); // Add 3 days
+
+    // Format the date to YYYY-MM-DD
+    var year = today.getFullYear();
+    var month = (\'0\' + (today.getMonth() + 1)).slice(-2); // Month is 0-based
+    var day = (\'0\' + today.getDate()).slice(-2);
+
+    var minDate = year + \'-\' + month + \'-\' + day;
+
+    // Set the min attribute of the date input to the calculated date
+    document.getElementById(\'shipping-date\').setAttribute(\'min\', minDate);
+    
     document.addEventListener("DOMContentLoaded", function() {
     const supplierSelect = document.getElementById("supplier");
     const priceField = document.getElementById("priceInput");
@@ -96,6 +108,8 @@ $content .= '
     const quantityInput = document.getElementById("quantity");
     const totalNumber = document.getElementById("totalNumber");
     const hiddenTotal = document.getElementById("hiddenTotal");
+    const supplierAddress = document.getElementById("billingAddress");
+    
 
     function updateHiddenFields() {
         // Update hidden fields with current values
@@ -121,10 +135,27 @@ foreach ($price as $supplierId => $supplierPrice) {
     $content .= '"' . $supplierId . '": ' . $supplierPrice . ',';
 }
 
-$content .= '        
 
+$content .= ' 
+        };       
+    
+        var supplierAddresses = {
+               ';
+foreach ($supplierDetails as $supplierId => $details) {
+    // Ensure the address is properly formatted with quotes
+    $content .= '"' . $details["supplierId"] . '": "' . addslashes($details["address"]) . '",';
+}
+$content .= ' 
         };
         var price = supplierPrices[selectedSupplierId];
+        
+       var address = supplierAddresses[selectedSupplierId]; 
+       
+       if (address) {
+            supplierAddress.value = address;
+        } else {
+            supplierAddress.value = "No address found";
+        }
         if (price) {
             priceField.value = parseFloat(price).toFixed(2);
         } else {

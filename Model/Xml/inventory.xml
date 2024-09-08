@@ -198,7 +198,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 10</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>2</quantity>
   </inventory>
   <inventory>
     <inventoryId>26</inventoryId>
@@ -238,7 +238,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>25</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>21</quantity>
   </inventory>
   <inventory>
     <inventoryId>31</inventoryId>
@@ -364,6 +364,22 @@
     <inventoryId>46</inventoryId>
     <itemName>fdajfjads</itemName>
     <itemType>Cleaning</itemType>
+    <storageLocation>adfafds</storageLocation>
+    <reorderThreshold>33</reorderThreshold>
+    <quantity>0</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>47</inventoryId>
+    <itemName>fdajfjads</itemName>
+    <itemType>Animal</itemType>
+    <storageLocation>adfafds</storageLocation>
+    <reorderThreshold>33</reorderThreshold>
+    <quantity>0</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>48</inventoryId>
+    <itemName>reptile</itemName>
+    <itemType>Animal</itemType>
     <storageLocation>adfafds</storageLocation>
     <reorderThreshold>33</reorderThreshold>
     <quantity>0</quantity>

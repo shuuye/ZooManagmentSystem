@@ -179,6 +179,29 @@ class InventoryModel extends databaseConfig {
         }
     }
 
+    protected function getLatestPOLineID() {
+        try {
+            // Initialize database connection
+            $this->db = new databaseConfig();
+
+            // Query to get the latest purchaseOrderId from the purchaseorder table
+            $query = "SELECT poID FROM purchaseorderlineitem ORDER BY poLineItemId DESC LIMIT 1;";
+
+            // Prepare and execute the query
+            $stmt = $this->db->getConnection()->prepare($query);
+            $stmt->execute();
+
+            // Fetch the result (latest purchaseOrderId)
+            $latestPOLineID = $stmt->fetchColumn();
+
+            return $latestPOLineID;
+        } catch (PDOException $e) {
+            // Handle any errors
+            echo "Error: " . $e->getMessage();
+            return null;
+        }
+    }
+
     protected function addInventoryIntoDB($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity) {
         // Create a new database connection object
         $this->db = new databaseConfig();
@@ -360,21 +383,19 @@ class InventoryModel extends databaseConfig {
         $xmlGenerator->createXMLFileByTableName("supplierRecord", "supplierRecord.xml", "supplierRecords", "supplierRecord");
     }
 
-    protected function addPOIntoDB($supplierId, $orderDate, $deliveryDate, $totalAmount, $status) {
+    protected function addPOIntoDB($supplierId, $orderDate, $deliveryDate, $billingAddress, $ShippingAddress, $totalAmount, $status) {
         // Create a new database connection object
         $this->db = new databaseConfig();
 
-        $query = "INSERT INTO purchaseorder (supplierId, orderDate, deliveryDate, totalAmount, status) VALUES "
-                . "(?, ?, ?, ?, ?)";
+        $query = "INSERT INTO purchaseorder (supplierId, orderDate, deliveryDate, billingAddress,shippingAddress, totalAmount, status) VALUES "
+                . "(?, ?, ?, ?, ?, ?, ?)";
         $result = $this->db->getConnection()->prepare($query);
 
-        if ($result->execute(array($supplierId, $orderDate, $deliveryDate, $totalAmount, $status))) {
-            $lastInsertId = $this->db->getConnection()->lastInsertId();
-            echo '<script>alert("retrieve id: ' . $lastInsertId . '");</script>';
+        if ($result->execute(array($supplierId, $orderDate, $deliveryDate, $billingAddress, $ShippingAddress, $totalAmount, $status))) {
 
             $this->updateXML();
 
-            return $lastInsertId;
+            return $this->getLatestPOID();
         } else {
             return null;
         }
@@ -392,14 +413,81 @@ class InventoryModel extends databaseConfig {
             $result = null;
             exit();
         }
-        $lastInsertId = $this->db->getConnection()->lastInsertId();
+        $lastInsertId = $this->getLatestPOLineID();
         echo "Last Insert ID: " . $lastInsertId; // Add this line for debugging
         $result = null;
         $this->updateXML();
         return $lastInsertId;
     }
 
-   
+    protected function removePOfromDB($poId) {
+        try {
+            // Create a new database connection object
+            $this->db = new databaseConfig();
+
+            $query = "DELETE FROM PurchaseOrder WHERE poId = ?";
+            $stmt = $this->db->getConnection()->prepare($query);
+
+            // Execute the query
+            $stmt->execute([$poId]);
+
+            return $stmt->rowCount() > 0; // Returns true if a row was deleted
+        } catch (PDOException $e) {
+            // Log the error or handle it accordingly
+            echo 'Database error: ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    protected function updatePOStatusDB($poId, $status) {
+        try {
+            // Create a new database connection object
+            $this->db = new databaseConfig();
+
+            $query = "UPDATE purchaseorder
+                    SET status = ?
+                    WHERE poId = ?";
+            $stmt = $this->db->getConnection()->prepare($query);
+
+            // Execute the query
+            $stmt->execute([$status,$poId]);
+
+            return $stmt->rowCount() > 0; // Returns true if a row was deleted
+        } catch (PDOException $e) {
+            // Log the error or handle it accordingly
+            echo 'Database error: ' . $e->getMessage();
+            return false;
+        }
+    }
+    
+    protected function updateInventoryQuantityDB($poId) {
+        try {
+            // Create a new database connection object
+            $this->db = new databaseConfig();
+
+            $query = "UPDATE Inventory i
+                    JOIN (
+                        -- Subquery to get the sum of quantities for each inventory item based on poId
+                        SELECT inventoryId, SUM(quantity) AS total_quantity
+                        FROM purchaseorderlineitem
+                        WHERE poId = ?
+                        GROUP BY inventoryId
+                    ) pli ON i.inventoryId = pli.inventoryId
+                    SET i.quantity = i.quantity + pli.total_quantity;";
+            $stmt = $this->db->getConnection()->prepare($query);
+
+            // Execute the query
+            $stmt->execute([$poId]);
+
+            return $stmt->rowCount() > 0; // Returns true if a row was deleted
+        } catch (PDOException $e) {
+            // Log the error or handle it accordingly
+            echo 'Database error: ' . $e->getMessage();
+            return false;
+        }
+    }
+    
+    
 }
 
 //

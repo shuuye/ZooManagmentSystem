@@ -268,6 +268,8 @@
     <supplierId>1</supplierId>
     <orderDate>2024-08-01 00:00:00</orderDate>
     <deliveryDate>2024-08-07 00:00:00</deliveryDate>
+    <billingAddress>No. 12, Jalan Kuning, Taman Melawati, 53100 Kuala Lumpur, Malaysia</billingAddress>
+    <shippingAddress>No. 45, Jalan Merah, Pusat Bandar, 50400 Kuala Lumpur, Malaysia</shippingAddress>
     <totalAmount>750.00</totalAmount>
     <status>Completed</status>
   </purchaseorder>
@@ -276,6 +278,8 @@
     <supplierId>2</supplierId>
     <orderDate>2024-08-10 00:00:00</orderDate>
     <deliveryDate>2024-08-15 00:00:00</deliveryDate>
+    <billingAddress>No. 78, Jalan Intan, 81000 Johor Bahru, Johor, Malaysia</billingAddress>
+    <shippingAddress>No. 23, Jalan Bunga, 81100 Johor Bahru, Johor, Malaysia</shippingAddress>
     <totalAmount>750.00</totalAmount>
     <status>Completed</status>
   </purchaseorder>
@@ -284,111 +288,79 @@
     <supplierId>3</supplierId>
     <orderDate>2024-08-15 00:00:00</orderDate>
     <deliveryDate>2024-08-21 00:00:00</deliveryDate>
+    <billingAddress>No. 34, Jalan Bukit, 11300 Penang, Malaysia</billingAddress>
+    <shippingAddress>No. 56, Jalan Pahlawan, 11400 Penang, Malaysia</shippingAddress>
     <totalAmount>450.00</totalAmount>
-    <status>Pending</status>
+    <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
     <poId>5</poId>
     <supplierId>3</supplierId>
     <orderDate>2024-08-15 00:00:00</orderDate>
     <deliveryDate>2024-08-21 00:00:00</deliveryDate>
+    <billingAddress>No. 78, Jalan Cendana, 11900 Bayan Lepas, Penang, Malaysia</billingAddress>
+    <shippingAddress>No. 90, Jalan Kelapa, 12100 Georgetown, Penang, Malaysia</shippingAddress>
     <totalAmount>400.00</totalAmount>
-    <status>Pending</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>6</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:22:13</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>45.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>7</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:26:54</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>45.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>8</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:29:40</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>45.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>9</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:31:44</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>45.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>10</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:35:14</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>45.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>11</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:37:12</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>45.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>12</poId>
-    <supplierId>2</supplierId>
-    <orderDate>2024-09-06 19:42:28</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>20.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>13</poId>
-    <supplierId>4</supplierId>
-    <orderDate>2024-09-06 19:46:39</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>27.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>14</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:50:12</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>50.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>15</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:57:40</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>50.00</totalAmount>
-    <status>Draft</status>
+    <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
     <poId>16</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-06 19:58:41</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>50.00</totalAmount>
-    <status>Draft</status>
+    <supplierId>4</supplierId>
+    <orderDate>2024-09-08 19:02:32</orderDate>
+    <deliveryDate>2024-09-20 13:02:00</deliveryDate>
+    <billingAddress>101 Jalan Haiwan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>12.00</totalAmount>
+    <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
     <poId>17</poId>
-    <supplierId>4</supplierId>
-    <orderDate>2024-09-07 04:32:44</orderDate>
-    <deliveryDate>0000-00-00 00:00:00</deliveryDate>
-    <totalAmount>20.00</totalAmount>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-08 19:03:43</orderDate>
+    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>180.00</totalAmount>
+    <status>Draft</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>18</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-08 19:03:47</orderDate>
+    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>180.00</totalAmount>
+    <status>Draft</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>19</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-08 19:03:49</orderDate>
+    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>180.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>20</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-08 19:03:51</orderDate>
+    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>180.00</totalAmount>
+    <status>Draft</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>21</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-08 19:16:25</orderDate>
+    <deliveryDate>2024-09-19 13:20:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>30.00</totalAmount>
     <status>Draft</status>
   </purchaseorder>
 
@@ -441,6 +413,66 @@
     <foodId/>
     <quantity>5</quantity>
     <unitPrice>50.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>16</poLineItemId>
+    <poId>16</poId>
+    <inventoryId>25</inventoryId>
+    <cleaningId/>
+    <habitatId>10</habitatId>
+    <foodId/>
+    <quantity>1</quantity>
+    <unitPrice>12.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>17</poLineItemId>
+    <poId>17</poId>
+    <inventoryId>17</inventoryId>
+    <cleaningId/>
+    <habitatId>2</habitatId>
+    <foodId/>
+    <quantity>6</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>18</poLineItemId>
+    <poId>18</poId>
+    <inventoryId>17</inventoryId>
+    <cleaningId/>
+    <habitatId>2</habitatId>
+    <foodId/>
+    <quantity>6</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>19</poLineItemId>
+    <poId>19</poId>
+    <inventoryId>17</inventoryId>
+    <cleaningId/>
+    <habitatId>2</habitatId>
+    <foodId/>
+    <quantity>6</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>20</poLineItemId>
+    <poId>20</poId>
+    <inventoryId>17</inventoryId>
+    <cleaningId/>
+    <habitatId>2</habitatId>
+    <foodId/>
+    <quantity>6</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>21</poLineItemId>
+    <poId>21</poId>
+    <inventoryId>17</inventoryId>
+    <cleaningId/>
+    <habitatId>2</habitatId>
+    <foodId/>
+    <quantity>1</quantity>
+    <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
 
   <inventory>
@@ -641,7 +673,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 10</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>2</quantity>
   </inventory>
   <inventory>
     <inventoryId>26</inventoryId>
@@ -681,7 +713,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>25</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>21</quantity>
   </inventory>
   <inventory>
     <inventoryId>31</inventoryId>
@@ -807,6 +839,22 @@
     <inventoryId>46</inventoryId>
     <itemName>fdajfjads</itemName>
     <itemType>Cleaning</itemType>
+    <storageLocation>adfafds</storageLocation>
+    <reorderThreshold>33</reorderThreshold>
+    <quantity>0</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>47</inventoryId>
+    <itemName>fdajfjads</itemName>
+    <itemType>Animal</itemType>
+    <storageLocation>adfafds</storageLocation>
+    <reorderThreshold>33</reorderThreshold>
+    <quantity>0</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>48</inventoryId>
+    <itemName>reptile</itemName>
+    <itemType>Animal</itemType>
     <storageLocation>adfafds</storageLocation>
     <reorderThreshold>33</reorderThreshold>
     <quantity>0</quantity>
