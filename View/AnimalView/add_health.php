@@ -20,7 +20,14 @@ $controller ->handleAddHealthRecordForm();
 <body>
     <h2>Add New Health Record</h2>
     
-    <form method="POST" action="add_health.php">
+    <nav>
+        <ul>
+            <li><a href="list_healthRecords.php">View Health</a></li>
+
+        </ul>
+    </nav>
+    
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         
          <input type="hidden" name="form_type" value="health_form">
          

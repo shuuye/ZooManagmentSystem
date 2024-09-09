@@ -26,20 +26,8 @@ class FoodManagementController {
         header('Location: ../../View/AnimalView/feeding_report.php');
         exit('Redirecting to Feeding Report...');
     }
-
-
-    public function showConsumptionPatterns($animal_id, $start_date, $end_date) {
-        $patterns = $this->model->getConsumptionPatterns($animal_id, $start_date, $end_date);
-        include '../../View/AnimalView/consumption_patterns.php';
-    }
-
-    public function addConsumptionRecord($animal_id, $total_quantity_fed, $start_date, $end_date) {
-        $this->model->addConsumptionRecord($animal_id, $total_quantity_fed, $start_date, $end_date);
-        // Redirect or show a success message
-        header('Location: ../../View/AnimalView/consumption_patterns.php');
-        exit();
-    }
-
+    
+    
     public function handleAddfeedingRecordForm() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['form_type'] === 'feeding_report') {
             $animal_id = $_POST['animal_id'];
@@ -50,5 +38,6 @@ class FoodManagementController {
             $this->addFeedingRecord($animal_id, $food_id, $feeding_time, $quantity_fed);
         }
     }
+
 }
 ?>

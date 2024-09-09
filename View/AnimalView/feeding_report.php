@@ -1,6 +1,6 @@
 <?php
 // Include the FoodManagementController
-include_once '../../Control/AnimalControllerN/FoodManagementController.php';
+require_once '../../Control/AnimalControllerN/FoodManagementController.php';
 
 // Create an instance of FoodManagementController
 $controller = new FoodManagementController();
@@ -93,10 +93,12 @@ $controller->handleAddfeedingRecordForm();
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
+    
     <h1>Animal Feeding Form</h1>
+    
     <form action="feeding_report.php"  method="POST">
         
-         <input type="hidden" name="form_type" value="feeding_report">
+        <input type="hidden" name="form_type" value="feeding_report">
         
         <label for="animal_id">Select an animal ID:</label>
         <select name="animal_id" id="animal_id">
@@ -123,6 +125,8 @@ $controller->handleAddfeedingRecordForm();
   </div>
 
 </div>
+
+
 
 <script>
 // Get the modal

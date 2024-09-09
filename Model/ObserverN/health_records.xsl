@@ -12,6 +12,12 @@
             </head>
             <body>
                 <h2>Health Records</h2>
+                <nav>
+                    <ul>
+                        <li><a href="../../View/AnimalView/animal_home.php">Animal Home</a></li>
+                      
+                    </ul>
+                </nav>
                 <table border="1">
                     <tr>
                         <th>Health ID</th>

@@ -13,15 +13,10 @@ class HealthController {
         $this->healthObserver = new HealthObserver();
     }
     
-     public function handleRequest() {
-           $this->displayHealthRecords(); // Default action
-    }
-    
     public function getAnimalIds() {
         return $this->animalModel->getAllAnimalIds();
     }
     
-
     public function manageHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus) {
        // Check if the animal already has a health record
        $healthRecordId = $this->animalModel->getHealthRecordIdByAnimalId($animalId);
@@ -39,7 +34,6 @@ class HealthController {
        // Notify the observers
        $this->healthObserver->update($this->animalModel);
        
-       $_SESSION['success_message'] = "Health record successfully updated!";
         header('Location: ../../View/AnimalView/list_healthRecords.php');
         exit();
 

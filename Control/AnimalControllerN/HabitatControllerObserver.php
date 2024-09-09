@@ -5,7 +5,7 @@ require_once '../../Model/ObserverN/HabitatObserver.php';
 
 class HabitatControllerObserver {
     
-     private $animalModel;
+    private $animalModel;
     
 
     public function __construct() {
@@ -53,6 +53,8 @@ class HabitatControllerObserver {
             );
         }
         $this->animalModel->setHabitatData($habitatData); // Set habitatData on AnimalModel instance for observer notify
+        header('Location: ' . $_SERVER['PHP_SELF']); // redirect back to the list page
+        exit();
     }
     
         private function validateHabitatData($habitatData) {
@@ -95,21 +97,18 @@ class HabitatControllerObserver {
                     $AnimalModel = new AnimalModel(); // assuming you have a HabitatModel class
                     $AnimalModel->deleteHabitat($habitat_id);
                     header('Location: ' . $_SERVER['PHP_SELF']); // redirect back to the list page
-                    exit;
+                    exit();
                 } else {
                     $habitatData = $_POST;
-
                     $errors = $this->validateHabitatData($habitatData);
-
                     if (!empty($errors)) {
-                        // Display error messages
                         foreach ($errors as $error) {
                             echo $error . '<br>';
                         }
                     } else {
                         $this->saveHabitat($habitatData);
-                        header('Location: ' . $_SERVER['PHP_SELF']);
-                        exit;
+                        header('Location: ../../View/AnimalView/habitatViewOnly.php');
+                        exit();
                     }
                 }
             }

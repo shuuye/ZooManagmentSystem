@@ -5,7 +5,7 @@
     <title>Add Animal</title>
 </head>
 <body>
-    <form action="index.php?action=processForm" method="post" enctype="multipart/form-data">
+    <form action="?action=processForm" method="post" enctype="multipart/form-data">
         
         <label for="itemName">Select Item Name:</label>
         <select name="itemName" id="itemName"onchange="updateSpecies()" required>

@@ -17,8 +17,7 @@ $habitatController->handleFormSubmission();
     <link rel="stylesheet" type="text/css" href="../../Css/Habitat/habitat.css">
 </head>
 <body>
-    
-      <nav>
+    <nav>
         <ul>
             <li><a href="habitatViewOnly.php">Back </a></li>
             <li><a href="list_habitats.php">Edit and Delete Habitat</a></li>
@@ -27,7 +26,7 @@ $habitatController->handleFormSubmission();
     
     <h1>Add New Habitat</h1>
     
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <form action="add_habitat.php" method="POST">
         <input type="hidden" name="habitat_id" id="habitat_id"> <!-- Hidden field for habitat ID -->
 
         <label for="habitat_name">Habitat Name:</label>

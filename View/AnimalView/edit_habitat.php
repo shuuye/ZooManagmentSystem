@@ -11,6 +11,12 @@ $habitatController = new HabitatControllerObserver();
 
 // Fetch the habitat data
 $habitat = $habitatController->getHabitatById($habitat_id);
+
+
+// Handle form submission
+$habitatController->handleFormSubmission();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +30,7 @@ $habitat = $habitatController->getHabitatById($habitat_id);
 
 <body>
    
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+<form action="edit_habitat.php" method="POST">
     <input type="hidden" name="habitat_id" value="<?php echo $habitat_id; ?>">
     <label for="habitat_name">Habitat Name:</label>
     <input type="text" name="habitat_name" value="<?php echo $habitat['habitat_name']; ?>"><br><br>
@@ -47,8 +53,3 @@ $habitat = $habitatController->getHabitatById($habitat_id);
 </form>
 
 </body>
-<?php
-
-$habitatController->handleFormSubmission();
-
-?>
