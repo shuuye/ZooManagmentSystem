@@ -36,8 +36,6 @@ class XSLTransformation {
             }
         }
         
-
-
         $this->xsl = new DOMDocument();
         $this->xsl->load($xslfilename);
 

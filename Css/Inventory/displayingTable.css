@@ -1,3 +1,6 @@
+* {
+    font-family: sans-serif;
+}
 /*
 identify all structures of table in inventory system
 */
@@ -134,6 +137,10 @@ identify all structures of table in inventory system
 
 .received{
     background-color: #67c16b;
+}
+
+.draft{
+    background-color: #839cb2;
 }
 
 .processing{

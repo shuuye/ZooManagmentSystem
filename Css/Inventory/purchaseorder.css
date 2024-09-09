@@ -20,10 +20,6 @@
     margin-right: 15px;
 }
 
-.quantity {
-    display: flex;
-    align-items: center;
-}
 
 .decrease, .increase {
     border: 1px solid #ddd;
@@ -45,6 +41,12 @@
     text-align: center;
 }
 
+.price input, .total input{
+    backface-visibility: hidden;
+    border:none;
+    font-size: 18px;
+}
+
 .order-details {
     padding: 20px;
     border-radius: 20px;
@@ -63,7 +65,7 @@
     padding: 10px;
 }
 
-.field select {
+.field select,  .field input{
     width: 50%;
     padding: 10px;
     border: 1px solid #ddd;

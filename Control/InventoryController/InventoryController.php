@@ -50,10 +50,63 @@ class InventoryController extends InventoryModel {
                 $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
                 $this->createPO($inventoryId, $itemType, $itemID);
                 break;
+            case 'sendPO':
+                $POid = isset($_GET['POid']) ? $_GET['POid'] : null;
+                $this->sendPO($POid);
+                break;
+            case 'showPO':
+                $status = isset($_GET['status']) ? $_GET['status'] : '';
+
+                switch ($status) {
+                    case 'updateSuccess':
+                        echo "<p class='alert alert-success'>Purchase order status updated successfully.</p>";
+                        break;
+                    case 'updateError':
+                        echo "<p class='alert alert-error'>Failed to update purchase order status.</p>";
+                        break;
+                    case 'successPO':
+                        echo "<p class='alert alert-success'>Purchase order created successfully.</p>";
+                        break;
+                    case 'errorPO':
+                        echo "<p class='alert alert-error'>Failed to create new purchase order.</p>";
+                        break;
+                    case 'success':
+                        echo "<p class='alert alert-success'>Purchase order deleted successfully.</p>";
+                        break;
+                    case 'error':
+                        echo "<p class='alert alert-error'>Failed to delete purchase order.</p>";
+                        break;
+                    case 'invalidPOid':
+                        echo "<p class='alert alert-warning'>Invalid Purchase Order ID.</p>";
+                        break;
+                    case 'invalidRequest':
+                        echo "<p class='alert alert-warning'>Invalid request method.</p>";
+                        break;
+                    default:
+                        break;
+                }
+                $this->showPO();
+                break;
             case 'index':
             default:
+                $status = isset($_GET['status']) ? $_GET['status'] : '';
+
+                switch ($status) {
+                    case 'success':
+                        echo "<p class='alert alert-success'>Item added successfully.</p>";
+                        break;
+                    case 'error':
+                        echo "<p class='alert alert-error'>Failed to add item. Please try again.</p>";
+                        break;
+                    default:
+                        break;
+                }
                 $this->index();
                 break;
+//             require_once '../../Model/Inventory/PurchaseOrder.php';
+//               $email = isset($_GET['email']) ? $_GET['email'] : 'default';
+//                $controller = new PurchaseOrder();
+//                $controller->showPO($email);
         }
     }
 
@@ -195,43 +248,6 @@ class InventoryController extends InventoryModel {
         echo $output;
     }
 
-//    public function createPO($itemType, $itemID) {
-//        $xmlFiles = [
-//            '../../Model/Xml/cleaninginventory.xml',
-//            '../../Model/Xml/foodinventory.xml',
-//            '../../Model/Xml/habitatinventory.xml',
-//            '../../Model/Xml/purchaseorder.xml',
-//            '../../Model/Xml/purchaseorderlineitem.xml',
-//            '../../Model/Xml/inventory.xml'
-//        ];
-//
-//        switch ($itemType) {
-//            case 'Food':
-//                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDFooditem.xsl';
-//                break;
-//            case 'Habitat':
-//                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDHabitatItem.xsl';
-//                break;
-//            case 'Cleaning':
-//                $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryIDCleaningItem.xsl';
-//                break;
-//            // add more cases for other item types
-//            default:
-//                throw new Exception("Unknown itemType: $itemType");
-//        }
-//
-//        $data = [
-//            'activePage' => 'Inventory Management',
-//            'pageCss' => 'purchaseorder.css',
-//            'inventoryID' => $inventoryId,
-//            'itemID' => $itemID,
-//            'xslt_transform' => true
-//        ];
-//
-//        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
-//        echo $output;
-//    }
-    // Method to handle the default page (Inventory Catalog)
     public function createPO($inventoryId, $itemType, $itemID) {
         $POid = $this->model->getLatestPOID() + 1;
         $itemName = $this->model->getItemNameById($itemID, $itemType);
@@ -273,4 +289,41 @@ class InventoryController extends InventoryModel {
 
         $this->view->render('PurchaseOrder', $data);
     }
+
+    public function sendPO($POid) {
+        $xmlFiles = [
+            '../../Model/Xml/cleaninginventory.xml',
+            '../../Model/Xml/foodinventory.xml',
+            '../../Model/Xml/habitatinventory.xml',
+            '../../Model/Xml/purchaseorder.xml',
+            '../../Model/Xml/purchaseorderlineitem.xml',
+            '../../Model/Xml/inventory.xml',
+            '../../Model/Xml/supplier.xml'
+        ];
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\processPO.xsl';
+        $data = [
+            'activePage' => 'Purchase Order Management',
+            'pageCss' => 'processPO.css',
+            'POid' => $POid,
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
+        echo $output;
+    }
+
+    public function showPO() {
+        $xmlFile = '../../Model/Xml/purchaseorder.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\showAllPO.xsl';
+        $data = [
+            'activePage' => 'Purchase Order Management',
+            'pageCss' => 'mainInventoryTracking.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
+    }
+    
+    
 }

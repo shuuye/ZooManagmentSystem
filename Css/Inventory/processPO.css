@@ -1,50 +1,9 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
-header {
-    background-color: #f2f2f2;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-}
+.navigation{
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
-    color: #333;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-.container {
-    display: flex;
-    padding: 20px;
-}
-
-.sidebar {
-    width: 20%;
-    padding: 15px;
-    border-right: 1px solid #ddd;
-}
-
-.main {
-    width: 80%;
-    padding: 15px;
 }
 
 .purchase-order {
-    border: 1px solid #ddd;
     padding: 15px;
     margin-bottom: 20px;
 }
@@ -53,6 +12,12 @@ nav a:hover {
     margin-bottom: 10px;
 }
 
+.purchase-order .statusBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
 .purchase-order .status {
     display: flex;
     justify-content: space-between;
@@ -60,97 +25,122 @@ nav a:hover {
     margin-bottom: 10px;
 }
 
-.purchase-order .status .draft {
-    background-color: #ccc;
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: #333;
+.poStatus{
+    margin: 20px;
 }
 
-.purchase-order .progress {
+.actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 20px;
 }
 
-.purchase-order .progress .step {
-    width: 10%;
-    text-align: center;
-}
 
-.purchase-order .progress .step .circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #ddd;
-    margin: 0 auto;
+.cancelorder a, .edit, .edit a {
     display: flex;
+    align-items: center;
+    margin-right: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.sendBtn {
+    padding: 10px 30px;
     justify-content: center;
-    align-items: center;
-    color: #ddd;
+    color: white;
+    border-radius: 20px;
+    width: fit-content;
+    border: none;
+    text-decoration: none;
 }
 
-.purchase-order .progress .step .circle.active {
-    background-color: #007bff;
-    color: #fff;
-}
 
-.purchase-order .progress .line {
-    width: 80%;
-    height: 2px;
-    background-color: #ddd;
-    margin: 0 auto;
-}
 
+/*poLayout*/
+.poLayout{
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 3%;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+}
 .purchase-order .details {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 20px;
 }
-
-.purchase-order .details .column {
-    width: 48%;
+.column {
+    flex: 1; /* Allows columns to grow and shrink as needed */
+    margin: 0 10px; /* Optional: Adds horizontal spacing between columns */
 }
 
-.purchase-order .details .column .label {
+.left {
+    max-width: 50%;
+}
+
+.right {
+    max-width: 50%;
+}
+
+.label {
     font-weight: bold;
     margin-bottom: 5px;
+    color: #839cb2;
+    text-align: right;
+    opacity: 60%;
 }
 
-.purchase-order .details .column .value {
+.value {
     margin-bottom: 10px;
-}
-
-.purchase-order .table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.purchase-order .table th,
-.purchase-order .table td {
+    font-weight: 600;
     text-align: left;
-    padding: 8px;
-    border: 1px solid #ddd;
+}
+.poHeader{
+    padding: 2%;
 }
 
-.purchase-order .table th {
-    background-color: #f2f2f2;
+.poHeader h2{
+    text-align: right;
+    margin: 20px 80px;
+    font-size: 40px;
 }
 
-.purchase-order .total {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.poAddressTable{
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    font-size: 18px;
 }
 
-.purchase-order .total .label {
-    font-weight: bold;
+.poAddressTable th {
+    background-color: #f9f9f9;
 }
 
-footer {
-    background-color: #f2f2f2;
-    padding: 15px;
-    text-align: center;
-    border-top: 1px solid #ddd;
+.poAddressTable td,.poAddressTable th {
+    text-align: left;
+    padding: 18px;
 }
+
+.poLayout h3{
+    padding: 2%;
+}
+
+.total-section {
+    padding: 2%;
+}
+
+.total{
+    margin-right: 0;
+}
+
+.total th, .total td{
+    padding: 10px;
+    text-align: right;
+}
+
+

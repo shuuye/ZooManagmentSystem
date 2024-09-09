@@ -31,6 +31,9 @@ class InventoryView extends InventoryModel {
         if (isset($data['imageDirectory'])) {
             $xslTransformation->setParameter('imageDirectory', $data['imageDirectory']);
         }
+        if (isset($data['POid'])) {
+            $xslTransformation->setParameter('POid', $data['POid']);
+        }
         $transformedContent = $xslTransformation->transform();
         ob_start();
         extract($data);

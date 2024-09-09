@@ -15,7 +15,7 @@ abstract class Inventory extends InventoryModel {
     protected $reorderThreshold;
     protected $quantity;
 
-    public function __construct($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity = null) {
+    public function __construct($itemName=null, $itemType=null, $storageLocation=null, $reorderThreshold=null, $quantity = null) {
         $this->itemName = $itemName;
         $this->itemType = $itemType;
         $this->storageLocation = $storageLocation;
@@ -25,6 +25,7 @@ abstract class Inventory extends InventoryModel {
 
     //put abstract function that has to exist in each inventory(factory pattern)
     abstract function addItemRecord();
+    abstract function removeItemRecord();
 
     public function addNewItem() {
         if ($this->emptyInput() == false) {
