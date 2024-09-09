@@ -100,22 +100,44 @@ class AddItemRecordCommand implements InventoryCommand
 class deleteItemRecordCommand implements InventoryCommand
 {
     private $inventory;
-    private $quantity;
+    private $records;
 
-    public function __construct($inventory, $quantity)
+    public function __construct($inventory, $records)
     {
         $this->inventory = $inventory;
-        $this->quantity = $quantity;
+        $this->records = $records;
     }
 
     public function execute()
     {
-        $this->inventory->remove($this->quantity);
+        return $this->inventory->removeItemRecord($this->records);
     }
 
     public function undo()
     {
-        $this->inventory->add($this->quantity);
+        $this->inventory->add($this->records);
+    }
+}
+
+class deleteInventoryCommand implements InventoryCommand
+{
+    private $inventory;
+    private $records;
+
+    public function __construct($inventory, $records)
+    {
+        $this->inventory = $inventory;
+        $this->records = $records;
+    }
+
+    public function execute()
+    {
+        return $this->inventory->removeInventoryRecord($this->records);
+    }
+
+    public function undo()
+    {
+        $this->inventory->add($this->records);
     }
 }
 

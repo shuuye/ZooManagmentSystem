@@ -15,10 +15,6 @@
                         New Item
                     </a>
                 </div>
-                <div class="edit">
-                    <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
-                    Edit
-                </div>
                
             </div>
             
@@ -58,7 +54,6 @@
             </div>
             <table class="displayingTable">
                 <tr>
-                    <th></th>
                     <th>Inventory ID</th>
                     <th>Item Name</th>
                     <th>Item Type</th>
@@ -66,12 +61,11 @@
                     <th>Reorder Threshold</th>
                     <th>Quantity</th>
                     <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 <xsl:for-each select="inventories/inventory[itemType = 'Cleaning']">
                     <tr>
-                        <td>
-                            <input type="checkbox" name="record[]" value="{inventoryId}" />
-                        </td>
                         <td>
                             <xsl:value-of select="inventoryId" />
                         </td>
@@ -83,7 +77,6 @@
                                 <xsl:value-of select="itemName" />
                             </a>   
                         </td>
-                        
                         <td>
                             <xsl:value-of select="itemType" />
                         </td>
@@ -115,6 +108,25 @@
                             </a>
                             
                         </td>
+                        <td>
+                            <!-- Edit Button -->
+                            <form action="../../Control/InventoryController/editRecord.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
+                                <button type="submit" class="edit-btn">
+                                    <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <!-- Delete Button -->
+                            <form action="../../Control/InventoryController/removeInventory.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
+                                <input type="hidden" name="itemType" value="{itemType}" />
+                                <button type="submit" class="delete-btn">
+                                    <img src="../../assests/InventoryImages/btn-close.svg" class="delete-icon" />
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 </xsl:for-each>
             </table>
@@ -140,26 +152,6 @@
                 modal.style.display = "none";
                 }
                 }
-            
-
-                // Function to check if any checkbox is selected
-                function checkCheckboxes() {
-                const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-
-                // Disable/Enable buttons based on whether any checkbox is selected
-                filterbtn.style.pointerEvents = anyChecked ? 'none' : 'auto';
-                addItemButton.style.pointerEvents = anyChecked ? 'none' : 'auto';
-                filterbtn.style.opacity = anyChecked ? '0.5' : '1';
-                addItemButton.style.opacity = anyChecked ? '0.5' : '1';
-                }
-
-                // Attach event listeners to each checkbox
-                checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', checkCheckboxes);
-                });
-
-                // Initial check in case any checkbox is already selected
-                checkCheckboxes();
             </script>
         </div>
     </xsl:template>

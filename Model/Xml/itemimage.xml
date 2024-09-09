@@ -2,45 +2,17 @@
 <itemimages>
   <itemimage>
     <image_id>1</image_id>
-    <cleaningId>2</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_27_2.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>2</image_id>
     <cleaningId>1</cleaningId>
     <habitatId/>
     <foodId/>
     <image_path>cleaning_26_1.jpg</image_path>
   </itemimage>
   <itemimage>
-    <image_id>3</image_id>
-    <cleaningId>3</cleaningId>
+    <image_id>2</image_id>
+    <cleaningId>2</cleaningId>
     <habitatId/>
     <foodId/>
-    <image_path>cleaning_28_3.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>4</image_id>
-    <cleaningId>4</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_29_4.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>5</image_id>
-    <cleaningId>5</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_30_5.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>6</image_id>
-    <cleaningId>6</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_31_6.jpg</image_path>
+    <image_path>cleaning_27_2.jpg</image_path>
   </itemimage>
   <itemimage>
     <image_id>7</image_id>
@@ -71,27 +43,6 @@
     <image_path>cleaning_35_10.jpg</image_path>
   </itemimage>
   <itemimage>
-    <image_id>11</image_id>
-    <cleaningId/>
-    <habitatId>1</habitatId>
-    <foodId/>
-    <image_path>habitat_16_1.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>12</image_id>
-    <cleaningId/>
-    <habitatId>2</habitatId>
-    <foodId/>
-    <image_path>habitat_17_2.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>13</image_id>
-    <cleaningId/>
-    <habitatId>3</habitatId>
-    <foodId/>
-    <image_path>habitat_18_3.jpg</image_path>
-  </itemimage>
-  <itemimage>
     <image_id>14</image_id>
     <cleaningId/>
     <habitatId>4</habitatId>
@@ -111,20 +62,6 @@
     <habitatId>6</habitatId>
     <foodId/>
     <image_path>habitat_21_6.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>17</image_id>
-    <cleaningId/>
-    <habitatId>7</habitatId>
-    <foodId/>
-    <image_path>habitat_22_7.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>18</image_id>
-    <cleaningId/>
-    <habitatId>8</habitatId>
-    <foodId/>
-    <image_path>habitat_23_8.jpg</image_path>
   </itemimage>
   <itemimage>
     <image_id>19</image_id>
@@ -155,39 +92,11 @@
     <image_path>food_45_2.jpg</image_path>
   </itemimage>
   <itemimage>
-    <image_id>23</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>3</foodId>
-    <image_path>food_36_1.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>24</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>4</foodId>
-    <image_path>food_37_4.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>25</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>5</foodId>
-    <image_path>food_38_5.jpg</image_path>
-  </itemimage>
-  <itemimage>
     <image_id>26</image_id>
     <cleaningId/>
     <habitatId/>
     <foodId>6</foodId>
     <image_path>food_39_6.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>27</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>7</foodId>
-    <image_path>food_40_7.jpg</image_path>
   </itemimage>
   <itemimage>
     <image_id>28</image_id>

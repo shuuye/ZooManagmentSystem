@@ -15,13 +15,6 @@
     <usageInstructions>Spray directly on glass surfaces and wipe clean.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
-    <id>3</id>
-    <inventoryId>28</inventoryId>
-    <cleaningName>Mr. Clean Floor Cleaner</cleaningName>
-    <size>10L</size>
-    <usageInstructions>Mix with water and mop the floor.</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
     <id>4</id>
     <inventoryId>29</inventoryId>
     <cleaningName>Tide Detergent</cleaningName>
@@ -34,13 +27,6 @@
     <cleaningName>Purell Sanitizer</cleaningName>
     <size>500ml</size>
     <usageInstructions>Apply directly on hands and rub until dry.</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>6</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Clorox Bleach</cleaningName>
-    <size>4L</size>
-    <usageInstructions>Use for disinfecting surfaces and removing stains.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>7</id>
@@ -77,7 +63,6 @@
     <foodName>Angus Beef</foodName>
     <nutritionInfo>High protein, rich in iron and vitamins</nutritionInfo>
     <daily_quantity_required>10.00</daily_quantity_required>
-    <batches/>
   </foodinventory>
   <foodinventory>
     <id>2</id>
@@ -85,31 +70,6 @@
     <foodName>Tyson Chicken Breast</foodName>
     <nutritionInfo>High protein, low fat, rich in vitamins</nutritionInfo>
     <daily_quantity_required>8.00</daily_quantity_required>
-    <batches/>
-  </foodinventory>
-  <foodinventory>
-    <id>3</id>
-    <inventoryId>36</inventoryId>
-    <foodName>Dole Bananas</foodName>
-    <nutritionInfo>High fiber, rich in potassium and vitamins</nutritionInfo>
-    <daily_quantity_required>50.00</daily_quantity_required>
-    <batches/>
-  </foodinventory>
-  <foodinventory>
-    <id>4</id>
-    <inventoryId>37</inventoryId>
-    <foodName>Acacia Leaves by Timothy Hay</foodName>
-    <nutritionInfo>High fiber, rich in nutrients</nutritionInfo>
-    <daily_quantity_required>30.00</daily_quantity_required>
-    <batches/>
-  </foodinventory>
-  <foodinventory>
-    <id>5</id>
-    <inventoryId>38</inventoryId>
-    <foodName>Gala Apples</foodName>
-    <nutritionInfo>Balanced diet, rich in fiber and vitamins</nutritionInfo>
-    <daily_quantity_required>5.00</daily_quantity_required>
-    <batches/>
   </foodinventory>
   <foodinventory>
     <id>6</id>
@@ -117,7 +77,6 @@
     <foodName>Timothy Hay by Oxbow</foodName>
     <nutritionInfo>High fiber, essential for digestion</nutritionInfo>
     <daily_quantity_required>20.00</daily_quantity_required>
-    <batches/>
   </foodinventory>
   <foodinventory>
     <id>7</id>
@@ -125,7 +84,6 @@
     <foodName>Dole Baby Carrots</foodName>
     <nutritionInfo>Balanced diet, rich in vitamins and minerals</nutritionInfo>
     <daily_quantity_required>15.00</daily_quantity_required>
-    <batches/>
   </foodinventory>
   <foodinventory>
     <id>8</id>
@@ -133,7 +91,6 @@
     <foodName>Bamboo Shoots by Native Forest</foodName>
     <nutritionInfo>High fiber, essential for digestion</nutritionInfo>
     <daily_quantity_required>10.00</daily_quantity_required>
-    <batches/>
   </foodinventory>
   <foodinventory>
     <id>9</id>
@@ -141,7 +98,6 @@
     <foodName>Salmon Fillets by Wild Alaskan</foodName>
     <nutritionInfo>High protein, rich in omega-3 fatty acids</nutritionInfo>
     <daily_quantity_required>5.00</daily_quantity_required>
-    <batches/>
   </foodinventory>
   <foodinventory>
     <id>10</id>
@@ -149,7 +105,6 @@
     <foodName>Eucalyptus Leaves by Petco</foodName>
     <nutritionInfo>Rich in fiber and essential oils</nutritionInfo>
     <daily_quantity_required>3.00</daily_quantity_required>
-    <batches/>
   </foodinventory>
 
   <habitatinventory>
@@ -173,17 +128,6 @@
     <expected_lifetime>10</expected_lifetime>
     <installation_instructions>Place strategically in the habitat.</installation_instructions>
     <disposal_instructions>Recycle or dispose of in accordance with local regulations.</disposal_instructions>
-  </habitatinventory>
-  <habitatinventory>
-    <id>3</id>
-    <inventoryId>18</inventoryId>
-    <habitatItemName>Natural Branches by Petco</habitatItemName>
-    <description>Natural branches for climbing animals</description>
-    <habitatType>Forest</habitatType>
-    <material>Wood</material>
-    <expected_lifetime>3</expected_lifetime>
-    <installation_instructions>Securely attach to the habitat structure.</installation_instructions>
-    <disposal_instructions>Compost or dispose of in accordance with local regulations.</disposal_instructions>
   </habitatinventory>
   <habitatinventory>
     <id>4</id>
@@ -304,63 +248,43 @@
     <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
-    <poId>16</poId>
-    <supplierId>4</supplierId>
-    <orderDate>2024-09-08 19:02:32</orderDate>
-    <deliveryDate>2024-09-20 13:02:00</deliveryDate>
-    <billingAddress>101 Jalan Haiwan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>12.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>17</poId>
+    <poId>25</poId>
     <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:03:43</orderDate>
-    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>180.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>18</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:03:47</orderDate>
-    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>180.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>19</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:03:49</orderDate>
-    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>180.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>20</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:03:51</orderDate>
-    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>180.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>21</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:16:25</orderDate>
-    <deliveryDate>2024-09-19 13:20:00</deliveryDate>
+    <orderDate>2024-09-09 19:36:52</orderDate>
+    <deliveryDate>2024-09-18 13:39:00</deliveryDate>
     <billingAddress>202 Jalan Makanan</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
     <totalAmount>30.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>26</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-09 19:37:24</orderDate>
+    <deliveryDate>2024-09-20 13:37:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>3000.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>27</poId>
+    <supplierId>2</supplierId>
+    <orderDate>2024-09-09 19:40:08</orderDate>
+    <deliveryDate>2024-09-20 13:40:00</deliveryDate>
+    <billingAddress>456 Jalan Bersih</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>600.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>28</poId>
+    <supplierId>4</supplierId>
+    <orderDate>2024-09-09 19:40:32</orderDate>
+    <deliveryDate>2024-09-21 13:40:00</deliveryDate>
+    <billingAddress>101 Jalan Haiwan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>138.00</totalAmount>
     <status>Draft</status>
   </purchaseorder>
 
@@ -395,16 +319,6 @@
     <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
   <purchaseorderlineitem>
-    <poLineItemId>4</poLineItemId>
-    <poId>2</poId>
-    <inventoryId>27</inventoryId>
-    <cleaningId>4</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <quantity>25</quantity>
-    <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
     <poLineItemId>5</poLineItemId>
     <poId>1</poId>
     <inventoryId>26</inventoryId>
@@ -415,64 +329,44 @@
     <unitPrice>50.00</unitPrice>
   </purchaseorderlineitem>
   <purchaseorderlineitem>
-    <poLineItemId>16</poLineItemId>
-    <poId>16</poId>
-    <inventoryId>25</inventoryId>
+    <poLineItemId>6</poLineItemId>
+    <poId>25</poId>
+    <inventoryId>45</inventoryId>
     <cleaningId/>
-    <habitatId>10</habitatId>
-    <foodId/>
-    <quantity>1</quantity>
-    <unitPrice>12.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>17</poLineItemId>
-    <poId>17</poId>
-    <inventoryId>17</inventoryId>
-    <cleaningId/>
-    <habitatId>2</habitatId>
-    <foodId/>
-    <quantity>6</quantity>
-    <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>18</poLineItemId>
-    <poId>18</poId>
-    <inventoryId>17</inventoryId>
-    <cleaningId/>
-    <habitatId>2</habitatId>
-    <foodId/>
-    <quantity>6</quantity>
-    <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>19</poLineItemId>
-    <poId>19</poId>
-    <inventoryId>17</inventoryId>
-    <cleaningId/>
-    <habitatId>2</habitatId>
-    <foodId/>
-    <quantity>6</quantity>
-    <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>20</poLineItemId>
-    <poId>20</poId>
-    <inventoryId>17</inventoryId>
-    <cleaningId/>
-    <habitatId>2</habitatId>
-    <foodId/>
-    <quantity>6</quantity>
-    <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>21</poLineItemId>
-    <poId>21</poId>
-    <inventoryId>17</inventoryId>
-    <cleaningId/>
-    <habitatId>2</habitatId>
-    <foodId/>
+    <habitatId/>
+    <foodId>2</foodId>
     <quantity>1</quantity>
     <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>7</poLineItemId>
+    <poId>26</poId>
+    <inventoryId>45</inventoryId>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>2</foodId>
+    <quantity>100</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>8</poLineItemId>
+    <poId>27</poId>
+    <inventoryId>27</inventoryId>
+    <cleaningId>2</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <quantity>20</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>9</poLineItemId>
+    <poId>28</poId>
+    <inventoryId>41</inventoryId>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>8</foodId>
+    <quantity>6</quantity>
+    <unitPrice>23.00</unitPrice>
   </purchaseorderlineitem>
 
   <inventory>
@@ -556,26 +450,10 @@
     <quantity>1</quantity>
   </inventory>
   <inventory>
-    <inventoryId>11</inventoryId>
-    <itemName>Newt</itemName>
-    <itemType>Animal</itemType>
-    <storageLocation>Aquatic</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
     <inventoryId>12</inventoryId>
     <itemName>Parrot</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Aviary</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>13</inventoryId>
-    <itemName>Bear</itemName>
-    <itemType>Animal</itemType>
-    <storageLocation>Forest</storageLocation>
     <reorderThreshold>1</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
@@ -673,7 +551,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 10</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>2</quantity>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>26</inventoryId>
@@ -689,7 +567,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>21</quantity>
   </inventory>
   <inventory>
     <inventoryId>28</inventoryId>
@@ -713,7 +591,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>25</reorderThreshold>
-    <quantity>21</quantity>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>31</inventoryId>
@@ -753,30 +631,6 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>5</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>36</inventoryId>
-    <itemName>Bananas</itemName>
-    <itemType>Food</itemType>
-    <storageLocation>Fruit Storage</storageLocation>
-    <reorderThreshold>200</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>37</inventoryId>
-    <itemName>Acacia Leaves</itemName>
-    <itemType>Food</itemType>
-    <storageLocation>Vegetable Storage</storageLocation>
-    <reorderThreshold>150</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>38</inventoryId>
-    <itemName>Apples</itemName>
-    <itemType>Food</itemType>
-    <storageLocation>Fruit Storage</storageLocation>
-    <reorderThreshold>100</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -833,30 +687,187 @@
     <itemType>Food</itemType>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>8</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>102</quantity>
   </inventory>
-  <inventory>
-    <inventoryId>46</inventoryId>
-    <itemName>fdajfjads</itemName>
-    <itemType>Cleaning</itemType>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-    <quantity>0</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>47</inventoryId>
-    <itemName>fdajfjads</itemName>
-    <itemType>Animal</itemType>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-    <quantity>0</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>48</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>Animal</itemType>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-    <quantity>0</quantity>
-  </inventory>
+
+  <supplier>
+    <supplierId>1</supplierId>
+    <supplierName>Animal Supplies Sdn Bhd</supplierName>
+    <contactName>Ahmad Ali</contactName>
+    <contactEmail>ahmad.ali@example.com</contactEmail>
+    <contactPhone>03-1234-5678</contactPhone>
+    <address>123 Jalan Zoo</address>
+    <city>Kuala Lumpur</city>
+    <state>WP</state>
+    <postalCode>50000</postalCode>
+    <country>Malaysia</country>
+    <website>www.animalsupplies.com.my</website>
+    <rating>4.50</rating>
+    <lastOrderDate>2024-01-15</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>7</deliveryTime>
+    <supplierNotes>Reliable supplier.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>2</supplierId>
+    <supplierName>Cleaning Solutions Sdn Bhd</supplierName>
+    <contactName>Lim Mei Ling</contactName>
+    <contactEmail>mei.ling@example.com</contactEmail>
+    <contactPhone>03-2345-6789</contactPhone>
+    <address>456 Jalan Bersih</address>
+    <city>Petaling Jaya</city>
+    <state>Selangor</state>
+    <postalCode>46000</postalCode>
+    <country>Malaysia</country>
+    <website>www.cleaningsolutions.com.my</website>
+    <rating>4.00</rating>
+    <lastOrderDate>2024-02-20</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>10</deliveryTime>
+    <supplierNotes>Good quality products.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>3</supplierId>
+    <supplierName>Habitat Builders Sdn Bhd</supplierName>
+    <contactName>Ravi Kumar</contactName>
+    <contactEmail>ravi.kumar@example.com</contactEmail>
+    <contactPhone>03-3456-7890</contactPhone>
+    <address>789 Jalan Habitat</address>
+    <city>Shah Alam</city>
+    <state>Selangor</state>
+    <postalCode>40000</postalCode>
+    <country>Malaysia</country>
+    <website>www.habitatbuilders.com.my</website>
+    <rating>4.70</rating>
+    <lastOrderDate>2024-03-25</lastOrderDate>
+    <paymentTerms>Net 45</paymentTerms>
+    <deliveryTime>14</deliveryTime>
+    <supplierNotes>Excellent service.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>4</supplierId>
+    <supplierName>Zoo Animals Sdn Bhd</supplierName>
+    <contactName>Siti Nurhaliza</contactName>
+    <contactEmail>siti.nurhaliza@example.com</contactEmail>
+    <contactPhone>03-4567-8901</contactPhone>
+    <address>101 Jalan Haiwan</address>
+    <city>Klang</city>
+    <state>Selangor</state>
+    <postalCode>41000</postalCode>
+    <country>Malaysia</country>
+    <website>www.zooanimals.com.my</website>
+    <rating>4.80</rating>
+    <lastOrderDate>2024-04-30</lastOrderDate>
+    <paymentTerms>Net 60</paymentTerms>
+    <deliveryTime>21</deliveryTime>
+    <supplierNotes>Highly recommended.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>5</supplierId>
+    <supplierName>Food Suppliers Sdn Bhd</supplierName>
+    <contactName>Tan Chong Wei</contactName>
+    <contactEmail>chong.wei@example.com</contactEmail>
+    <contactPhone>03-5678-9012</contactPhone>
+    <address>202 Jalan Makanan</address>
+    <city>Subang Jaya</city>
+    <state>Selangor</state>
+    <postalCode>47500</postalCode>
+    <country>Malaysia</country>
+    <website>www.foodsuppliers.com.my</website>
+    <rating>4.30</rating>
+    <lastOrderDate>2024-05-05</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>7</deliveryTime>
+    <supplierNotes>Good variety of products.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>6</supplierId>
+    <supplierName>Animal Care Sdn Bhd</supplierName>
+    <contactName>Zainab Hassan</contactName>
+    <contactEmail>zainab.hassan@example.com</contactEmail>
+    <contactPhone>03-6789-0123</contactPhone>
+    <address>303 Jalan Penjagaan</address>
+    <city>Kajang</city>
+    <state>Selangor</state>
+    <postalCode>43000</postalCode>
+    <country>Malaysia</country>
+    <website>www.animalcare.com.my</website>
+    <rating>4.60</rating>
+    <lastOrderDate>2024-06-10</lastOrderDate>
+    <paymentTerms>Net 45</paymentTerms>
+    <deliveryTime>14</deliveryTime>
+    <supplierNotes>Reliable and prompt.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>7</supplierId>
+    <supplierName>Zoo Equipment Sdn Bhd</supplierName>
+    <contactName>David Tan</contactName>
+    <contactEmail>david.tan@example.com</contactEmail>
+    <contactPhone>03-7890-1234</contactPhone>
+    <address>404 Jalan Peralatan</address>
+    <city>Puchong</city>
+    <state>Selangor</state>
+    <postalCode>47100</postalCode>
+    <country>Malaysia</country>
+    <website>www.zooequipment.com.my</website>
+    <rating>4.40</rating>
+    <lastOrderDate>2024-07-15</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>10</deliveryTime>
+    <supplierNotes>Good quality equipment.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>8</supplierId>
+    <supplierName>Animal Health Sdn Bhd</supplierName>
+    <contactName>Laura Lim</contactName>
+    <contactEmail>laura.lim@example.com</contactEmail>
+    <contactPhone>03-8901-2345</contactPhone>
+    <address>505 Jalan Kesihatan</address>
+    <city>Seremban</city>
+    <state>Negeri Sembilan</state>
+    <postalCode>70200</postalCode>
+    <country>Malaysia</country>
+    <website>www.animalhealth.com.my</website>
+    <rating>4.70</rating>
+    <lastOrderDate>2024-08-20</lastOrderDate>
+    <paymentTerms>Net 60</paymentTerms>
+    <deliveryTime>21</deliveryTime>
+    <supplierNotes>Excellent health products.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>9</supplierId>
+    <supplierName>Zoo Supplies Sdn Bhd</supplierName>
+    <contactName>James Wong</contactName>
+    <contactEmail>james.wong@example.com</contactEmail>
+    <contactPhone>03-9012-3456</contactPhone>
+    <address>606 Jalan Bekalan</address>
+    <city>Ipoh</city>
+    <state>Perak</state>
+    <postalCode>30000</postalCode>
+    <country>Malaysia</country>
+    <website>www.zoosupplies.com.my</website>
+    <rating>4.50</rating>
+    <lastOrderDate>2024-09-25</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>7</deliveryTime>
+    <supplierNotes>Wide range of supplies.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>10</supplierId>
+    <supplierName>Animal Feed Sdn Bhd</supplierName>
+    <contactName>Patricia Lee</contactName>
+    <contactEmail>patricia.lee@example.com</contactEmail>
+    <contactPhone>03-0123-4567</contactPhone>
+    <address>707 Jalan Makanan Haiwan</address>
+    <city>Johor Bahru</city>
+    <state>Johor</state>
+    <postalCode>80000</postalCode>
+    <country>Malaysia</country>
+    <website>www.animalfeed.com.my</website>
+    <rating>4.20</rating>
+    <lastOrderDate>2024-10-30</lastOrderDate>
+    <paymentTerms>Net 45</paymentTerms>
+    <deliveryTime>14</deliveryTime>
+    <supplierNotes>Good quality feed.</supplierNotes>
+  </supplier>
 </root>

@@ -25,6 +25,16 @@ class InventoryController extends InventoryModel {
                 $this->addInventoryItem();
                 break;
             case 'habitatItem':
+                $status = isset($_GET['status']) ? $_GET['status'] : '';
+
+                switch ($status) {
+                    case 'successRemoveInv':
+                        echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
+                        break;
+                    case 'errorRemoveInv':
+                        echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
+                        break;
+                }
                 $this->viewHabitatItem();
                 break;
             case 'foodItem':
@@ -92,11 +102,26 @@ class InventoryController extends InventoryModel {
                 $status = isset($_GET['status']) ? $_GET['status'] : '';
 
                 switch ($status) {
+                    case 'successRemoveInv':
+                        echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
+                        break;
+                    case 'errorRemoveInv':
+                        echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
+                        break;
+                    case 'successRemove':
+                        echo "<p class='alert alert-success'>Item removed successfully.</p>";
+                        break;
+                    case 'errorRemove':
+                        echo "<p class='alert alert-error'>Failed to remove item. Please try again.</p>";
+                        break;
                     case 'success':
                         echo "<p class='alert alert-success'>Item added successfully.</p>";
                         break;
                     case 'error':
                         echo "<p class='alert alert-error'>Failed to add item. Please try again.</p>";
+                        break;
+                    case 'invalidRequest':
+                        echo "<p class='alert alert-warning'>Invalid request method.</p>";
                         break;
                     default:
                         break;
@@ -324,6 +349,4 @@ class InventoryController extends InventoryModel {
         $output = $this->view->renderXML($xmlFile, $xslFile, $data);
         echo $output;
     }
-    
-    
 }

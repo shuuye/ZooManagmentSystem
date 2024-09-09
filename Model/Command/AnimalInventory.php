@@ -170,6 +170,10 @@ class AnimalInventory extends Inventory {
 
         return $pdo->lastInsertId();
     }
+
+    public function removeItemRecord($records) {
+        return $this->removeRecordFromDB($this->itemType, $records);
+    }
 }
 
 //    // Optionally, add a method to update the animal details in the database

@@ -81,26 +81,10 @@
     <quantity>1</quantity>
   </inventory>
   <inventory>
-    <inventoryId>11</inventoryId>
-    <itemName>Newt</itemName>
-    <itemType>Animal</itemType>
-    <storageLocation>Aquatic</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
     <inventoryId>12</inventoryId>
     <itemName>Parrot</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Aviary</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>13</inventoryId>
-    <itemName>Bear</itemName>
-    <itemType>Animal</itemType>
-    <storageLocation>Forest</storageLocation>
     <reorderThreshold>1</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
@@ -198,7 +182,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 10</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>2</quantity>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>26</inventoryId>
@@ -214,7 +198,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>21</quantity>
   </inventory>
   <inventory>
     <inventoryId>28</inventoryId>
@@ -238,7 +222,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>25</reorderThreshold>
-    <quantity>21</quantity>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>31</inventoryId>
@@ -278,30 +262,6 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>5</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>36</inventoryId>
-    <itemName>Bananas</itemName>
-    <itemType>Food</itemType>
-    <storageLocation>Fruit Storage</storageLocation>
-    <reorderThreshold>200</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>37</inventoryId>
-    <itemName>Acacia Leaves</itemName>
-    <itemType>Food</itemType>
-    <storageLocation>Vegetable Storage</storageLocation>
-    <reorderThreshold>150</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>38</inventoryId>
-    <itemName>Apples</itemName>
-    <itemType>Food</itemType>
-    <storageLocation>Fruit Storage</storageLocation>
-    <reorderThreshold>100</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -358,30 +318,6 @@
     <itemType>Food</itemType>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>8</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>46</inventoryId>
-    <itemName>fdajfjads</itemName>
-    <itemType>Cleaning</itemType>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-    <quantity>0</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>47</inventoryId>
-    <itemName>fdajfjads</itemName>
-    <itemType>Animal</itemType>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-    <quantity>0</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>48</inventoryId>
-    <itemName>reptile</itemName>
-    <itemType>Animal</itemType>
-    <storageLocation>adfafds</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
-    <quantity>0</quantity>
+    <quantity>102</quantity>
   </inventory>
 </inventories>

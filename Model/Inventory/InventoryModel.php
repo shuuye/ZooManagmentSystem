@@ -430,7 +430,7 @@ class InventoryModel extends databaseConfig {
 
             // Execute the query
             $stmt->execute([$poId]);
-
+            $this->updateXML();
             return $stmt->rowCount() > 0; // Returns true if a row was deleted
         } catch (PDOException $e) {
             // Log the error or handle it accordingly
@@ -450,8 +450,8 @@ class InventoryModel extends databaseConfig {
             $stmt = $this->db->getConnection()->prepare($query);
 
             // Execute the query
-            $stmt->execute([$status,$poId]);
-
+            $stmt->execute([$status, $poId]);
+            $this->updateXML();
             return $stmt->rowCount() > 0; // Returns true if a row was deleted
         } catch (PDOException $e) {
             // Log the error or handle it accordingly
@@ -459,7 +459,7 @@ class InventoryModel extends databaseConfig {
             return false;
         }
     }
-    
+
     protected function updateInventoryQuantityDB($poId) {
         try {
             // Create a new database connection object
@@ -478,7 +478,7 @@ class InventoryModel extends databaseConfig {
 
             // Execute the query
             $stmt->execute([$poId]);
-
+            $this->updateXML();
             return $stmt->rowCount() > 0; // Returns true if a row was deleted
         } catch (PDOException $e) {
             // Log the error or handle it accordingly
@@ -486,7 +486,75 @@ class InventoryModel extends databaseConfig {
             return false;
         }
     }
+
+    protected function removeRecordFromDB($itemType, $recordId) {
+        try {
+            // Create a new database connection object
+            $this->db = new databaseConfig();
+
+            // Determine the table based on item type
+            switch ($itemType) {
+                case 'Food':
+                    $table = 'foodinventory';
+                    break;
+                case 'Habitat':
+                    $table = 'habitatinventory';
+                    break;
+                case 'Cleaning':
+                    $table = 'cleaninginventory';
+                    break;
+                default:
+                    throw new Exception('Invalid item type');
+            }
+
+            // Prepare the SQL query
+            $query = "DELETE FROM $table WHERE id = ?";
+            $stmt = $this->db->getConnection()->prepare($query);
+
+            // Execute the query with the record ID
+            $stmt->execute([$recordId]);
+
+            // Optionally update XML or perform other actions
+            $this->updateXML();
+
+            return $stmt->rowCount() > 0; // Returns true if a row was deleted
+        } catch (PDOException $e) {
+            // Log the error or handle it accordingly
+            echo 'Database error: ' . $e->getMessage();
+            return false;
+        } catch (Exception $e) {
+            // Handle other exceptions
+            echo 'Error: ' . $e->getMessage();
+            return false;
+        }
+    }
     
+    protected function removeInventoryRecordDB($recordId) {
+        try {
+            // Create a new database connection object
+            $this->db = new databaseConfig();
+
+            // Prepare the SQL query
+            $query = "DELETE FROM inventory WHERE inventoryId = ?";
+            $stmt = $this->db->getConnection()->prepare($query);
+
+            // Execute the query with the record ID
+            $stmt->execute([$recordId]);
+
+            // Optionally update XML or perform other actions
+            $this->updateXML();
+
+            return $stmt->rowCount() > 0; // Returns true if a row was deleted
+        } catch (PDOException $e) {
+            // Log the error or handle it accordingly
+            echo 'Database error: ' . $e->getMessage();
+            return false;
+        } catch (Exception $e) {
+            // Handle other exceptions
+            echo 'Error: ' . $e->getMessage();
+            return false;
+        }
+    }
     
 }
 

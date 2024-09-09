@@ -23,17 +23,6 @@
     <disposal_instructions>Recycle or dispose of in accordance with local regulations.</disposal_instructions>
   </habitatinventory>
   <habitatinventory>
-    <id>3</id>
-    <inventoryId>18</inventoryId>
-    <habitatItemName>Natural Branches by Petco</habitatItemName>
-    <description>Natural branches for climbing animals</description>
-    <habitatType>Forest</habitatType>
-    <material>Wood</material>
-    <expected_lifetime>3</expected_lifetime>
-    <installation_instructions>Securely attach to the habitat structure.</installation_instructions>
-    <disposal_instructions>Compost or dispose of in accordance with local regulations.</disposal_instructions>
-  </habitatinventory>
-  <habitatinventory>
     <id>4</id>
     <inventoryId>19</inventoryId>
     <habitatItemName>Stainless Steel Water Bowl by OXO</habitatItemName>

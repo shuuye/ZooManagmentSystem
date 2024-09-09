@@ -15,13 +15,6 @@
     <usageInstructions>Spray directly on glass surfaces and wipe clean.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
-    <id>3</id>
-    <inventoryId>28</inventoryId>
-    <cleaningName>Mr. Clean Floor Cleaner</cleaningName>
-    <size>10L</size>
-    <usageInstructions>Mix with water and mop the floor.</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
     <id>4</id>
     <inventoryId>29</inventoryId>
     <cleaningName>Tide Detergent</cleaningName>
@@ -34,13 +27,6 @@
     <cleaningName>Purell Sanitizer</cleaningName>
     <size>500ml</size>
     <usageInstructions>Apply directly on hands and rub until dry.</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>6</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Clorox Bleach</cleaningName>
-    <size>4L</size>
-    <usageInstructions>Use for disinfecting surfaces and removing stains.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>7</id>
