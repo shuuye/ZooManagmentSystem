@@ -3,7 +3,7 @@
 include_once '../../Model/ObserverN/AnimalModel.php';
 require_once '../../Model/Inventory/InventoryModel.php';
 
-class AnimalController{
+class AnimalController extends InventoryModel{
 
     private $animalModel;
     private $inventoryModel;

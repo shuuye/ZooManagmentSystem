@@ -108,7 +108,7 @@ class HabitatControllerObserver {
                         }
                     } else {
                         $this->saveHabitat($habitatData);
-                        header('Location: list_habitats.php');
+                        header('Location: ' . $_SERVER['PHP_SELF']);
                         exit;
                     }
                 }
