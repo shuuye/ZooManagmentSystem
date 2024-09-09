@@ -38,9 +38,9 @@
   </HealthRecord>
   <HealthRecord hRecord_id="7">
     <animal_id>5</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>Dental check</treatments>
-    <healthStatus>Unknown</healthStatus>
+    <last_checkup>2024-09-23</last_checkup>
+    <treatments>eqfw</treatments>
+    <healthStatus>Treatment</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="8">
     <animal_id>6</animal_id>

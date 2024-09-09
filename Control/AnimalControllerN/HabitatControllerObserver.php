@@ -1,7 +1,6 @@
 <?php
 
 require_once '../../Model/ObserverN/AnimalModel.php';
-require_once '../../Model/ObserverN/HabitatObserver.php';
 
 class HabitatControllerObserver {
     
@@ -10,8 +9,6 @@ class HabitatControllerObserver {
 
     public function __construct() {
         $this->animalModel = new AnimalModel();
-        $habitatObserver = new HabitatObserver();
-        $this->animalModel->attach($habitatObserver);
     }
 
     // Function to add or update a habitat based on ID

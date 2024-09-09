@@ -1,6 +1,5 @@
 <?php
 
-
 require_once 'Observer.php';
 
 interface subject {

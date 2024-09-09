@@ -1,11 +1,15 @@
 <?php
 
-//This model represents the data for an animal. When the animal's information changes, it will notify all observers. It is the concrete subject
+//This model represents the data for an animal. When the animal's information changes, it will notify all observers. It is the concrete subject.
+//The AnimalModel class implements the subject interface and is responsible for managing animal data. It maintains a list of observers and notifies them when data changes.
+
 include_once '../../Config/databaseConfig.php';
 require_once '../../Model/Inventory/InventoryModel.php';
 require_once 'subject.php';
 require_once 'HealthObserver.php';
 require_once 'HabitatObserver.php';
+require_once 'AnimalObserver.php';
+require_once 'FoodObserver.php';
 
 class AnimalModel extends databaseConfig implements subject{
 
@@ -22,6 +26,8 @@ class AnimalModel extends databaseConfig implements subject{
         // Add observers
         $this->attach(new HealthObserver());
         $this->attach(new HabitatObserver());
+        $this->attach(new AnimalObserver());
+        $this->attach(new FoodObserver());
     }
     
     // Observer methods ---------------------------------------------------------------------
@@ -44,23 +50,36 @@ class AnimalModel extends databaseConfig implements subject{
   // Setter and Getter-------------------------------------------------------------------------
   
     // Set habitat data and notify observers
-    public function setHabitatData($habitatData) {
-        $this->habitatData = $habitatData;
-        $this->notify();
-    }
     
-    public function getHabitatData() {
-        return $this->habitatData;
+    //Animal  
+    function setId($id): void {
+        $this->id = $id;
     }
     
     function getId() {
         return $this->id;
     }
 
-    function setId($id): void {
-        $this->id = $id;
+    //Habitat
+    public function setHabitatData($habitatData) {
+        $this->habitatData = $habitatData;
+        $this->notify(); // Notify observers when habitat data changes
+    }
+    
+    public function getHabitatData() {
+        return $this->habitatData;
+    }
+    
+    //Health
+    public function setHealthRecordId($healthRecordId) {
+        $this->healthRecordId = $healthRecordId;
+        $this->notify(); // Notify observers of the health record change
     }
 
+    public function getHealthRecordId() {
+        return $this->healthRecordId;
+    }
+  
     
   // Animal function -------------------------------------------------------------------------------------------------------------------
  
@@ -85,8 +104,19 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->bindParam(':weight', $animalDetails['weight']);
         $stmt->bindParam(':habitat_id', $animalDetails['habitat_id'], PDO::PARAM_INT);
 
+        // Execute the query old version
+//        return $stmt->execute();
+        
         // Execute the query
-        return $stmt->execute();
+        $success = $stmt->execute();
+
+        if ($success) {
+            $animalId = $this->getLastInsertedAnimalId();
+            $this->setId($animalId);
+            $this->notify(); // Notify observers of the new animal addition
+        }
+        
+        return $success;
     }
     
 
@@ -274,7 +304,7 @@ class AnimalModel extends databaseConfig implements subject{
 
       // Retrieve the last inserted ID
       $healthRecordId = $conn->lastInsertId();
-
+      $this->setHealthRecordId($healthRecordId); // Update and notify observers
       return $healthRecordId;
   }
 
@@ -307,7 +337,7 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->bindParam(':healthStatus', $healthStatus, PDO::PARAM_STR);
 
         $stmt->execute();
-        $this->notify($healthRecordId); // notify observer
+        $this->setHealthRecordId($healthRecordId); // Update and notify observers
     }
     
         public function getHealthRecord($healthRecordId) {
@@ -373,47 +403,15 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
             ':quantity_fed' => $quantity_fed
         ]);
     }
-    $this->notify(); // Notify observers after adding or updating a feeding record
-}
-
-
-//    // Add a new feeding record
-//    public function addFeedingRecord($animal_id, $food_id, $feeding_time, $quantity_fed) {
-//        $stmt = $this->db->getConnection()->prepare("INSERT INTO animalfeeding (animal_id, food_id, feeding_time, quantity_fed) VALUES (:animal_id, :food_id, :feeding_time, :quantity_fed)");
-//        $stmt->execute([
-//            ':animal_id' => $animal_id,
-//            ':food_id' => $food_id,
-//            ':feeding_time' => $feeding_time,
-//            ':quantity_fed' => $quantity_fed
-//        ]);
-//        $this->notify(); // Notify observers after adding a feeding record
-//    }
-
-    // Retrieve consumption patterns for a specific animal
-    public function getConsumptionPatterns($animal_id, $start_date, $end_date) {
-        $stmt = $this->db->getConnection()->prepare("SELECT * FROM foodconsumption WHERE animal_id = :animal_id AND start_date >= :start_date AND end_date <= :end_date");
-        $stmt->execute([
-            ':animal_id' => $animal_id,
-            ':start_date' => $start_date,
-            ':end_date' => $end_date
-        ]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    // Add a new consumption record
-    public function addConsumptionRecord($animal_id, $total_quantity_fed, $start_date, $end_date) {
-        $stmt = $this->db->getConnection()->prepare("INSERT INTO foodconsumption (animal_id, total_quantity_fed, start_date, end_date) VALUES (:animal_id, :total_quantity_fed, :start_date, :end_date)");
-        $stmt->execute([
-            ':animal_id' => $animal_id,
-            ':total_quantity_fed' => $total_quantity_fed,
-            ':start_date' => $start_date,
-            ':end_date' => $end_date
-        ]);
-        $this->notify(); // Notify observers after adding a consumption record
-    }
-
     
-  
+    $this->notify([ // observer
+            'animal_id' => $animal_id,
+            'food_id' => $food_id,
+            'feeding_time' => $feeding_time,
+            'quantity_fed' => $quantity_fed
+        ]);
+    
+}
 
 }
 ?>

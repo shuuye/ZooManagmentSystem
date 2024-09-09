@@ -1,14 +1,7 @@
-<?php 
-
-require_once 'Observer.php';
-require_once '../../Model/ObserverN/AnimalModel.php';
-
+<?php
 class HabitatObserver implements Observer {
-    public function update($subject) {
-        if ($subject instanceof AnimalModel) {
-            $habitatData = $subject->getHabitatData();
-            // Send success message
-            echo "Habitat updated successfully.";
-        }
+    public function update(subject $subject) {
+        echo "Habitat data updated in HabitatObserver.";
     }
 }
+?>

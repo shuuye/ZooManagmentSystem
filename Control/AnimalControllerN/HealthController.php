@@ -1,7 +1,7 @@
 <?php
 
 require_once '../../Model/ObserverN/AnimalModel.php';
-require_once '../../Model/ObserverN/HealthObserver.php';
+//require_once '../../Model/ObserverN/HealthObserver.php';
 require_once '../../Model/XmlGenerator.php';
 
 class HealthController {
@@ -10,7 +10,7 @@ class HealthController {
 
     public function __construct() {
         $this->animalModel = new AnimalModel();
-        $this->healthObserver = new HealthObserver();
+//        $this->healthObserver = new HealthObserver();
     }
     
     public function getAnimalIds() {
@@ -31,14 +31,12 @@ class HealthController {
            $this->animalModel->updateAnimalHealthRecordId($animalId, $healthRecordId);
        }
 
-       // Notify the observers
-       $this->healthObserver->update($this->animalModel);
-       
+//       // Notify the observers
+//       $this->healthObserver->update($this->animalModel);
+//       
         header('Location: ../../View/AnimalView/list_healthRecords.php');
         exit();
 
-//       echo'Successful update';
-//       exit();
    }
 
     

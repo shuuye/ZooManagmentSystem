@@ -61,7 +61,12 @@ $controller->handleAddfeedingRecordForm();
     </style>
 </head>
 <body>
+    <nav>
+       <ul>
+           <li><a href="../../View/AnimalView/animal_home.php">Animal Home</a></li>
 
+       </ul>
+   </nav>
 <h1>Feeding Reports</h1>
 <table>
     <thead>
