@@ -278,14 +278,24 @@
     <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
-    <poId>28</poId>
-    <supplierId>4</supplierId>
-    <orderDate>2024-09-09 19:40:32</orderDate>
-    <deliveryDate>2024-09-21 13:40:00</deliveryDate>
-    <billingAddress>101 Jalan Haiwan</billingAddress>
+    <poId>29</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-09 19:44:41</orderDate>
+    <deliveryDate>2024-09-20 13:44:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>138.00</totalAmount>
-    <status>Draft</status>
+    <totalAmount>350.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>30</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-09 19:45:06</orderDate>
+    <deliveryDate>2024-09-20 13:45:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>400.00</totalAmount>
+    <status>Pending</status>
   </purchaseorder>
 
   <purchaseorderlineitem>
@@ -359,14 +369,24 @@
     <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
   <purchaseorderlineitem>
-    <poLineItemId>9</poLineItemId>
-    <poId>28</poId>
-    <inventoryId>41</inventoryId>
+    <poLineItemId>10</poLineItemId>
+    <poId>29</poId>
+    <inventoryId>44</inventoryId>
     <cleaningId/>
     <habitatId/>
-    <foodId>8</foodId>
-    <quantity>6</quantity>
-    <unitPrice>23.00</unitPrice>
+    <foodId>1</foodId>
+    <quantity>7</quantity>
+    <unitPrice>50.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>11</poLineItemId>
+    <poId>30</poId>
+    <inventoryId>44</inventoryId>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>1</foodId>
+    <quantity>8</quantity>
+    <unitPrice>50.00</unitPrice>
   </purchaseorderlineitem>
 
   <inventory>
@@ -679,7 +699,7 @@
     <itemType>Food</itemType>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>10</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>8</quantity>
   </inventory>
   <inventory>
     <inventoryId>45</inventoryId>

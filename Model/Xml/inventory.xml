@@ -310,7 +310,7 @@
     <itemType>Food</itemType>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>10</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>16</quantity>
   </inventory>
   <inventory>
     <inventoryId>45</inventoryId>

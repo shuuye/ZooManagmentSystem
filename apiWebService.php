@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Config/databaseConfig.php';
-//https://localhost/Practical5/api.php?name=pen
+//https://localhost/ZooManagementSystem/apiWebService.php?email=mei.ling@example.com
 header("Content-Type:application/json");
 
 if (!empty($_GET['email'])) {
