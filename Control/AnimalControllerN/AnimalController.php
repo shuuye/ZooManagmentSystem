@@ -164,6 +164,8 @@ class AnimalController extends InventoryModel{
         $animalId = $_GET['id'];
         $animal = $this->animalModel->getAnimalById($animalId);
         $animalImage = $this->animalModel->getAnimalImage($animalId); // Get the current animal image
+        $availableHabitats = $this->animalModel->getAvailableHabitats();
+
         if ($animal) {
             include '../../View/AnimalView/animal_edit.php';
         } else {

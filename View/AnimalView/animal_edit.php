@@ -53,9 +53,16 @@
             <label for="weight">Weight:</label>
             <input type="text" id="weight" name="weight" value="<?php echo htmlspecialchars($animal['weight']); ?>" required><br><br>
             
-            <label for="habitat_id">Habitat ID:</label>
-            <input type="text" id="habitat_id" name="habitat_id" value="<?php echo htmlspecialchars($animal['habitat_id']); ?>" required><br><br>
-            
+           <label for="habitat_id">Select Habitat:</label>
+            <select name="habitat_id" id="habitat_id" required>
+                <?php foreach ($availableHabitats as $habitat): ?>
+                    <option value="<?php echo htmlspecialchars($habitat['habitat_id']); ?>"
+                        <?php if ($animal['habitat_id'] == $habitat['habitat_id']) echo 'selected'; ?>>
+                        <?php echo htmlspecialchars($habitat['habitat_name']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select><br><br>
+
             <label for="animal_image">Update Animal Image:</label><br>
             <?php if ($animalImage): ?>
                 <img src="<?php echo htmlspecialchars($animalImage); ?>" alt="Animal Image" style="width: 100px;"><br>
