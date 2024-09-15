@@ -6,7 +6,7 @@
     <title>Edit Animal</title>
 </head>
 <body>
-    <h1>Edit Animal</h1>
+    <h1>Edit Animal Details</h1>
 
     <?php if ($animal): ?>
    <form method="POST" action="?action=edit">
