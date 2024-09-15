@@ -491,32 +491,29 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
         }
         return $categories;
     }
+    
+     // Method to fetch animal health reports
+    public function getAnimalHealthReports() {
+        $sql = "SELECT hRecord_id, animal_id, treatments, healthStatus FROM health_records";
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->execute();
+        
+        $reports = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $reports[] = [
+                'record_id' => $row['hRecord_id'],
+                'animal_id' => $row['animal_id'],
+                'treatments' => $row['treatments'],
+                'health_status' => $row['healthStatus']
+            ];
+        }
 
-//    public function getCategoryCounts() {
-//           $sql = "SELECT categories, COUNT(*) as count FROM animalinventory GROUP BY category";
-//           $result = $this-db->getConnection()->query($sql);
-//
-//           $categories = [];
-//           if ($result->num_rows > 0) {
-//               while($row = $result->fetch_assoc()) {
-//                   $categories[] = ['category' => $row['category'], 'count' => $row['count']];
-//               }
-//           }
-//           return $categories;
-//       }
-//
-//    public function getAllAnimals() {
-//        $sql = "SELECT id, name, categories FROM animalinventory";
-//        $result = $this->db->getConnection()->query($sql);
-//
-//        $animals = [];
-//        if ($result->num_rows > 0) {
-//            while($row = $result->fetch_assoc()) {
-//                $animals[] = ['id' => $row['id'], 'name' => $row['name'], 'category' => $row['categories']];
-//            }
-//        }
-//        return $animals;
-//    }
+        return $reports;
+    }
+    
+    
+
+
 
 }
 ?>
