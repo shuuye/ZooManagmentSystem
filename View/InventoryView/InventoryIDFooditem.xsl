@@ -79,9 +79,8 @@
                                 <td>
                                     <select id="supplier" name="supplierId">
                                         <xsl:attribute name="required">required</xsl:attribute>
-                                        <option value="0">
+                                        <option value="">
                                             <xsl:attribute name="disabled">disabled</xsl:attribute>
-                                            <xsl:attribute name="required">required</xsl:attribute>
                                             <xsl:attribute name="selected">selected</xsl:attribute>
                                             Select a supplier
                                         </option>
@@ -112,6 +111,42 @@
                         <br/>
                         <br/>
                         <button type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Pop-up Modal for Editing Item -->
+            <div id="editItemPop" class="modal">
+                <div class="modal-content">
+                    <span class="close-edit">x</span>
+                    <form id="editItemForm" action="../../Control/InventoryController/editRecord.php" method="POST">
+                        <input type="hidden" name="inventoryId" id="editInventoryId" />
+                        <input type="hidden" name="itemId" id="editItemId" />
+                        <input type="hidden" name="itemType" id="editItemType" value="Food" />
+                        <table class="displayingTable">
+                            <tr>
+                                <th colspan="2">Edit Food Item</th>
+                            </tr>
+                            <tr>
+                                <td>Brand Name:</td>
+                                <td>
+                                    <input type="text" id="editBrandName" name="brandName" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nutrition Information: </td>
+                                <td>
+                                    <input type="text" id="editNutrition" name="nutritionInfo" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Daily Quantity Required: </td>
+                                <td>
+                                    <input type="number" name="quantity" id="editQuantity" step="0.5" />
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <button type="submit">Save Changes</button>
                     </form>
                 </div>
             </div>
@@ -164,14 +199,13 @@
                         </td>
                         <td>
                             <!-- Edit Button -->
-                            <form action="../../Control/InventoryController/editRecord.php" method="POST" style="display:inline;">
-                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
-                                <input type="hidden" name="itemID" value="{id}" />
-                                <input type="hidden" name="itemType" value="Cleaning" />
-                                <button type="submit" class="edit-btn">
-                                    <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
-                                </button>
-                            </form>
+                            <button type="button" class="edit-btn" data-id="{id}" data-inventoryid="{inventoryId}"
+                                    data-brandname="{foodName}"
+                                    data-nutrition="{nutritionInfo}"
+                                    data-quantity="{daily_quantity_required}"
+                            >
+                                <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
+                            </button>
                         </td>
                         <td>
                             <!-- Delete Button -->
@@ -189,26 +223,50 @@
             </table>
             <script>
                 // JavaScript to handle modal functionality
-                var modal = document.getElementById("newItemPop");
-                var newButton = document.querySelector(".new-item");
-                var closeButton = document.querySelector(".close");
-            
-                // Get references to elements
-                var filterbtn = document.getElementById("newbtn");
+                var newItemModal = document.getElementById("newItemPop");
+                var editItemModal = document.getElementById("editItemPop");
+                var newItemButton = document.querySelector(".new-item");
+                var closeNewItemButton = document.querySelector(".close");
+                var closeEditItemButton = document.querySelector(".close-edit");
 
-                newButton.onclick = function() {
-                modal.style.display = "block";
+                // Show new item modal
+                newItemButton.onclick = function() {
+                newItemModal.style.display = "block";
                 }
-                closeButton.onclick = function() {
-                modal.style.display = "none";
+
+                // Close new item modal
+                closeNewItemButton.onclick = function() {
+                newItemModal.style.display = "none";
                 }
+
+                // Show edit item modal with data
+                document.querySelectorAll(".edit-btn").forEach(function(button) {
+                button.onclick = function() {
+                var data = button.dataset;
+                document.getElementById("editInventoryId").value = this.getAttribute("data-inventoryid");
+                document.getElementById("editItemId").value = this.getAttribute("data-id");
+                document.getElementById("editBrandName").value = data.brandname;
+                document.getElementById("editNutrition").value = data.nutrition;
+                document.getElementById("editQuantity").value = data.quantity;
+                editItemModal.style.display = "block";
+                }
+                });
+
+                // Close edit item modal
+                closeEditItemButton.onclick = function() {
+                editItemModal.style.display = "none";
+                }
+
                 window.onclick = function(event) {
-                if (event.target == modal) {
-                modal.style.display = "none";
+                if (event.target == newItemModal) {
+                newItemModal.style.display = "none";
+                }
+                if (event.target == editItemModal) {
+                editItemModal.style.display = "none";
                 }
                 }
-               
 
+                // Form validation
                 document.getElementById('upload').addEventListener('submit', function(event) {
                 const image = document.getElementById('image').files[0];
                 const errorElement = document.getElementById('error');
@@ -238,7 +296,6 @@
                 event.preventDefault();
                 }
                 });
-                
             </script>
         </div>
     </xsl:template>

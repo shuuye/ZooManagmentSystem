@@ -37,23 +37,42 @@ class CleaningInventory extends Inventory {
             $this->size = $newSize;
         }
     }
-    
-    public function getLastRecordID(){
+
+    public function getLastRecordID() {
         return $this->getLastInsertedId("cleaninginventory");
     }
 
     public function addItemRecord($data) {
-        
+
         $result = $this->addRecordInDB($this->itemType, $data);
         return $result;
-        
     }
 
     public function removeItemRecord($records) {
         return $this->removeRecordFromDB($this->itemType, $records);
     }
-    
-    public function updateImage($uniqueFileName, $itemId){
+
+    public function updateImage($uniqueFileName, $itemId) {
         return $this->insertItemImage($itemId, null, null, $uniqueFileName);
+    }
+    
+    public function getRecordDetails($inventoryId, $itemId) {
+        $result = $this->getRecordDetailsfromDB($inventoryId, $itemId, "cleaninginventory");
+
+        if ($result) {
+            return $result;
+        } else {
+            return ["error" => "No record found"];
+        }
+    }
+
+    public function editItemRecord($data) {
+        $result = $this->editItemRecordInDB("Cleaning", $data);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

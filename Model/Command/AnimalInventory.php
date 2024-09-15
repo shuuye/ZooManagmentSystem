@@ -182,6 +182,13 @@ class AnimalInventory extends Inventory {
     public function updateImage($uniqueFileName, $itemId){
         
     }
+    
+     public function editItemRecord($data) {
+       
+    }
+    
+    public function getRecordDetails($inventoryId, $itemId) {
+    }
 }
 
 //    // Optionally, add a method to update the animal details in the database

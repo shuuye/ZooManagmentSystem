@@ -1,8 +1,7 @@
 <?php
 
 include_once '../../Model/Inventory/InventoryModel.php';
-include_once 'C:\xampp\htdocs\ZooManagementSystem\Xml\createXMLFromDatabase.php';
-include_once 'C:\xampp\htdocs\ZooManagementSystem\Xml\XSLTransformation.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\XSLTransformation.php';
 
 class InventoryView extends InventoryModel {
 

@@ -21,7 +21,7 @@
     <itemName>Elephant</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 3</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -29,7 +29,7 @@
     <itemName>Giraffe</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 4</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -190,7 +190,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>21</quantity>
   </inventory>
   <inventory>
     <inventoryId>27</inventoryId>
@@ -229,7 +229,7 @@
     <itemName>Bleach</itemName>
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
-    <reorderThreshold>35</reorderThreshold>
+    <reorderThreshold>33</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -269,7 +269,7 @@
     <itemName>Hay</itemName>
     <itemType>Food</itemType>
     <storageLocation>Grain Storage</storageLocation>
-    <reorderThreshold>500</reorderThreshold>
+    <reorderThreshold>497</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>

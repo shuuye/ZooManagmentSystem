@@ -93,14 +93,14 @@ define('INVENTORY_CSS_PATH', '../../Css/Inventory/');
                             <li><a href="supplier-management.php">Supplier Management</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown <?php echo ($activePage == 'Settings') ? 'active' : ''; ?>">
+<!--                    <li class="dropdown <?php echo ($activePage == 'Settings') ? 'active' : ''; ?>">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="system-settings.php">System Settings</a></li>
                             <li><a href="email-settings.php">Email Settings</a></li>
                             <li><a href="payment-gateway-settings.php">Payment Gateway Settings</a></li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
             </nav>
             <h1> <?php echo $activePage; ?></h1>

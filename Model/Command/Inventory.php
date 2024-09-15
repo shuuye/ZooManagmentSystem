@@ -28,6 +28,12 @@ abstract class Inventory extends InventoryModel {
     abstract function removeItemRecord($records);
     abstract function getLastRecordID();
     abstract function updateImage($uniqueFileName, $itemId);
+    abstract function getRecordDetails($inventoryId, $itemId);
+    abstract function editItemRecord($data);
+    
+    public function editItem($data){
+        return $this->editItemInDB($data);
+    }
     
     public function removeInventoryRecord($records) {
         return $this->removeInventoryRecordDB( $records);

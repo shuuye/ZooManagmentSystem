@@ -56,4 +56,67 @@
     <size>Standard</size>
     <usageInstructions>Use for sweeping floors.</usageInstructions>
   </cleaninginventory>
+  <cleaninginventory>
+    <id>52</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>53</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach edit</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>54</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>55</id>
+    <inventoryId>28</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hellos</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>56</id>
+    <inventoryId>28</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>57</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>58</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>59</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>60</id>
+    <inventoryId>35</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
 </cleaninginventories>

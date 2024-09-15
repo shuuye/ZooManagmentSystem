@@ -15,7 +15,7 @@
                 </a>
                 <span>> </span>
             </div>
-           <div class="recordingFunctions">
+            <div class="recordingFunctions">
                 <!-- New Brand Button -->
                 <div class="new-item" id="newbtn">
                     <a>
@@ -29,8 +29,6 @@
                 <div class="modal-content">
                     <span class="close">x</span>
                     <form action="../../Control/InventoryController/newBrand.php" method="POST" id="upload" enctype="multipart/form-data">
-
-                        
                         <table class="displayingTable">
                             <tr>
                                 <th colspan="2">New Habitat Item Brand for <xsl:value-of select="inventory[inventoryId = $inventoryID]/itemName" /></th>
@@ -115,9 +113,8 @@
                                 <td>
                                     <select id="supplier" name="supplierId">
                                         <xsl:attribute name="required">required</xsl:attribute>
-                                        <option value="0">
+                                        <option value="">
                                             <xsl:attribute name="disabled">disabled</xsl:attribute>
-                                            <xsl:attribute name="required">required</xsl:attribute>
                                             <xsl:attribute name="selected">selected</xsl:attribute>
                                             Select a supplier
                                         </option>
@@ -151,6 +148,84 @@
                     </form>
                 </div>
             </div>
+            <!-- Modal for Editing Item -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-edit-modal">x</span>
+                    <form id="editItemForm" action="../../Control/InventoryController/editRecord.php" method="POST">
+                        <input type="hidden" name="inventoryId" id="editInventoryId" />
+                        <input type="hidden" name="itemId" id="editItemId" />
+                        <input type="hidden" name="itemType" id="itemType" value="Habitat" />
+                        <table class="displayingTable">
+                            <tr>
+                                <th colspan="2">Edit Habitat Item</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editBrandName">Brand Name:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="brandName" id="editBrandName" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editDescription">Description:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="description" id="editDescription" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editHabitatType">Habitat Type:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="habitatType" id="editHabitatType" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editMaterial">Material:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="material" id="editMaterial" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editLifeTime">Expected Life Time:</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="lifeTime" id="editLifeTime" step="0.5" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editInstallationInstru">Installation Instruction:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="installationInstru" id="editInstallationInstru" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editDisposalInstru">Disposal Instruction:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="disposalInstru" id="editDisposalInstru" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button type="submit" id="saveEditBtn">Save Changes</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
             <table class="displayingTable">
                 <tr>
                     <th>Inventory ID</th>
@@ -211,14 +286,17 @@
                         </td>
                         <td>
                             <!-- Edit Button -->
-                            <form action="../../Control/InventoryController/editRecord.php" method="POST" style="display:inline;">
-                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
-                                <input type="hidden" name="itemID" value="{id}" />
-                                <input type="hidden" name="itemType" value="Habitat" />
-                                <button type="submit" class="edit-btn">
-                                    <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
-                                </button>
-                            </form>
+                            <button class="edit-btn" data-id="{id}" data-inventoryid="{inventoryId}"
+                                    data-brandname="{habitatItemName}" 
+                                    data-description="{description}" 
+                                    data-habitatType="{habitatType}" 
+                                    data-material="{material}" 
+                                    data-lifeTime="{expected_lifetime}"
+                                    data-installationInstru="{installation_instructions}" 
+                                    data-disposalInstru="{disposal_instructions}" 
+                                    data-price="{price}">
+                                <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
+                            </button>
                         </td>
                         <td>
                             <!-- Delete Button -->
@@ -286,6 +364,38 @@
                 event.preventDefault();
                 }
                 });
+                
+                // JavaScript to handle modal functionality
+                var editModal = document.getElementById("editModal");
+                var closeEditModal = document.querySelector(".close-edit-modal");
+
+                document.querySelectorAll(".edit-btn").forEach(function(button) {
+                button.addEventListener("click", function() {
+                // Retrieve data from button's data attributes
+                document.getElementById("editInventoryId").value = this.getAttribute("data-inventoryid");
+                document.getElementById("editItemId").value = this.getAttribute("data-id");
+                document.getElementById("editBrandName").value = this.getAttribute("data-brandname");
+                document.getElementById("editDescription").value = this.getAttribute("data-description");
+                document.getElementById("editHabitatType").value = this.getAttribute("data-habitatType");
+                document.getElementById("editMaterial").value = this.getAttribute("data-material");
+                document.getElementById("editLifeTime").value = this.getAttribute("data-lifeTime");
+                document.getElementById("editInstallationInstru").value = this.getAttribute("data-installationInstru");
+                document.getElementById("editDisposalInstru").value = this.getAttribute("data-disposalInstru");
+
+                // Show modal
+                editModal.style.display = "block";
+                });
+                });
+
+                closeEditModal.onclick = function() {
+                editModal.style.display = "none";
+                }
+                window.onclick = function(event) {
+                if (event.target == editModal) {
+                editModal.style.display = "none";
+                }
+                }
+
                 
             </script>
         </div>

@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute command with item data
     $inventoryManager = new InventoryManagement();
     $success = $inventoryManager->executeCommand(new AddItemRecordCommand($inventory, $data));
-    
+   
     $itemId = $inventory->getLastRecordID();
 
     // Handle image upload

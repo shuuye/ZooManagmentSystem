@@ -56,6 +56,69 @@
     <size>Standard</size>
     <usageInstructions>Use for sweeping floors.</usageInstructions>
   </cleaninginventory>
+  <cleaninginventory>
+    <id>52</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>53</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach edit</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>54</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>55</id>
+    <inventoryId>28</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hellos</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>56</id>
+    <inventoryId>28</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>57</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>58</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>59</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>60</id>
+    <inventoryId>35</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
 
   <foodinventory>
     <id>1</id>
@@ -108,6 +171,13 @@
   </foodinventory>
   <foodinventory>
     <id>11</id>
+    <inventoryId>40</inventoryId>
+    <foodName>Family Mart</foodName>
+    <nutritionInfo>Hahahahss</nutritionInfo>
+    <daily_quantity_required>23.00</daily_quantity_required>
+  </foodinventory>
+  <foodinventory>
+    <id>12</id>
     <inventoryId>40</inventoryId>
     <foodName>Family Mart</foodName>
     <nutritionInfo>Hahahah</nutritionInfo>
@@ -214,18 +284,18 @@
     <disposal_instructions>Recycle electronic components.</disposal_instructions>
   </habitatinventory>
   <habitatinventory>
-    <id>11</id>
+    <id>16</id>
     <inventoryId>18</inventoryId>
     <habitatItemName>What Branch</habitatItemName>
-    <description>desc</description>
-    <habitatType>hel</habitatType>
+    <description>description</description>
+    <habitatType>heldd</habitatType>
     <material>kdls</material>
     <expected_lifetime>23</expected_lifetime>
     <installation_instructions>sa</installation_instructions>
     <disposal_instructions>daf</disposal_instructions>
   </habitatinventory>
   <habitatinventory>
-    <id>12</id>
+    <id>17</id>
     <inventoryId>18</inventoryId>
     <habitatItemName>What Branch</habitatItemName>
     <description>desc</description>
@@ -346,6 +416,16 @@
     <totalAmount>120.00</totalAmount>
     <status>Draft</status>
   </purchaseorder>
+  <purchaseorder>
+    <poId>33</poId>
+    <supplierId>2</supplierId>
+    <orderDate>2024-09-15 16:32:00</orderDate>
+    <deliveryDate>2024-09-19 10:31:00</deliveryDate>
+    <billingAddress>456 Jalan Bersih</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>1000.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
 
   <purchaseorderlineitem>
     <poLineItemId>1</poLineItemId>
@@ -447,6 +527,16 @@
     <quantity>14</quantity>
     <unitPrice>23.00</unitPrice>
   </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>14</poLineItemId>
+    <poId>33</poId>
+    <inventoryId>26</inventoryId>
+    <cleaningId>1</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <quantity>20</quantity>
+    <unitPrice>50.00</unitPrice>
+  </purchaseorderlineitem>
 
   <inventory>
     <inventoryId>1</inventoryId>
@@ -469,7 +559,7 @@
     <itemName>Elephant</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 3</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -477,7 +567,7 @@
     <itemName>Giraffe</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 4</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -638,7 +728,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>21</quantity>
   </inventory>
   <inventory>
     <inventoryId>27</inventoryId>
@@ -677,7 +767,7 @@
     <itemName>Bleach</itemName>
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
-    <reorderThreshold>35</reorderThreshold>
+    <reorderThreshold>33</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -717,7 +807,7 @@
     <itemName>Hay</itemName>
     <itemType>Food</itemType>
     <storageLocation>Grain Storage</storageLocation>
-    <reorderThreshold>500</reorderThreshold>
+    <reorderThreshold>497</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -896,17 +986,38 @@
     <image_path>food_40_11.jpeg</image_path>
   </itemimage>
   <itemimage>
-    <image_id>34</image_id>
+    <image_id>39</image_id>
     <cleaningId/>
-    <habitatId>11</habitatId>
+    <habitatId>16</habitatId>
     <foodId/>
-    <image_path>habitat_18_11.jpeg</image_path>
+    <image_path>habitat_18_16.jpeg</image_path>
   </itemimage>
   <itemimage>
-    <image_id>35</image_id>
+    <image_id>40</image_id>
     <cleaningId/>
-    <habitatId>12</habitatId>
+    <habitatId>17</habitatId>
     <foodId/>
-    <image_path>habitat_18_12.jpeg</image_path>
+    <image_path>habitat_18_17.jpeg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>41</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>12</foodId>
+    <image_path>food_40_12.jpeg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>42</image_id>
+    <cleaningId>59</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_31_59.jpeg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>43</image_id>
+    <cleaningId>60</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_35_60.jpeg</image_path>
   </itemimage>
 </root>

@@ -169,4 +169,24 @@ class FoodInventory extends Inventory {
     public function updateImage($uniqueFileName, $itemId) {
         return $this->insertItemImage(null, null, $itemId, $uniqueFileName);
     }
+
+    public function getRecordDetails($inventoryId, $itemId) {
+        $result = $this->getRecordDetailsfromDB($inventoryId, $itemId, "foodinventory");
+
+        if ($result) {
+            return $result;
+        } else {
+            return ["error" => "No record found"];
+        }
+    }
+    
+    public function editItemRecord($data) {
+        $result = $this->editItemRecordInDB("Food", $data);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

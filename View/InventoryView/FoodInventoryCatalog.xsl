@@ -51,6 +51,50 @@
                     </form>
                 </div>
             </div>
+            <!-- Pop-up Modal for Editing Item -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-edit-modal">x</span>
+                    <form id="editItemForm" action="../../Control/InventoryController/editInventory.php" method="POST">
+                        <input type="hidden" name="inventoryId" id="editInventoryId" />
+                        <input type="hidden" name="itemType" id="edititemType" />
+                        <table class="displayingTable">
+                            <tr>
+                                <th colspan="2">Edit Inventory Item Details</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editItemName">Item Name:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="itemName" id="editItemName" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editStorageLocation">Storage Location:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="storageLocation" id="editStorageLocation" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="editReorderThreshold">Reorder Threshold:</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="reorderThreshold" id="editReorderThreshold" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button type="submit">Save Changes</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
             <table class="displayingTable">
                 <tr>
                     <th>Inventory ID</th>
@@ -109,12 +153,14 @@
                         </td>
                         <td>
                             <!-- Edit Button -->
-                            <form action="../../Control/InventoryController/editRecord.php" method="POST" style="display:inline;">
-                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
-                                <button type="submit" class="edit-btn">
-                                    <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
-                                </button>
-                            </form>
+                            <button class="edit-btn" data-inventoryid="{inventoryId}"
+                                    data-itemName="{itemName}" 
+                                    data-itemType="{itemType}" 
+                                    data-storageLocation="{storageLocation}" 
+                                    data-reorderThreshold="{reorderThreshold}" 
+                            >
+                                <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
+                            </button>
                         </td>
                         <td>
                             <!-- Delete Button -->
@@ -151,6 +197,34 @@
                 modal.style.display = "none";
                 }
                 }
+            
+                // JavaScript to handle modal functionality
+                var editModal = document.getElementById("editModal");
+                var closeEditModal = document.querySelector(".close-edit-modal");
+
+                document.querySelectorAll(".edit-btn").forEach(function(button) {
+                button.addEventListener("click", function() {
+                // Retrieve data from button's data attributes
+                document.getElementById("editInventoryId").value = this.getAttribute("data-inventoryid");
+                document.getElementById("editItemName").value = this.getAttribute("data-itemName");
+                document.getElementById("edititemType").value = this.getAttribute("data-itemType");
+                document.getElementById("editStorageLocation").value = this.getAttribute("data-storageLocation");
+                document.getElementById("editReorderThreshold").value = this.getAttribute("data-reorderThreshold");
+
+                // Show modal
+                editModal.style.display = "block";
+                });
+                });
+
+                closeEditModal.onclick = function() {
+                editModal.style.display = "none";
+                }
+                window.onclick = function(event) {
+                if (event.target == editModal) {
+                editModal.style.display = "none";
+                }
+                }
+
             </script>
         </div>
     </xsl:template>
