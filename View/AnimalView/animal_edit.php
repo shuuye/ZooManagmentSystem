@@ -9,7 +9,7 @@
     <h1>Edit Animal Details</h1>
 
     <?php if ($animal): ?>
-   <form method="POST" action="?action=edit">
+   <form method="POST"action="?action=edit&id=<?php echo htmlspecialchars($animal['id']); ?>"  enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($animal['id']); ?>">
             
             <label for="name">Name:</label>
@@ -56,6 +56,12 @@
             <label for="habitat_id">Habitat ID:</label>
             <input type="text" id="habitat_id" name="habitat_id" value="<?php echo htmlspecialchars($animal['habitat_id']); ?>" required><br><br>
             
+            <label for="animal_image">Update Animal Image:</label><br>
+            <?php if ($animalImage): ?>
+                <img src="<?php echo htmlspecialchars($animalImage); ?>" alt="Animal Image" style="width: 100px;"><br>
+                <p>Current Image: <?php echo basename($animalImage); ?></p><br>
+            <?php endif; ?>
+            <input type="file" name="animal_image" id="animal_image" accept=".jpg, .jpeg, .png" ><br>
             <input type="submit" value="Update Animal">
         </form>
     <?php else: ?>

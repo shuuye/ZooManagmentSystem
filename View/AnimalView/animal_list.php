@@ -60,6 +60,7 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
                 <th>Weight</th>
                 <th>Habitat ID</th>
                 <th>Category</th>
+                <th>#</th>
             </tr>
         </thead>
         <tbody>

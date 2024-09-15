@@ -160,18 +160,16 @@ class AnimalController extends InventoryModel{
     }
     
     public function editAnimal() {
-    // Check if this is a GET request (display the edit form)
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         $animalId = $_GET['id'];
         $animal = $this->animalModel->getAnimalById($animalId);
+        $animalImage = $this->animalModel->getAnimalImage($animalId); // Get the current animal image
         if ($animal) {
             include '../../View/AnimalView/animal_edit.php';
         } else {
             echo "Animal not found.";
         }
-    }
-    // Check if this is a POST request (handle the form submission to update the animal)
-    elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $animalId = $_POST['id'];
         $animalDetails = [
             'name' => $_POST['name'],
@@ -188,26 +186,71 @@ class AnimalController extends InventoryModel{
             'habitat_id' => $_POST['habitat_id']
         ];
 
-        // Update the animal in the model
+        // Update the animal details in the model
         $success = $this->animalModel->updateAnimal($animalId, $animalDetails);
         $message = $success ? "Animal updated successfully." : "Failed to update animal.";
+
+        // Handle the image upload if a new image was provided
+        if (isset($_FILES['animal_image']) && $_FILES['animal_image']['error'] === UPLOAD_ERR_OK) {
+            $file = $_FILES['animal_image'];
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+            $maxFileSize = 2 * 1024 * 1024; // 2MB
+
+            // Validate file type by MIME type
+            if (!in_array($file['type'], $allowedTypes)) {
+                $message = 'Invalid file type.';
+            } elseif ($file['size'] > $maxFileSize) {
+                $message = 'File size exceeds limit.';
+            } else {
+                // Validate file extension
+                $fileExtension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+                if (!in_array($fileExtension, ['jpg', 'jpeg', 'png'])) {
+                    $message = 'Invalid file extension.';
+                } else {
+                    // Generate a unique file name to prevent overwriting
+                    $uniqueFileName = uniqid('animal_', true) . '.' . $fileExtension;
+                    $uploadDir = dirname(__DIR__, 2) . '/assets/AnimalImages/';
+                    $uploadFilePath = $uploadDir . $uniqueFileName;
+
+                    // Ensure the upload directory exists and is writable
+                    if (!is_dir($uploadDir) || !is_writable($uploadDir)) {
+                        $message = 'Upload directory is not writable or does not exist.';
+                    } else {
+                        // Save the file securely
+                        if (move_uploaded_file($file['tmp_name'], $uploadFilePath)) {
+                            // Save the image path in the database
+                            $imagePath = '/ZooManagementSystem/assets/AnimalImages/' . $uniqueFileName;
+                            $this->animalModel->updateAnimalImage($animalId, $imagePath);
+                            $message .= " Image updated successfully.";
+                        } else {
+                            $message = 'Failed to upload image.';
+                        }
+                    }
+                }
+            }
+        }
 
         include '../../View/AnimalView/animal_result.php';
         exit();
     }
 }
 
-    public function deleteAnimal() {
-        if (isset($_GET['id'])) {
-            $animalId = $_GET['id'];
-            $success = $this->animalModel->deleteAnimal($animalId);
-            $message = $success ? "Animal deleted successfully." : "Failed to delete animal.";
-            include '../../View/AnimalView/animal_result.php';
-            exit();
-        } else {
-            echo "No animal ID provided.";
-        }
+public function deleteAnimal() {
+    if (isset($_GET['id'])) {
+        $animalId = $_GET['id'];
+        $success = $this->animalModel->deleteAnimal($animalId);
+
+        // Prepare the message
+        $message = $success ? "Animal deleted successfully." : "Failed to delete animal.";
+
+        // Redirect to the animal list page with a message
+        header("Location: animal_list.php?message=" . urlencode($message));
+        exit();
+    } else {
+        echo "No animal ID provided.";
     }
+}
+
 }
 
 // Initialize controller
