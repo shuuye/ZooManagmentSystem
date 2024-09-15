@@ -46,6 +46,15 @@ class InventoryController extends InventoryModel {
             case 'viewItembasedOnInventoryID':
                 $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
                 $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                $status = isset($_GET['status']) ? $_GET['status'] : '';
+                switch ($status) {
+                    case 'success':
+                        echo "<p class='alert alert-success'>New brand added successfully.</p>";
+                        break;
+                    case 'error':
+                        echo "<p class='alert alert-error'>Failed to add new brand. Please try again.</p>";
+                        break;
+                }
                 $this->viewItembasedOnInventoryID($inventoryId, $itemType);
                 break;
             case 'viewSpecificDetails':

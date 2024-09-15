@@ -79,15 +79,18 @@ class UpdateItemCommand implements InventoryCommand
 class AddItemRecordCommand implements InventoryCommand
 {
     private $inventory;
+    private $data;
 
-    public function __construct(Inventory $inventory)
+    public function __construct(Inventory $inventory, $data)
     {
         $this->inventory = $inventory;
+        $this->data = $data;
     }
 
     public function execute()
     {
-        $this->inventory->addItemRecord(); 
+        $result =  $this->inventory->addItemRecord($this->data);
+        return $result;
     }
 
     public function undo()

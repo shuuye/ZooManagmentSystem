@@ -99,4 +99,26 @@
     <installation_instructions>Install according to manufacturer instructions.</installation_instructions>
     <disposal_instructions>Recycle electronic components.</disposal_instructions>
   </habitatinventory>
+  <habitatinventory>
+    <id>11</id>
+    <inventoryId>18</inventoryId>
+    <habitatItemName>What Branch</habitatItemName>
+    <description>desc</description>
+    <habitatType>hel</habitatType>
+    <material>kdls</material>
+    <expected_lifetime>23</expected_lifetime>
+    <installation_instructions>sa</installation_instructions>
+    <disposal_instructions>daf</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>12</id>
+    <inventoryId>18</inventoryId>
+    <habitatItemName>What Branch</habitatItemName>
+    <description>desc</description>
+    <habitatType>hel</habitatType>
+    <material>kdls</material>
+    <expected_lifetime>23</expected_lifetime>
+    <installation_instructions>sa</installation_instructions>
+    <disposal_instructions>daf</disposal_instructions>
+  </habitatinventory>
 </habitatinventories>

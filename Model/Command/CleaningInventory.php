@@ -37,12 +37,23 @@ class CleaningInventory extends Inventory {
             $this->size = $newSize;
         }
     }
+    
+    public function getLastRecordID(){
+        return $this->getLastInsertedId("cleaninginventory");
+    }
 
-    public function addItemRecord() {
+    public function addItemRecord($data) {
+        
+        $result = $this->addRecordInDB($this->itemType, $data);
+        return $result;
         
     }
 
     public function removeItemRecord($records) {
         return $this->removeRecordFromDB($this->itemType, $records);
+    }
+    
+    public function updateImage($uniqueFileName, $itemId){
+        return $this->insertItemImage($itemId, null, null, $uniqueFileName);
     }
 }

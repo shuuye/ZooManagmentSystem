@@ -106,6 +106,13 @@
     <nutritionInfo>Rich in fiber and essential oils</nutritionInfo>
     <daily_quantity_required>3.00</daily_quantity_required>
   </foodinventory>
+  <foodinventory>
+    <id>11</id>
+    <inventoryId>40</inventoryId>
+    <foodName>Family Mart</foodName>
+    <nutritionInfo>Hahahah</nutritionInfo>
+    <daily_quantity_required>23.00</daily_quantity_required>
+  </foodinventory>
 
   <habitatinventory>
     <id>1</id>
@@ -206,6 +213,28 @@
     <installation_instructions>Install according to manufacturer instructions.</installation_instructions>
     <disposal_instructions>Recycle electronic components.</disposal_instructions>
   </habitatinventory>
+  <habitatinventory>
+    <id>11</id>
+    <inventoryId>18</inventoryId>
+    <habitatItemName>What Branch</habitatItemName>
+    <description>desc</description>
+    <habitatType>hel</habitatType>
+    <material>kdls</material>
+    <expected_lifetime>23</expected_lifetime>
+    <installation_instructions>sa</installation_instructions>
+    <disposal_instructions>daf</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>12</id>
+    <inventoryId>18</inventoryId>
+    <habitatItemName>What Branch</habitatItemName>
+    <description>desc</description>
+    <habitatType>hel</habitatType>
+    <material>kdls</material>
+    <expected_lifetime>23</expected_lifetime>
+    <installation_instructions>sa</installation_instructions>
+    <disposal_instructions>daf</disposal_instructions>
+  </habitatinventory>
 
   <purchaseorder>
     <poId>1</poId>
@@ -295,7 +324,27 @@
     <billingAddress>202 Jalan Makanan</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
     <totalAmount>400.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>31</poId>
+    <supplierId>4</supplierId>
+    <orderDate>2024-09-14 20:25:06</orderDate>
+    <deliveryDate>2024-09-20 14:26:00</deliveryDate>
+    <billingAddress>101 Jalan Haiwan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>322.00</totalAmount>
     <status>Pending</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>32</poId>
+    <supplierId>2</supplierId>
+    <orderDate>2024-09-15 10:12:20</orderDate>
+    <deliveryDate>2024-09-18 16:12:00</deliveryDate>
+    <billingAddress>456 Jalan Bersih</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>120.00</totalAmount>
+    <status>Draft</status>
   </purchaseorder>
 
   <purchaseorderlineitem>
@@ -387,6 +436,16 @@
     <foodId>1</foodId>
     <quantity>8</quantity>
     <unitPrice>50.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>12</poLineItemId>
+    <poId>31</poId>
+    <inventoryId>24</inventoryId>
+    <cleaningId/>
+    <habitatId>9</habitatId>
+    <foodId/>
+    <quantity>14</quantity>
+    <unitPrice>23.00</unitPrice>
   </purchaseorderlineitem>
 
   <inventory>
@@ -699,7 +758,7 @@
     <itemType>Food</itemType>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>10</reorderThreshold>
-    <quantity>8</quantity>
+    <quantity>16</quantity>
   </inventory>
   <inventory>
     <inventoryId>45</inventoryId>
@@ -710,184 +769,144 @@
     <quantity>102</quantity>
   </inventory>
 
-  <supplier>
-    <supplierId>1</supplierId>
-    <supplierName>Animal Supplies Sdn Bhd</supplierName>
-    <contactName>Ahmad Ali</contactName>
-    <contactEmail>ahmad.ali@example.com</contactEmail>
-    <contactPhone>03-1234-5678</contactPhone>
-    <address>123 Jalan Zoo</address>
-    <city>Kuala Lumpur</city>
-    <state>WP</state>
-    <postalCode>50000</postalCode>
-    <country>Malaysia</country>
-    <website>www.animalsupplies.com.my</website>
-    <rating>4.50</rating>
-    <lastOrderDate>2024-01-15</lastOrderDate>
-    <paymentTerms>Net 30</paymentTerms>
-    <deliveryTime>7</deliveryTime>
-    <supplierNotes>Reliable supplier.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>2</supplierId>
-    <supplierName>Cleaning Solutions Sdn Bhd</supplierName>
-    <contactName>Lim Mei Ling</contactName>
-    <contactEmail>mei.ling@example.com</contactEmail>
-    <contactPhone>03-2345-6789</contactPhone>
-    <address>456 Jalan Bersih</address>
-    <city>Petaling Jaya</city>
-    <state>Selangor</state>
-    <postalCode>46000</postalCode>
-    <country>Malaysia</country>
-    <website>www.cleaningsolutions.com.my</website>
-    <rating>4.00</rating>
-    <lastOrderDate>2024-02-20</lastOrderDate>
-    <paymentTerms>Net 30</paymentTerms>
-    <deliveryTime>10</deliveryTime>
-    <supplierNotes>Good quality products.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>3</supplierId>
-    <supplierName>Habitat Builders Sdn Bhd</supplierName>
-    <contactName>Ravi Kumar</contactName>
-    <contactEmail>ravi.kumar@example.com</contactEmail>
-    <contactPhone>03-3456-7890</contactPhone>
-    <address>789 Jalan Habitat</address>
-    <city>Shah Alam</city>
-    <state>Selangor</state>
-    <postalCode>40000</postalCode>
-    <country>Malaysia</country>
-    <website>www.habitatbuilders.com.my</website>
-    <rating>4.70</rating>
-    <lastOrderDate>2024-03-25</lastOrderDate>
-    <paymentTerms>Net 45</paymentTerms>
-    <deliveryTime>14</deliveryTime>
-    <supplierNotes>Excellent service.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>4</supplierId>
-    <supplierName>Zoo Animals Sdn Bhd</supplierName>
-    <contactName>Siti Nurhaliza</contactName>
-    <contactEmail>siti.nurhaliza@example.com</contactEmail>
-    <contactPhone>03-4567-8901</contactPhone>
-    <address>101 Jalan Haiwan</address>
-    <city>Klang</city>
-    <state>Selangor</state>
-    <postalCode>41000</postalCode>
-    <country>Malaysia</country>
-    <website>www.zooanimals.com.my</website>
-    <rating>4.80</rating>
-    <lastOrderDate>2024-04-30</lastOrderDate>
-    <paymentTerms>Net 60</paymentTerms>
-    <deliveryTime>21</deliveryTime>
-    <supplierNotes>Highly recommended.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>5</supplierId>
-    <supplierName>Food Suppliers Sdn Bhd</supplierName>
-    <contactName>Tan Chong Wei</contactName>
-    <contactEmail>chong.wei@example.com</contactEmail>
-    <contactPhone>03-5678-9012</contactPhone>
-    <address>202 Jalan Makanan</address>
-    <city>Subang Jaya</city>
-    <state>Selangor</state>
-    <postalCode>47500</postalCode>
-    <country>Malaysia</country>
-    <website>www.foodsuppliers.com.my</website>
-    <rating>4.30</rating>
-    <lastOrderDate>2024-05-05</lastOrderDate>
-    <paymentTerms>Net 30</paymentTerms>
-    <deliveryTime>7</deliveryTime>
-    <supplierNotes>Good variety of products.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>6</supplierId>
-    <supplierName>Animal Care Sdn Bhd</supplierName>
-    <contactName>Zainab Hassan</contactName>
-    <contactEmail>zainab.hassan@example.com</contactEmail>
-    <contactPhone>03-6789-0123</contactPhone>
-    <address>303 Jalan Penjagaan</address>
-    <city>Kajang</city>
-    <state>Selangor</state>
-    <postalCode>43000</postalCode>
-    <country>Malaysia</country>
-    <website>www.animalcare.com.my</website>
-    <rating>4.60</rating>
-    <lastOrderDate>2024-06-10</lastOrderDate>
-    <paymentTerms>Net 45</paymentTerms>
-    <deliveryTime>14</deliveryTime>
-    <supplierNotes>Reliable and prompt.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>7</supplierId>
-    <supplierName>Zoo Equipment Sdn Bhd</supplierName>
-    <contactName>David Tan</contactName>
-    <contactEmail>david.tan@example.com</contactEmail>
-    <contactPhone>03-7890-1234</contactPhone>
-    <address>404 Jalan Peralatan</address>
-    <city>Puchong</city>
-    <state>Selangor</state>
-    <postalCode>47100</postalCode>
-    <country>Malaysia</country>
-    <website>www.zooequipment.com.my</website>
-    <rating>4.40</rating>
-    <lastOrderDate>2024-07-15</lastOrderDate>
-    <paymentTerms>Net 30</paymentTerms>
-    <deliveryTime>10</deliveryTime>
-    <supplierNotes>Good quality equipment.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>8</supplierId>
-    <supplierName>Animal Health Sdn Bhd</supplierName>
-    <contactName>Laura Lim</contactName>
-    <contactEmail>laura.lim@example.com</contactEmail>
-    <contactPhone>03-8901-2345</contactPhone>
-    <address>505 Jalan Kesihatan</address>
-    <city>Seremban</city>
-    <state>Negeri Sembilan</state>
-    <postalCode>70200</postalCode>
-    <country>Malaysia</country>
-    <website>www.animalhealth.com.my</website>
-    <rating>4.70</rating>
-    <lastOrderDate>2024-08-20</lastOrderDate>
-    <paymentTerms>Net 60</paymentTerms>
-    <deliveryTime>21</deliveryTime>
-    <supplierNotes>Excellent health products.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>9</supplierId>
-    <supplierName>Zoo Supplies Sdn Bhd</supplierName>
-    <contactName>James Wong</contactName>
-    <contactEmail>james.wong@example.com</contactEmail>
-    <contactPhone>03-9012-3456</contactPhone>
-    <address>606 Jalan Bekalan</address>
-    <city>Ipoh</city>
-    <state>Perak</state>
-    <postalCode>30000</postalCode>
-    <country>Malaysia</country>
-    <website>www.zoosupplies.com.my</website>
-    <rating>4.50</rating>
-    <lastOrderDate>2024-09-25</lastOrderDate>
-    <paymentTerms>Net 30</paymentTerms>
-    <deliveryTime>7</deliveryTime>
-    <supplierNotes>Wide range of supplies.</supplierNotes>
-  </supplier>
-  <supplier>
-    <supplierId>10</supplierId>
-    <supplierName>Animal Feed Sdn Bhd</supplierName>
-    <contactName>Patricia Lee</contactName>
-    <contactEmail>patricia.lee@example.com</contactEmail>
-    <contactPhone>03-0123-4567</contactPhone>
-    <address>707 Jalan Makanan Haiwan</address>
-    <city>Johor Bahru</city>
-    <state>Johor</state>
-    <postalCode>80000</postalCode>
-    <country>Malaysia</country>
-    <website>www.animalfeed.com.my</website>
-    <rating>4.20</rating>
-    <lastOrderDate>2024-10-30</lastOrderDate>
-    <paymentTerms>Net 45</paymentTerms>
-    <deliveryTime>14</deliveryTime>
-    <supplierNotes>Good quality feed.</supplierNotes>
-  </supplier>
+  <itemimage>
+    <image_id>1</image_id>
+    <cleaningId>1</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_26_1.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>2</image_id>
+    <cleaningId>2</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_27_2.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>7</image_id>
+    <cleaningId>7</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_32_7.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>8</image_id>
+    <cleaningId>8</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_33_8.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>9</image_id>
+    <cleaningId>9</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_34_9.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>10</image_id>
+    <cleaningId>10</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_35_10.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>14</image_id>
+    <cleaningId/>
+    <habitatId>4</habitatId>
+    <foodId/>
+    <image_path>habitat_19_4.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>15</image_id>
+    <cleaningId/>
+    <habitatId>5</habitatId>
+    <foodId/>
+    <image_path>habitat_20_5.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>16</image_id>
+    <cleaningId/>
+    <habitatId>6</habitatId>
+    <foodId/>
+    <image_path>habitat_21_6.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>19</image_id>
+    <cleaningId/>
+    <habitatId>9</habitatId>
+    <foodId/>
+    <image_path>habitat_24_9.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>20</image_id>
+    <cleaningId/>
+    <habitatId>10</habitatId>
+    <foodId/>
+    <image_path>habitat_25_10.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>21</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>1</foodId>
+    <image_path>food_44_1.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>22</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>2</foodId>
+    <image_path>food_45_2.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>26</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>6</foodId>
+    <image_path>food_39_6.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>28</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>8</foodId>
+    <image_path>food_41_8.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>29</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>9</foodId>
+    <image_path>food_42_9.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>30</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>10</foodId>
+    <image_path>food_43_10.jpg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>33</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>11</foodId>
+    <image_path>food_40_11.jpeg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>34</image_id>
+    <cleaningId/>
+    <habitatId>11</habitatId>
+    <foodId/>
+    <image_path>habitat_18_11.jpeg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>35</image_id>
+    <cleaningId/>
+    <habitatId>12</habitatId>
+    <foodId/>
+    <image_path>habitat_18_12.jpeg</image_path>
+  </itemimage>
 </root>

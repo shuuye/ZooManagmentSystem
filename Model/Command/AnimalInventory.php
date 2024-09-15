@@ -38,7 +38,7 @@ class AnimalInventory extends Inventory {
         $this->habitatid = $habitatid;
     }
     
-    public function addItemRecord() {
+    public function addItemRecord($data) {
         
     }
 
@@ -173,6 +173,14 @@ class AnimalInventory extends Inventory {
 
     public function removeItemRecord($records) {
         return $this->removeRecordFromDB($this->itemType, $records);
+    }
+    
+    public function getLastRecordID(){
+        
+    }
+    
+    public function updateImage($uniqueFileName, $itemId){
+        
     }
 }
 

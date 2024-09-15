@@ -24,8 +24,10 @@ abstract class Inventory extends InventoryModel {
     }
 
     //put abstract function that has to exist in each inventory(factory pattern)
-    abstract function addItemRecord();
+    abstract function addItemRecord($data);
     abstract function removeItemRecord($records);
+    abstract function getLastRecordID();
+    abstract function updateImage($uniqueFileName, $itemId);
     
     public function removeInventoryRecord($records) {
         return $this->removeInventoryRecordDB( $records);

@@ -119,4 +119,25 @@
     <foodId>10</foodId>
     <image_path>food_43_10.jpg</image_path>
   </itemimage>
+  <itemimage>
+    <image_id>33</image_id>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>11</foodId>
+    <image_path>food_40_11.jpeg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>34</image_id>
+    <cleaningId/>
+    <habitatId>11</habitatId>
+    <foodId/>
+    <image_path>habitat_18_11.jpeg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>35</image_id>
+    <cleaningId/>
+    <habitatId>12</habitatId>
+    <foodId/>
+    <image_path>habitat_18_12.jpeg</image_path>
+  </itemimage>
 </itemimages>

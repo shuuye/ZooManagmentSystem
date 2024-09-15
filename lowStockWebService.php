@@ -1,84 +1,67 @@
 <?php
 
 require_once 'Config/databaseConfig.php';
+$poId = 2;
 try {
     $db = new databaseConfig();
 
     $query = "
-            SELECT 
-        s.supplierId,
-        s.supplierName,
-        i.itemName,
-        i.quantity AS currentQuantity,
-        b.quantity AS batchQuantity,
-        b.manufactureDate,
-        b.expiryDate,
-        po.poId,
-        po.orderDate,
-        po.status
-    FROM 
-        Supplier s
-    JOIN 
-        supplierRecord sr ON s.supplierId = sr.supplierId
-    JOIN 
-        Inventory i ON sr.inventoryId = i.inventoryId
-    LEFT JOIN 
-        batch b ON i.inventoryId = b.inventoryId
-    JOIN 
-        purchaseorderlineitem poli ON sr.inventoryId = poli.inventoryId
-    JOIN 
-        purchaseorder po ON poli.poId = po.poId
-    WHERE 
-        i.quantity < i.reorderThreshold
-        OR (i.quantity - COALESCE(b.quantity, 0)) < i.reorderThreshold
-    ORDER BY 
-        s.supplierId, po.orderDate DESC;";
+        SELECT 
+            po.poId,
+            po.orderDate,
+            po.deliveryDate,
+            po.totalAmount,
+            po.status,
+            poli.poLineItemId,
+            poli.inventoryId,
+            poli.cleaningId,
+            poli.habitatId,
+            poli.foodId,
+            poli.quantity,
+            poli.unitPrice
+        FROM 
+            purchaseorder po
+        JOIN 
+            purchaseorderlineitem poli ON po.poId = poli.poId
+        JOIN 
+            supplier s ON po.supplierId = s.supplierId
+        WHERE 
+            po.poId = ? AND
+            po.status = 'Pending'";
+
     $stmt = $db->getConnection()->prepare($query);
-    $stmt->execute();
+    $stmt->execute(array(31)); //$poId
     $lowStockItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
 
-function sendRestockingAlert($supplierId, $itemName, $quantity) {
-    $url = "http://localhost:8080/RMI/restocking";
+function sendPOtoSupplier($lowStockItems) {
+    $url = 'http://localhost:8080/api/reorder';
 
-    $response = file_get_contents($url);
+    // Data to send in the request
+    $data = array();
+    while ($row = $lowStockItems) {
+        $data[] = $row;
+    }
 
-    if ($response === FALSE) {
-        echo "Failed to connect to $url";
+    // Use curl to send a POST request to the web service
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+    $response = curl_exec($ch);
+
+    if ($response === false) {
+        echo 'Curl error: ' . curl_error($ch);
     } else {
-        echo "Successfully connected to $url";
+        echo 'Response from web service: ' . $response;
     }
 
-    $data = [
-        'supplierId' => $supplierId,
-        'itemName' => $itemName,
-        'quantity' => $quantity
-    ];
-
-    $options = [
-        'http' => [
-            'header' => "Content-Type: application/json\r\n",
-            'method' => 'POST',
-            'content' => json_encode($data),
-        ],
-    ];
-
-    $context = stream_context_create($options);
-    $result = file_get_contents($url, false, $context);
-
-    if ($result === FALSE) {
-// Handle error
-        echo "Error sending restocking alert.";
-    }
-
-// Process the response from the Java web service if needed
-    echo $result;
+    curl_close($ch);
 }
 
-// Loop through the low stock items and call the sendRestockingAlert function
-foreach ($lowStockItems as $item) {
-    sendRestockingAlert($item['supplierId'], $item['itemName'], $item['currentQuantity']);
-}
-?>
+
+sendPOtoSupplier($lowStockItems);

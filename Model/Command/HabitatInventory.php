@@ -80,11 +80,21 @@ class HabitatInventory extends Inventory {
                 "Habitat Type: " . $this->habitatType . "<br>";
     }
 
-    public function addItemRecord() {
+    public function addItemRecord($data) {
+        $result = $this->addRecordInDB($this->itemType, $data);
+        return $result;
         
     }
 
     public function removeItemRecord($records) {
         return $this->removeRecordFromDB($this->itemType, $records);
+    }
+    
+    public function getLastRecordID(){
+        return $this->getLastInsertedId("habitatinventory");
+    }
+    
+    public function updateImage($uniqueFileName, $itemId){
+        return $this->insertItemImage(null, $itemId, null, $uniqueFileName);
     }
 }
