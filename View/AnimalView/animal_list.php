@@ -14,6 +14,8 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js" defer></script>
     <title>Animal List</title>
     <style>
         table {
@@ -35,6 +37,9 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
             <li><a href="?action=showForm">Add New Animal</a></li>
         </ul>
     </nav>
+    <h2>Animal Categories Pie Chart</h2><!--Web Service 1 one consume-->
+    <canvas id="myPieChart" width="100" height="100"></canvas>
+    
     <h1>Animal List</h1>
 
     <form method="GET" action="">
