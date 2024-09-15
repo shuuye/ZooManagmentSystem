@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_home.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_list.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/AnimalModel.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/AnimalController.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_edit.php</file>
+=======
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/testRMIClient.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/apiWebService.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/lowStockWebService.php</file>
+>>>>>>> a85539a123b7dde60a45073d6ec2373317bdc4c8
         </group>
     </open-files>
 </project-private>

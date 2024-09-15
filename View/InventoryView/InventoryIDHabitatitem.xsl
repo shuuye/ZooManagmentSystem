@@ -15,9 +15,17 @@
                 </a>
                 <span>> </span>
             </div>
+            <div class="recordingFunctions">
+                <!-- New Item Button -->
+                <div class="new-item" id="newbtn">
+                    <a href="?action=addHabitatItem">
+                        <img src="../../assests/InventoryImages/btn-plus.svg" class="plus-icon" />
+                        New Habitat Item
+                    </a>
+                </div>
+            </div>
             <table class="displayingTable">
                 <tr>
-                    <th></th>
                     <th>Inventory ID</th>
                     <th>Item ID</th>
                     <th>Item Name</th>
@@ -27,13 +35,12 @@
                     <th>Expected Life Time</th>
                     <th>Installation Instruction</th>
                     <th>Disposal Instruction</th>
-                    <th></th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 <xsl:for-each select="habitatinventory[inventoryId = $inventoryID]">
                     <tr>
-                        <td>
-                            <input type="checkbox" name="record[]" value="{inventoryId}" />
-                        </td>
                         <td>
                             <xsl:value-of select="inventoryId" />
                         </td>
@@ -42,7 +49,7 @@
                         </td>
                         <td>
                             <a class="hrefText" href="#">
-                                 <xsl:attribute name="href">
+                                <xsl:attribute name="href">
                                     <xsl:value-of select="concat('?action=viewSpecificDetails&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
                                 </xsl:attribute>
                                 <xsl:value-of select="habitatItemName" />
@@ -66,14 +73,38 @@
                         <td>
                             <xsl:value-of select="disposal_instructions" />
                         </td>
-                         <td> 
-                            <a class="hrefText reorder">
+                        <td>
+                            <!-- Create PO Button -->
+                            <a class="hrefText reorder" href="#">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="concat('?action=createPO&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
                                 </xsl:attribute>
                                 <div class="stockstatus createPO">Create PO</div>
                             </a>
                         </td>
+                        <td>
+                            <!-- Edit Button -->
+                            <form action="../../Control/InventoryController/editRecord.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
+                                <input type="hidden" name="itemID" value="{id}" />
+                                <input type="hidden" name="itemType" value="Habitat" />
+                                <button type="submit" class="edit-btn">
+                                    <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <!-- Delete Button -->
+                            <form action="../../Control/InventoryController/deleteRecord.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
+                                <input type="hidden" name="itemID" value="{id}" />
+                                <input type="hidden" name="itemType" value="Habitat" />
+                                <button type="submit" class="delete-btn">
+                                    <img src="../../assests/InventoryImages/btn-close.svg" class="delete-icon" />
+                                </button>
+                            </form>
+                        </td>
+                        
                     </tr>
                 </xsl:for-each>
             </table>

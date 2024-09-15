@@ -38,70 +38,56 @@
     <billingAddress>No. 78, Jalan Cendana, 11900 Bayan Lepas, Penang, Malaysia</billingAddress>
     <shippingAddress>No. 90, Jalan Kelapa, 12100 Georgetown, Penang, Malaysia</shippingAddress>
     <totalAmount>400.00</totalAmount>
-<<<<<<< HEAD
-    <status>Pending</status>
-=======
     <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
-    <poId>16</poId>
-    <supplierId>4</supplierId>
-    <orderDate>2024-09-08 19:02:32</orderDate>
-    <deliveryDate>2024-09-20 13:02:00</deliveryDate>
-    <billingAddress>101 Jalan Haiwan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>12.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>17</poId>
+    <poId>25</poId>
     <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:03:43</orderDate>
-    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>180.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>18</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:03:47</orderDate>
-    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>180.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>19</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:03:49</orderDate>
-    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>180.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>20</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:03:51</orderDate>
-    <deliveryDate>2024-09-20 13:03:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>180.00</totalAmount>
-    <status>Draft</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>21</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-08 19:16:25</orderDate>
-    <deliveryDate>2024-09-19 13:20:00</deliveryDate>
+    <orderDate>2024-09-09 19:36:52</orderDate>
+    <deliveryDate>2024-09-18 13:39:00</deliveryDate>
     <billingAddress>202 Jalan Makanan</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
     <totalAmount>30.00</totalAmount>
-    <status>Draft</status>
->>>>>>> dabe8cc590bd1326a49706e409f25108c4eb75e8
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>26</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-09 19:37:24</orderDate>
+    <deliveryDate>2024-09-20 13:37:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>3000.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>27</poId>
+    <supplierId>2</supplierId>
+    <orderDate>2024-09-09 19:40:08</orderDate>
+    <deliveryDate>2024-09-20 13:40:00</deliveryDate>
+    <billingAddress>456 Jalan Bersih</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>600.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>29</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-09 19:44:41</orderDate>
+    <deliveryDate>2024-09-20 13:44:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>350.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>30</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-09 19:45:06</orderDate>
+    <deliveryDate>2024-09-20 13:45:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>400.00</totalAmount>
+    <status>Completed</status>
   </purchaseorder>
 </purchaseorders>

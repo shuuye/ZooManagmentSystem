@@ -83,4 +83,8 @@ class HabitatInventory extends Inventory {
     public function addItemRecord() {
         
     }
+
+    public function removeItemRecord($records) {
+        return $this->removeRecordFromDB($this->itemType, $records);
+    }
 }

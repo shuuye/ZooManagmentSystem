@@ -18,14 +18,6 @@
   </supplierRecord>
   <supplierRecord>
     <supplierId>2</supplierId>
-    <inventoryId>28</inventoryId>
-    <cleaningId>3</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <supplyUnitPrice>45.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>2</supplierId>
     <inventoryId>29</inventoryId>
     <cleaningId>4</cleaningId>
     <habitatId/>
@@ -39,14 +31,6 @@
     <habitatId/>
     <foodId/>
     <supplyUnitPrice>15.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>2</supplierId>
-    <inventoryId>31</inventoryId>
-    <cleaningId>6</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <supplyUnitPrice>20.00</supplyUnitPrice>
   </supplierRecord>
   <supplierRecord>
     <supplierId>2</supplierId>
@@ -95,30 +79,6 @@
     <habitatId/>
     <foodId>2</foodId>
     <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>5</supplierId>
-    <inventoryId>36</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>3</foodId>
-    <supplyUnitPrice>45.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>5</supplierId>
-    <inventoryId>37</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>4</foodId>
-    <supplyUnitPrice>45.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>4</supplierId>
-    <inventoryId>38</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>5</foodId>
-    <supplyUnitPrice>15.00</supplyUnitPrice>
   </supplierRecord>
   <supplierRecord>
     <supplierId>4</supplierId>
@@ -183,14 +143,6 @@
     <habitatId>2</habitatId>
     <foodId/>
     <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>5</supplierId>
-    <inventoryId>18</inventoryId>
-    <cleaningId/>
-    <habitatId>3</habitatId>
-    <foodId/>
-    <supplyUnitPrice>45.00</supplyUnitPrice>
   </supplierRecord>
   <supplierRecord>
     <supplierId>5</supplierId>

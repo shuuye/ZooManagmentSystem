@@ -1,8 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['inventoryId']) && isset($_POST['itemID'])) {
+    if (isset($_POST['inventoryId']) && isset($_POST['itemType'])) {
         $inventoryId = intval($_POST['inventoryId']);
-        $itemID = intval($_POST['itemID']);
         $itemType = $_POST['itemType'];
 
         // Instantiate control class
@@ -11,20 +10,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Create item
         $inventoryCreater = new InventoryItemFactory();
-        $inventory = $inventoryCreater->createItem($inventoryId, $itemType, $itemID, Null);
+        $inventory = $inventoryCreater->createItem($inventoryId, $itemType, Null, Null);
 
         include_once '../../Model/Command/InventoryManagement.php';
         include_once '../../Model/Command/InventoryCommand.php';
 
         // Execute delete command with single ID
         $inventoryManager = new InventoryManagement();
-        $success = $inventoryManager->executeCommand(new deleteItemRecordCommand($inventory, $itemID));
+        $success = $inventoryManager->executeCommand(new deleteInventoryCommand($inventory, $inventoryId));
 
         // Redirect back or show a success message
         if ($success) {
-            header("Location: ../../Control/InventoryController/index.php?action=index&status=successRemove");
+            header("Location: ../../Control/InventoryController/index.php?action=index&status=successRemoveInv");
         } else {
-            header("Location: ../../Control/InventoryController/index.php?action=index&status=errorRemove");
+            header("Location: ../../Control/InventoryController/index.php?action=index&status=errorRemoveInv");
         }
         exit;
     } else {

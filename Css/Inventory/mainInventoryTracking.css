@@ -34,6 +34,34 @@
     margin-right: 5px;
 }
 
+.delete {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 20px;
+}
+
+.delete button[type="submit"] {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    text-decoration: none;
+    color: black;
+    background: none;
+    border: none;
+}
+
+.delete button[type="submit"] img {
+    /* Style the close icon */
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.delete button[type="submit"]:hover {
+    text-decoration: none;
+}
+
 /*filter function*/
 .modal {
     display: none;

@@ -15,6 +15,16 @@
                 </a>
                 <span>> </span>
             </div>
+            <div class="recordingFunctions">
+                <!-- New Brand Button -->
+                <div class="new-item" id="newbtn">
+                    <a href="?action=addInventoryItem">
+                        <img src="../../assests/InventoryImages/btn-plus.svg" class="plus-icon" />
+                        New Brand
+                    </a>
+                </div>
+            </div>
+            
             <table class="displayingTable">
                 <tr>
                     <th></th>
@@ -23,7 +33,10 @@
                     <th>Food Name</th>
                     <th>Nutrition Info</th>
                     <th>Daily Quantity Required</th>
-                    <th></th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    
                 </tr>
                 <xsl:for-each select="foodinventory[inventoryId = $inventoryID]">
                     <tr>
@@ -38,7 +51,7 @@
                         </td>
                         <td>
                             <a class="hrefText" href="#">
-                                 <xsl:attribute name="href">
+                                <xsl:attribute name="href">
                                     <xsl:value-of select="concat('?action=viewSpecificDetails&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
                                 </xsl:attribute>
                                 <xsl:value-of select="foodName" />
@@ -50,13 +63,35 @@
                         <td>
                             <xsl:value-of select="daily_quantity_required" />
                         </td>
-                         <td> 
+                        <td> 
                             <a class="hrefText reorder">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="concat('?action=createPO&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
                                 </xsl:attribute>
                                 <div class="stockstatus createPO">Create PO</div>
                             </a>
+                        </td>
+                        <td>
+                            <!-- Edit Button -->
+                            <form action="../../Control/InventoryController/editRecord.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
+                                <input type="hidden" name="itemID" value="{id}" />
+                                <input type="hidden" name="itemType" value="Cleaning" />
+                                <button type="submit" class="edit-btn">
+                                    <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <!-- Delete Button -->
+                            <form action="../../Control/InventoryController/deleteRecord.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="inventoryId" value="{inventoryId}" />
+                                <input type="hidden" name="itemID" value="{id}" />
+                                <input type="hidden" name="itemType" value="Cleaning" />
+                                <button type="submit" class="delete-btn">
+                                    <img src="../../assests/InventoryImages/btn-close.svg" class="delete-icon" />
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 </xsl:for-each>
