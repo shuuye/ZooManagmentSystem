@@ -49,10 +49,10 @@
         <textarea name="description" id="description"></textarea><br>
 
         <label for="height">Height:</label>
-        <input type="number" step="0.1" name="height" min="0.01" id="height"><br>
+        <input type="number" step="1" name="height" min="0.05" id="height"><br>
 
         <label for="weight">Weight:</label>
-        <input type="number" step="0.1" name="weight" min="0.01" id="weight"><br>
+        <input type="number" step="1" name="weight" min="0.05" id="weight"><br>
 
         <label for="habitat_id">Select Habitat:</label>
         <select name="habitat_id" id="habitat_id">

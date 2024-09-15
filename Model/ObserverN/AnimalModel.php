@@ -166,7 +166,71 @@ class AnimalModel extends databaseConfig implements subject{
         return $stmt->execute();
     }
     
+      public function getAnimalById($id) {
+        $query = "SELECT * FROM animalinventory WHERE id = :id";
+        $statement = $this->db->getConnection()->prepare($query);
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC); // Return animal as an associative array
+    }
     
+    // Method to update an animal
+    public function updateAnimal($animalId, $animalDetails) {
+        $query = "UPDATE animalinventory SET name = :name, species = :species, subspecies = :subspecies, categories = :categories, age = :age, gender = :gender, date_of_birth = :date_of_birth, avg_lifespan = :avg_lifespan, description = :description, height = :height, weight = :weight, habitat_id = :habitat_id WHERE id = :id";
+        $stmt = $this->db->getConnection()->prepare($query);
+
+        $stmt->bindParam(':id', $animalId, PDO::PARAM_INT);
+        $stmt->bindParam(':name', $animalDetails['name']);
+        $stmt->bindParam(':species', $animalDetails['species']);
+        $stmt->bindParam(':subspecies', $animalDetails['subspecies']);
+        $stmt->bindParam(':categories', $animalDetails['categories']);
+        $stmt->bindParam(':age', $animalDetails['age'], PDO::PARAM_INT);
+        $stmt->bindParam(':gender', $animalDetails['gender']);
+        $stmt->bindParam(':date_of_birth', $animalDetails['date_of_birth']);
+        $stmt->bindParam(':avg_lifespan', $animalDetails['avg_lifespan'], PDO::PARAM_INT);
+        $stmt->bindParam(':description', $animalDetails['description']);
+        $stmt->bindParam(':height', $animalDetails['height']);
+        $stmt->bindParam(':weight', $animalDetails['weight']);
+        $stmt->bindParam(':habitat_id', $animalDetails['habitat_id'], PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+    
+public function updateAnimalImage($animalId, $imagePath) {
+    // Check if the animal already has an image
+    $existingImage = $this->getAnimalImage($animalId);
+
+    if ($existingImage) {
+        // Update existing image
+        $query = "UPDATE animal_image SET image_path = :image_path WHERE animal_id = :animal_id";
+    } else {
+        // Insert new image record
+        $query = "INSERT INTO animal_image (animal_id, image_path) VALUES (:animal_id, :image_path)";
+    }
+
+    $stmt = $this->db->getConnection()->prepare($query);
+    $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
+    $stmt->bindParam(':image_path', $imagePath);
+
+    $result = $stmt->execute();
+
+    // Log the outcome
+    if (!$result) {
+        error_log("Error updating animal image for animal ID {$animalId}");
+        error_log(print_r($stmt->errorInfo(), true));
+    }
+
+    return $result;
+}
+
+    // Method to delete an animal
+    public function deleteAnimal($animalId) {
+        $query = "DELETE FROM animalinventory WHERE id = :id";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->bindParam(':id', $animalId, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
     
     // Function for habitat-------------------------------------------------------------------------------------------------------
     // Function to insert a new habitat
@@ -412,6 +476,44 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
         ]);
     
 }
+
+// Web Servicecs
+
+      // Method to fetch category counts
+    public function getCategoryCounts() {
+        $sql = "SELECT categories, COUNT(*) as count FROM animalinventory GROUP BY categories";
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->execute();
+        
+        $categories = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $categories[] = ['category' => $row['categories'], 'count' => $row['count']];
+        }
+        return $categories;
+    }
+    
+     // Method to fetch animal health reports
+    public function getAnimalHealthReports() {
+        $sql = "SELECT hRecord_id, animal_id, treatments, healthStatus FROM health_records";
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->execute();
+        
+        $reports = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $reports[] = [
+                'record_id' => $row['hRecord_id'],
+                'animal_id' => $row['animal_id'],
+                'treatments' => $row['treatments'],
+                'health_status' => $row['healthStatus']
+            ];
+        }
+
+        return $reports;
+    }
+    
+    
+
+
 
 }
 ?>

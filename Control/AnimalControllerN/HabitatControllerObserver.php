@@ -122,6 +122,26 @@ class HabitatControllerObserver {
         }
         return $this->animalModel->getHabitatById($habitat_id);
     }
+    
+    //web services
+    // Get habitat by ID
+    public function getHabitatById2($habitat_id) {
+        $habitat = $this->animalModel->getHabitatById($habitat_id);
+        if ($habitat) {
+            header('Content-Type: application/json');
+            echo json_encode($habitat);
+        } else {
+            header("HTTP/1.0 404 Not Found");
+            echo json_encode(['error' => 'Habitat not found']);
+        }
+    }
+
+    // Get all habitats
+    public function getAllHabitats() {
+        $habitats = $this->animalModel->getAllHabitats();
+        header('Content-Type: application/json');
+        echo json_encode($habitats);
+    }
 
     
 }

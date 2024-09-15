@@ -14,6 +14,8 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js" defer></script>
     <title>Animal List</title>
     <style>
         table {
@@ -35,6 +37,9 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
             <li><a href="?action=showForm">Add New Animal</a></li>
         </ul>
     </nav>
+    <h2>Animal Categories Pie Chart</h2><!--Web Service 1 one consume-->
+    <canvas id="myPieChart" width="100" height="100"></canvas>
+    
     <h1>Animal List</h1>
 
     <form method="GET" action="">
@@ -60,6 +65,7 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
                 <th>Weight</th>
                 <th>Habitat ID</th>
                 <th>Category</th>
+                <th>#</th>
             </tr>
         </thead>
         <tbody>
@@ -80,6 +86,10 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
                         <td><?php echo htmlspecialchars($animal['weight']); ?></td>
                         <td><?php echo htmlspecialchars($animal['habitat_id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['categories']); ?></td>
+                        <td>
+                            <a href="?action=edit&id=<?php echo urlencode($animal['id']); ?>">Edit</a> |
+                            <a href="?action=delete&id=<?php echo urlencode($animal['id']); ?>" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</a>
+                        </td> <!-- Added Actions links -->
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
