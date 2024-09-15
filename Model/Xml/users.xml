@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user id="1">
+    <username>admin123</username>
+    <password>admin123</password>
+    <firstName>adminfirst</firstName>
+    <lastName>adminlast</lastName>
+    <phoneNumber>123123123</phoneNumber>
+    <email>admin@gmail.com</email>
+    <registrationDate>2024-08-18 19:24:37</registrationDate>
+    <lastLoginDate>2024-08-19 19:24:37</lastLoginDate>
+    <roleID>1</roleID>
+  </user>
+  <user id="2">
+    <username>customer123</username>
+    <password>customer123</password>
+    <firstName>customerfirst</firstName>
+    <lastName>customerlast</lastName>
+    <phoneNumber>321321321</phoneNumber>
+    <email>customer@yahoo.com</email>
+    <registrationDate>2024-08-28 19:24:37</registrationDate>
+    <lastLoginDate>2024-08-23 19:24:16</lastLoginDate>
+    <roleID>2</roleID>
+  </user>
+</users>
