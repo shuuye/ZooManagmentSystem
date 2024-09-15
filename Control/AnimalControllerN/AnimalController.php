@@ -235,26 +235,38 @@ class AnimalController extends InventoryModel{
         include '../../View/AnimalView/animal_result.php';
         exit();
     }
-}
+ }
 
-public function deleteAnimal() {
-    if (isset($_GET['id'])) {
-        $animalId = $_GET['id'];
-        $success = $this->animalModel->deleteAnimal($animalId);
+    public function deleteAnimal() {
+        if (isset($_GET['id'])) {
+            $animalId = $_GET['id'];
+            $success = $this->animalModel->deleteAnimal($animalId);
 
-        // Prepare the message
-        $message = $success ? "Animal deleted successfully." : "Failed to delete animal.";
+            // Prepare the message
+            $message = $success ? "Animal deleted successfully." : "Failed to delete animal.";
 
-        // Redirect to the animal list page with a message
-        header("Location: animal_list.php?message=" . urlencode($message));
-        exit();
-    } else {
-        echo "No animal ID provided.";
+            // Redirect to the animal list page with a message
+            header("Location: animal_list.php?message=" . urlencode($message));
+            exit();
+        } else {
+            echo "No animal ID provided.";
+        }
     }
-}
+    
+    // web service
+//     public function getCategoryCounts() {
+//        $data = $this->animalModel->getCategoryCounts();
+//        header('Content-Type: application/json');
+//        echo json_encode($data);
+//    }
+//
+//    public function getAllAnimals() {
+//        $data = $this->animalModel->getAllAnimals();
+//        header('Content-Type: application/json');
+//        echo json_encode($data);
+//    }
 
 }
-
 // Initialize controller
 $controller = new AnimalController();
 

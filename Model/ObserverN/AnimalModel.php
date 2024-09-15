@@ -224,8 +224,6 @@ public function updateAnimalImage($animalId, $imagePath) {
     return $result;
 }
 
-
-
     // Method to delete an animal
     public function deleteAnimal($animalId) {
         $query = "DELETE FROM animalinventory WHERE id = :id";
@@ -233,9 +231,6 @@ public function updateAnimalImage($animalId, $imagePath) {
         $stmt->bindParam(':id', $animalId, PDO::PARAM_INT);
         return $stmt->execute();
     }
-
-    
-    
     
     // Function for habitat-------------------------------------------------------------------------------------------------------
     // Function to insert a new habitat
@@ -481,6 +476,47 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
         ]);
     
 }
+
+// Web Servicecs
+
+      // Method to fetch category counts
+    public function getCategoryCounts() {
+        $sql = "SELECT categories, COUNT(*) as count FROM animalinventory GROUP BY categories";
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->execute();
+        
+        $categories = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $categories[] = ['category' => $row['categories'], 'count' => $row['count']];
+        }
+        return $categories;
+    }
+
+//    public function getCategoryCounts() {
+//           $sql = "SELECT categories, COUNT(*) as count FROM animalinventory GROUP BY category";
+//           $result = $this-db->getConnection()->query($sql);
+//
+//           $categories = [];
+//           if ($result->num_rows > 0) {
+//               while($row = $result->fetch_assoc()) {
+//                   $categories[] = ['category' => $row['category'], 'count' => $row['count']];
+//               }
+//           }
+//           return $categories;
+//       }
+//
+//    public function getAllAnimals() {
+//        $sql = "SELECT id, name, categories FROM animalinventory";
+//        $result = $this->db->getConnection()->query($sql);
+//
+//        $animals = [];
+//        if ($result->num_rows > 0) {
+//            while($row = $result->fetch_assoc()) {
+//                $animals[] = ['id' => $row['id'], 'name' => $row['name'], 'category' => $row['categories']];
+//            }
+//        }
+//        return $animals;
+//    }
 
 }
 ?>
