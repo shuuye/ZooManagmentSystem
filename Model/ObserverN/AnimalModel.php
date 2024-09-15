@@ -166,6 +166,46 @@ class AnimalModel extends databaseConfig implements subject{
         return $stmt->execute();
     }
     
+      public function getAnimalById($id) {
+        $query = "SELECT * FROM animalinventory WHERE id = :id";
+        $statement = $this->db->getConnection()->prepare($query);
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC); // Return animal as an associative array
+    }
+    
+    // Method to update an animal
+    public function updateAnimal($animalId, $animalDetails) {
+        $query = "UPDATE animalinventory SET name = :name, species = :species, subspecies = :subspecies, categories = :categories, age = :age, gender = :gender, date_of_birth = :date_of_birth, avg_lifespan = :avg_lifespan, description = :description, height = :height, weight = :weight, habitat_id = :habitat_id WHERE id = :id";
+        $stmt = $this->db->getConnection()->prepare($query);
+
+        $stmt->bindParam(':id', $animalId, PDO::PARAM_INT);
+        $stmt->bindParam(':name', $animalDetails['name']);
+        $stmt->bindParam(':species', $animalDetails['species']);
+        $stmt->bindParam(':subspecies', $animalDetails['subspecies']);
+        $stmt->bindParam(':categories', $animalDetails['categories']);
+        $stmt->bindParam(':age', $animalDetails['age'], PDO::PARAM_INT);
+        $stmt->bindParam(':gender', $animalDetails['gender']);
+        $stmt->bindParam(':date_of_birth', $animalDetails['date_of_birth']);
+        $stmt->bindParam(':avg_lifespan', $animalDetails['avg_lifespan'], PDO::PARAM_INT);
+        $stmt->bindParam(':description', $animalDetails['description']);
+        $stmt->bindParam(':height', $animalDetails['height']);
+        $stmt->bindParam(':weight', $animalDetails['weight']);
+        $stmt->bindParam(':habitat_id', $animalDetails['habitat_id'], PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+    // Method to delete an animal
+    public function deleteAnimal($animalId) {
+        $query = "DELETE FROM animalinventory WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $animalId, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    
     
     
     // Function for habitat-------------------------------------------------------------------------------------------------------

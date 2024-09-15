@@ -80,6 +80,10 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
                         <td><?php echo htmlspecialchars($animal['weight']); ?></td>
                         <td><?php echo htmlspecialchars($animal['habitat_id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['categories']); ?></td>
+                        <td>
+                            <a href="?action=edit&id=<?php echo urlencode($animal['id']); ?>">Edit</a> |
+                            <a href="?action=delete&id=<?php echo urlencode($animal['id']); ?>" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</a>
+                        </td> <!-- Added Actions links -->
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>

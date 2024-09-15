@@ -30,6 +30,15 @@ class AnimalController extends InventoryModel{
             case 'processForm':
                 $this->processForm();
                 break;
+            case 'edit':
+                $this->editAnimal();
+                break;
+            case 'update':
+                $this->updateAnimal();
+                break;
+            case 'delete':
+                $this->deleteAnimal();
+                break;
             default:
                 echo "Invalid action.";
                 break;
@@ -149,7 +158,56 @@ class AnimalController extends InventoryModel{
         }
         return $animals;
     }
+    
+    public function editAnimal() {
+    // Check if this is a GET request (display the edit form)
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+        $animalId = $_GET['id'];
+        $animal = $this->animalModel->getAnimalById($animalId);
+        if ($animal) {
+            include '../../View/AnimalView/animal_edit.php';
+        } else {
+            echo "Animal not found.";
+        }
+    }
+    // Check if this is a POST request (handle the form submission to update the animal)
+    elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $animalId = $_POST['id'];
+        $animalDetails = [
+            'name' => $_POST['name'],
+            'species' => $_POST['species'],
+            'subspecies' => $_POST['subspecies'],
+            'categories' => $_POST['categories'],
+            'age' => $_POST['age'],
+            'gender' => $_POST['gender'],
+            'date_of_birth' => $_POST['date_of_birth'],
+            'avg_lifespan' => $_POST['avg_lifespan'],
+            'description' => $_POST['description'],
+            'height' => $_POST['height'],
+            'weight' => $_POST['weight'],
+            'habitat_id' => $_POST['habitat_id']
+        ];
 
+        // Update the animal in the model
+        $success = $this->animalModel->updateAnimal($animalId, $animalDetails);
+        $message = $success ? "Animal updated successfully." : "Failed to update animal.";
+
+        include '../../View/AnimalView/animal_result.php';
+        exit();
+    }
+}
+
+    public function deleteAnimal() {
+        if (isset($_GET['id'])) {
+            $animalId = $_GET['id'];
+            $success = $this->animalModel->deleteAnimal($animalId);
+            $message = $success ? "Animal deleted successfully." : "Failed to delete animal.";
+            include '../../View/AnimalView/animal_result.php';
+            exit();
+        } else {
+            echo "No animal ID provided.";
+        }
+    }
 }
 
 // Initialize controller
