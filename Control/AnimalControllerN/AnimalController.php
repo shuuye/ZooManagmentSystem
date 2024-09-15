@@ -16,7 +16,8 @@ class AnimalController extends InventoryModel{
     
    public function route(){
         $action = isset($_GET['action']) ? $_GET['action'] : 'home';
-
+        
+         ob_start();
         switch ($action) {
             case 'home' :
                 include '../../View/AnimalView/animal_home.php';
@@ -44,6 +45,7 @@ class AnimalController extends InventoryModel{
                 echo "Invalid action.";
                 break;
         }
+         ob_end_flush(); // Send output to browser and end buffering
     }
 
     // Show the form to select item names and add animal details
@@ -253,19 +255,7 @@ class AnimalController extends InventoryModel{
             echo "No animal ID provided.";
         }
     }
-    
-    // web service
-//     public function getCategoryCounts() {
-//        $data = $this->animalModel->getCategoryCounts();
-//        header('Content-Type: application/json');
-//        echo json_encode($data);
-//    }
-//
-//    public function getAllAnimals() {
-//        $data = $this->animalModel->getAllAnimals();
-//        header('Content-Type: application/json');
-//        echo json_encode($data);
-//    }
+
 
 }
 // Initialize controller
