@@ -22,10 +22,10 @@ class AnimalController extends InventoryModel{
             case 'home' :
                 include '../../View/AnimalView/animal_home.php';
                 break;
-            case 'displayAnimals':
-                include '../../View/AnimalView/animal_list.php';
-                exit();
-                break;
+//            case 'displayAnimals':
+//                include '../../View/AnimalView/animal_list.php';
+//                exit();
+//                break;
             case 'showForm':
                 $this->showForm();
                 break;

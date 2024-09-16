@@ -16,32 +16,24 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="chart.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_list.css">
     <title>Animal List</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
+
 <body>
     <nav>
         <ul>
             <li><a href="?action=showForm">Add New Animal</a></li>
         </ul>
     </nav>
+    
+    <div id="chart">
     <h2>Animal Categories Pie Chart</h2><!--Web Service 1 one consume-->
-    <canvas id="myPieChart" width="100" height="100"></canvas>
+    <canvas id="myPieChart"></canvas>
+    </div>
     
     <h1>Animal List</h1>
-
+    <div id="animalList">
     <form method="GET" action="">
         <label for="category">Select Category:</label>
         <select name="category" id="category" onchange="this.form.submit()">
@@ -99,5 +91,6 @@ $categories = ['Mammals', 'Birds', 'Amphibians']; // You can also fetch these ca
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
 </body>
 </html>

@@ -1,0 +1,67 @@
+/* Add some basic styling to the form */
+form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the labels and inputs */
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+label > span {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="date"], select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Add some space between form elements */
+form > * {
+  margin-bottom: 20px;
+}
+
+/* Style the image upload section */
+#animal_image {
+  margin-bottom: 20px;
+}
+
+#animal_image img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+#animal_image p {
+  font-size: 14px;
+  color: #666;
+}

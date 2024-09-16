@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Animal</title>
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_edit.css">
 </head>
 <body>
+    
+    <nav>
+        <ul>
+            <li><a href="../../View/AnimalView/animal_list.php">Back</a></li>
+        </ul>
+    </nav>
+    
     <h1>Edit Animal Details</h1>
 
     <?php if ($animal): ?>
@@ -65,7 +73,7 @@
 
             <label for="animal_image">Update Animal Image:</label><br>
             <?php if ($animalImage): ?>
-                <img src="<?php echo htmlspecialchars($animalImage); ?>" alt="Animal Image" style="width: 100px;"><br>
+                <img src="<?php echo htmlspecialchars($animalImage); ?>" alt="Animal Image"><br>
                 <p>Current Image: <?php echo basename($animalImage); ?></p><br>
             <?php endif; ?>
             <input type="file" name="animal_image" id="animal_image" accept=".jpg, .jpeg, .png" ><br>
