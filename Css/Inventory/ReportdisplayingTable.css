@@ -1,0 +1,128 @@
+* {
+    font-family: sans-serif;
+}
+/*
+identify all structures of table in inventory system
+*/
+
+.report-header{
+    text-align: center;
+}
+
+/*Inventory display table structure*/
+.reportdisplayingTable {
+    width: 80%;
+    padding: 8px;
+    background-color: white;
+    font-size: 14px;
+    border: solid 1px;
+    border-collapse: collapse;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.reportdisplayingTable th {
+    
+}
+
+.reportdisplayingTable td,.reportdisplayingTable th {
+    text-align: left;
+    padding: 14px;
+    border: solid 1px;
+    
+}
+
+
+.hrefText{
+    text-decoration: none;
+    color: black;
+}
+
+.hrefText:hover{
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/*Inventory display table properties*/
+.reportdisplayingTable input[type='checkbox'] {
+    width: 20px;
+    height: 26px;
+}
+
+
+.updated {
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+}
+
+/*Inventory status update*/
+.rstockstatus {
+    justify-content: center;
+    width: fit-content;
+}
+
+.rlowstock{
+     color: orangered;
+}
+
+.rinstock{
+    color: green;
+}
+.routstock{
+    color: red;
+}
+
+
+
+.createPO{
+    background-color: #67c16b;
+}
+/*PO status update*/
+.rpoStatus {
+    justify-content: center;
+    width: fit-content;
+}
+
+.rreceived{
+    color: #67c16b;
+}
+
+.rdraft{
+    color: #839cb2;
+}
+
+.rprocessing{
+    color: #6687db;
+}
+.rawaiting{
+    color: #a176cb;
+}
+
+.rapproval{
+    color: #a2ca62;
+}
+
+/* print.css */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .main-content, .main-content * {
+        visibility: visible;
+    }
+    .main-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+.outsideReport {
+    display: flex;
+    justify-content: flex-end; 
+    margin: 10px; 
+}
+
+

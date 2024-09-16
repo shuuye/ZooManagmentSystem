@@ -159,7 +159,7 @@
     <cleaningId/>
     <habitatId/>
     <foodId>3</foodId>
-    <image_path>food_36_1.jpg</image_path>
+    <image_path>food_36_3.jpg</image_path>
   </itemimage>
   <itemimage>
     <image_id>24</image_id>
@@ -216,5 +216,12 @@
     <habitatId>11</habitatId>
     <foodId/>
     <image_path>habitat_46_11.jpeg</image_path>
+  </itemimage>
+  <itemimage>
+    <image_id>32</image_id>
+    <cleaningId>11</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <image_path>cleaning_31_11.jpeg</image_path>
   </itemimage>
 </itemimages>

@@ -70,4 +70,11 @@
     <size>Standard</size>
     <usageInstructions>Use for sweeping floors.</usageInstructions>
   </cleaninginventory>
+  <cleaninginventory>
+    <id>11</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
 </cleaninginventories>

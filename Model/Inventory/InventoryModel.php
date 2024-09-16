@@ -420,6 +420,7 @@ class InventoryModel extends databaseConfig {
         $xmlGenerator->createXMLFileByTableName("batch", "batch.xml", "batchs", "batch");
         $xmlGenerator->createXMLFileByTableName("item_image", "itemimage.xml", "itemimages", "itemimage");
         $xmlGenerator->createXMLFileByTableName("supplierRecord", "supplierRecord.xml", "supplierRecords", "supplierRecord");
+        $xmlGenerator->createXMLFileByTableName("inventory_usage_log", "inventoryusagelog.xml", "inventoryusagelogs", "inventoryusagelog");
     }
 
     protected function addPOIntoDB($supplierId, $orderDate, $deliveryDate, $billingAddress, $ShippingAddress, $totalAmount, $status) {

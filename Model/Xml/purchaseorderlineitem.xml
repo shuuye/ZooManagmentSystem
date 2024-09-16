@@ -70,4 +70,24 @@
     <quantity>1</quantity>
     <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>8</poLineItemId>
+    <poId>8</poId>
+    <inventoryId>17</inventoryId>
+    <cleaningId/>
+    <habitatId>2</habitatId>
+    <foodId/>
+    <quantity>22</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>9</poLineItemId>
+    <poId>9</poId>
+    <inventoryId>16</inventoryId>
+    <cleaningId/>
+    <habitatId>1</habitatId>
+    <foodId/>
+    <quantity>29</quantity>
+    <unitPrice>50.00</unitPrice>
+  </purchaseorderlineitem>
 </purchaseorderlineitems>

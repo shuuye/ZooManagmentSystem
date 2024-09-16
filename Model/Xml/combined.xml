@@ -70,6 +70,13 @@
     <size>Standard</size>
     <usageInstructions>Use for sweeping floors.</usageInstructions>
   </cleaninginventory>
+  <cleaninginventory>
+    <id>11</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Top Bleach</cleaningName>
+    <size>200ML</size>
+    <usageInstructions>hello</usageInstructions>
+  </cleaninginventory>
 
   <foodinventory>
     <id>1</id>
@@ -322,7 +329,27 @@
     <billingAddress>789 Jalan Habitat</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
     <totalAmount>30.00</totalAmount>
-    <status>Pending</status>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>8</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-16 11:16:22</orderDate>
+    <deliveryDate>2024-09-20 16:16:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>660.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>9</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-16 12:12:57</orderDate>
+    <deliveryDate>2024-09-21 10:12:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>1450.00</totalAmount>
+    <status>Completed</status>
   </purchaseorder>
 
   <purchaseorderlineitem>
@@ -395,6 +422,26 @@
     <quantity>1</quantity>
     <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>8</poLineItemId>
+    <poId>8</poId>
+    <inventoryId>17</inventoryId>
+    <cleaningId/>
+    <habitatId>2</habitatId>
+    <foodId/>
+    <quantity>22</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>9</poLineItemId>
+    <poId>9</poId>
+    <inventoryId>16</inventoryId>
+    <cleaningId/>
+    <habitatId>1</habitatId>
+    <foodId/>
+    <quantity>29</quantity>
+    <unitPrice>50.00</unitPrice>
+  </purchaseorderlineitem>
 
   <inventory>
     <inventoryId>1</inventoryId>
@@ -418,7 +465,7 @@
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 3</storageLocation>
     <reorderThreshold>0</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>3</quantity>
   </inventory>
   <inventory>
     <inventoryId>4</inventoryId>
@@ -522,7 +569,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 1</storageLocation>
     <reorderThreshold>100</reorderThreshold>
-    <quantity>101</quantity>
+    <quantity>121</quantity>
   </inventory>
   <inventory>
     <inventoryId>17</inventoryId>
@@ -530,7 +577,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 2</storageLocation>
     <reorderThreshold>200</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>23</quantity>
   </inventory>
   <inventory>
     <inventoryId>18</inventoryId>
@@ -682,7 +729,7 @@
     <itemType>Food</itemType>
     <storageLocation>Fruit Storage</storageLocation>
     <reorderThreshold>200</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>37</inventoryId>
@@ -762,7 +809,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>adfafds</storageLocation>
     <reorderThreshold>33</reorderThreshold>
-    <quantity>0</quantity>
+    <quantity>1</quantity>
   </inventory>
 
   <supplier>

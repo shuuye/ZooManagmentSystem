@@ -3,7 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportfoodInventorySummary.xsl</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/combined.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportRecordcleaningInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportLowStockInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryView.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReporthabitatInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportInStockInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportoutStockInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportRecordhabitatInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryMasterPage.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportInventoryReport.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/filterReport.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportRecordfoodInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportPOsummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportInventoryHoldingCost.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportcleaningInventorySummary.xsl</file>
         </group>
     </open-files>
 </project-private>

@@ -20,9 +20,9 @@
                 <xsl:for-each select="foodinventory[id = $itemID]">
                     <div class="left">
                         <div class="image">
-                           <img src="{$imageDirectory}{/root/itemimage[foodId=$itemID]/image_path}"/>
+                            <img src="{$imageDirectory}{/root/itemimage[foodId=$itemID]/image_path}"/>
                         </div>
-                       
+                    </div>
                     <div class="right">
                         <div class="details">
                             <table>

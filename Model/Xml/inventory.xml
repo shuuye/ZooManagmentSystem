@@ -126,7 +126,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 1</storageLocation>
     <reorderThreshold>100</reorderThreshold>
-    <quantity>92</quantity>
+    <quantity>121</quantity>
   </inventory>
   <inventory>
     <inventoryId>17</inventoryId>
@@ -134,7 +134,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 2</storageLocation>
     <reorderThreshold>200</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>23</quantity>
   </inventory>
   <inventory>
     <inventoryId>18</inventoryId>
@@ -286,7 +286,7 @@
     <itemType>Food</itemType>
     <storageLocation>Fruit Storage</storageLocation>
     <reorderThreshold>200</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>37</inventoryId>

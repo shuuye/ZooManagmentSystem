@@ -256,4 +256,12 @@
     <foodId/>
     <supplyUnitPrice>30.00</supplyUnitPrice>
   </supplierRecord>
+  <supplierRecord>
+    <supplierId>2</supplierId>
+    <inventoryId>31</inventoryId>
+    <cleaningId>11</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <supplyUnitPrice>34.00</supplyUnitPrice>
+  </supplierRecord>
 </supplierRecords>

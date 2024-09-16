@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventoryusagelogs>
+  <inventoryusagelog>
+    <logId>1</logId>
+    <inventoryId>3</inventoryId>
+    <dateTime>2024-09-16 07:50:29</dateTime>
+    <quantityUsed>2</quantityUsed>
+    <reasonForUse>because</reasonForUse>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>2</logId>
+    <inventoryId>16</inventoryId>
+    <dateTime>2024-09-16 09:38:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>3</logId>
+    <inventoryId>16</inventoryId>
+    <dateTime>2024-09-16 09:38:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>4</logId>
+    <inventoryId>16</inventoryId>
+    <dateTime>2024-09-16 09:41:00</dateTime>
+    <quantityUsed>2</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>5</logId>
+    <inventoryId>16</inventoryId>
+    <dateTime>2024-09-16 09:42:00</dateTime>
+    <quantityUsed>2</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>6</logId>
+    <inventoryId>16</inventoryId>
+    <dateTime>2024-09-16 09:47:00</dateTime>
+    <quantityUsed>4</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>7</logId>
+    <inventoryId>36</inventoryId>
+    <dateTime>2024-09-16 18:22:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse>for monkey</reasonForUse>
+  </inventoryusagelog>
+</inventoryusagelogs>

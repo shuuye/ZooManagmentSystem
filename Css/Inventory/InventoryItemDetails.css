@@ -4,7 +4,7 @@ the container structure
 .container {
     display: flex;
     margin: 2%;
-    font-size: 22px;
+    font-size: 14px;
     /*    background-color: red;*/
 }
 .left {
@@ -76,7 +76,7 @@ right panel
 }
 .productName{
     text-align: left !important;
-    font-size: 22px;
+    font-size: 18px;
 }
 .details table th {
     border-bottom: 1px solid #ddd;
