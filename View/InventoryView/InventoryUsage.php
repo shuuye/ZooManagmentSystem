@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Usage Logging Interface</title>
-        <link rel="stylesheet" href="../Css/Inventory/InventoryUsage.css">
+        <link rel="stylesheet" href="../../Css/Inventory/InventoryUsage.css">
     </head>
     <body>
         <h1>Usage Logging Interface</h1>

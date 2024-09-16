@@ -49,4 +49,18 @@
     <nutritionInfo>Rich in fiber and essential oils</nutritionInfo>
     <daily_quantity_required>3.00</daily_quantity_required>
   </foodinventory>
+  <foodinventory>
+    <id>11</id>
+    <inventoryId>40</inventoryId>
+    <foodName>Family Mart</foodName>
+    <nutritionInfo>Hahahahss</nutritionInfo>
+    <daily_quantity_required>23.00</daily_quantity_required>
+  </foodinventory>
+  <foodinventory>
+    <id>12</id>
+    <inventoryId>40</inventoryId>
+    <foodName>Family Mart</foodName>
+    <nutritionInfo>Hahahah</nutritionInfo>
+    <daily_quantity_required>23.00</daily_quantity_required>
+  </foodinventory>
 </foodinventories>

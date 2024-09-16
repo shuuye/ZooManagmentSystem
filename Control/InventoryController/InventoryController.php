@@ -46,6 +46,27 @@ class InventoryController extends InventoryModel {
             case 'viewItembasedOnInventoryID':
                 $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
                 $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                $status = isset($_GET['status']) ? $_GET['status'] : '';
+                switch ($status) {
+                    case 'success':
+                        echo "<p class='alert alert-success'>New brand added successfully.</p>";
+                        break;
+                    case 'error':
+                        echo "<p class='alert alert-error'>Failed to add new brand. Please try again.</p>";
+                        break;
+                    case 'successEdit':
+                        echo "<p class='alert alert-success'>Brand details edited successfully.</p>";
+                        break;
+                    case 'errorEdit':
+                        echo "<p class='alert alert-error'>Failed to edit brand details. Please try again.</p>";
+                        break;
+                    case 'successRemove':
+                        echo "<p class='alert alert-success'>Item removed successfully.</p>";
+                        break;
+                    case 'errorRemove':
+                        echo "<p class='alert alert-error'>Failed to remove item. Please try again.</p>";
+                        break;
+                }
                 $this->viewItembasedOnInventoryID($inventoryId, $itemType);
                 break;
             case 'viewSpecificDetails':
@@ -108,12 +129,6 @@ class InventoryController extends InventoryModel {
                     case 'errorRemoveInv':
                         echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
                         break;
-                    case 'successRemove':
-                        echo "<p class='alert alert-success'>Item removed successfully.</p>";
-                        break;
-                    case 'errorRemove':
-                        echo "<p class='alert alert-error'>Failed to remove item. Please try again.</p>";
-                        break;
                     case 'success':
                         echo "<p class='alert alert-success'>Item added successfully.</p>";
                         break;
@@ -122,6 +137,12 @@ class InventoryController extends InventoryModel {
                         break;
                     case 'invalidRequest':
                         echo "<p class='alert alert-warning'>Invalid request method.</p>";
+                        break;
+                    case 'successEdit':
+                        echo "<p class='alert alert-success'>Inventory details edited successfully.</p>";
+                        break;
+                    case 'errorEdit':
+                        echo "<p class='alert alert-error'>Failed to edit inventory details. Please try again.</p>";
                         break;
                     default:
                         break;

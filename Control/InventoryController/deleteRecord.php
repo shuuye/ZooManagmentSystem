@@ -1,4 +1,5 @@
 <?php
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['inventoryId']) && isset($_POST['itemID'])) {
         $inventoryId = intval($_POST['inventoryId']);
@@ -22,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Redirect back or show a success message
         if ($success) {
-            header("Location: ../../Control/InventoryController/index.php?action=index&status=successRemove");
+            header("Location: ../../Control/InventoryController/index.php?action=viewItembasedOnInventoryID&status=successRemove&inventoryId=$inventoryId&itemType=$itemType");
         } else {
-            header("Location: ../../Control/InventoryController/index.php?action=index&status=errorRemove");
+            header("Location: ../../Control/InventoryController/index.php?action=viewItembasedOnInventoryID&status=errorRemove&inventoryId=$inventoryId&itemType=$itemType");
         }
         exit;
     } else {

@@ -528,7 +528,7 @@ class InventoryModel extends databaseConfig {
             return false;
         }
     }
-    
+
     protected function removeInventoryRecordDB($recordId) {
         try {
             // Create a new database connection object
@@ -555,7 +555,243 @@ class InventoryModel extends databaseConfig {
             return false;
         }
     }
-    
+
+    protected function addRecordInDB($itemType, $data) {
+        // Create a new database connection object
+        $this->db = new databaseConfig();
+
+        // Initialize variables for SQL and parameters
+        $table = '';
+        $columns = [];
+        $values = [];
+        $placeholders = [];
+
+        // Determine the table and prepare columns/values based on item type
+        switch ($itemType) {
+            case 'Food':
+                $table = 'foodinventory';
+                $columns = ['inventoryId', 'foodName', 'daily_quantity_required', 'nutritionInfo'];
+                $values = [$data['inventoryId'], $data['brandName'], $data['dailyQuatntity'], $data['nutritionInformation']];
+                break;
+
+            case 'Habitat':
+                $table = 'habitatinventory';
+                $columns = ['inventoryId', 'habitatItemName', 'description', 'habitatType', 'material', 'expected_lifetime'
+                    , 'installation_instructions', 'disposal_instructions'];
+                $values = [$data['inventoryId'], $data['brandName'], $data['description'], $data['habitatType'], $data['material'], $data['lifeTime']
+                    , $data['installationInstru'], $data['disposalInstru']];
+                break;
+
+            case 'Cleaning':
+                $table = 'cleaninginventory';
+                $columns = ['inventoryId', 'cleaningName', 'size', 'usageInstructions'];
+                $values = [$data['inventoryId'], $data['brandName'], $data['size'], $data['usageInstructions']];
+                break;
+
+            default:
+                throw new Exception('Invalid item type');
+        }
+
+        // Build SQL statement dynamically
+        $placeholders = implode(',', array_fill(0, count($values), '?'));
+        $columnsString = implode(',', $columns);
+        $sql = "INSERT INTO $table ($columnsString) VALUES ($placeholders)";
+
+        // Prepare and execute the SQL query
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $result = $stmt->execute($values);
+
+        $this->updateXML();
+
+        if ($result) {
+            $data['id'] = $this->getLastInsertedId($table);
+
+            $SupplierRecord = $this->addSupplierRecordInDB($itemType, $data);
+
+            if (!$SupplierRecord) {
+                return null;
+            }
+
+            return $data['id'];
+        } else {
+            return null; // or handle the case where no matching record is found
+        }
+    }
+
+    protected function addSupplierRecordInDB($itemType, $data) {
+        // Create a new database connection object
+        $this->db = new databaseConfig();
+        $conn = $this->db->getConnection(); // Get the database connection
+        // Define SQL and parameters based on item type
+        switch ($itemType) {
+            case 'Cleaning':
+                $sql = "INSERT INTO supplierRecord (supplierId, inventoryId, cleaningId, supplyUnitPrice) VALUES (?, ?, ?, ?)";
+                $params = [$data['supplierId'], $data['inventoryId'], $data['id'], $data['price']];
+                break;
+
+            case 'Food':
+                $sql = "INSERT INTO supplierRecord (supplierId, inventoryId, foodId, supplyUnitPrice) VALUES (?, ?, ?, ?)";
+                $params = [$data['supplierId'], $data['inventoryId'], $data['id'], $data['price']];
+                break;
+
+            case 'Habitat':
+                $sql = "INSERT INTO supplierRecord (supplierId, inventoryId, habitatId, supplyUnitPrice) VALUES (?, ?, ?, ?)";
+                $params = [$data['supplierId'], $data['inventoryId'], $data['id'], $data['price']];
+                break;
+
+            default:
+                throw new Exception('Invalid item type');
+        }
+
+        // Prepare and execute the SQL statement
+        $stmt = $conn->prepare($sql);
+        return $stmt->execute($params);
+    }
+
+    protected function getLastInsertedId($table) {
+        // Get the last inserted ID
+        $sql = "SELECT id FROM $table ORDER BY id DESC LIMIT 1";
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['id'] : null;
+    }
+
+    function insertItemImage($cleaningId, $habitatId, $foodId, $imagePath) {
+        $sql = "INSERT INTO item_image (cleaningId, habitatId, foodId, image_path) VALUES (?, ?, ?, ?)";
+        // Prepare and bind
+        $stmt = $this->db->getConnection()->prepare($sql);
+
+        // Execute statement
+        $result = $stmt->execute([$cleaningId, $habitatId, $foodId, $imagePath]);
+
+        return $result;
+    }
+
+    function getRecordDetailsfromDB($inventoryId, $itemId, $table) {
+        $sql = "SELECT * FROM $table WHERE inventoryId=? AND id=?";
+
+        // Prepare the statement
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->bind_param('ii', $inventoryId, $itemId);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Fetch the result
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $item = $result->fetch_assoc();
+            return $item;
+        } else {
+            return null;
+        }
+    }
+
+    protected function editItemRecordInDB($itemType, $data) {
+        // Create a new database connection object
+        $this->db = new databaseConfig();
+        $conn = $this->db->getConnection(); // Get the database connection
+        // Define SQL and parameters based on item type
+        switch ($itemType) {
+            case 'Cleaning':
+                $sql = "UPDATE cleaninginventory SET 
+                        cleaningName = ?, 
+                        size = ?, 
+                        usageInstructions = ?
+                    WHERE inventoryId = ? AND id = ?";
+                $params = [
+                    $data['brandName'],
+                    $data['size'],
+                    $data['instruction'],
+                    $data['inventoryId'],
+                    $data['itemId']
+                ];
+                break;
+
+            case 'Food':
+                $sql = "UPDATE foodinventory SET 
+                        foodName = ?, 
+                        nutritionInfo = ?, 
+                        daily_quantity_required = ?
+                    WHERE inventoryId = ? AND id = ?";
+                $params = [
+                    $data['brandName'],
+                    $data['nutritionInfo'],
+                    $data['quantity'],
+                    $data['inventoryId'],
+                    $data['itemId']
+                ];
+                break;
+
+            case 'Habitat':
+                $sql = "UPDATE habitatinventory SET 
+                        habitatItemName = ?, 
+                        description = ?, 
+                        habitatType = ?, 
+                        material = ?, 
+                        expected_lifetime = ?, 
+                        installation_instructions = ?, 
+                        disposal_instructions = ?
+                    WHERE inventoryId = ? AND id = ?";
+                $params = [
+                    $data['brandName'],
+                    $data['description'],
+                    $data['habitatType'],
+                    $data['material'],
+                    $data['lifeTime'],
+                    $data['installationInstru'],
+                    $data['disposalInstru'],
+                    $data['inventoryId'],
+                    $data['itemId']
+                ];
+                break;
+
+            default:
+                throw new Exception('Invalid item type');
+        }
+
+        // Prepare the SQL statement
+        $stmt = $conn->prepare($sql);
+
+        // Execute the statement
+        if ($stmt->execute($params)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    protected function editItemInDB($data) {
+        // Create a new database connection object
+        $this->db = new databaseConfig();
+        $conn = $this->db->getConnection(); // Get the database connection
+        // Define SQL and parameters based on item type
+        $sql = "UPDATE inventory SET 
+                        itemName = ?, 
+                        itemType = ?, 
+                        storageLocation = ?, 
+                        reorderThreshold = ?
+                    WHERE inventoryId = ?";
+        $params = [
+            $data['itemName'],
+            $data['itemType'],
+            $data['storageLocation'],
+            $data['reorderThreshold'],
+            $data['inventoryId']
+        ];
+
+        // Prepare the SQL statement
+        $stmt = $conn->prepare($sql);
+
+        // Execute the statement
+        if ($stmt->execute($params)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 //

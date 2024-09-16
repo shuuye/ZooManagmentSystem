@@ -3,6 +3,7 @@
 require_once 'Inventory.php';
 
 class FoodInventory extends Inventory {
+
     private $foodType; //meat, vege, fruit (the name is in the inventory)
     private $nutritionInfo;
     private $daily_quantity_required;
@@ -151,11 +152,41 @@ class FoodInventory extends Inventory {
         }
     }
 
-    public function addItemRecord() {
-        
+    public function addItemRecord($data) {
+
+        $result = $this->addRecordInDB($this->itemType, $data);
+        return $result;
     }
 
-     public function removeItemRecord($records) {
+    public function removeItemRecord($records) {
         return $this->removeRecordFromDB($this->itemType, $records);
+    }
+
+    public function getLastRecordID() {
+        return $this->getLastInsertedId("foodinventory");
+    }
+
+    public function updateImage($uniqueFileName, $itemId) {
+        return $this->insertItemImage(null, null, $itemId, $uniqueFileName);
+    }
+
+    public function getRecordDetails($inventoryId, $itemId) {
+        $result = $this->getRecordDetailsfromDB($inventoryId, $itemId, "foodinventory");
+
+        if ($result) {
+            return $result;
+        } else {
+            return ["error" => "No record found"];
+        }
+    }
+    
+    public function editItemRecord($data) {
+        $result = $this->editItemRecordInDB("Food", $data);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

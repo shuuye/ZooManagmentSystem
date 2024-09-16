@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tickets>
+  <Ticket>
+    <id>1</id>
+    <type>Child</type>
+    <description>10 - 13 years old</description>
+    <price>50.00</price>
+  </Ticket>
+  <Ticket>
+    <id>3</id>
+    <type>Senior</type>
+    <description>60 and above</description>
+    <price>22.00</price>
+  </Ticket>
+  <Ticket>
+    <id>4</id>
+    <type>Adult</type>
+    <description>a</description>
+    <price>28.00</price>
+  </Ticket>
+</Tickets>
