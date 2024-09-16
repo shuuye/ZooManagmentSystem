@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
     <title>Animal Home Page</title>
 </head>
 <body>

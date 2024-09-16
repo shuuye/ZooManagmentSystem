@@ -2,20 +2,48 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
         <html>
-            <head>
-                <title>Health Records</title>
-                  <style>
-                    .report-button {
-                        margin-top: 20px;
-                    }
+             <head>
+             <title>Health Records</title>
+                <style>
+                  .report-button {
+                    margin-top: 20px;
+                  }
+                  nav {
+                    background-color: #e0ffff;
+                    padding: 20px;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                  }
+
+                  nav ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                  }
+
+                  nav li a {
+                    text-decoration: none;
+                    color: #333;
+                    padding: 10px 20px;
+                    background-color: #cceeff;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                  }
+
+                  nav li a:hover {
+                    background-color: #99ccff;
+                  }
+                  }
                 </style>
-            </head>
-            <body>
+              </head>
+              <body>
                 <h2>Health Records</h2>
-                <nav>
-                    <ul>
-                        <li><a href="../../View/AnimalView/animal_home.php">Animal Home</a></li>
-                      
+                <nav class="navigation">
+                  <ul>
+                    <li><a href="../../View/AnimalView/animal_home.php">Animal Home</a></li>
                     </ul>
                 </nav>
                 <table border="1">

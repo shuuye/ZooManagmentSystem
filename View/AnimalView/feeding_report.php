@@ -21,6 +21,7 @@ $controller->handleAddfeedingRecordForm();
 <head>
     <meta charset="UTF-8">
     <title>Feeding Reports</title>
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
     <style>
         /* Basic styles for the modal */
         .modal {

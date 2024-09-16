@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit & Delete of Habitats</title>
-    <link rel="stylesheet" type="text/css" href="../../Css/Habitat/habitat.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
 </head>
 <body>
     <nav>

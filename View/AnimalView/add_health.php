@@ -15,6 +15,7 @@ $controller ->handleAddHealthRecordForm();
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
     <title>Add Health Record</title>
 </head>
 <body>

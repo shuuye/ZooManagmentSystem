@@ -1,0 +1,38 @@
+body {
+  background-color: #f0f8ff;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+nav {
+  background-color: #e0ffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  background-color: #cceeff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav li a:hover {
+  background-color: #99ccff;
+}
