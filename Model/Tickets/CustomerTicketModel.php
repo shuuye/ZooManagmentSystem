@@ -44,6 +44,16 @@ class CustomerTicketModel extends databaseConfig {
             throw new Exception("Error processing purchase: " . $e->getMessage());
         }
     }
+    
+    // Add this method for getting visitors by date
+    public function getVisitorsByDate($visitDate) {
+        $db = $this->getConnection();
+        $sql = "SELECT * FROM ticket_purchases WHERE visit_date = :visit_date";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([':visit_date' => $visitDate]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }
 
 ?>
