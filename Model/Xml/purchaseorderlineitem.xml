@@ -31,6 +31,16 @@
     <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
   <purchaseorderlineitem>
+    <poLineItemId>4</poLineItemId>
+    <poId>2</poId>
+    <inventoryId>27</inventoryId>
+    <cleaningId>4</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <quantity>25</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
     <poLineItemId>5</poLineItemId>
     <poId>1</poId>
     <inventoryId>26</inventoryId>
@@ -42,72 +52,22 @@
   </purchaseorderlineitem>
   <purchaseorderlineitem>
     <poLineItemId>6</poLineItemId>
-    <poId>25</poId>
-    <inventoryId>45</inventoryId>
+    <poId>6</poId>
+    <inventoryId>16</inventoryId>
     <cleaningId/>
-    <habitatId/>
-    <foodId>2</foodId>
-    <quantity>1</quantity>
-    <unitPrice>30.00</unitPrice>
+    <habitatId>1</habitatId>
+    <foodId/>
+    <quantity>100</quantity>
+    <unitPrice>50.00</unitPrice>
   </purchaseorderlineitem>
   <purchaseorderlineitem>
     <poLineItemId>7</poLineItemId>
-    <poId>26</poId>
-    <inventoryId>45</inventoryId>
+    <poId>7</poId>
+    <inventoryId>46</inventoryId>
     <cleaningId/>
-    <habitatId/>
-    <foodId>2</foodId>
-    <quantity>100</quantity>
+    <habitatId>11</habitatId>
+    <foodId/>
+    <quantity>1</quantity>
     <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>8</poLineItemId>
-    <poId>27</poId>
-    <inventoryId>27</inventoryId>
-    <cleaningId>2</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <quantity>20</quantity>
-    <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>10</poLineItemId>
-    <poId>29</poId>
-    <inventoryId>44</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>1</foodId>
-    <quantity>7</quantity>
-    <unitPrice>50.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>11</poLineItemId>
-    <poId>30</poId>
-    <inventoryId>44</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>1</foodId>
-    <quantity>8</quantity>
-    <unitPrice>50.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>12</poLineItemId>
-    <poId>31</poId>
-    <inventoryId>24</inventoryId>
-    <cleaningId/>
-    <habitatId>9</habitatId>
-    <foodId/>
-    <quantity>14</quantity>
-    <unitPrice>23.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>14</poLineItemId>
-    <poId>33</poId>
-    <inventoryId>26</inventoryId>
-    <cleaningId>1</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <quantity>20</quantity>
-    <unitPrice>50.00</unitPrice>
   </purchaseorderlineitem>
 </purchaseorderlineitems>

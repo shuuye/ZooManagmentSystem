@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Config/databaseConfig.php';
+require_once '../Config/databaseConfig.php';
 //https://localhost/ZooManagementSystem/apiWebService.php?email=mei.ling@example.com
 header("Content-Type:application/json");
 

@@ -18,6 +18,14 @@
   </supplierRecord>
   <supplierRecord>
     <supplierId>2</supplierId>
+    <inventoryId>28</inventoryId>
+    <cleaningId>3</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <supplyUnitPrice>45.00</supplyUnitPrice>
+  </supplierRecord>
+  <supplierRecord>
+    <supplierId>2</supplierId>
     <inventoryId>29</inventoryId>
     <cleaningId>4</cleaningId>
     <habitatId/>
@@ -31,6 +39,14 @@
     <habitatId/>
     <foodId/>
     <supplyUnitPrice>15.00</supplyUnitPrice>
+  </supplierRecord>
+  <supplierRecord>
+    <supplierId>2</supplierId>
+    <inventoryId>31</inventoryId>
+    <cleaningId>6</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <supplyUnitPrice>20.00</supplyUnitPrice>
   </supplierRecord>
   <supplierRecord>
     <supplierId>2</supplierId>
@@ -79,6 +95,30 @@
     <habitatId/>
     <foodId>2</foodId>
     <supplyUnitPrice>30.00</supplyUnitPrice>
+  </supplierRecord>
+  <supplierRecord>
+    <supplierId>5</supplierId>
+    <inventoryId>36</inventoryId>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>3</foodId>
+    <supplyUnitPrice>45.00</supplyUnitPrice>
+  </supplierRecord>
+  <supplierRecord>
+    <supplierId>5</supplierId>
+    <inventoryId>37</inventoryId>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>4</foodId>
+    <supplyUnitPrice>45.00</supplyUnitPrice>
+  </supplierRecord>
+  <supplierRecord>
+    <supplierId>4</supplierId>
+    <inventoryId>38</inventoryId>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>5</foodId>
+    <supplyUnitPrice>15.00</supplyUnitPrice>
   </supplierRecord>
   <supplierRecord>
     <supplierId>4</supplierId>
@@ -146,6 +186,14 @@
   </supplierRecord>
   <supplierRecord>
     <supplierId>5</supplierId>
+    <inventoryId>18</inventoryId>
+    <cleaningId/>
+    <habitatId>3</habitatId>
+    <foodId/>
+    <supplyUnitPrice>45.00</supplyUnitPrice>
+  </supplierRecord>
+  <supplierRecord>
+    <supplierId>5</supplierId>
     <inventoryId>19</inventoryId>
     <cleaningId/>
     <habitatId>4</habitatId>
@@ -201,82 +249,10 @@
     <supplyUnitPrice>12.00</supplyUnitPrice>
   </supplierRecord>
   <supplierRecord>
-    <supplierId>2</supplierId>
-    <inventoryId>31</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId/>
-    <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>2</supplierId>
-    <inventoryId>31</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId/>
-    <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>2</supplierId>
-    <inventoryId>31</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId/>
-    <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>2</supplierId>
-    <inventoryId>26</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId/>
-    <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>6</supplierId>
-    <inventoryId>40</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>11</foodId>
-    <supplyUnitPrice>20.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
     <supplierId>3</supplierId>
-    <inventoryId>18</inventoryId>
+    <inventoryId>46</inventoryId>
     <cleaningId/>
-    <habitatId>16</habitatId>
-    <foodId/>
-    <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>3</supplierId>
-    <inventoryId>18</inventoryId>
-    <cleaningId/>
-    <habitatId>17</habitatId>
-    <foodId/>
-    <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>6</supplierId>
-    <inventoryId>40</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>12</foodId>
-    <supplyUnitPrice>20.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>2</supplierId>
-    <inventoryId>31</inventoryId>
-    <cleaningId>59</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <supplyUnitPrice>30.00</supplyUnitPrice>
-  </supplierRecord>
-  <supplierRecord>
-    <supplierId>2</supplierId>
-    <inventoryId>35</inventoryId>
-    <cleaningId>60</cleaningId>
-    <habitatId/>
+    <habitatId>11</habitatId>
     <foodId/>
     <supplyUnitPrice>30.00</supplyUnitPrice>
   </supplierRecord>

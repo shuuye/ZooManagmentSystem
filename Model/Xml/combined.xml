@@ -15,6 +15,13 @@
     <usageInstructions>Spray directly on glass surfaces and wipe clean.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
+    <id>3</id>
+    <inventoryId>28</inventoryId>
+    <cleaningName>Mr. Clean Floor Cleaner</cleaningName>
+    <size>10L</size>
+    <usageInstructions>Mix with water and mop the floor.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
     <id>4</id>
     <inventoryId>29</inventoryId>
     <cleaningName>Tide Detergent</cleaningName>
@@ -27,6 +34,13 @@
     <cleaningName>Purell Sanitizer</cleaningName>
     <size>500ml</size>
     <usageInstructions>Apply directly on hands and rub until dry.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>6</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Clorox Bleach</cleaningName>
+    <size>4L</size>
+    <usageInstructions>Use for disinfecting surfaces and removing stains.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>7</id>
@@ -56,69 +70,6 @@
     <size>Standard</size>
     <usageInstructions>Use for sweeping floors.</usageInstructions>
   </cleaninginventory>
-  <cleaninginventory>
-    <id>52</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>53</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach edit</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>54</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>55</id>
-    <inventoryId>28</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hellos</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>56</id>
-    <inventoryId>28</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>57</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>58</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>59</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>60</id>
-    <inventoryId>35</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
 
   <foodinventory>
     <id>1</id>
@@ -133,6 +84,27 @@
     <foodName>Tyson Chicken Breast</foodName>
     <nutritionInfo>High protein, low fat, rich in vitamins</nutritionInfo>
     <daily_quantity_required>8.00</daily_quantity_required>
+  </foodinventory>
+  <foodinventory>
+    <id>3</id>
+    <inventoryId>36</inventoryId>
+    <foodName>Dole Bananas</foodName>
+    <nutritionInfo>High fiber, rich in potassium and vitamins</nutritionInfo>
+    <daily_quantity_required>50.00</daily_quantity_required>
+  </foodinventory>
+  <foodinventory>
+    <id>4</id>
+    <inventoryId>37</inventoryId>
+    <foodName>Acacia Leaves by Timothy Hay</foodName>
+    <nutritionInfo>High fiber, rich in nutrients</nutritionInfo>
+    <daily_quantity_required>30.00</daily_quantity_required>
+  </foodinventory>
+  <foodinventory>
+    <id>5</id>
+    <inventoryId>38</inventoryId>
+    <foodName>Gala Apples</foodName>
+    <nutritionInfo>Balanced diet, rich in fiber and vitamins</nutritionInfo>
+    <daily_quantity_required>5.00</daily_quantity_required>
   </foodinventory>
   <foodinventory>
     <id>6</id>
@@ -169,20 +141,6 @@
     <nutritionInfo>Rich in fiber and essential oils</nutritionInfo>
     <daily_quantity_required>3.00</daily_quantity_required>
   </foodinventory>
-  <foodinventory>
-    <id>11</id>
-    <inventoryId>40</inventoryId>
-    <foodName>Family Mart</foodName>
-    <nutritionInfo>Hahahahss</nutritionInfo>
-    <daily_quantity_required>23.00</daily_quantity_required>
-  </foodinventory>
-  <foodinventory>
-    <id>12</id>
-    <inventoryId>40</inventoryId>
-    <foodName>Family Mart</foodName>
-    <nutritionInfo>Hahahah</nutritionInfo>
-    <daily_quantity_required>23.00</daily_quantity_required>
-  </foodinventory>
 
   <habitatinventory>
     <id>1</id>
@@ -205,6 +163,17 @@
     <expected_lifetime>10</expected_lifetime>
     <installation_instructions>Place strategically in the habitat.</installation_instructions>
     <disposal_instructions>Recycle or dispose of in accordance with local regulations.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
+    <id>3</id>
+    <inventoryId>18</inventoryId>
+    <habitatItemName>Natural Branches by Petco</habitatItemName>
+    <description>Natural branches for climbing animals</description>
+    <habitatType>Forest</habitatType>
+    <material>Wood</material>
+    <expected_lifetime>3</expected_lifetime>
+    <installation_instructions>Securely attach to the habitat structure.</installation_instructions>
+    <disposal_instructions>Compost or dispose of in accordance with local regulations.</disposal_instructions>
   </habitatinventory>
   <habitatinventory>
     <id>4</id>
@@ -284,26 +253,15 @@
     <disposal_instructions>Recycle electronic components.</disposal_instructions>
   </habitatinventory>
   <habitatinventory>
-    <id>16</id>
-    <inventoryId>18</inventoryId>
+    <id>11</id>
+    <inventoryId>46</inventoryId>
     <habitatItemName>What Branch</habitatItemName>
-    <description>description</description>
-    <habitatType>heldd</habitatType>
-    <material>kdls</material>
+    <description>This is a Branch but what is it</description>
+    <habitatType>Savana</habitatType>
+    <material>Wooood</material>
     <expected_lifetime>23</expected_lifetime>
-    <installation_instructions>sa</installation_instructions>
-    <disposal_instructions>daf</disposal_instructions>
-  </habitatinventory>
-  <habitatinventory>
-    <id>17</id>
-    <inventoryId>18</inventoryId>
-    <habitatItemName>What Branch</habitatItemName>
-    <description>desc</description>
-    <habitatType>hel</habitatType>
-    <material>kdls</material>
-    <expected_lifetime>23</expected_lifetime>
-    <installation_instructions>sa</installation_instructions>
-    <disposal_instructions>daf</disposal_instructions>
+    <installation_instructions>Just Put There</installation_instructions>
+    <disposal_instructions>Throw to the rubbish bin</disposal_instructions>
   </habitatinventory>
 
   <purchaseorder>
@@ -334,7 +292,7 @@
     <billingAddress>No. 34, Jalan Bukit, 11300 Penang, Malaysia</billingAddress>
     <shippingAddress>No. 56, Jalan Pahlawan, 11400 Penang, Malaysia</shippingAddress>
     <totalAmount>450.00</totalAmount>
-    <status>Completed</status>
+    <status>Pending</status>
   </purchaseorder>
   <purchaseorder>
     <poId>5</poId>
@@ -344,87 +302,27 @@
     <billingAddress>No. 78, Jalan Cendana, 11900 Bayan Lepas, Penang, Malaysia</billingAddress>
     <shippingAddress>No. 90, Jalan Kelapa, 12100 Georgetown, Penang, Malaysia</shippingAddress>
     <totalAmount>400.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>25</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-09 19:36:52</orderDate>
-    <deliveryDate>2024-09-18 13:39:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>30.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>26</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-09 19:37:24</orderDate>
-    <deliveryDate>2024-09-20 13:37:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>3000.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>27</poId>
-    <supplierId>2</supplierId>
-    <orderDate>2024-09-09 19:40:08</orderDate>
-    <deliveryDate>2024-09-20 13:40:00</deliveryDate>
-    <billingAddress>456 Jalan Bersih</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>600.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>29</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-09 19:44:41</orderDate>
-    <deliveryDate>2024-09-20 13:44:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>350.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>30</poId>
-    <supplierId>5</supplierId>
-    <orderDate>2024-09-09 19:45:06</orderDate>
-    <deliveryDate>2024-09-20 13:45:00</deliveryDate>
-    <billingAddress>202 Jalan Makanan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>400.00</totalAmount>
-    <status>Completed</status>
-  </purchaseorder>
-  <purchaseorder>
-    <poId>31</poId>
-    <supplierId>4</supplierId>
-    <orderDate>2024-09-14 20:25:06</orderDate>
-    <deliveryDate>2024-09-20 14:26:00</deliveryDate>
-    <billingAddress>101 Jalan Haiwan</billingAddress>
-    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>322.00</totalAmount>
     <status>Pending</status>
   </purchaseorder>
   <purchaseorder>
-    <poId>32</poId>
-    <supplierId>2</supplierId>
-    <orderDate>2024-09-15 10:12:20</orderDate>
-    <deliveryDate>2024-09-18 16:12:00</deliveryDate>
-    <billingAddress>456 Jalan Bersih</billingAddress>
+    <poId>6</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-16 07:50:29</orderDate>
+    <deliveryDate>2024-09-27 13:50:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>120.00</totalAmount>
-    <status>Draft</status>
+    <totalAmount>5000.00</totalAmount>
+    <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
-    <poId>33</poId>
-    <supplierId>2</supplierId>
-    <orderDate>2024-09-15 16:32:00</orderDate>
-    <deliveryDate>2024-09-19 10:31:00</deliveryDate>
-    <billingAddress>456 Jalan Bersih</billingAddress>
+    <poId>7</poId>
+    <supplierId>3</supplierId>
+    <orderDate>2024-09-16 08:15:14</orderDate>
+    <deliveryDate>2024-09-21 16:15:00</deliveryDate>
+    <billingAddress>789 Jalan Habitat</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
-    <totalAmount>1000.00</totalAmount>
-    <status>Completed</status>
+    <totalAmount>30.00</totalAmount>
+    <status>Pending</status>
   </purchaseorder>
 
   <purchaseorderlineitem>
@@ -458,6 +356,16 @@
     <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
   <purchaseorderlineitem>
+    <poLineItemId>4</poLineItemId>
+    <poId>2</poId>
+    <inventoryId>27</inventoryId>
+    <cleaningId>4</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <quantity>25</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
     <poLineItemId>5</poLineItemId>
     <poId>1</poId>
     <inventoryId>26</inventoryId>
@@ -469,73 +377,23 @@
   </purchaseorderlineitem>
   <purchaseorderlineitem>
     <poLineItemId>6</poLineItemId>
-    <poId>25</poId>
-    <inventoryId>45</inventoryId>
+    <poId>6</poId>
+    <inventoryId>16</inventoryId>
     <cleaningId/>
-    <habitatId/>
-    <foodId>2</foodId>
-    <quantity>1</quantity>
-    <unitPrice>30.00</unitPrice>
+    <habitatId>1</habitatId>
+    <foodId/>
+    <quantity>100</quantity>
+    <unitPrice>50.00</unitPrice>
   </purchaseorderlineitem>
   <purchaseorderlineitem>
     <poLineItemId>7</poLineItemId>
-    <poId>26</poId>
-    <inventoryId>45</inventoryId>
+    <poId>7</poId>
+    <inventoryId>46</inventoryId>
     <cleaningId/>
-    <habitatId/>
-    <foodId>2</foodId>
-    <quantity>100</quantity>
+    <habitatId>11</habitatId>
+    <foodId/>
+    <quantity>1</quantity>
     <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>8</poLineItemId>
-    <poId>27</poId>
-    <inventoryId>27</inventoryId>
-    <cleaningId>2</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <quantity>20</quantity>
-    <unitPrice>30.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>10</poLineItemId>
-    <poId>29</poId>
-    <inventoryId>44</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>1</foodId>
-    <quantity>7</quantity>
-    <unitPrice>50.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>11</poLineItemId>
-    <poId>30</poId>
-    <inventoryId>44</inventoryId>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>1</foodId>
-    <quantity>8</quantity>
-    <unitPrice>50.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>12</poLineItemId>
-    <poId>31</poId>
-    <inventoryId>24</inventoryId>
-    <cleaningId/>
-    <habitatId>9</habitatId>
-    <foodId/>
-    <quantity>14</quantity>
-    <unitPrice>23.00</unitPrice>
-  </purchaseorderlineitem>
-  <purchaseorderlineitem>
-    <poLineItemId>14</poLineItemId>
-    <poId>33</poId>
-    <inventoryId>26</inventoryId>
-    <cleaningId>1</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <quantity>20</quantity>
-    <unitPrice>50.00</unitPrice>
   </purchaseorderlineitem>
 
   <inventory>
@@ -543,7 +401,7 @@
     <itemName>Lion</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 1</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -551,7 +409,7 @@
     <itemName>Tiger</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 2</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -575,7 +433,7 @@
     <itemName>Monkey</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 5</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -583,7 +441,7 @@
     <itemName>Zebra</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 6</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -591,7 +449,7 @@
     <itemName>Kangaroo</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 7</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -599,7 +457,7 @@
     <itemName>Panda</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 8</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -607,7 +465,7 @@
     <itemName>Penguin</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 9</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -615,7 +473,15 @@
     <itemName>Koala</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Enclosure 10</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>11</inventoryId>
+    <itemName>Newt</itemName>
+    <itemType>Animal</itemType>
+    <storageLocation>Aquatic</storageLocation>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -623,7 +489,15 @@
     <itemName>Parrot</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Aviary</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>13</inventoryId>
+    <itemName>Bear</itemName>
+    <itemType>Animal</itemType>
+    <storageLocation>Forest</storageLocation>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -631,7 +505,7 @@
     <itemName>Toad</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Aquatic</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -639,7 +513,7 @@
     <itemName>Sparrow</itemName>
     <itemType>Animal</itemType>
     <storageLocation>Aviary</storageLocation>
-    <reorderThreshold>1</reorderThreshold>
+    <reorderThreshold>0</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -648,7 +522,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 1</storageLocation>
     <reorderThreshold>100</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>101</quantity>
   </inventory>
   <inventory>
     <inventoryId>17</inventoryId>
@@ -728,7 +602,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>21</quantity>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>27</inventoryId>
@@ -736,7 +610,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>21</quantity>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>28</inventoryId>
@@ -767,7 +641,7 @@
     <itemName>Bleach</itemName>
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
-    <reorderThreshold>33</reorderThreshold>
+    <reorderThreshold>35</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -803,11 +677,35 @@
     <quantity>1</quantity>
   </inventory>
   <inventory>
+    <inventoryId>36</inventoryId>
+    <itemName>Bananas</itemName>
+    <itemType>Food</itemType>
+    <storageLocation>Fruit Storage</storageLocation>
+    <reorderThreshold>200</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>37</inventoryId>
+    <itemName>Acacia Leaves</itemName>
+    <itemType>Food</itemType>
+    <storageLocation>Vegetable Storage</storageLocation>
+    <reorderThreshold>150</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>38</inventoryId>
+    <itemName>Apples</itemName>
+    <itemType>Food</itemType>
+    <storageLocation>Fruit Storage</storageLocation>
+    <reorderThreshold>100</reorderThreshold>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
     <inventoryId>39</inventoryId>
     <itemName>Hay</itemName>
     <itemType>Food</itemType>
     <storageLocation>Grain Storage</storageLocation>
-    <reorderThreshold>497</reorderThreshold>
+    <reorderThreshold>500</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -848,7 +746,7 @@
     <itemType>Food</itemType>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>10</reorderThreshold>
-    <quantity>16</quantity>
+    <quantity>1</quantity>
   </inventory>
   <inventory>
     <inventoryId>45</inventoryId>
@@ -856,168 +754,195 @@
     <itemType>Food</itemType>
     <storageLocation>Meat Storage</storageLocation>
     <reorderThreshold>8</reorderThreshold>
-    <quantity>102</quantity>
+    <quantity>1</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>46</inventoryId>
+    <itemName>New Item</itemName>
+    <itemType>Habitat</itemType>
+    <storageLocation>adfafds</storageLocation>
+    <reorderThreshold>33</reorderThreshold>
+    <quantity>0</quantity>
   </inventory>
 
-  <itemimage>
-    <image_id>1</image_id>
-    <cleaningId>1</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_26_1.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>2</image_id>
-    <cleaningId>2</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_27_2.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>7</image_id>
-    <cleaningId>7</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_32_7.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>8</image_id>
-    <cleaningId>8</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_33_8.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>9</image_id>
-    <cleaningId>9</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_34_9.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>10</image_id>
-    <cleaningId>10</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_35_10.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>14</image_id>
-    <cleaningId/>
-    <habitatId>4</habitatId>
-    <foodId/>
-    <image_path>habitat_19_4.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>15</image_id>
-    <cleaningId/>
-    <habitatId>5</habitatId>
-    <foodId/>
-    <image_path>habitat_20_5.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>16</image_id>
-    <cleaningId/>
-    <habitatId>6</habitatId>
-    <foodId/>
-    <image_path>habitat_21_6.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>19</image_id>
-    <cleaningId/>
-    <habitatId>9</habitatId>
-    <foodId/>
-    <image_path>habitat_24_9.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>20</image_id>
-    <cleaningId/>
-    <habitatId>10</habitatId>
-    <foodId/>
-    <image_path>habitat_25_10.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>21</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>1</foodId>
-    <image_path>food_44_1.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>22</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>2</foodId>
-    <image_path>food_45_2.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>26</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>6</foodId>
-    <image_path>food_39_6.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>28</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>8</foodId>
-    <image_path>food_41_8.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>29</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>9</foodId>
-    <image_path>food_42_9.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>30</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>10</foodId>
-    <image_path>food_43_10.jpg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>33</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>11</foodId>
-    <image_path>food_40_11.jpeg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>39</image_id>
-    <cleaningId/>
-    <habitatId>16</habitatId>
-    <foodId/>
-    <image_path>habitat_18_16.jpeg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>40</image_id>
-    <cleaningId/>
-    <habitatId>17</habitatId>
-    <foodId/>
-    <image_path>habitat_18_17.jpeg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>41</image_id>
-    <cleaningId/>
-    <habitatId/>
-    <foodId>12</foodId>
-    <image_path>food_40_12.jpeg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>42</image_id>
-    <cleaningId>59</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_31_59.jpeg</image_path>
-  </itemimage>
-  <itemimage>
-    <image_id>43</image_id>
-    <cleaningId>60</cleaningId>
-    <habitatId/>
-    <foodId/>
-    <image_path>cleaning_35_60.jpeg</image_path>
-  </itemimage>
+  <supplier>
+    <supplierId>1</supplierId>
+    <supplierName>Animal Supplies Sdn Bhd</supplierName>
+    <contactName>Ahmad Ali</contactName>
+    <contactEmail>ahmad.ali@example.com</contactEmail>
+    <contactPhone>03-1234-5678</contactPhone>
+    <address>123 Jalan Zoo</address>
+    <city>Kuala Lumpur</city>
+    <state>WP</state>
+    <postalCode>50000</postalCode>
+    <country>Malaysia</country>
+    <website>www.animalsupplies.com.my</website>
+    <rating>4.50</rating>
+    <lastOrderDate>2024-01-15</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>7</deliveryTime>
+    <supplierNotes>Reliable supplier.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>2</supplierId>
+    <supplierName>Cleaning Solutions Sdn Bhd</supplierName>
+    <contactName>Lim Mei Ling</contactName>
+    <contactEmail>mei.ling@example.com</contactEmail>
+    <contactPhone>03-2345-6789</contactPhone>
+    <address>456 Jalan Bersih</address>
+    <city>Petaling Jaya</city>
+    <state>Selangor</state>
+    <postalCode>46000</postalCode>
+    <country>Malaysia</country>
+    <website>www.cleaningsolutions.com.my</website>
+    <rating>4.00</rating>
+    <lastOrderDate>2024-02-20</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>10</deliveryTime>
+    <supplierNotes>Good quality products.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>3</supplierId>
+    <supplierName>Habitat Builders Sdn Bhd</supplierName>
+    <contactName>Ravi Kumar</contactName>
+    <contactEmail>ravi.kumar@example.com</contactEmail>
+    <contactPhone>03-3456-7890</contactPhone>
+    <address>789 Jalan Habitat</address>
+    <city>Shah Alam</city>
+    <state>Selangor</state>
+    <postalCode>40000</postalCode>
+    <country>Malaysia</country>
+    <website>www.habitatbuilders.com.my</website>
+    <rating>4.70</rating>
+    <lastOrderDate>2024-03-25</lastOrderDate>
+    <paymentTerms>Net 45</paymentTerms>
+    <deliveryTime>14</deliveryTime>
+    <supplierNotes>Excellent service.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>4</supplierId>
+    <supplierName>Zoo Animals Sdn Bhd</supplierName>
+    <contactName>Siti Nurhaliza</contactName>
+    <contactEmail>siti.nurhaliza@example.com</contactEmail>
+    <contactPhone>03-4567-8901</contactPhone>
+    <address>101 Jalan Haiwan</address>
+    <city>Klang</city>
+    <state>Selangor</state>
+    <postalCode>41000</postalCode>
+    <country>Malaysia</country>
+    <website>www.zooanimals.com.my</website>
+    <rating>4.80</rating>
+    <lastOrderDate>2024-04-30</lastOrderDate>
+    <paymentTerms>Net 60</paymentTerms>
+    <deliveryTime>21</deliveryTime>
+    <supplierNotes>Highly recommended.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>5</supplierId>
+    <supplierName>Food Suppliers Sdn Bhd</supplierName>
+    <contactName>Tan Chong Wei</contactName>
+    <contactEmail>chong.wei@example.com</contactEmail>
+    <contactPhone>03-5678-9012</contactPhone>
+    <address>202 Jalan Makanan</address>
+    <city>Subang Jaya</city>
+    <state>Selangor</state>
+    <postalCode>47500</postalCode>
+    <country>Malaysia</country>
+    <website>www.foodsuppliers.com.my</website>
+    <rating>4.30</rating>
+    <lastOrderDate>2024-05-05</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>7</deliveryTime>
+    <supplierNotes>Good variety of products.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>6</supplierId>
+    <supplierName>Animal Care Sdn Bhd</supplierName>
+    <contactName>Zainab Hassan</contactName>
+    <contactEmail>zainab.hassan@example.com</contactEmail>
+    <contactPhone>03-6789-0123</contactPhone>
+    <address>303 Jalan Penjagaan</address>
+    <city>Kajang</city>
+    <state>Selangor</state>
+    <postalCode>43000</postalCode>
+    <country>Malaysia</country>
+    <website>www.animalcare.com.my</website>
+    <rating>4.60</rating>
+    <lastOrderDate>2024-06-10</lastOrderDate>
+    <paymentTerms>Net 45</paymentTerms>
+    <deliveryTime>14</deliveryTime>
+    <supplierNotes>Reliable and prompt.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>7</supplierId>
+    <supplierName>Zoo Equipment Sdn Bhd</supplierName>
+    <contactName>David Tan</contactName>
+    <contactEmail>david.tan@example.com</contactEmail>
+    <contactPhone>03-7890-1234</contactPhone>
+    <address>404 Jalan Peralatan</address>
+    <city>Puchong</city>
+    <state>Selangor</state>
+    <postalCode>47100</postalCode>
+    <country>Malaysia</country>
+    <website>www.zooequipment.com.my</website>
+    <rating>4.40</rating>
+    <lastOrderDate>2024-07-15</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>10</deliveryTime>
+    <supplierNotes>Good quality equipment.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>8</supplierId>
+    <supplierName>Animal Health Sdn Bhd</supplierName>
+    <contactName>Laura Lim</contactName>
+    <contactEmail>laura.lim@example.com</contactEmail>
+    <contactPhone>03-8901-2345</contactPhone>
+    <address>505 Jalan Kesihatan</address>
+    <city>Seremban</city>
+    <state>Negeri Sembilan</state>
+    <postalCode>70200</postalCode>
+    <country>Malaysia</country>
+    <website>www.animalhealth.com.my</website>
+    <rating>4.70</rating>
+    <lastOrderDate>2024-08-20</lastOrderDate>
+    <paymentTerms>Net 60</paymentTerms>
+    <deliveryTime>21</deliveryTime>
+    <supplierNotes>Excellent health products.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>9</supplierId>
+    <supplierName>Zoo Supplies Sdn Bhd</supplierName>
+    <contactName>James Wong</contactName>
+    <contactEmail>james.wong@example.com</contactEmail>
+    <contactPhone>03-9012-3456</contactPhone>
+    <address>606 Jalan Bekalan</address>
+    <city>Ipoh</city>
+    <state>Perak</state>
+    <postalCode>30000</postalCode>
+    <country>Malaysia</country>
+    <website>www.zoosupplies.com.my</website>
+    <rating>4.50</rating>
+    <lastOrderDate>2024-09-25</lastOrderDate>
+    <paymentTerms>Net 30</paymentTerms>
+    <deliveryTime>7</deliveryTime>
+    <supplierNotes>Wide range of supplies.</supplierNotes>
+  </supplier>
+  <supplier>
+    <supplierId>10</supplierId>
+    <supplierName>Animal Feed Sdn Bhd</supplierName>
+    <contactName>Patricia Lee</contactName>
+    <contactEmail>patricia.lee@example.com</contactEmail>
+    <contactPhone>03-0123-4567</contactPhone>
+    <address>707 Jalan Makanan Haiwan</address>
+    <city>Johor Bahru</city>
+    <state>Johor</state>
+    <postalCode>80000</postalCode>
+    <country>Malaysia</country>
+    <website>www.animalfeed.com.my</website>
+    <rating>4.20</rating>
+    <lastOrderDate>2024-10-30</lastOrderDate>
+    <paymentTerms>Net 45</paymentTerms>
+    <deliveryTime>14</deliveryTime>
+    <supplierNotes>Good quality feed.</supplierNotes>
+  </supplier>
 </root>

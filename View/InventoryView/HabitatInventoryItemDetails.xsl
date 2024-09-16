@@ -22,15 +22,6 @@
                         <div class="image">
                            <img src="{$imageDirectory}{/root/itemimage[habitatId=$itemID]/image_path}"/>
                         </div>
-                       
-                        <div class="description">
-                            <h3>Description</h3>
-                            <ul>
-                                <li>
-                                    <xsl:value-of select="description" />
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <div class="right">
                         <div class="details">

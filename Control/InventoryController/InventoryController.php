@@ -85,6 +85,25 @@ class InventoryController extends InventoryModel {
                 $POid = isset($_GET['POid']) ? $_GET['POid'] : null;
                 $this->sendPO($POid);
                 break;
+            case 'logusage':
+                $status = isset($_GET['status']) ? $_GET['status'] : '';
+                $newQuantity = isset($_GET['newQuantity']) ? $_GET['newQuantity'] : '';
+                switch ($status) {
+                    case 'success':
+                        echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                        break;
+                    case 'error':
+                        echo "<p class='alert alert-error'>Error logging inventory usage.</p>";
+                        break;
+                    case 'itemNotfound':
+                        echo "<p class='alert alert-error'>Error: Inventory item not found.</p>";
+                        break;
+                    case 'invalidRequest':
+                        echo "<p class='alert alert-warning'>Invalid request method.</p>";
+                        break;
+                }
+                $this->logUsage();
+                break;
             case 'showPO':
                 $status = isset($_GET['status']) ? $_GET['status'] : '';
 
@@ -178,6 +197,18 @@ class InventoryController extends InventoryModel {
         ];
 
         $this->view->render('AddNewInventItem', $data);
+    }
+
+    public function logUsage() {
+        $inventoryData = $this->model->getInventory();
+        $data = [
+            'activePage' => 'Log Usage',
+            'pageCss' => 'InventoryUsage.css',
+            'xslt_transform' => false,
+            'inventoryData' => $inventoryData
+        ];
+
+        $this->view->render('InventoryUsage', $data);
     }
 
     public function viewHabitatItem() {
@@ -299,6 +330,7 @@ class InventoryController extends InventoryModel {
         $itemName = $this->model->getItemNameById($itemID, $itemType);
         $Allprice = $this->model->getSupplyUnitPrice($itemID, $itemType);
         $suppliersID = $this->model->getSupplierIdBasedOnItemId($itemID, $itemType);
+        $imagePath = $this->model->getImageByid($itemID, $itemType);
 
         foreach ($suppliersID as $supplierId) {
             $details = $this->model->getSupplierDetailsById($supplierId);
@@ -327,7 +359,7 @@ class InventoryController extends InventoryModel {
             'itemID' => $itemID,
             'price' => $price,
             'supplierDetails' => $supplierDetails,
-            'image' => "../../assests/InventoryImages/" . $itemType . "_" . $inventoryId . "_" . $itemID . ".jpg",
+            'image' => "../../assests/InventoryImages/" . $imagePath,
             'activePage' => 'Inventory Management',
             'pageCss' => 'purchaseorder.css',
             'xslt_transform' => false

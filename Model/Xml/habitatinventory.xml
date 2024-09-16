@@ -23,6 +23,17 @@
     <disposal_instructions>Recycle or dispose of in accordance with local regulations.</disposal_instructions>
   </habitatinventory>
   <habitatinventory>
+    <id>3</id>
+    <inventoryId>18</inventoryId>
+    <habitatItemName>Natural Branches by Petco</habitatItemName>
+    <description>Natural branches for climbing animals</description>
+    <habitatType>Forest</habitatType>
+    <material>Wood</material>
+    <expected_lifetime>3</expected_lifetime>
+    <installation_instructions>Securely attach to the habitat structure.</installation_instructions>
+    <disposal_instructions>Compost or dispose of in accordance with local regulations.</disposal_instructions>
+  </habitatinventory>
+  <habitatinventory>
     <id>4</id>
     <inventoryId>19</inventoryId>
     <habitatItemName>Stainless Steel Water Bowl by OXO</habitatItemName>
@@ -100,25 +111,14 @@
     <disposal_instructions>Recycle electronic components.</disposal_instructions>
   </habitatinventory>
   <habitatinventory>
-    <id>16</id>
-    <inventoryId>18</inventoryId>
+    <id>11</id>
+    <inventoryId>46</inventoryId>
     <habitatItemName>What Branch</habitatItemName>
-    <description>description</description>
-    <habitatType>heldd</habitatType>
-    <material>kdls</material>
+    <description>This is a Branch but what is it</description>
+    <habitatType>Savana</habitatType>
+    <material>Wooood</material>
     <expected_lifetime>23</expected_lifetime>
-    <installation_instructions>sa</installation_instructions>
-    <disposal_instructions>daf</disposal_instructions>
-  </habitatinventory>
-  <habitatinventory>
-    <id>17</id>
-    <inventoryId>18</inventoryId>
-    <habitatItemName>What Branch</habitatItemName>
-    <description>desc</description>
-    <habitatType>hel</habitatType>
-    <material>kdls</material>
-    <expected_lifetime>23</expected_lifetime>
-    <installation_instructions>sa</installation_instructions>
-    <disposal_instructions>daf</disposal_instructions>
+    <installation_instructions>Just Put There</installation_instructions>
+    <disposal_instructions>Throw to the rubbish bin</disposal_instructions>
   </habitatinventory>
 </habitatinventories>
