@@ -54,10 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lineItem->addNewPOLine();
 
         // Redirect to success page
-        header("Location: ../../Control/InventoryController/index.php?action=showPO&status=successPO");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=showPO&status=successPO");
     } catch (Exception $e) {
         // Optionally redirect to an error page
-        header("Location: ../../Control/InventoryController/index.php?action=showPO&status=errorPO");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=showPO&status=errorPO");
     }
 } else {
     echo "<p class='alert'>Invalid request method.</p>";

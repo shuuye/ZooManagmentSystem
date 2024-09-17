@@ -10,7 +10,7 @@
                     Filter
                 </div>
                 <div class="new-item" id="newbtn">
-                    <a href="?action=addInventoryItem">
+                    <a href="?controller=inventory&amp;action=addInventoryItem">
                         <img src="../../assests/InventoryImages/btn-plus.svg" class="plus-icon" />
                         New Item
                     </a>
@@ -115,7 +115,7 @@
                         <td>
                             <a class="hrefText" href="#">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                    <xsl:value-of select="concat('?controller=inventory&amp;action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
                                 </xsl:attribute>
                                 <xsl:value-of select="itemName" />
                             </a>   
@@ -135,7 +135,7 @@
                         <td> 
                             <a class="hrefText reorder">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                    <xsl:value-of select="concat('?controller=inventory&amp;action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
                                 </xsl:attribute>
                                 <xsl:choose>
                                     <xsl:when test="quantity &lt;= 0">

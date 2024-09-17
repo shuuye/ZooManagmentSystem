@@ -45,7 +45,7 @@
     <div class="topnav" style="background-color: blue;">
         <a href="">Reservation Management Panel</a>
         <a href="index.php?controller=user&action=userManagementMainPanel">User Management Panel</a>
-        <a href="">Inventory Management Panel</a>
+        <a href="index.php?controller=inventory&action=index">Inventory Management Panel</a>
         <a href="">Ticketing & Payment Management Panel</a>
         <a href="">Animal Management Panel</a>
     </div>

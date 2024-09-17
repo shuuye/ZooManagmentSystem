@@ -89,9 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect with status message
     if ($success) {
-        header("Location: ../../Control/InventoryController/index.php?action=viewItembasedOnInventoryID&status=success&inventoryId=$inventoryId&itemType=$itemType");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=viewItembasedOnInventoryID&status=success&inventoryId=$inventoryId&itemType=$itemType");
     } else {
-        header("Location: ../../Control/InventoryController/index.php?action=viewItembasedOnInventoryID&status=error&inventoryId=$inventoryId&itemType=$itemType");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=viewItembasedOnInventoryID&status=error&inventoryId=$inventoryId&itemType=$itemType");
     }
     exit();
 }

@@ -14,6 +14,12 @@ if ($controller && $action) {
             require_once __DIR__ . '/Control/AdminPanelController.php';
             $controller = new AdminPanelController();
             break;
+        case 'inventory':
+            require_once '/Model/Inventory/InventoryModel.php';
+            require_once '/Control/InventoryController/InventoryController.php';
+            $model = new InventoryModel();
+            $controller = new InventoryController($model, new InventoryView('InventoryMasterPage.php'));
+            break;
         // Add more controllers as needed
         default:
             // Handle unknown controller
@@ -21,7 +27,6 @@ if ($controller && $action) {
             exit;
     }
     $controller->route();
-    
 } else {
     // If no controller or action is set, display a default view (like home page)
     include 'View/home.php';

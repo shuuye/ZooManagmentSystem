@@ -10,7 +10,7 @@
                     Filter
                 </div>
                 <div class="new-item" id="newbtn">
-                    <a href="?action=addInventoryItem">
+                    <a href="?controller=inventory&amp;action=addInventoryItem">
                         <img src="../../assests/InventoryImages/btn-plus.svg" class="plus-icon" />
                         New Item
                     </a>
@@ -105,7 +105,7 @@
                         <td>
                             <a class="hrefText">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                    <xsl:value-of select="concat('?controller=inventory&amp;action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
                                 </xsl:attribute>
                                 <xsl:value-of select="itemName" />
                             </a>
@@ -114,9 +114,9 @@
                             <a class="hrefText">
                                 <xsl:attribute name="href">
                                     <xsl:choose>
-                                        <xsl:when test="itemType = 'Food'">?action=foodItem</xsl:when>
-                                        <xsl:when test="itemType = 'Habitat'">?action=habitatItem</xsl:when>
-                                        <xsl:when test="itemType = 'Cleaning'">?action=cleaningItem</xsl:when>
+                                        <xsl:when test="itemType = 'Food'">?controller=inventory&amp;action=foodItem</xsl:when>
+                                        <xsl:when test="itemType = 'Habitat'">?controller=inventory&amp;action=habitatItem</xsl:when>
+                                        <xsl:when test="itemType = 'Cleaning'">?controller=inventory&amp;action=cleaningItem</xsl:when>
                                         <xsl:otherwise>index.php</xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:attribute>
@@ -135,7 +135,7 @@
                         <td> 
                             <a class="hrefText reorder">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                    <xsl:value-of select="concat('?controller=inventory&amp;action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
                                 </xsl:attribute>
                                 <xsl:choose>
                                     <xsl:when test="quantity &lt;= 0">

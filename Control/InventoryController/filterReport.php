@@ -10,26 +10,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
         }
         if ($filters == "Habitat") {
-            header("Location: index.php?action=generateReport&report=habitatinventorySummaryReport");
+            header("Location: index.php?controller=inventory&action=generateReport&report=habitatinventorySummaryReport");
         }
         if ($filters == "Food") {
-            header("Location: index.php?action=generateReport&report=foodinventorySummaryReport");
+            header("Location: index.php?controller=inventory&action=generateReport&report=foodinventorySummaryReport");
         }
         if ($filters == "Cleaning") {
-            header("Location: index.php?action=generateReport&report=cleaninginventorySummaryReport");
+            header("Location: index.php?controller=inventory&action=generateReport&report=cleaninginventorySummaryReport");
         }  
         if ($filters == "outStock") {
-            header("Location: index.php?action=generateReport&report=outStockinventorySummaryReport");
+            header("Location: index.php?controller=inventory&action=generateReport&report=outStockinventorySummaryReport");
         }  
         if ($filters == "inStock") {
-            header("Location: index.php?action=generateReport&report=inStockinventorySummaryReport");
+            header("Location: index.php?controller=inventory&action=generateReport&report=inStockinventorySummaryReport");
         }  
         if ($filters == "lowStock") {
-            header("Location: index.php?action=generateReport&report=lowStockinventorySummaryReport");
+            header("Location: index.php?controller=inventory&action=generateReport&report=lowStockinventorySummaryReport");
         }  
         
       
     } else{
-        header("Location: index.php?action=generateReport&report=inventorySummaryReport");
+        header("Location: index.php?controller=inventory&action=generateReport&report=inventorySummaryReport");
     }
 }    

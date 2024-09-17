@@ -351,6 +351,26 @@
     <totalAmount>1450.00</totalAmount>
     <status>Completed</status>
   </purchaseorder>
+  <purchaseorder>
+    <poId>10</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-17 09:09:46</orderDate>
+    <deliveryDate>2024-09-21 15:09:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>6000.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>11</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-17 09:13:37</orderDate>
+    <deliveryDate>2024-09-21 15:14:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>6300.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
 
   <purchaseorderlineitem>
     <poLineItemId>1</poLineItemId>
@@ -441,6 +461,26 @@
     <foodId/>
     <quantity>29</quantity>
     <unitPrice>50.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>10</poLineItemId>
+    <poId>10</poId>
+    <inventoryId>17</inventoryId>
+    <cleaningId/>
+    <habitatId>2</habitatId>
+    <foodId/>
+    <quantity>200</quantity>
+    <unitPrice>30.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>11</poLineItemId>
+    <poId>11</poId>
+    <inventoryId>18</inventoryId>
+    <cleaningId/>
+    <habitatId>3</habitatId>
+    <foodId/>
+    <quantity>140</quantity>
+    <unitPrice>45.00</unitPrice>
   </purchaseorderlineitem>
 
   <inventory>
@@ -577,7 +617,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 2</storageLocation>
     <reorderThreshold>200</reorderThreshold>
-    <quantity>23</quantity>
+    <quantity>223</quantity>
   </inventory>
   <inventory>
     <inventoryId>18</inventoryId>
@@ -585,7 +625,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 3</storageLocation>
     <reorderThreshold>150</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>141</quantity>
   </inventory>
   <inventory>
     <inventoryId>19</inventoryId>
@@ -1045,7 +1085,21 @@
   <inventoryusagelog>
     <logId>8</logId>
     <inventoryId>16</inventoryId>
-    <dateTime>2024-09-16 20:27:00</dateTime>
+    <dateTime>2024-09-17 09:09:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>9</logId>
+    <inventoryId>26</inventoryId>
+    <dateTime>2024-09-17 09:10:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>10</logId>
+    <inventoryId>37</inventoryId>
+    <dateTime>2024-09-17 09:11:00</dateTime>
     <quantityUsed>1</quantityUsed>
     <reasonForUse/>
   </inventoryusagelog>

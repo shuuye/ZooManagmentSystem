@@ -41,7 +41,7 @@
                         <td> 
                             <a class="hrefText poStatus">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?action=sendPO&amp;POid=', poId)" />
+                                    <xsl:value-of select="concat('?controller=inventory&amp;action=sendPO&amp;POid=', poId)" />
                                 </xsl:attribute>
                                 <xsl:choose>
                                     <xsl:when test="status = 'Draft'">

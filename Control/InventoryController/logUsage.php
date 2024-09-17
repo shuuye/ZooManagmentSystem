@@ -54,14 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $logsuccess = $inventory->logInventoryUsage($data);
 
         if ($logsuccess) {
-            header("Location: ../../Control/InventoryController/index.php?action=logusage&status=success&newQuantity=$newQuantity");
+            header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=logusage&status=success&newQuantity=$newQuantity");
         } else {
-            header("Location: ../../Control/InventoryController/index.php?action=logusage&status=error&newQuantity=$newQuantity");
+            header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=logusage&status=error&newQuantity=$newQuantity");
         }
     } else {
-        header("Location: ../../Control/InventoryController/index.php?action=logusage&status=itemNotfound");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=logusage&status=itemNotfound");
     }
 } else {
-    header("Location: ../../Control/InventoryController/index.php?action=logusage&status=invalidRequest");
+    header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=logusage&status=invalidRequest");
 }
 ?>
