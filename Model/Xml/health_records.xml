@@ -1,111 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <HealthRecords>
-  <HealthRecord hRecord_id="1">
-    <animal_id>1</animal_id>
-    <last_checkup>2024-01-23</last_checkup>
-    <treatments>Vaccination</treatments>
-    <healthStatus>Healthy</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="2">
-    <animal_id>2</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Healthy</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="3">
-    <animal_id>3</animal_id>
-    <last_checkup>2024-01-15</last_checkup>
-    <treatments>Dental check</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="4">
-    <animal_id>11</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="5">
-    <animal_id>4</animal_id>
-    <last_checkup>2024-09-05</last_checkup>
-    <treatments>i86i86</treatments>
-    <healthStatus>Warning</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="6">
-    <animal_id>12</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Healthy</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="7">
-    <animal_id>5</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>Dental check</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="8">
-    <animal_id>6</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>Dental check</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="9">
-    <animal_id>7</animal_id>
-    <last_checkup>2024-09-04</last_checkup>
-    <treatments>tgheg</treatments>
-    <healthStatus>Warning</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="10">
-    <animal_id>8</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="11">
-    <animal_id>9</animal_id>
-    <last_checkup>2024-09-12</last_checkup>
-    <treatments>fdghdg</treatments>
-    <healthStatus>Normal</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="12">
-    <animal_id>10</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Healthy</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="13">
-    <animal_id>13</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="14">
-    <animal_id>14</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="15">
-    <animal_id>15</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="16">
-    <animal_id>16</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="21">
-    <animal_id>17</animal_id>
-    <last_checkup>2024-09-17</last_checkup>
-    <treatments>Vaccination</treatments>
-    <healthStatus>Treatment</healthStatus>
-  </HealthRecord>
   <HealthRecord hRecord_id="22">
     <animal_id>21</animal_id>
-    <last_checkup>2024-09-06</last_checkup>
-    <treatments>i7ki7</treatments>
-    <healthStatus>Warning</healthStatus>
+    <last_checkup>2024-09-05</last_checkup>
+    <treatments>body_check</treatments>
+    <healthStatus>Treatment</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="23">
+    <animal_id>20</animal_id>
+    <last_checkup>2024-09-04</last_checkup>
+    <treatments>body_check</treatments>
+    <healthStatus>Treatment</healthStatus>
   </HealthRecord>
 </HealthRecords>

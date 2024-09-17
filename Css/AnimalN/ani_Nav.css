@@ -29,7 +29,6 @@ nav li a:hover {
 }
 
 /* Chart Styles */
-
 #chart {
     text-align: center;
     margin-bottom: 20px;
@@ -41,3 +40,6 @@ nav li a:hover {
     height: 300px; 
     margin: 20px auto;
 }
+
+
+

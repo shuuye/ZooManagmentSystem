@@ -44,8 +44,14 @@ $controller ->handleAddHealthRecordForm();
         <label for="last_checkup">Last Checkup:</label>
         <input type="date" name="last_checkup" required>
         <br/>
-        <label for="treatments">Treatments:</label>
-        <textarea name="treatments" required></textarea>
+       <label for="treatments">Treatments:</label>
+        <select name="treatments" id="treatments" required>
+            <option value="">Select a treatment</option>
+            <option value="area_check">Area Check</option>
+            <option value="body_check">Body Check</option>
+            <option value="vaccination">Vaccination</option>
+            <option value="dental_check">Dental Check</option>
+        </select>
         <br/>
         <label for="healthStatus">Health Status:</label>
         <select name="healthStatus" required>

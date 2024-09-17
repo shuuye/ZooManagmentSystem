@@ -1,21 +1,9 @@
 <?php
 
-// Retrieve the habitat ID from the URL parameter
 $habitat_id = $_POST['habitat_id'];
-
-// Include the controller
 require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
-
-// Create an instance of the controller
 $habitatController = new HabitatControllerObserver();
-
-// Fetch the habitat data
 $habitat = $habitatController->getHabitatById($habitat_id);
-
-
-// Handle form submission
-$habitatController->handleFormSubmission();
-
 
 ?>
 
@@ -24,13 +12,17 @@ $habitatController->handleFormSubmission();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/animal_form.css">
     <title>Edit Habitat</title>
 </head>
 
 <body>
    
-<form action="edit_habitat.php" method="POST">
-    <input type="hidden" name="habitat_id" value="<?php echo $habitat_id; ?>">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    
+    <label for="habitat_name">Habitat ID :</label>
+    <input type="" name="habitat_id" value="<?php echo $habitat_id; ?>">
+    
     <label for="habitat_name">Habitat Name:</label>
     <input type="text" name="habitat_name" value="<?php echo $habitat['habitat_name']; ?>"><br><br>
     <label for="availability">Availability:</label>
@@ -48,7 +40,15 @@ $habitatController->handleFormSubmission();
     </select><br><br>
     <label for="description">Description:</label>
     <textarea name="description"><?php echo $habitat['description']; ?></textarea><br><br>
+    
     <input type="submit" value="Update Habitat">
+    
 </form>
 
 </body>
+
+<?php
+
+$habitatController->handleFormSubmission();
+
+?>

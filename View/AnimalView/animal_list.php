@@ -88,11 +88,11 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
                         <td><?php echo htmlspecialchars($animal['id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['name']); ?></td>
                         <td><?php echo htmlspecialchars($animal['species']); ?></td>
-                        <td><?php echo htmlspecialchars($animal['species']); ?></td>
                         <td><?php echo htmlspecialchars($animal['age']); ?></td>
                         <td><?php echo htmlspecialchars($animal['gender']); ?></td>
                         <td><?php echo htmlspecialchars($animal['date_of_birth']); ?></td>
                         <td><?php echo htmlspecialchars($animal['avg_lifespan']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['height']); ?></td>
                         <td><?php echo htmlspecialchars($animal['weight']); ?></td>
                         <td><?php echo htmlspecialchars($animal['habitat_id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['categories']); ?></td>

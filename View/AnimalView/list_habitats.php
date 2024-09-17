@@ -1,9 +1,7 @@
 <!--This page is for edit and delete table, which for modification table display.--> 
-
 <?php
     // Include the controller
     require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
-
     // Create an instance of the controller
     $habitatController = new HabitatControllerObserver();
     // Handle form submissions
@@ -57,7 +55,7 @@
                         <td><?php echo htmlspecialchars($habitat['environment']); ?></td>
                         <td><?php echo htmlspecialchars($habitat['description']); ?></td>
                         <td>
-                            <form action="edit_habitat.php" method="post">
+                            <form action="edit_habitat.php" method="POST">
                                 <input type="hidden" name="habitat_id" value="<?php echo $habitat['habitat_id']; ?>">
                                 <input type="submit" value="Edit">
                             </form>

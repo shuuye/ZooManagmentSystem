@@ -172,7 +172,7 @@ class XmlGenerator extends databaseConfig {
             $xml->load($xmlFileName);
 
             $xpath = new DOMXPath($xml);
-            $entries = $xpath->query($xpathQuery);
+            $entries = $xpath->query($xpathQuery); // Way 1 pass  Query as XPATH
 
             $newXml = new DOMDocument();
             $root = $newXml->createElement("HealthRecords");
@@ -189,6 +189,30 @@ class XmlGenerator extends databaseConfig {
             return null;
         }
     }
+    
+    public function countHealthStatuses($xmlFileName) { // Pam
+    if (file_exists($xmlFileName)) {
+        $xml = new DOMDocument();
+        $xml->load($xmlFileName);
+
+        $xpath = new DOMXPath($xml);
+
+        // Query for different health statuses
+        $statusCounts = [];
+        $statuses = ['Healthy', 'Normal', 'Treatment','Warning']; // List your health statuses here
+        foreach ($statuses as $status) {
+            $query = "//HealthRecord[healthStatus='$status']"; // XPATH count Health status
+            $entries = $xpath->query($query);
+            $statusCounts[$status] = $entries->length;
+        }
+
+        return $statusCounts;
+    } else {
+        echo "The file $xmlFileName does not exist.";
+        return null;
+    }
+}
+
 
 
 

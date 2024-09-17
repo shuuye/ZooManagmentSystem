@@ -1,7 +1,6 @@
 <?php
 
 require_once '../../Model/ObserverN/AnimalModel.php';
-//require_once '../../Model/ObserverN/HealthObserver.php';
 require_once '../../Model/XmlGenerator.php';
 
 class HealthController {
@@ -29,11 +28,7 @@ class HealthController {
            $healthRecordId = $this->animalModel->insertHealthRecord($animalId, $lastCheckup, $treatments, $healthStatus);
            // Update the animal inventory table with the new health record ID
            $this->animalModel->updateAnimalHealthRecordId($animalId, $healthRecordId);
-       }
-
-//       // Notify the observers
-//       $this->healthObserver->update($this->animalModel);
-//       
+       }   
         header('Location: ../../View/AnimalView/list_healthRecords.php');
         exit();
 
@@ -81,6 +76,27 @@ class HealthController {
         ); 
         
     }
+    
+        public function displayHealthStatusCounts() {
+        $xmlGenerator = new XmlGenerator();
+
+        // Generate XML from health_records table
+        $xmlGenerator->createXMLFileByTableName(
+            "health_records",
+            "../../Model/Xml/health_records.xml",
+            "HealthRecords",
+            "HealthRecord",
+            "hRecord_id"
+        );
+        // Get health status counts
+          $statusCounts = $xmlGenerator->countHealthStatuses("../../Model/Xml/health_records.xml");
+        if ($statusCounts) {
+            foreach ($statusCounts as $status => $count) {
+                echo "Total $status: $count<br/>";
+            }
+        }
+    }
+
     
 }
 

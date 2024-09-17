@@ -216,19 +216,14 @@ class AnimalController extends InventoryModel{
         if (isset($_GET['id'])) {
             $animalId = $_GET['id'];
             $success = $this->animalModel->deleteAnimal($animalId);
-
             // Prepare the message
             $message = $success ? "Animal deleted successfully." : "Failed to delete animal.";
-
-            // Redirect to the animal list page with a message
             header("Location: animal_list.php?message=" . urlencode($message));
             exit();
         } else {
             echo "No animal ID provided.";
         }
     }
-
-
 }
 // Initialize controller
 $controller = new AnimalController();
