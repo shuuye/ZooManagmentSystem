@@ -29,8 +29,8 @@ class PaymentModel extends databaseConfig {
         }
 
         // Check if the user has a discount based on membership
-        if (isset($_SESSION['userModel'])) {
-            $userModel = $_SESSION['userModel'];
+        if (isset($_SESSION['currentUserModel'])) {
+            $userModel = $_SESSION['currentUserModel'];
             $discount = isset($userModel['membership']['discountOffered']) ? $userModel['membership']['discountOffered'] : 0;
 
             // Apply discount if available
