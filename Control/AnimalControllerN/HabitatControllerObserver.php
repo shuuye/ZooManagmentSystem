@@ -124,12 +124,6 @@ return $this->animalModel->getHabitatById($habitat_id);
 }
 
 
-
-
-
-
-
-    
     //web services
     // Get habitat by ID
     public function getHabitatById2($habitat_id) {
