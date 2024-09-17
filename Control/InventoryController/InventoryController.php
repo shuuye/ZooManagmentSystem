@@ -215,7 +215,7 @@ class InventoryController extends InventoryModel {
                     break;
             }
         }else{
-            header("Location: ../../index.php?$controller&action=$action");
+            header("Location: ../../index.php?controller=$controller&action=$action");
         }
     }
 
