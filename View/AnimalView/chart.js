@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     datasets: [{
                         label: 'Animal Categories',
                         data: counts,
-                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FF5733', '#C70039'],
+                        backgroundColor: ['#366665', '#4c6636', '#6269cc', '#FF5733', '#C70039'],
                     }]
                 },
                 options: {

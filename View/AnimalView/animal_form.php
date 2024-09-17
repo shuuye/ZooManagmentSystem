@@ -75,10 +75,8 @@
         
         <label for="animal_image">Upload Animal Image:</label>
         <input type="file" name="animal_image" id="animal_image" accept=".jpg, .jpeg, .png" required><br>
-       
-
-
         <button type="submit">Submit</button>
+        
     </form>
     
       <script>
@@ -96,5 +94,6 @@
         // Initialize the species field when the form loads
         window.onload = updateSpecies;
     </script>
+    
 </body>
 </html>

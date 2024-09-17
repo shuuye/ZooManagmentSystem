@@ -148,7 +148,7 @@ class AnimalController extends InventoryModel{
         } else {
             $message = "Invalid item name.";
           }
-          include '../../View/AnimalView/animal_result.php'; // Show the result to the user
+          include '../../View/AnimalView/animal_list.php'; // Show the result to the user
           exit();
         }
     }
@@ -173,20 +173,6 @@ class AnimalController extends InventoryModel{
         return $category ? $this->animalModel->countAnimalsByCategory($category) : $this->animalModel->countAllAnimals();
     }
     
-//    
-//    public function displayAnimals($category = null) {
-//        if ($category) {
-//            $animals = $this->animalModel->getAnimalsByCategory($category);
-//        } else {
-//            $animals = $this->animalModel->getAnimalsByCategory(); //  all if no category is provided
-//        }
-//        // Loop through each animal and get the associated image
-//        foreach ($animals as &$animal) {
-//            // Get the image for each animal
-//            $animal['image'] = $this->animalModel->getAnimalImage($animal['id']);
-//        }
-//        return $animals;
-//    }
     
     public function editAnimal() {
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
@@ -261,7 +247,7 @@ class AnimalController extends InventoryModel{
             }
         }
 
-        include '../../View/AnimalView/animal_result.php';
+        include '../../View/AnimalView/animal_list.php';
         exit();
     }
  }

@@ -33,13 +33,14 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
 
 <body>
     
-    <h1>Animal List</h1>
-    <nav>
+     <nav>
         <ul>
             <li><a href="animal_home.php?action=home">Animal Home</a></li>
             <li><a href="index.php?action=showForm">Add New Animal</a></li>
         </ul>
     </nav>
+    
+    <h1>Animal List</h1>
 
     <div id="animalList">
     <form method="GET" action="">

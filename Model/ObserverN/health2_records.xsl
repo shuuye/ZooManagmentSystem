@@ -3,6 +3,8 @@
     <xsl:template match="/">
         <html>
             <head>
+                
+                <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/health.css"/>
                 <title>Animal Health Reports</title>
             </head>
             <body>

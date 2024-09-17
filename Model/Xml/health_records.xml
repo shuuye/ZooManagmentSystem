@@ -26,9 +26,9 @@
   </HealthRecord>
   <HealthRecord hRecord_id="5">
     <animal_id>4</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>No treatment</treatments>
-    <healthStatus>Unknown</healthStatus>
+    <last_checkup>2024-09-05</last_checkup>
+    <treatments>i86i86</treatments>
+    <healthStatus>Warning</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="6">
     <animal_id>12</animal_id>
@@ -50,8 +50,8 @@
   </HealthRecord>
   <HealthRecord hRecord_id="9">
     <animal_id>7</animal_id>
-    <last_checkup>2024-09-02</last_checkup>
-    <treatments>gevesaf</treatments>
+    <last_checkup>2024-09-04</last_checkup>
+    <treatments>tgheg</treatments>
     <healthStatus>Warning</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="10">
@@ -101,5 +101,11 @@
     <last_checkup>2024-09-17</last_checkup>
     <treatments>Vaccination</treatments>
     <healthStatus>Treatment</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="22">
+    <animal_id>21</animal_id>
+    <last_checkup>2024-09-06</last_checkup>
+    <treatments>i7ki7</treatments>
+    <healthStatus>Warning</healthStatus>
   </HealthRecord>
 </HealthRecords>

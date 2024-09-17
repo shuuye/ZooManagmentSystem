@@ -1,0 +1,44 @@
+/* habitatView.css */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Style the buttons */
+input[type="submit"] {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+/* Delete button style */
+input[type="submit"][value="Delete"] {
+  background-color: #f44336; /* Red */
+}
+
+input[type="submit"][value="Delete"]:hover {
+  background-color: #d93025; /* Darker red on hover */
+}
+

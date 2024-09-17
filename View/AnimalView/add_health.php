@@ -16,10 +16,11 @@ $controller ->handleAddHealthRecordForm();
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/animal_form.css">
     <title>Add Health Record</title>
 </head>
 <body>
-    <h2>Add New Health Record</h2>
+    <h2>Add | Update New Health Record</h2>
     
     <nav>
         <ul>

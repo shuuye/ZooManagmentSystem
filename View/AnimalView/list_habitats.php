@@ -17,14 +17,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit & Delete of Habitats</title>
     <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/habitatView.css">
 </head>
 <body>
+    
     <nav>
         <ul>
             <li><a href="add_habitat.php">Add New Habitat</a></li>
             <li><a href="habitatViewOnly.php">View Habitat</a></li>
         </ul>
     </nav>
+    
     <h1>Edit and Delete of Habitats</h1>
     <table>
         <thead>
@@ -76,12 +79,6 @@
             <?php endif; ?>
         </tbody>
     </table>
-    
-<!--     <div>
-        <form action="add_habitat.php" method="get">
-            <button type="submit">Add New Habitat</button>
-        </form>
-    </div>-->
     
 </body>
 </html>
