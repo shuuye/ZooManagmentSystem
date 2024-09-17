@@ -15,6 +15,13 @@
     <usageInstructions>Spray directly on glass surfaces and wipe clean.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
+    <id>3</id>
+    <inventoryId>28</inventoryId>
+    <cleaningName>Mr. Clean Floor Cleaner</cleaningName>
+    <size>10L</size>
+    <usageInstructions>Mix with water and mop the floor.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
     <id>4</id>
     <inventoryId>29</inventoryId>
     <cleaningName>Tide Detergent</cleaningName>
@@ -27,6 +34,13 @@
     <cleaningName>Purell Sanitizer</cleaningName>
     <size>500ml</size>
     <usageInstructions>Apply directly on hands and rub until dry.</usageInstructions>
+  </cleaninginventory>
+  <cleaninginventory>
+    <id>6</id>
+    <inventoryId>31</inventoryId>
+    <cleaningName>Clorox Bleach</cleaningName>
+    <size>4L</size>
+    <usageInstructions>Use for disinfecting surfaces and removing stains.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
     <id>7</id>
@@ -57,64 +71,8 @@
     <usageInstructions>Use for sweeping floors.</usageInstructions>
   </cleaninginventory>
   <cleaninginventory>
-    <id>52</id>
+    <id>11</id>
     <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>53</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach edit</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>54</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>55</id>
-    <inventoryId>28</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hellos</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>56</id>
-    <inventoryId>28</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>57</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>58</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>59</id>
-    <inventoryId>31</inventoryId>
-    <cleaningName>Top Bleach</cleaningName>
-    <size>200ML</size>
-    <usageInstructions>hello</usageInstructions>
-  </cleaninginventory>
-  <cleaninginventory>
-    <id>60</id>
-    <inventoryId>35</inventoryId>
     <cleaningName>Top Bleach</cleaningName>
     <size>200ML</size>
     <usageInstructions>hello</usageInstructions>

@@ -1,18 +1,28 @@
 <?php
-session_start();
+
+session_start();  // Start session at the very beginning
+// Ensure user is logged in
+if (!isset($_SESSION['userModel']['id'])) {
+    die('User is not logged in. Please log in and try again.');
+}
 
 // Load the XML data
 $filePath = __DIR__ . '/Model/Xml/ticket_purchases.xml';
 require_once __DIR__ . '/Model/Tickets/PaymentModel.php';
 
 $paymentModel = new PaymentModel();
-$transactionId = $_GET['transaction_id']; // Get transaction ID from PayPal response
+$transactionId = $_GET['transaction_id'] ?? null; // Get transaction ID from PayPal response
+if ($transactionId === null) {
+    die('Transaction ID is missing.');
+}
+
 $totalPrice = $paymentModel->calculateTotalPrice(); // Calculate total price
-
-
-
 // Save payment details to the database
-$paymentModel->savePaymentDetails($transactionId, $totalPrice, $_SESSION['userModel']['id']);
+try {
+    $paymentModel->savePaymentDetails($transactionId, $totalPrice, $_SESSION['userModel']['id']);
+} catch (Exception $e) {
+    die('Failed to save payment details: ' . htmlspecialchars($e->getMessage()));
+}
 
 // Load the XML file
 if (file_exists($filePath)) {
@@ -81,7 +91,6 @@ foreach ($xml->Ticket as $ticket) {
 }
 
 echo '</table>';
-
 
 // Display the total amount
 echo '<h2 class="total">Total Amount After Discount: RM' . number_format($totalPrice, 2, '.', '') . '</h2>';

@@ -16,16 +16,14 @@ class AnimalController extends InventoryModel{
     
    public function route(){
         $action = isset($_GET['action']) ? $_GET['action'] : 'home';
-        
          ob_start();
         switch ($action) {
             case 'home' :
-                include '../../View/AnimalView/animal_home.php';
+                $this->home();
                 break;
-//            case 'displayAnimals':
-//                include '../../View/AnimalView/animal_list.php';
-//                exit();
-//                break;
+            case 'anilist' :
+                $this->animallist();
+                break;
             case 'showForm':
                 $this->showForm();
                 break;
@@ -34,9 +32,6 @@ class AnimalController extends InventoryModel{
                 break;
             case 'edit':
                 $this->editAnimal();
-                break;
-            case 'update':
-                $this->updateAnimal();
                 break;
             case 'delete':
                 $this->deleteAnimal();
@@ -47,7 +42,17 @@ class AnimalController extends InventoryModel{
         }
          ob_end_flush(); // Send output to browser and end buffering
     }
-
+    
+    public function home(){
+         include '../../View/AnimalView/animal_home.php'; 
+         exit();
+    }
+    
+    public function animallist(){
+         include '../../View/AnimalView/animal_list.php'; 
+         exit();
+    }
+    
     // Show the form to select item names and add animal details
     public function showForm() {
         // Log or output information to verify it's being called
@@ -143,24 +148,45 @@ class AnimalController extends InventoryModel{
         } else {
             $message = "Invalid item name.";
           }
-            include '../../View/AnimalView/animal_result.php'; // Show the result to the user
+          include '../../View/AnimalView/animal_result.php'; // Show the result to the user
           exit();
         }
     }
     
-    public function displayAnimals($category = null) {
+      // Display animals with pagination
+    public function displayAnimals($category = null, $limit = 10, $offset = 0) {
         if ($category) {
-            $animals = $this->animalModel->getAnimalsByCategory($category);
+            $animals = $this->animalModel->getAnimalsByCategory($category, $limit, $offset);
         } else {
-            $animals = $this->animalModel->getAnimalsByCategory(); //  all if no category is provided
+            $animals = $this->animalModel->getAnimalsByCategory();
         }
-        // Loop through each animal and get the associated image
+
         foreach ($animals as &$animal) {
-            // Get the image for each animal
             $animal['image'] = $this->animalModel->getAnimalImage($animal['id']);
         }
+
         return $animals;
     }
+
+    // Count total animals for pagination
+    public function countAnimals($category = null) {
+        return $category ? $this->animalModel->countAnimalsByCategory($category) : $this->animalModel->countAllAnimals();
+    }
+    
+//    
+//    public function displayAnimals($category = null) {
+//        if ($category) {
+//            $animals = $this->animalModel->getAnimalsByCategory($category);
+//        } else {
+//            $animals = $this->animalModel->getAnimalsByCategory(); //  all if no category is provided
+//        }
+//        // Loop through each animal and get the associated image
+//        foreach ($animals as &$animal) {
+//            // Get the image for each animal
+//            $animal['image'] = $this->animalModel->getAnimalImage($animal['id']);
+//        }
+//        return $animals;
+//    }
     
     public function editAnimal() {
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {

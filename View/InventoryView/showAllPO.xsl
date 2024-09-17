@@ -7,28 +7,24 @@
                 
             <table class="displayingTable">
                 <tr>
-                    <th></th>
-                    <th>Purchase Order ID</th>
+                    <th>Order #</th>
                     <th>Supplier</th>
-                    <th>Order Date</th>
+                    <th>Created At</th>
                     <th>Delivery Date</th>
                     <th>Billing Address</th>
-                    <th>Total Amount</th>
+                    <th>Amount</th>
                     <th>Status</th>
                 </tr>
-                <xsl:for-each select="purchaseorders/purchaseorder">
+                <xsl:for-each select="/root/purchaseorder">
                     <xsl:sort select="orderDate" order="descending"/>
                     <tr>
-                        <td>
-                            <input type="checkbox" name="record[]" value="{poId}" />
-                        </td>
                         <td>
                             <xsl:value-of select="poId" />
                         </td>
                         <td>
-                            <a class="hrefText">
-                                <xsl:value-of select="supplierId" />
-                            </a>
+                            
+                            <xsl:value-of select="/root/supplier[supplierId = current()/supplierId]/supplierName" />
+
                         </td>
                         <td>
                             <xsl:value-of select="orderDate" />

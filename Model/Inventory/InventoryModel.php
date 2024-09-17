@@ -12,15 +12,54 @@ class InventoryModel extends databaseConfig {
         $this->db = new databaseConfig();
     }
 
-    protected function getInventory($offset, $recordsPerPage) {
-        $query = "SELECT * FROM Inventory LIMIT :offset, :recordsPerPage";
+    protected function getInventory() {
+        $query = "SELECT * FROM Inventory ";
         $result = $this->db->getConnection()->prepare($query);
-        $result->bindParam(':offset', $offset, PDO::PARAM_INT);
-        $result->bindParam(':recordsPerPage', $recordsPerPage, PDO::PARAM_INT);
         $result->execute();
         $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
         return $data;
+    }
+
+    function getInventoryQuantityDB($inventoryId) {
+        $this->db = new databaseConfig();
+        $query = "SELECT itemName, quantity FROM inventory WHERE inventoryId = ?";
+        $result = $this->db->getConnection()->prepare($query);
+        $result->execute([$inventoryId]);
+        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data;
+    }
+
+    function updateInventoryQuantityDBbasedInventId($newQuantity, $inventoryId) {
+        $query = "UPDATE inventory SET quantity = ? WHERE inventoryId = ?";
+        $result = $this->db->getConnection()->prepare($query);
+        $result->execute([$newQuantity, $inventoryId]);
+        $data = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data;
+    }
+
+    function updateInventoryLog($data) {
+        $query = "INSERT INTO inventory_usage_log (inventoryId, dateTime, quantityUsed, reasonForUse) 
+              VALUES (?, ?, ?, ?)";
+
+        try {
+            $result = $this->db->getConnection()->prepare($query);
+
+            // Execute the query with the provided data
+            if ($result->execute([$data["inventoryItemId"], $data["dateTime"], $data["quantityUsed"], $data["reasonForUse"]])) {
+                // If execution is successful, return the inserted data or some success response
+
+                return True;
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            // Handle the exception if needed and return null on error
+            error_log("Database error: " . $e->getMessage());  // Log the error message
+            return null;
+        }
     }
 
     protected function getTotalRecords() {
@@ -381,6 +420,7 @@ class InventoryModel extends databaseConfig {
         $xmlGenerator->createXMLFileByTableName("batch", "batch.xml", "batchs", "batch");
         $xmlGenerator->createXMLFileByTableName("item_image", "itemimage.xml", "itemimages", "itemimage");
         $xmlGenerator->createXMLFileByTableName("supplierRecord", "supplierRecord.xml", "supplierRecords", "supplierRecord");
+        $xmlGenerator->createXMLFileByTableName("inventory_usage_log", "inventoryusagelog.xml", "inventoryusagelogs", "inventoryusagelog");
     }
 
     protected function addPOIntoDB($supplierId, $orderDate, $deliveryDate, $billingAddress, $ShippingAddress, $totalAmount, $status) {
@@ -792,40 +832,51 @@ class InventoryModel extends databaseConfig {
             return false;
         }
     }
+
+    protected function getImageById($itemId, $itemType) {
+
+        $column = '';
+        switch ($itemType) {
+            case 'Cleaning':
+                $column = 'cleaningId';
+                break;
+            case 'Habitat':
+                $column = 'habitatId';
+                break;
+            case 'Food':
+                $column = 'foodId';
+                break;
+            default:
+                return null; // Invalid item type
+        }
+
+
+        // Prepare and bind SQL statement
+        $sql = "SELECT image_path FROM item_image WHERE $column = ?";
+        $stmt = $this->db->getConnection()->prepare($sql);
+
+        // Execute the statement
+        $stmt->execute([$itemId]);
+        $imagePath = $stmt->fetchColumn();
+        // Fetch the result
+        if ($imagePath) {
+            return $imagePath; // Return the image path if found
+        } else {
+            return null; // No image found for given criteria
+        }
+    }
 }
 
-//
-//$new = new InventoryModel();
-//$get = $new->getSupplierIdBasedOnItemId("7", "Food");
-//$price = $new->getSupplyUnitPrice("7", "Food");
-//
-//foreach ($get as $supplierId) {
-//    echo "Supplier ID: " . $supplierId . "<br>";
-//    $details = $new->getSupplierDetailsById($supplierId);
-//    if ($details) {
-//        $supplierDetails[$supplierId] = $details; // Store details with supplierId as key
-//    }
-//}
-//print_r($price);
-//echo $price[0];
-//
-//$int = 0;
-//foreach ($price as $oneRecord) {
-//
-//    if ($oneRecord) {
-//        $Allprice[$get[$int]] = $oneRecord; // Store details with supplierId as key
-//        $int++;
-//    }
-//}
-//
-//print_r($Allprice);
-
-//foreach ($supplierDetails as $supplierdetail) {
-//    if ($supplierdetail) {
-//        echo $supplierdetail['supplierId'] . "<br>";
-//        echo $supplierdetail['supplierName'] . "<br>";
-//    }
-//}
-//
-//echo "hello" . $supplierDetails[$get[0]]['supplierName'];
-
+//$data = [
+//        'dateTime' => "2024-09-16 07:50:29", 
+//        'inventoryType' => "Habitat", 
+//        'inventoryItemId' => "3", 
+//        'quantityUsed' => 2,
+//        'reasonForUse' => "because"
+//            ];
+//$in = new InventoryModel();
+//$result = $in->getInventoryQuantityDB(17);
+//print_r($result);
+//$inventoryTypes = array_unique(array_column($result, 'itemType'));
+//echo "<br/>";
+//echo print_r($inventoryTypes);

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<leaveApplications>
+  <leaveApplication id="9">
+    <reason>qwe</reason>
+    <evidencePhoto>C:/xampp/htdocs/ZooManagementSystem/assests/UserImages/evidence_photos/evidence_66e836c9103d85.49026108.png</evidencePhoto>
+    <leaveDate>2024-09-14</leaveDate>
+    <leaveStartTime>09:04:00</leaveStartTime>
+    <leaveEndTime>17:04:00</leaveEndTime>
+    <approved>0</approved>
+  </leaveApplication>
+  <leaveApplication id="9">
+    <reason>qwe</reason>
+    <evidencePhoto/>
+    <leaveDate>2024-09-15</leaveDate>
+    <leaveStartTime>08:05:00</leaveStartTime>
+    <leaveEndTime>12:05:00</leaveEndTime>
+    <approved>0</approved>
+  </leaveApplication>
+  <leaveApplication id="9">
+    <reason>qwe</reason>
+    <evidencePhoto>C:/xampp/htdocs/ZooManagementSystem/UserUploads/evidence_photos/evidence_66e6671d5d9018.30600475.png</evidencePhoto>
+    <leaveDate>2024-09-20</leaveDate>
+    <leaveStartTime>15:22:00</leaveStartTime>
+    <leaveEndTime>19:22:00</leaveEndTime>
+    <approved>1</approved>
+  </leaveApplication>
+</leaveApplications>

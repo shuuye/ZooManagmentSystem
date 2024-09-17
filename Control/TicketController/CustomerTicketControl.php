@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 class CustomerTicketControl {
 
-    public function handleRequest() {
+    public function route() {
         $model = new CustomerTicketModel();
         $tickets = $model->getAvailableTickets();
         $errorMessage = '';

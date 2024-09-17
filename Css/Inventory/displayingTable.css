@@ -11,7 +11,7 @@ identify all structures of table in inventory system
     padding: 20px;
     background-color: white;
     border-radius: 12px;
-    font-size: 18px;
+    font-size: 14px;
 
 }
 
@@ -21,7 +21,7 @@ identify all structures of table in inventory system
 
 .displayingTable td,.displayingTable th {
     text-align: left;
-    padding: 18px;
+    padding: 14px;
 }
 
 .nextpage {

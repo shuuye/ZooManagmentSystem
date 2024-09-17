@@ -44,7 +44,7 @@
 .price input, .total input{
     backface-visibility: hidden;
     border:none;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .order-details {
@@ -82,7 +82,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
 }

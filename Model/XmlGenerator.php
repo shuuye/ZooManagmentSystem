@@ -69,7 +69,7 @@ class XmlGenerator extends databaseConfig {
         $filePath = $directory . "/" . $outputFileName;
         $xml->save($filePath);
 
-        echo "XML file created successfully at $outputFileName";
+       // echo "XML file created successfully at $outputFileName";
     }
 
     private function generateXMLDataFromTable($tableName, $outputFileName, $db, $rootElementName, $elementsName, $attributeForFirstElement) {

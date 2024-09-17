@@ -31,6 +31,19 @@ abstract class Inventory extends InventoryModel {
     abstract function getRecordDetails($inventoryId, $itemId);
     abstract function editItemRecord($data);
     
+     public function checkInventory($inventoryId){
+        return $this->getInventoryQuantityDB($inventoryId);
+    }
+    
+    public function updateInventoryQuantity($newQuantity, $inventoryId){
+        return $this->updateInventoryQuantityDBbasedInventId($newQuantity,$inventoryId);
+    }
+    
+    public function logInventoryUsage($data){
+        return $this->updateInventoryLog($data);
+    }
+    
+    
     public function editItem($data){
         return $this->editItemInDB($data);
     }

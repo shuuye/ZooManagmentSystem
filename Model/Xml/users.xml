@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user id="1">
+    <username>superAdmin123</username>
+    <password>$2y$10$tafYj2pudT6OjqXDQxUgZ.v8fbs9PsQecuG2p95G3W0RebO6JPfDS</password>
+    <fullName>superAdmin</fullName>
+    <phoneNumber>0126964456</phoneNumber>
+    <email>superAdmin123@gmail.com</email>
+    <registrationDateTime>2024-08-01 18:56:44</registrationDateTime>
+    <lastLoginDateTime>2024-09-16 21:48:26</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-16 21:11:20</lastLogOutDateTime>
+    <roleID>1</roleID>
+  </user>
+  <user id="3">
+    <username>admin123</username>
+    <password>$2y$10$xdP71qbxiftxgvpD.ibnFOzf3T2ThvXAIQwmm3/F1nk0bLuAGBtEa</password>
+    <fullName>admin</fullName>
+    <phoneNumber>0186458814</phoneNumber>
+    <email>admin123@gmail.com</email>
+    <registrationDateTime>2022-09-14 19:01:33</registrationDateTime>
+    <lastLoginDateTime>2022-09-07 06:56:34</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-15 06:56:41</lastLogOutDateTime>
+    <roleID>1</roleID>
+  </user>
+  <user id="4">
+    <username>manager123</username>
+    <password>$2y$10$pHKVL1YwvLwqZEuiNjLTSeqtoDHD75c6XzI83u8yIkumxr79CrMCG</password>
+    <fullName>manager lam</fullName>
+    <phoneNumber>1231233213</phoneNumber>
+    <email>manager123@gmail.com</email>
+    <registrationDateTime>2024-09-09 19:02:28</registrationDateTime>
+    <lastLoginDateTime>2024-09-16 06:09:54</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-16 06:09:56</lastLogOutDateTime>
+    <roleID>1</roleID>
+  </user>
+  <user id="9">
+    <username>staff123</username>
+    <password>$2y$10$NpgybjsaDLN3XWldGECb1eNYGH1VCvwCJkAu4C4KGEp7mVIct.fkm</password>
+    <fullName>staff one</fullName>
+    <phoneNumber>53164264656</phoneNumber>
+    <email>staff123@gmail.com</email>
+    <registrationDateTime>2024-09-10 18:31:38</registrationDateTime>
+    <lastLoginDateTime>2024-09-16 21:46:42</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-16 21:46:44</lastLogOutDateTime>
+    <roleID>3</roleID>
+  </user>
+  <user id="11">
+    <username>1231233123</username>
+    <password>$2y$10$ZQJ3PZsPalCHBVWMuRIrT.XDHAj2fa1X0kLfFjY9DK83ZRyenSJNO</password>
+    <fullName>testing qwe</fullName>
+    <phoneNumber>8231233123</phoneNumber>
+    <email>8esting123@gmail.com</email>
+    <registrationDateTime>2024-09-11 15:16:53</registrationDateTime>
+    <lastLoginDateTime>2024-09-15 16:50:43</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-15 16:56:52</lastLogOutDateTime>
+    <roleID>2</roleID>
+  </user>
+  <user id="12">
+    <username>132132321213</username>
+    <password>$2y$10$PT8c6vZ/QZtCARRLdhSIv.WA/QBJecBxD7U7Rb656w38YRDLtkQO6</password>
+    <fullName>qwe qwe</fullName>
+    <phoneNumber>1321323212</phoneNumber>
+    <email>testing3213@gmail.com</email>
+    <registrationDateTime>2024-09-11 15:17:30</registrationDateTime>
+    <lastLoginDateTime>2024-09-16 21:47:38</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-16 21:48:20</lastLogOutDateTime>
+    <roleID>2</roleID>
+  </user>
+  <user id="14">
+    <username>staff321</username>
+    <password>$2y$10$qf82iEpzWfCH1n2KasbDb.LOplO.IZjvVqkLYsIWyWtEDBqQU0nqW</password>
+    <fullName>staff da</fullName>
+    <phoneNumber>12312312312</phoneNumber>
+    <email>staff321@gmail.com</email>
+    <registrationDateTime>2024-09-15 04:48:28</registrationDateTime>
+    <lastLoginDateTime/>
+    <lastLogOutDateTime/>
+    <roleID>3</roleID>
+  </user>
+  <user id="15">
+    <username>chew123</username>
+    <password>$2y$10$mvPpCc9GT6pHMWQFkahoFuPitU4HjMoXK01rYzzvAlyKic9VK7IKS</password>
+    <fullName>chew</fullName>
+    <phoneNumber>0184024465</phoneNumber>
+    <email>chewws-wp21@student.tarc.edu.my</email>
+    <registrationDateTime>2024-09-17 02:18:04</registrationDateTime>
+    <lastLoginDateTime/>
+    <lastLogOutDateTime/>
+    <roleID>2</roleID>
+  </user>
+</users>

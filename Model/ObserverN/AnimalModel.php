@@ -104,9 +104,6 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->bindParam(':weight', $animalDetails['weight']);
         $stmt->bindParam(':habitat_id', $animalDetails['habitat_id'], PDO::PARAM_INT);
 
-        // Execute the query old version
-//        return $stmt->execute();
-        
         // Execute the query
         $success = $stmt->execute();
 
@@ -193,36 +190,37 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->bindParam(':height', $animalDetails['height']);
         $stmt->bindParam(':weight', $animalDetails['weight']);
         $stmt->bindParam(':habitat_id', $animalDetails['habitat_id'], PDO::PARAM_INT);
-
         return $stmt->execute();
+        $this->notify();
     }
     
-public function updateAnimalImage($animalId, $imagePath) {
-    // Check if the animal already has an image
-    $existingImage = $this->getAnimalImage($animalId);
+    public function updateAnimalImage($animalId, $imagePath) {
+        // Check if the animal already has an image
+        $existingImage = $this->getAnimalImage($animalId);
 
-    if ($existingImage) {
-        // Update existing image
-        $query = "UPDATE animal_image SET image_path = :image_path WHERE animal_id = :animal_id";
-    } else {
-        // Insert new image record
-        $query = "INSERT INTO animal_image (animal_id, image_path) VALUES (:animal_id, :image_path)";
+        if ($existingImage) {
+            // Update existing image
+            $query = "UPDATE animal_image SET image_path = :image_path WHERE animal_id = :animal_id";
+        } else {
+            // Insert new image record
+            $query = "INSERT INTO animal_image (animal_id, image_path) VALUES (:animal_id, :image_path)";
+        }
+
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
+        $stmt->bindParam(':image_path', $imagePath);
+
+        $result = $stmt->execute();
+
+        // Log the outcome
+        if (!$result) {
+            error_log("Error updating animal image for animal ID {$animalId}");
+            error_log(print_r($stmt->errorInfo(), true));
+        }
+
+        return $result;
+        $this->notify();
     }
-
-    $stmt = $this->db->getConnection()->prepare($query);
-    $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
-    $stmt->bindParam(':image_path', $imagePath);
-
-    $result = $stmt->execute();
-
-    // Log the outcome
-    if (!$result) {
-        error_log("Error updating animal image for animal ID {$animalId}");
-        error_log(print_r($stmt->errorInfo(), true));
-    }
-
-    return $result;
-}
 
     // Method to delete an animal
     public function deleteAnimal($animalId) {
@@ -230,7 +228,28 @@ public function updateAnimalImage($animalId, $imagePath) {
         $stmt = $this->db->getConnection()->prepare($query);
         $stmt->bindParam(':id', $animalId, PDO::PARAM_INT);
         return $stmt->execute();
+        $this->notify();
     }
+    
+    // Count all animals
+    public function countAllAnimals() {
+        $query = "SELECT COUNT(*) AS total FROM animalinventory";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['total'] : 0;
+    }
+
+    // Count animals by category
+    public function countAnimalsByCategory($category) {
+        $query = "SELECT COUNT(*) AS total FROM animalinventory WHERE categories = :category";
+        $stmt = $this->db->getConnection()->prepare($query);
+        $stmt->bindParam(':category', $category, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['total'] : 0;
+    }
+
     
     // Function for habitat-------------------------------------------------------------------------------------------------------
     // Function to insert a new habitat

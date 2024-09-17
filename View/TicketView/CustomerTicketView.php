@@ -2,8 +2,8 @@
 
 class CustomerTicketView {
 
-    public static function displayTickets($tickets, $errorMessage = '') {
-        
+    public static function displayTickets($tickets, $errorMessage = '', $csrfToken = '') {
+
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -13,12 +13,15 @@ class CustomerTicketView {
 
             // Display user details
             echo "Welcome, " . htmlspecialchars($userModel['firstName']) . "!";
-            
         } else {
             echo "No user is logged in.";
         }
-        
+
         echo '<form method="POST" action="">';
+
+        // Include CSRF token in the form
+        echo '<input type="hidden" name="csrf_token" value="' . htmlspecialchars($csrfToken) . '">';
+
         echo '<h2>Select Your Tickets</h2>';
 
         if (!empty($errorMessage)) {
@@ -33,7 +36,7 @@ class CustomerTicketView {
             echo '<td>' . htmlspecialchars($ticket['type']) . '</td>';
             echo '<td>' . htmlspecialchars($ticket['description']) . '</td>';
             echo '<td>' . htmlspecialchars($ticket['price']) . '</td>';
-            echo '<td><input type="number" name="quantity[' . $ticket['id'] . ']" value="0" min="0" max="10"></td>';
+            echo '<td><input type="number" name="quantity[' . htmlspecialchars($ticket['id']) . ']" value="0" min="0" max="10"></td>';
             echo '</tr>';
         }
 
@@ -47,6 +50,6 @@ class CustomerTicketView {
         echo '<input type="submit" value="Proceed to Payment">';
         echo '</form>';
     }
-
 }
+
 ?>

@@ -2,7 +2,6 @@
     font-family: sans-serif;
 }
 
-/* Add this to your CSS file or <style> section */
 .alert {
     background-color: #f8d7da; /* Light red background */
     color: #721c24; /* Dark red text color */
@@ -44,7 +43,7 @@
 
 /* control the navigations */
 .inventoryNav{
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .inventoryNav ul {

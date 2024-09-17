@@ -5,10 +5,10 @@ $content = '
         <div class="main-content">
         <form action="../../Control/InventoryController/createPO.php?inventoryId=' . $InventoryDetails['inventoryId'] . '&amp;itemType=' . $InventoryDetails['itemType'] . '&amp;itemID=' . $InventoryDetails['itemID'] . '" method="post" class="poform">
             
-            <h1>Purchase Orders <span>&gt;</span> New Purchase Order #' . $POid . '</h1>
-            <p>The purchase order has been generated based on the previous order #2022 from 07/05/2021. You can edit it if changes are required.</p>
+            <h2>Purchase Orders <span>&gt;</span> New Purchase Order #' . $POid . '</h2>
+            <p>The purchase order has been generated based on the previous order. You can edit it if changes are required.</p>
 
-            <h2>Item Details</h2>
+            <h3>Item Details</h3>
             <table class="displayingTable">
                 <tr>
                     <th>Photos</th>
@@ -48,7 +48,7 @@ foreach ($supplierDetails as $supplierdetail) {
     }
 }
 $content .= '
-            <h2>Order Details</h2>
+            <h3>Order Details</h3>
             <div class="order-details">
                 <div class="field">
                     <label for="supplier">Supplier:</label>

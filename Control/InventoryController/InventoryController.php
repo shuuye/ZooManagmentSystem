@@ -85,6 +85,25 @@ class InventoryController extends InventoryModel {
                 $POid = isset($_GET['POid']) ? $_GET['POid'] : null;
                 $this->sendPO($POid);
                 break;
+            case 'logusage':
+                $status = isset($_GET['status']) ? $_GET['status'] : '';
+                $newQuantity = isset($_GET['newQuantity']) ? $_GET['newQuantity'] : '';
+                switch ($status) {
+                    case 'success':
+                        echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                        break;
+                    case 'error':
+                        echo "<p class='alert alert-error'>Error logging inventory usage.</p>";
+                        break;
+                    case 'itemNotfound':
+                        echo "<p class='alert alert-error'>Error: Inventory item not found.</p>";
+                        break;
+                    case 'invalidRequest':
+                        echo "<p class='alert alert-warning'>Invalid request method.</p>";
+                        break;
+                }
+                $this->logUsage();
+                break;
             case 'showPO':
                 $status = isset($_GET['status']) ? $_GET['status'] : '';
 
@@ -118,8 +137,48 @@ class InventoryController extends InventoryModel {
                 }
                 $this->showPO();
                 break;
-            case 'index':
-            default:
+            case 'generateReport':
+                $report = isset($_GET['report']) ? $_GET['report'] : '';
+
+                switch ($report) {
+                    case 'inventorySummaryReport':
+                        $this->InventorySummary();
+                        break;
+                    case 'cleaninginventorySummaryReport':
+                        $this->cleaningInventorySummary();
+                        break;
+                    case 'habitatinventorySummaryReport':
+                        $this->habitatInventorySummary();
+                        break;
+                    case 'foodinventorySummaryReport':
+                        $this->foodInventorySummary();
+                        break;
+                    case 'outStockinventorySummaryReport':
+                        $this->outStockInventorySummary();
+                        break;
+                    case 'inStockinventorySummaryReport':
+                        $this->inStockInventorySummary();
+                        break;
+                    case 'lowStockinventorySummaryReport':
+                        $this->lowStockInventorySummary();
+                        break;
+                    case 'cleaninginventoryRecordReport':
+                        $this->cleaninginventoryRecordReport();
+                        break;
+                    case 'foodinventoryRecordReport':
+                        $this->foodinventoryRecordReport();
+                        break;
+                    case 'habitatinventoryRecordReport':
+                        $this->habitatinventoryRecordReport();
+                        break;
+                    case 'poSummaryReport':
+                        $this->poSummaryReport();
+                        break;
+                }
+
+
+                break;
+            case 'inventoryTracking':
                 $status = isset($_GET['status']) ? $_GET['status'] : '';
 
                 switch ($status) {
@@ -147,16 +206,39 @@ class InventoryController extends InventoryModel {
                     default:
                         break;
                 }
+                $this->inventory();
+                break;
+            case 'index':
+            default:
                 $this->index();
                 break;
-//             require_once '../../Model/Inventory/PurchaseOrder.php';
-//               $email = isset($_GET['email']) ? $_GET['email'] : 'default';
-//                $controller = new PurchaseOrder();
-//                $controller->showPO($email);
         }
     }
 
     public function index() {
+        $xmlFiles = [
+            '../../Model/Xml/cleaninginventory.xml',
+            '../../Model/Xml/foodinventory.xml',
+            '../../Model/Xml/habitatinventory.xml',
+            '../../Model/Xml/purchaseorder.xml',
+            '../../Model/Xml/purchaseorderlineitem.xml',
+            '../../Model/Xml/inventory.xml',
+            '../../Model/Xml/supplier.xml',
+            '../../Model/Xml/inventoryusagelog.xml',
+            '../../Model/Xml/itemimage.xml'
+        ];
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\inventorySystemMain.xsl';
+        $data = [
+            'activePage' => 'Dashboard',
+            'pageCss' => 'inventory.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
+        echo $output;
+    }
+
+    public function inventory() {
         $xmlFile = '../../Model/Xml/inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryCatalog.xsl';
         $data = [
@@ -169,7 +251,7 @@ class InventoryController extends InventoryModel {
         echo $output;
     }
 
-    // Method to handle the Add Inventory Item page
+// Method to handle the Add Inventory Item page
     public function addInventoryItem() {
         $data = [
             'activePage' => 'Add Inventory Item',
@@ -178,6 +260,18 @@ class InventoryController extends InventoryModel {
         ];
 
         $this->view->render('AddNewInventItem', $data);
+    }
+
+    public function logUsage() {
+        $inventoryData = $this->model->getInventory();
+        $data = [
+            'activePage' => 'Log Usage',
+            'pageCss' => 'InventoryUsage.css',
+            'xslt_transform' => false,
+            'inventoryData' => $inventoryData
+        ];
+
+        $this->view->render('InventoryUsage', $data);
     }
 
     public function viewHabitatItem() {
@@ -299,6 +393,7 @@ class InventoryController extends InventoryModel {
         $itemName = $this->model->getItemNameById($itemID, $itemType);
         $Allprice = $this->model->getSupplyUnitPrice($itemID, $itemType);
         $suppliersID = $this->model->getSupplierIdBasedOnItemId($itemID, $itemType);
+        $imagePath = $this->model->getImageByid($itemID, $itemType);
 
         foreach ($suppliersID as $supplierId) {
             $details = $this->model->getSupplierDetailsById($supplierId);
@@ -327,7 +422,7 @@ class InventoryController extends InventoryModel {
             'itemID' => $itemID,
             'price' => $price,
             'supplierDetails' => $supplierDetails,
-            'image' => "../../assests/InventoryImages/" . $itemType . "_" . $inventoryId . "_" . $itemID . ".jpg",
+            'image' => "../../assests/InventoryImages/" . $imagePath,
             'activePage' => 'Inventory Management',
             'pageCss' => 'purchaseorder.css',
             'xslt_transform' => false
@@ -359,7 +454,10 @@ class InventoryController extends InventoryModel {
     }
 
     public function showPO() {
-        $xmlFile = '../../Model/Xml/purchaseorder.xml';
+        $xmlFiles = [
+            '../../Model/Xml/purchaseorder.xml',
+            '../../Model/Xml/supplier.xml'
+        ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\showAllPO.xsl';
         $data = [
             'activePage' => 'Purchase Order Management',
@@ -367,7 +465,184 @@ class InventoryController extends InventoryModel {
             'xslt_transform' => true
         ];
 
+        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
+        echo $output;
+    }
+
+    public function InventorySummary() {
+        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
         $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
+    }
+
+    public function cleaningInventorySummary() {
+        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportcleaningInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
+    }
+
+    public function habitatInventorySummary() {
+        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReporthabitatInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
+    }
+
+    public function foodInventorySummary() {
+        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportfoodInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
+    }
+
+    public function outStockInventorySummary() {
+        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportoutStockInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
+    }
+
+    public function inStockInventorySummary() {
+        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportInStockInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
+    }
+
+    public function lowStockInventorySummary() {
+        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportLowStockInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFile, $xslFile, $data);
+        echo $output;
+    }
+
+    public function cleaninginventoryRecordReport() {
+        $xmlFiles = [
+            '../../Model/Xml/cleaninginventory.xml',
+            '../../Model/Xml/foodinventory.xml',
+            '../../Model/Xml/habitatinventory.xml',
+            '../../Model/Xml/purchaseorder.xml',
+            '../../Model/Xml/purchaseorderlineitem.xml',
+            '../../Model/Xml/inventory.xml',
+            '../../Model/Xml/supplier.xml'
+        ];
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportRecordcleaningInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
+        echo $output;
+    }
+
+    public function foodinventoryRecordReport() {
+        $xmlFiles = [
+            '../../Model/Xml/cleaninginventory.xml',
+            '../../Model/Xml/foodinventory.xml',
+            '../../Model/Xml/habitatinventory.xml',
+            '../../Model/Xml/purchaseorder.xml',
+            '../../Model/Xml/purchaseorderlineitem.xml',
+            '../../Model/Xml/inventory.xml',
+            '../../Model/Xml/supplier.xml'
+        ];
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportRecordfoodInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
+        echo $output;
+    }
+
+    public function habitatinventoryRecordReport() {
+        $xmlFiles = [
+            '../../Model/Xml/cleaninginventory.xml',
+            '../../Model/Xml/foodinventory.xml',
+            '../../Model/Xml/habitatinventory.xml',
+            '../../Model/Xml/purchaseorder.xml',
+            '../../Model/Xml/purchaseorderlineitem.xml',
+            '../../Model/Xml/inventory.xml',
+            '../../Model/Xml/supplier.xml'
+        ];
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportRecordhabitatInventorySummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
+        echo $output;
+    }
+
+    public function poSummaryReport() {
+        $xmlFiles = [
+            '../../Model/Xml/cleaninginventory.xml',
+            '../../Model/Xml/foodinventory.xml',
+            '../../Model/Xml/habitatinventory.xml',
+            '../../Model/Xml/purchaseorder.xml',
+            '../../Model/Xml/purchaseorderlineitem.xml',
+            '../../Model/Xml/inventory.xml',
+            '../../Model/Xml/supplier.xml'
+            
+            
+        ];
+        $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportPOsummary.xsl';
+        $data = [
+            'activePage' => 'Reports',
+            'pageCss' => 'ReportdisplayingTable.css',
+            'xslt_transform' => true
+        ];
+
+        $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
         echo $output;
     }
 }

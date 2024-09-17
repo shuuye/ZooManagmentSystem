@@ -33,6 +33,8 @@ class InventoryView extends InventoryModel {
         if (isset($data['POid'])) {
             $xslTransformation->setParameter('POid', $data['POid']);
         }
+        $currentDate = date('Y-m-d'); // Format as needed
+        $xslTransformation->setParameter('reportDate', $currentDate);
         $transformedContent = $xslTransformation->transform();
         ob_start();
         extract($data);

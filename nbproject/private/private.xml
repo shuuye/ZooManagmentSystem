@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_home.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_list.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/AnimalModel.php</file>
@@ -14,6 +15,28 @@
 =======
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
 >>>>>>> c5d88967f36540bcbf86c0655b363ba605f4eb8c
+=======
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportfoodInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Xml/combined.xml</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportRecordcleaningInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportLowStockInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryView.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReporthabitatInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportInStockInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportoutStockInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportRecordhabitatInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryMasterPage.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportInventoryReport.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/filterReport.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportRecordfoodInventorySummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportPOsummary.xsl</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportInventoryHoldingCost.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/ReportcleaningInventorySummary.xsl</file>
+>>>>>>> 86861c2b6c629367b744ebff4712aa9e4671daa7
         </group>
     </open-files>
 </project-private>
