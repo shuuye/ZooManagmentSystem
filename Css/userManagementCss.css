@@ -1,0 +1,67 @@
+.error  {
+    color: red;
+}
+
+.scrollable-container {
+    max-width: 1030px; /* Set a fixed width for the container */
+    max-height: 400px;  /* Set a fixed height for the container */
+    margin: 20px auto;
+    overflow: auto;
+    border: 1px solid #ddd;
+}
+
+.userManagementTable{
+    font-size: 10pt;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.userManagementTable th, .userManagementTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 100px;
+}
+
+.userManagementTable th{
+    background-color: #f2f2f2;
+}
+
+/* Hide the admin details table by default */
+.adminDetailsTable, .customerDetailsTable, .staffDetailsTable, .userDetailsTable, .workingScheduleAttendance {
+    display: none;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.full-clickable {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+th a.full-clickable:hover {
+    background-color: darkgray; /* Optional: Add hover effect */
+}
+
+.successSessionMsg{
+    color: white; 
+    border: 1px solid green; 
+    width: 30%; 
+    height: 40px;
+    background-color: green;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+.failedSessionMsg{
+    color: white; 
+    border: 1px solid red; 
+    width: 30%; 
+    height: 40px;
+    background-color: red;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
