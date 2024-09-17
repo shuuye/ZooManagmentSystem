@@ -31,25 +31,6 @@ class AddItemCommand implements InventoryCommand {
     }
 }
 
-class RemoveItemCommand implements InventoryCommand {
-
-    private $inventory;
-    private $quantity;
-
-    public function __construct($inventory, $quantity) {
-        $this->inventory = $inventory;
-        $this->quantity = $quantity;
-    }
-
-    public function execute() {
-        $this->inventory->remove($this->quantity);
-    }
-
-    public function undo() {
-        $this->inventory->add($this->quantity);
-    }
-}
-
 class editItemCommand implements InventoryCommand {
 
     private $inventory;
@@ -78,14 +59,14 @@ class UpdateItemCommand implements InventoryCommand {
     private $oldQuantity;
     private $newQuantity;
 
-    public function __construct($inventory, $newQuantity) {
+    public function __construct($inventory, $newQuantity, $oldQuantity) {
         $this->inventory = $inventory;
-        $this->oldQuantity = $inventory->getQuantity();
+        $this->oldQuantity = $oldQuantity;
         $this->newQuantity = $newQuantity;
     }
 
     public function execute() {
-        $this->inventory->update($this->newQuantity);
+        $this->inventory->updateInventoryQuantity($this->newQuantity, $this->inventory->getInventoryId());
     }
 
     public function undo() {
