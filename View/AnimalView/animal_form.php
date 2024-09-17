@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
-    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_edit.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/animal_form.css">
     <title>Add Animal</title>
 </head>
 <body>

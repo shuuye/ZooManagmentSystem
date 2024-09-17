@@ -19,12 +19,10 @@
         </ul>
     </nav>
     
-     <div id="chart">
+    <div id="chart">
     <h2>Animal Categories Pie Chart</h2><!--Web Service 1 one consume-->
     <canvas id="myPieChart"></canvas>
     </div>
-    
-    
-    
+
 </body>
 </html>

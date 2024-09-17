@@ -16,17 +16,8 @@ $animals = $animalController->displayAnimals($category, $animalsPerPage, $offset
 // Get total number of animals for pagination
 $totalAnimals = $animalController->countAnimals($category); // You need a method to count total animals
 $totalPages = ceil($totalAnimals / $animalsPerPage);
-
 $categories = ['Mammals', 'Birds', 'Amphibians'];
 
-//include_once '../../Control/AnimalControllerN/AnimalController.php';
-//
-//$animalController = new AnimalController();
-//$animalController->route();
-//$category = isset($_GET['category']) ? $_GET['category'] : null;
-//$animals = $animalController->displayAnimals($category);
-//
-//$categories = ['Mammals', 'Birds', 'Amphibians'];
 ?>
 
 <!DOCTYPE html>
@@ -34,19 +25,22 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
     <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_list.css">
     <title>Animal List</title>
 </head>
 
+
 <body>
+    
+    <h1>Animal List</h1>
     <nav>
         <ul>
             <li><a href="animal_home.php?action=home">Animal Home</a></li>
             <li><a href="index.php?action=showForm">Add New Animal</a></li>
         </ul>
     </nav>
-    
-    <h1>Animal List</h1>
+
     <div id="animalList">
     <form method="GET" action="">
         <label for="category">Select Category:</label>
