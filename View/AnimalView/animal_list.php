@@ -34,8 +34,6 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="chart.js" defer></script>
     <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_list.css">
     <title>Animal List</title>
 </head>
@@ -47,11 +45,6 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
             <li><a href="index.php?action=showForm">Add New Animal</a></li>
         </ul>
     </nav>
-    
-    <div id="chart">
-    <h2>Animal Categories Pie Chart</h2><!--Web Service 1 one consume-->
-    <canvas id="myPieChart"></canvas>
-    </div>
     
     <h1>Animal List</h1>
     <div id="animalList">
@@ -100,8 +93,8 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
                         <td><?php echo htmlspecialchars($animal['habitat_id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['categories']); ?></td>
                         <td>
-                            <a href="?action=edit&id=<?php echo urlencode($animal['id']); ?>">Edit</a> |
-                            <a href="?action=delete&id=<?php echo urlencode($animal['id']); ?>" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</a>
+                            <a href="index.php?action=edit&id=<?php echo urlencode($animal['id']); ?>">Edit</a> |
+                            <a href="index.php?action=delete&id=<?php echo urlencode($animal['id']); ?>" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</a>
                         </td> <!-- Added Actions links -->
                     </tr>
                 <?php endforeach; ?>
