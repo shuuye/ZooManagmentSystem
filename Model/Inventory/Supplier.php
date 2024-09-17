@@ -39,7 +39,7 @@ class Supplier extends databaseConfig{
         }
     }
 }
-
-$suu = new Supplier();
-$result = $suu->getSupplierRecordById(5);
-print_r($result);
+//
+//$suu = new Supplier();
+//$result = $suu->getSupplierRecordById(5);
+//print_r($result);

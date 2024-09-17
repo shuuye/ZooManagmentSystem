@@ -6,13 +6,13 @@
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryView.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/addNewItem.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/logUsage.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryMasterPage.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/approve.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/UserController/StaffCtrl.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/UserController/UserController.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/UserView/UserView.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/addNewItem.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/index.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/public/testRMIClient.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/public/InventoryWebService/RestfulPoNotiService_Consume.php</file>
         </group>
     </open-files>
 </project-private>

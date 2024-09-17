@@ -97,6 +97,6 @@ class SupplierRecord extends databaseConfig{
     }
 }
 
-$suu = new SupplierRecord();
-$result = $suu->getFirstBrandWithLowestPrice(26);
-print_r($result);
+//$suu = new SupplierRecord();
+//$result = $suu->getFirstBrandWithLowestPrice(26);
+//print_r($result);

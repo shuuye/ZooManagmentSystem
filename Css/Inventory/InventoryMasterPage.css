@@ -19,6 +19,13 @@
     border: 1px solid #c3e6cb; /* Light green border */
 }
 
+.alert-notification {
+    background-color: #cce5ff; /* Light blue background */
+    color: #004085; /* Dark blue text color */
+    border: 1px solid #b8daff; /* Light blue border */
+}
+
+
 .alert-error {
     background-color: #f8d7da; /* Light red background */
     color: #721c24; /* Dark red text color */

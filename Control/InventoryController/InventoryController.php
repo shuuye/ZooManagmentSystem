@@ -92,11 +92,22 @@ class InventoryController extends InventoryModel {
                     switch ($status) {
                         case 'successPO':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
-                            echo "<p class='alert alert-success'>Out of stock !! A new Purchase Order is automatic generated and send to supplier for processing.</p>";
+                            echo "<p class='alert alert-notification'>Out of stock !! A new Purchase Order is automatic generated. </p>";
+                            
                             break;
                         case 'errorPO':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
                             echo "<p class='alert alert-error'>Out of stock !! Falied to automatic generate new Purchase Order.</p>";
+                            break;
+                        case 'successWeb':
+                            echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                            echo "<p class='alert alert-notification'>Out of stock !! A new Purchase Order is automatic generated. </p>";
+                            echo "<p class='alert alert-notification'>The new purchase order is sent to supplier for processing. </p>";
+                            break;
+                        case 'errorWeb':
+                            echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                            echo "<p class='alert alert-notification'>Out of stock !! A new Purchase Order is automatic generated. </p>";
+                            echo "<p class='alert alert-error'>Falied to automatic generate new Purchase Order.</p>";
                             break;
                         case 'success':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";

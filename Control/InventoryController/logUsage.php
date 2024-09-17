@@ -49,12 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryManagement.php';
         include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryCommand.php';
         $inventoryManager = new InventoryManagement();
-        $success = $inventoryManager->executeCommand(new UpdateItemCommand($inventory, $newQuantity, $itemDetails['quantity']));
-        
-        
-        $logsuccess = $inventory->logInventoryUsage($data);
+        $success = $inventoryManager->executeCommand(new UpdateItemCommand($inventory, $newQuantity, $itemDetails['quantity'],$inventoryItemId));
 
-        if ($logsuccess) {
+        if ($success) {//
+            $logsuccess = $inventory->logInventoryUsage($data);
+        } else {
+            header("Location: index.php?controller=inventory&action=logusage&status=itemNotfound");
+            exit();
+        }
+
+
+        if ($logsuccess) {//
             if ($newQuantity == 0) {
                 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\PurchaseOrder.php';
                 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\PurchaseOrderLineItem.php';
@@ -93,25 +98,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     // Add Line Item to the Purchase Order = newpoid inventoryid ]]] quantity = threshold, price = supplyUnitPrice,
                     //id from supplier_record
-                    $lineItem = $newPO->addLineItem($newPOId, $inventoryItemId, $itemDetails['reorderThreshold'], $lowestPriceRecord["supplyUnitPrice"], $lowestPriceRecord["cleaningId"], $lowestPriceRecord["habitatId"], $lowestPriceRecord["foodId"]);
+                    $lineItem = $newPO->addLineItem($newPOId, $inventoryItemId, $itemDetails['reorderThreshold'] + 10, $lowestPriceRecord["supplyUnitPrice"], $lowestPriceRecord["cleaningId"], $lowestPriceRecord["habitatId"], $lowestPriceRecord["foodId"]);
                     $lineItem->addNewPOLine();
 
+                    try {
+                        // Include the RestfulPoNotiService_Consume class
+                        include_once 'C:\xampp\htdocs\ZooManagementSystem\public\InventoryWebService\RestfulPoNotiService_Consume.php';
+
+                        // Create an instance of the RestfulPoNotiService_Consume class
+                        $webService = new RestfulPoNotiService_Consume();
+                        
+                        
+                        // Pass the formatted strings along with the other details to the web service
+                        $webService->sendPOtoSupplier(
+                                $newPOId, // Purchase Order ID
+                                $itemDetails['itemName'], // Item name
+                                $itemDetails['reorderThreshold'] + 10, // Quantity
+                                $orderDate, // Formatted Order Date
+                                $shippingDate, // Formatted Shipping Date
+                                "Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor", // Shipping Address (string)
+                                $total // Total amount
+                        );
+
+                        // Redirect to the desired page with status and new quantity
+                        header("Location: index.php?controller=inventory&action=logusage&status=successWeb&newQuantity=$newQuantity");
+                        exit();
+                    } catch (Exception $ex) {
+                        header("Location: index.php?controller=inventory&action=logusage&status=errorWeb&newQuantity=$newQuantity");
+                        exit();
+                    }
                     // Redirect to success page
-                    //header("Location: index.php?controller=inventory&action=logusage&status=successPo&newQuantity=$newQuantity");
+                    header("Location: index.php?controller=inventory&action=logusage&status=successPO&newQuantity=$newQuantity");
+                    exit();
                 } catch (Exception $e) {
                     // Optionally redirect to an error page
-                   // header("Location: index.php?controller=inventory&action=logusage&status=errorPo&newQuantity=$newQuantity");
+                    header("Location: index.php?controller=inventory&action=logusage&status=errorPo&newQuantity=$newQuantity");
+                    exit();
                 }
             }
-
-            //header("Location: index.php?controller=inventory&action=logusage&status=success&newQuantity=$newQuantity");
+            header("Location: index.php?controller=inventory&action=logusage&status=success&newQuantity=$newQuantity");
+            exit();
         } else {
-            //header("Location: index.php?controller=inventory&action=logusage&status=error&newQuantity=$newQuantity");
+            header("Location: index.php?controller=inventory&action=logusage&status=error&newQuantity=$newQuantity");
+            exit();
         }
     } else {
-        //header("Location: index.php?controller=inventory&action=logusage&status=itemNotfound");
+        header("Location: index.php?controller=inventory&action=logusage&status=itemNotfound");
+        exit();
     }
 } else {
-    //header("Location: index.php?controller=inventory&action=logusage&status=invalidRequest");
+    header("Location: index.php?controller=inventory&action=logusage&status=invalidRequest");
+    exit();
 }
 ?>
