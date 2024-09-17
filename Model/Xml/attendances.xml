@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attendances>
+  <attendance id="9">
+    <workingDate>2024-09-14</workingDate>
+    <workingStartingTime>09:04:00</workingStartingTime>
+    <workingOffTime>17:04:00</workingOffTime>
+    <photo/>
+    <location/>
+    <attendanceDateTime/>
+    <statusID>1</statusID>
+  </attendance>
+  <attendance id="9">
+    <workingDate>2024-09-15</workingDate>
+    <workingStartingTime>08:05:00</workingStartingTime>
+    <workingOffTime>12:05:00</workingOffTime>
+    <photo/>
+    <location/>
+    <attendanceDateTime/>
+    <statusID>2</statusID>
+  </attendance>
+  <attendance id="9">
+    <workingDate>2024-09-16</workingDate>
+    <workingStartingTime>09:25:04</workingStartingTime>
+    <workingOffTime>18:25:04</workingOffTime>
+    <photo>C:/xampp/htdocs/ZooManagementSystem/assests/UserImages/attendance_photos/attendance_66e848060c4936.14378646.png</photo>
+    <location>22, Jalan 6/38d, Segambut, 51200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia</location>
+    <attendanceDateTime>2024-09-16 17:00:21</attendanceDateTime>
+    <statusID>1</statusID>
+  </attendance>
+  <attendance id="9">
+    <workingDate>2024-09-17</workingDate>
+    <workingStartingTime>08:02:00</workingStartingTime>
+    <workingOffTime>20:02:00</workingOffTime>
+    <photo/>
+    <location/>
+    <attendanceDateTime/>
+    <statusID>3</statusID>
+  </attendance>
+  <attendance id="9">
+    <workingDate>2024-09-19</workingDate>
+    <workingStartingTime>12:23:00</workingStartingTime>
+    <workingOffTime>16:20:00</workingOffTime>
+    <photo/>
+    <location/>
+    <attendanceDateTime/>
+    <statusID>4</statusID>
+  </attendance>
+  <attendance id="14">
+    <workingDate>2024-09-18</workingDate>
+    <workingStartingTime>08:26:00</workingStartingTime>
+    <workingOffTime>20:26:00</workingOffTime>
+    <photo/>
+    <location/>
+    <attendanceDateTime/>
+    <statusID>1</statusID>
+  </attendance>
+  <attendance id="14">
+    <workingDate>2024-09-19</workingDate>
+    <workingStartingTime>09:31:00</workingStartingTime>
+    <workingOffTime>21:31:00</workingOffTime>
+    <photo/>
+    <location/>
+    <attendanceDateTime/>
+    <statusID>1</statusID>
+  </attendance>
+</attendances>
