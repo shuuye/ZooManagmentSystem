@@ -178,7 +178,7 @@
                         <td>
                             <a class="hrefText" href="#">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?action=viewSpecificDetails&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
+                                    <xsl:value-of select="concat('?controller=inventory&amp;action=viewSpecificDetails&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
                                 </xsl:attribute>
                                 <xsl:value-of select="foodName" />
                             </a>                           
@@ -192,7 +192,7 @@
                         <td> 
                             <a class="hrefText reorder">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?action=createPO&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
+                                    <xsl:value-of select="concat('?controller=inventory&amp;action=createPO&amp;inventoryId=', inventoryId, '&amp;itemType=', /root/inventory[inventoryId = $inventoryID]/itemType, '&amp;itemID=', id)" />
                                 </xsl:attribute>
                                 <div class="stockstatus createPO">Create PO</div>
                             </a>

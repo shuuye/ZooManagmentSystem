@@ -8,8 +8,8 @@ class CustomerTicketView {
             session_start();
         }
 
-        if (isset($_SESSION['userModel'])) {
-            $userModel = $_SESSION['userModel'];
+        if (isset($_SESSION['currentUserModel'])) {
+            $userModel = $_SESSION['currentUserModel'];
 
             // Display user details
             echo "Welcome, " . htmlspecialchars($userModel['firstName']) . "!";

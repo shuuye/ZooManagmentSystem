@@ -2,7 +2,7 @@
 
 session_start();  // Start session at the very beginning
 // Ensure user is logged in
-if (!isset($_SESSION['userModel']['id'])) {
+if (!isset($_SESSION['currentUserModel']['id'])) {
     die('User is not logged in. Please log in and try again.');
 }
 
@@ -19,7 +19,7 @@ if ($transactionId === null) {
 $totalPrice = $paymentModel->calculateTotalPrice(); // Calculate total price
 // Save payment details to the database
 try {
-    $paymentModel->savePaymentDetails($transactionId, $totalPrice, $_SESSION['userModel']['id']);
+    $paymentModel->savePaymentDetails($transactionId, $totalPrice, $_SESSION['currentUserModel']['id']);
 } catch (Exception $e) {
     die('Failed to save payment details: ' . htmlspecialchars($e->getMessage()));
 }

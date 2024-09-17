@@ -190,24 +190,3 @@ class AnimalInventory extends Inventory {
     public function getRecordDetails($inventoryId, $itemId) {
     }
 }
-
-//    // Optionally, add a method to update the animal details in the database
-//    public function updateAnimalInDatabase() {
-//        $db = new dbConnection();
-//        $pdo = $db->getPDO();
-//
-//        $stmt = $pdo->prepare(
-//            "UPDATE animalinventory 
-//            SET name = ?, species = ?, subspecies = ?, category = ?, age = ?, gender = ?, 
-//                date_of_birth = ?, avg_lifespan = ?, description = ?, height = ?, weight = ?, 
-//                healthStatus = ?, habitat_id = ? 
-//            WHERE id = ?"
-//        );
-//
-//        $stmt->execute([
-//            $this->name, $this->species, $this->subspecies, $this->category, $this->age,
-//            $this->gender, $this->date_of_birth, $this->avg_lifespan, $this->description,
-//            $this->height, $this->weight, $this->healthStatus, $this->habitatId, $this->id
-//        ]);
-//    }
-

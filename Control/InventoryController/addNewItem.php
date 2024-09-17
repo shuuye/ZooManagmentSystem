@@ -24,9 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect with status message
     if ($success) {
-        header("Location: ../../Control/InventoryController/index.php?action=showMessage&status=success");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=showMessage&status=success");
     } else {
-        header("Location: ../../Control/InventoryController/index.php?action=showMessage&status=error");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=showMessage&status=error");
     }
     exit();
 }

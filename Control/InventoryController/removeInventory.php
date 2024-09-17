@@ -21,13 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Redirect back or show a success message
         if ($success) {
-            header("Location: ../../Control/InventoryController/index.php?action=index&status=successRemoveInv");
+            header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=index&status=successRemoveInv");
         } else {
-            header("Location: ../../Control/InventoryController/index.php?action=index&status=errorRemoveInv");
+            header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=index&status=errorRemoveInv");
         }
         exit;
     } else {
-        header('Location: ../../Control/InventoryController/index.php?action=index&status=invalidRequest');
+        header('Location: ../../Control/InventoryController/index.php?controller=inventory&action=index&status=invalidRequest');
         exit();
     }
 } else {

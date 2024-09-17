@@ -5,7 +5,6 @@
     function getError($data, $key) {
         return isset($data[$key]) && $data[$key] !== '' ? htmlspecialchars($data[$key]) : '';
     }
-    $resetPasswordSent = isset($_SESSION['resetPasswordSent']) ? $_SESSION['resetPasswordSent'] : '';
     
     include 'View/clientTopNavHeader.php';
 ?>
@@ -53,24 +52,19 @@
         </style>
     </head>
     <body>
-        <?php if ($resetPasswordSent): ?>
-            <?php echo '<h3 style="color:green;" >' . $resetPasswordSent . '</h3>' ?>
-            <?php unset($_SESSION['resetPasswordSent']);?>        
-        <?php else: ?>
-            <div class="form-container">
-                <h2>Forgot Password</h2>
-                <form action="index.php?controller=user&action=submitForgotPasswordEmail" method="POST">
-                    <label for="email">Enter your email address:</label>
-                    <input type="email" id="email" name="email" required placeholder="example@example.com">
-                    <div class="error"><?php if (isset($_SESSION['userInputData'])): ?>
-                        <?php echo getError($_SESSION['userInputData'], 'emailErr'); ?>
-                        <?php unset($_SESSION['userInputData']); ?>
-                    <?php endif; ?>
-                    </div>
-                    <input type="submit" value="Send Reset Link">
-                </form>
-            </div>
-        <?php endif; ?>
+        <div class="form-container">
+            <h2>Forgot Password</h2>
+            <form action="index.php?controller=user&action=submitForgotPasswordEmail" method="POST">
+                <label for="email">Enter your email address:</label>
+                <input type="email" id="email" name="email" required placeholder="example@example.com">
+                <div class="error"><?php if (isset($_SESSION['userInputData'])): ?>
+                    <?php echo getError($_SESSION['userInputData'], 'emailErr'); ?>
+                    <?php unset($_SESSION['userInputData']); ?>
+                <?php endif; ?>
+                </div>
+                <input type="submit" value="Reset Password">
+            </form>
+        </div>
     </body>
 </html>
 

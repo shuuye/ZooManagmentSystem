@@ -18,200 +18,204 @@ class InventoryController extends InventoryModel {
 
     // Routing logic based on a simple 'action' parameter
     public function route() {
+        $controller = isset($_GET['controller']) ? $_GET['controller'] : "inventory";
         $action = isset($_GET['action']) ? $_GET['action'] : 'index';
+        if ($controller == "inventory") {
+            switch ($action) {
+                case 'addInventoryItem':
+                    $this->addInventoryItem();
+                    break;
+                case 'habitatItem':
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
 
-        switch ($action) {
-            case 'addInventoryItem':
-                $this->addInventoryItem();
-                break;
-            case 'habitatItem':
-                $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    switch ($status) {
+                        case 'successRemoveInv':
+                            echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
+                            break;
+                        case 'errorRemoveInv':
+                            echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
+                            break;
+                    }
+                    $this->viewHabitatItem();
+                    break;
+                case 'foodItem':
+                    $this->viewFoodItem();
+                    break;
+                case 'cleaningItem':
+                    $this->viewCleaningItem();
+                    break;
+                case 'viewItembasedOnInventoryID':
+                    $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
+                    $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    switch ($status) {
+                        case 'success':
+                            echo "<p class='alert alert-success'>New brand added successfully.</p>";
+                            break;
+                        case 'error':
+                            echo "<p class='alert alert-error'>Failed to add new brand. Please try again.</p>";
+                            break;
+                        case 'successEdit':
+                            echo "<p class='alert alert-success'>Brand details edited successfully.</p>";
+                            break;
+                        case 'errorEdit':
+                            echo "<p class='alert alert-error'>Failed to edit brand details. Please try again.</p>";
+                            break;
+                        case 'successRemove':
+                            echo "<p class='alert alert-success'>Item removed successfully.</p>";
+                            break;
+                        case 'errorRemove':
+                            echo "<p class='alert alert-error'>Failed to remove item. Please try again.</p>";
+                            break;
+                    }
+                    $this->viewItembasedOnInventoryID($inventoryId, $itemType);
+                    break;
+                case 'viewSpecificDetails':
+                    $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
+                    $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                    $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
+                    $this->viewSpecific($inventoryId, $itemType, $itemID);
+                    break;
+                case 'createPO':
+                    $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
+                    $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
+                    $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
+                    $this->createPO($inventoryId, $itemType, $itemID);
+                    break;
+                case 'sendPO':
+                    $POid = isset($_GET['POid']) ? $_GET['POid'] : null;
+                    $this->sendPO($POid);
+                    break;
+                case 'logusage':
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    $newQuantity = isset($_GET['newQuantity']) ? $_GET['newQuantity'] : '';
+                    switch ($status) {
+                        case 'success':
+                            echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                            break;
+                        case 'error':
+                            echo "<p class='alert alert-error'>Error logging inventory usage.</p>";
+                            break;
+                        case 'itemNotfound':
+                            echo "<p class='alert alert-error'>Error: Inventory item not found.</p>";
+                            break;
+                        case 'invalidRequest':
+                            echo "<p class='alert alert-warning'>Invalid request method.</p>";
+                            break;
+                    }
+                    $this->logUsage();
+                    break;
+                case 'showPO':
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
 
-                switch ($status) {
-                    case 'successRemoveInv':
-                        echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
-                        break;
-                    case 'errorRemoveInv':
-                        echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
-                        break;
-                }
-                $this->viewHabitatItem();
-                break;
-            case 'foodItem':
-                $this->viewFoodItem();
-                break;
-            case 'cleaningItem':
-                $this->viewCleaningItem();
-                break;
-            case 'viewItembasedOnInventoryID':
-                $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
-                $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
-                $status = isset($_GET['status']) ? $_GET['status'] : '';
-                switch ($status) {
-                    case 'success':
-                        echo "<p class='alert alert-success'>New brand added successfully.</p>";
-                        break;
-                    case 'error':
-                        echo "<p class='alert alert-error'>Failed to add new brand. Please try again.</p>";
-                        break;
-                    case 'successEdit':
-                        echo "<p class='alert alert-success'>Brand details edited successfully.</p>";
-                        break;
-                    case 'errorEdit':
-                        echo "<p class='alert alert-error'>Failed to edit brand details. Please try again.</p>";
-                        break;
-                    case 'successRemove':
-                        echo "<p class='alert alert-success'>Item removed successfully.</p>";
-                        break;
-                    case 'errorRemove':
-                        echo "<p class='alert alert-error'>Failed to remove item. Please try again.</p>";
-                        break;
-                }
-                $this->viewItembasedOnInventoryID($inventoryId, $itemType);
-                break;
-            case 'viewSpecificDetails':
-                $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
-                $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
-                $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
-                $this->viewSpecific($inventoryId, $itemType, $itemID);
-                break;
-            case 'createPO':
-                $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
-                $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
-                $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
-                $this->createPO($inventoryId, $itemType, $itemID);
-                break;
-            case 'sendPO':
-                $POid = isset($_GET['POid']) ? $_GET['POid'] : null;
-                $this->sendPO($POid);
-                break;
-            case 'logusage':
-                $status = isset($_GET['status']) ? $_GET['status'] : '';
-                $newQuantity = isset($_GET['newQuantity']) ? $_GET['newQuantity'] : '';
-                switch ($status) {
-                    case 'success':
-                        echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
-                        break;
-                    case 'error':
-                        echo "<p class='alert alert-error'>Error logging inventory usage.</p>";
-                        break;
-                    case 'itemNotfound':
-                        echo "<p class='alert alert-error'>Error: Inventory item not found.</p>";
-                        break;
-                    case 'invalidRequest':
-                        echo "<p class='alert alert-warning'>Invalid request method.</p>";
-                        break;
-                }
-                $this->logUsage();
-                break;
-            case 'showPO':
-                $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    switch ($status) {
+                        case 'updateSuccess':
+                            echo "<p class='alert alert-success'>Purchase order status updated successfully.</p>";
+                            break;
+                        case 'updateError':
+                            echo "<p class='alert alert-error'>Failed to update purchase order status.</p>";
+                            break;
+                        case 'successPO':
+                            echo "<p class='alert alert-success'>Purchase order created successfully.</p>";
+                            break;
+                        case 'errorPO':
+                            echo "<p class='alert alert-error'>Failed to create new purchase order.</p>";
+                            break;
+                        case 'success':
+                            echo "<p class='alert alert-success'>Purchase order deleted successfully.</p>";
+                            break;
+                        case 'error':
+                            echo "<p class='alert alert-error'>Failed to delete purchase order.</p>";
+                            break;
+                        case 'invalidPOid':
+                            echo "<p class='alert alert-warning'>Invalid Purchase Order ID.</p>";
+                            break;
+                        case 'invalidRequest':
+                            echo "<p class='alert alert-warning'>Invalid request method.</p>";
+                            break;
+                        default:
+                            break;
+                    }
+                    $this->showPO();
+                    break;
+                case 'generateReport':
+                    $report = isset($_GET['report']) ? $_GET['report'] : '';
 
-                switch ($status) {
-                    case 'updateSuccess':
-                        echo "<p class='alert alert-success'>Purchase order status updated successfully.</p>";
-                        break;
-                    case 'updateError':
-                        echo "<p class='alert alert-error'>Failed to update purchase order status.</p>";
-                        break;
-                    case 'successPO':
-                        echo "<p class='alert alert-success'>Purchase order created successfully.</p>";
-                        break;
-                    case 'errorPO':
-                        echo "<p class='alert alert-error'>Failed to create new purchase order.</p>";
-                        break;
-                    case 'success':
-                        echo "<p class='alert alert-success'>Purchase order deleted successfully.</p>";
-                        break;
-                    case 'error':
-                        echo "<p class='alert alert-error'>Failed to delete purchase order.</p>";
-                        break;
-                    case 'invalidPOid':
-                        echo "<p class='alert alert-warning'>Invalid Purchase Order ID.</p>";
-                        break;
-                    case 'invalidRequest':
-                        echo "<p class='alert alert-warning'>Invalid request method.</p>";
-                        break;
-                    default:
-                        break;
-                }
-                $this->showPO();
-                break;
-            case 'generateReport':
-                $report = isset($_GET['report']) ? $_GET['report'] : '';
-
-                switch ($report) {
-                    case 'inventorySummaryReport':
-                        $this->InventorySummary();
-                        break;
-                    case 'cleaninginventorySummaryReport':
-                        $this->cleaningInventorySummary();
-                        break;
-                    case 'habitatinventorySummaryReport':
-                        $this->habitatInventorySummary();
-                        break;
-                    case 'foodinventorySummaryReport':
-                        $this->foodInventorySummary();
-                        break;
-                    case 'outStockinventorySummaryReport':
-                        $this->outStockInventorySummary();
-                        break;
-                    case 'inStockinventorySummaryReport':
-                        $this->inStockInventorySummary();
-                        break;
-                    case 'lowStockinventorySummaryReport':
-                        $this->lowStockInventorySummary();
-                        break;
-                    case 'cleaninginventoryRecordReport':
-                        $this->cleaninginventoryRecordReport();
-                        break;
-                    case 'foodinventoryRecordReport':
-                        $this->foodinventoryRecordReport();
-                        break;
-                    case 'habitatinventoryRecordReport':
-                        $this->habitatinventoryRecordReport();
-                        break;
-                    case 'poSummaryReport':
-                        $this->poSummaryReport();
-                        break;
-                }
+                    switch ($report) {
+                        case 'inventorySummaryReport':
+                            $this->InventorySummary();
+                            break;
+                        case 'cleaninginventorySummaryReport':
+                            $this->cleaningInventorySummary();
+                            break;
+                        case 'habitatinventorySummaryReport':
+                            $this->habitatInventorySummary();
+                            break;
+                        case 'foodinventorySummaryReport':
+                            $this->foodInventorySummary();
+                            break;
+                        case 'outStockinventorySummaryReport':
+                            $this->outStockInventorySummary();
+                            break;
+                        case 'inStockinventorySummaryReport':
+                            $this->inStockInventorySummary();
+                            break;
+                        case 'lowStockinventorySummaryReport':
+                            $this->lowStockInventorySummary();
+                            break;
+                        case 'cleaninginventoryRecordReport':
+                            $this->cleaninginventoryRecordReport();
+                            break;
+                        case 'foodinventoryRecordReport':
+                            $this->foodinventoryRecordReport();
+                            break;
+                        case 'habitatinventoryRecordReport':
+                            $this->habitatinventoryRecordReport();
+                            break;
+                        case 'poSummaryReport':
+                            $this->poSummaryReport();
+                            break;
+                    }
 
 
-                break;
-            case 'inventoryTracking':
-                $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    break;
+                case 'inventoryTracking':
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
 
-                switch ($status) {
-                    case 'successRemoveInv':
-                        echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
-                        break;
-                    case 'errorRemoveInv':
-                        echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
-                        break;
-                    case 'success':
-                        echo "<p class='alert alert-success'>Item added successfully.</p>";
-                        break;
-                    case 'error':
-                        echo "<p class='alert alert-error'>Failed to add item. Please try again.</p>";
-                        break;
-                    case 'invalidRequest':
-                        echo "<p class='alert alert-warning'>Invalid request method.</p>";
-                        break;
-                    case 'successEdit':
-                        echo "<p class='alert alert-success'>Inventory details edited successfully.</p>";
-                        break;
-                    case 'errorEdit':
-                        echo "<p class='alert alert-error'>Failed to edit inventory details. Please try again.</p>";
-                        break;
-                    default:
-                        break;
-                }
-                $this->inventory();
-                break;
-            case 'index':
-            default:
-                $this->index();
-                break;
+                    switch ($status) {
+                        case 'successRemoveInv':
+                            echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
+                            break;
+                        case 'errorRemoveInv':
+                            echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
+                            break;
+                        case 'success':
+                            echo "<p class='alert alert-success'>Item added successfully.</p>";
+                            break;
+                        case 'error':
+                            echo "<p class='alert alert-error'>Failed to add item. Please try again.</p>";
+                            break;
+                        case 'invalidRequest':
+                            echo "<p class='alert alert-warning'>Invalid request method.</p>";
+                            break;
+                        case 'successEdit':
+                            echo "<p class='alert alert-success'>Inventory details edited successfully.</p>";
+                            break;
+                        case 'errorEdit':
+                            echo "<p class='alert alert-error'>Failed to edit inventory details. Please try again.</p>";
+                            break;
+                        default:
+                            break;
+                    }
+                    $this->inventory();
+                    break;
+                case 'index':
+                default:
+                    $this->index();
+                    break;
+            }
+        }else{
+            header("Location: ../../index.php?controller=$controller&action=$action");
         }
     }
 
@@ -632,8 +636,6 @@ class InventoryController extends InventoryModel {
             '../../Model/Xml/purchaseorderlineitem.xml',
             '../../Model/Xml/inventory.xml',
             '../../Model/Xml/supplier.xml'
-            
-            
         ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportPOsummary.xsl';
         $data = [

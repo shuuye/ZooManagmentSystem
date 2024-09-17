@@ -17,17 +17,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         // Redirect based on the result
         if ($result) {
-            header('Location: ../../Control/InventoryController/index.php?action=showPO&status=updateSuccess');
+            header('Location: ../../Control/InventoryController/index.php?controller=inventory&action=showPO&status=updateSuccess');
         } else {
-            header('Location: ../../Control/InventoryController/index.php?action&status=updateError');
+            header('Location: ../../Control/InventoryController/index.php?controller=inventory&action&status=updateError');
         }
         exit(); // Ensure no further code is executed after redirect
     } else {
-        header('Location: ../../Control/InventoryController/index.php?action=showPO&status=invalidPOid');
+        header('Location: ../../Control/InventoryController/index.php?controller=inventory&action=showPO&status=invalidPOid');
         exit();
     }
 } else {
-    header('Location: ../../Control/InventoryController/index.php?action=showPO&status=invalidRequest');
+    header('Location: ../../Control/InventoryController/index.php?controller=inventory&action=showPO&status=invalidRequest');
     exit();
 }
 ?>

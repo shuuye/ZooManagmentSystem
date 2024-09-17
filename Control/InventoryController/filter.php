@@ -11,13 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
         }
         if (in_array("Habitat", $filters)) {
-            header("Location: index.php?action=habitatItem");
+            header("Location: index.php?controller=inventory&action=habitatItem");
         }
         if (in_array("Food", $filters)) {
-            header("Location: index.php?action=foodItem");
+            header("Location: index.php?controller=inventory&action=foodItem");
         }
         if (in_array("Cleaning", $filters)) {
-            header("Location: index.php?action=cleaningItem");
+            header("Location: index.php?controller=inventory&action=cleaningItem");
         }
       
     } 

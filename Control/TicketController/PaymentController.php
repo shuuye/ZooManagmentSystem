@@ -7,11 +7,11 @@ class PaymentController {
 
     public function handleRequest() {
         
-        if (!isset($_SESSION['userModel']) || !isset($_SESSION['userModel']['id'])) {
+        if (!isset($_SESSION['currentUserModel']) || !isset($_SESSION['currentUserModel']['id'])) {
             return 'User is not logged in. Please log in and try again.';
         }
 
-        $userId = $_SESSION['userModel']['id'];
+        $userId = $_SESSION['currentUserModel']['id'];
 
         $model = new PaymentModel();
         try {

@@ -12,6 +12,7 @@ class InventoryView extends InventoryModel {
     }
 
     public function render($template, $data) {
+        include dirname(__DIR__, 2) . '/View/adminTopNavHeader.php';
         ob_start();
         extract($data);
         include $template . '.php';
@@ -36,6 +37,7 @@ class InventoryView extends InventoryModel {
         $currentDate = date('Y-m-d'); // Format as needed
         $xslTransformation->setParameter('reportDate', $currentDate);
         $transformedContent = $xslTransformation->transform();
+        include dirname(__DIR__, 2) . '/View/adminTopNavHeader.php';
         ob_start();
         extract($data);
         echo $transformedContent;

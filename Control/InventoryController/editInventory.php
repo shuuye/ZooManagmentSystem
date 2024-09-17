@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Redirect back or show a success message
     if ($success) {
-        header("Location: ../../Control/InventoryController/index.php?action=index&status=successEdit");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=index&status=successEdit");
     } else {
-        header("Location: ../../Control/InventoryController/index.php?action=index&status=errorEdit");
+        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=index&status=errorEdit");
     }
     exit;
 }

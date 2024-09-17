@@ -43,10 +43,10 @@
     
     <!--place link-->
     <div class="topnav" style="background-color: blue;">
-        <a href="">Reservation Management Panel</a>
-        <a href="index.php?controller=user&action=userManagementMainPanel">User Management Panel</a>
-        <a href="">Inventory Management Panel</a>
-        <a href="">Ticketing & Payment Management Panel</a>
-        <a href="">Animal Management Panel</a>
+        <a href="createanddeletefunction.php" class="link-box">Event Management</a>
+        <a href="index.php?controller=user&action=userManagementMainPanel" class="link-box">User Management</a>
+        <a href="index.php?controller=inventory&action=index" class="link-box">Inventory Management Panel</a>
+        <a href="adminTicketPage.php" class="link-box">Ticketing & Payment Management Panel</a>
+        <a href="View/AnimalView/animal_home.php" class="link-box">Animal Management Panel</a>
     </div>
 </header>

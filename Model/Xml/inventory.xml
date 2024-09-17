@@ -134,7 +134,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 2</storageLocation>
     <reorderThreshold>200</reorderThreshold>
-    <quantity>23</quantity>
+    <quantity>223</quantity>
   </inventory>
   <inventory>
     <inventoryId>18</inventoryId>
@@ -142,7 +142,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 3</storageLocation>
     <reorderThreshold>150</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>141</quantity>
   </inventory>
   <inventory>
     <inventoryId>19</inventoryId>

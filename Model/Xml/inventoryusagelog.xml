@@ -49,4 +49,25 @@
     <quantityUsed>1</quantityUsed>
     <reasonForUse>for monkey</reasonForUse>
   </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>8</logId>
+    <inventoryId>16</inventoryId>
+    <dateTime>2024-09-17 09:09:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>9</logId>
+    <inventoryId>26</inventoryId>
+    <dateTime>2024-09-17 09:10:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>10</logId>
+    <inventoryId>37</inventoryId>
+    <dateTime>2024-09-17 09:11:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
 </inventoryusagelogs>

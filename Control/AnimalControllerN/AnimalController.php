@@ -206,47 +206,7 @@ class AnimalController extends InventoryModel{
         // Update the animal details in the model
         $success = $this->animalModel->updateAnimal($animalId, $animalDetails);
         $message = $success ? "Animal updated successfully." : "Failed to update animal.";
-
-        // Handle the image upload if a new image was provided
-        if (isset($_FILES['animal_image']) && $_FILES['animal_image']['error'] === UPLOAD_ERR_OK) {
-            $file = $_FILES['animal_image'];
-            $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-            $maxFileSize = 2 * 1024 * 1024; // 2MB
-
-            // Validate file type by MIME type
-            if (!in_array($file['type'], $allowedTypes)) {
-                $message = 'Invalid file type.';
-            } elseif ($file['size'] > $maxFileSize) {
-                $message = 'File size exceeds limit.';
-            } else {
-                // Validate file extension
-                $fileExtension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-                if (!in_array($fileExtension, ['jpg', 'jpeg', 'png'])) {
-                    $message = 'Invalid file extension.';
-                } else {
-                    // Generate a unique file name to prevent overwriting
-                    $uniqueFileName = uniqid('animal_', true) . '.' . $fileExtension;
-                    $uploadDir = dirname(__DIR__, 2) . '/assets/AnimalImages/';
-                    $uploadFilePath = $uploadDir . $uniqueFileName;
-
-                    // Ensure the upload directory exists and is writable
-                    if (!is_dir($uploadDir) || !is_writable($uploadDir)) {
-                        $message = 'Upload directory is not writable or does not exist.';
-                    } else {
-                        // Save the file securely
-                        if (move_uploaded_file($file['tmp_name'], $uploadFilePath)) {
-                            // Save the image path in the database
-                            $imagePath = '/ZooManagementSystem/assets/AnimalImages/' . $uniqueFileName;
-                            $this->animalModel->updateAnimalImage($animalId, $imagePath);
-                            $message .= " Image updated successfully.";
-                        } else {
-                            $message = 'Failed to upload image.';
-                        }
-                    }
-                }
-            }
-        }
-
+        
         include '../../View/AnimalView/animal_list.php';
         exit();
     }

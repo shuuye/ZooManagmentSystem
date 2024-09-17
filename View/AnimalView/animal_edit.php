@@ -72,12 +72,6 @@
                     <?php endforeach; ?>
                 </select><br><br>
 
-                <label for="animal_image">Update Animal Image:</label><br>
-                <?php if ($animalImage): ?>
-                    <img src="<?php echo htmlspecialchars($animalImage); ?>" alt="Animal Image"><br>
-                    <p>Current Image: <?php echo basename($animalImage); ?></p><br>
-                <?php endif; ?>
-                <input type="file" name="animal_image" id="animal_image" accept=".jpg, .jpeg, .png" ><br>
                 <input type="submit" value="Update Animal Details">
             </form>
         <?php else: ?>

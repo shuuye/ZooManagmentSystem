@@ -442,7 +442,7 @@ class AnimalModel extends databaseConfig implements subject{
     }
     
     public function getAllFeedingRecords() {
-        $stmt = $this->db->getConnection()->prepare("SELECT * FROM animalfeeding");
+        $stmt = $this->db->getConnection()->prepare("SELECT * FROM animalfeeding ORDER BY animal_id ASC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -511,7 +511,7 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
         return $categories;
     }
     
-     // Method to fetch animal health reports
+     // Method to fetch animal health reports old web service 
     public function getAnimalHealthReports() {
         $sql = "SELECT hRecord_id, animal_id, treatments, healthStatus FROM health_records";
         $stmt = $this->db->getConnection()->prepare($sql);
