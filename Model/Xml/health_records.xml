@@ -62,9 +62,9 @@
   </HealthRecord>
   <HealthRecord hRecord_id="11">
     <animal_id>9</animal_id>
-    <last_checkup>2024-01-01</last_checkup>
-    <treatments>Dental check</treatments>
-    <healthStatus>Healthy</healthStatus>
+    <last_checkup>2024-09-12</last_checkup>
+    <treatments>fdghdg</treatments>
+    <healthStatus>Normal</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="12">
     <animal_id>10</animal_id>
