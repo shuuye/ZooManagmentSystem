@@ -2,7 +2,7 @@
 session_start();
 
 // Ensure user is logged in
-if (!isset($_SESSION['userModel']['id'])) {
+if (!isset($_SESSION['currentUserModel']['id'])) {
     die('User is not logged in. Please log in and try again.');
 }
 
