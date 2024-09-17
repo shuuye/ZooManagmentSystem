@@ -4,7 +4,7 @@
 
     <xsl:template match="/">
         <div class="filter-options">
-            <form id="filterForm" action="../../Control/InventoryController/filterReport.php" method="POST">
+            <form id="filterForm" action="/ZooManagementSystem/Control/InventoryController/filterReport.php" method="POST">
                 <label for="itemType">Filter by Item Type:</label>
                 <select id="itemType" name="filters">
                     <option value="">All</option>

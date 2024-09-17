@@ -243,7 +243,6 @@
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
-            $_SESSION['leaveAppliedSuccessfully'] = 'Leave Applied Successfully.';
             header("Location: index.php?controller=user&action=staffTakeWorkingAttendance");
             exit();
             

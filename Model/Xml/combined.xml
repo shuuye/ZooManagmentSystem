@@ -371,6 +371,66 @@
     <totalAmount>6300.00</totalAmount>
     <status>Completed</status>
   </purchaseorder>
+  <purchaseorder>
+    <poId>12</poId>
+    <supplierId>2</supplierId>
+    <orderDate>2024-09-17 10:54:18</orderDate>
+    <deliveryDate>2024-09-20 10:54:18</deliveryDate>
+    <billingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</billingAddress>
+    <shippingAddress>456 Jalan Bersih</shippingAddress>
+    <totalAmount>700.00</totalAmount>
+    <status>Pending</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>13</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-17 11:01:14</orderDate>
+    <deliveryDate>2024-09-20 11:01:14</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>2250.00</totalAmount>
+    <status>Pending</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>14</poId>
+    <supplierId>4</supplierId>
+    <orderDate>2024-09-17 11:04:19</orderDate>
+    <deliveryDate>2024-09-20 11:04:19</deliveryDate>
+    <billingAddress>101 Jalan Haiwan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>300.00</totalAmount>
+    <status>Pending</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>15</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-17 13:14:56</orderDate>
+    <deliveryDate>2024-09-20 13:14:56</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>2250.00</totalAmount>
+    <status>Pending</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>16</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-17 13:19:42</orderDate>
+    <deliveryDate>2024-09-20 13:19:42</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>2250.00</totalAmount>
+    <status>Pending</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>17</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-17 13:20:19</orderDate>
+    <deliveryDate>2024-09-21 16:20:00</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>2205.00</totalAmount>
+    <status>Draft</status>
+  </purchaseorder>
 
   <purchaseorderlineitem>
     <poLineItemId>1</poLineItemId>
@@ -480,6 +540,66 @@
     <habitatId>3</habitatId>
     <foodId/>
     <quantity>140</quantity>
+    <unitPrice>45.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>12</poLineItemId>
+    <poId>12</poId>
+    <inventoryId>31</inventoryId>
+    <cleaningId>6</cleaningId>
+    <habitatId/>
+    <foodId/>
+    <quantity>35</quantity>
+    <unitPrice>20.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>13</poLineItemId>
+    <poId>13</poId>
+    <inventoryId>19</inventoryId>
+    <cleaningId/>
+    <habitatId>4</habitatId>
+    <foodId/>
+    <quantity>50</quantity>
+    <unitPrice>45.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>14</poLineItemId>
+    <poId>14</poId>
+    <inventoryId>20</inventoryId>
+    <cleaningId/>
+    <habitatId>5</habitatId>
+    <foodId/>
+    <quantity>20</quantity>
+    <unitPrice>15.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>15</poLineItemId>
+    <poId>15</poId>
+    <inventoryId>19</inventoryId>
+    <cleaningId/>
+    <habitatId>4</habitatId>
+    <foodId/>
+    <quantity>50</quantity>
+    <unitPrice>45.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>16</poLineItemId>
+    <poId>16</poId>
+    <inventoryId>19</inventoryId>
+    <cleaningId/>
+    <habitatId>4</habitatId>
+    <foodId/>
+    <quantity>50</quantity>
+    <unitPrice>45.00</unitPrice>
+  </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>17</poLineItemId>
+    <poId>17</poId>
+    <inventoryId>19</inventoryId>
+    <cleaningId/>
+    <habitatId>4</habitatId>
+    <foodId/>
+    <quantity>49</quantity>
     <unitPrice>45.00</unitPrice>
   </purchaseorderlineitem>
 
@@ -1100,6 +1220,69 @@
     <logId>10</logId>
     <inventoryId>37</inventoryId>
     <dateTime>2024-09-17 09:11:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>11</logId>
+    <inventoryId>26</inventoryId>
+    <dateTime>2024-09-17 10:53:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>12</logId>
+    <inventoryId>19</inventoryId>
+    <dateTime>2024-09-17 10:53:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>13</logId>
+    <inventoryId>31</inventoryId>
+    <dateTime>2024-09-17 10:54:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>14</logId>
+    <inventoryId>18</inventoryId>
+    <dateTime>2024-09-17 11:00:00</dateTime>
+    <quantityUsed>2</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>15</logId>
+    <inventoryId>19</inventoryId>
+    <dateTime>2024-09-17 11:01:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>16</logId>
+    <inventoryId>20</inventoryId>
+    <dateTime>2024-09-17 11:04:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>17</logId>
+    <inventoryId>16</inventoryId>
+    <dateTime>2024-09-17 12:27:00</dateTime>
+    <quantityUsed>2</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>18</logId>
+    <inventoryId>19</inventoryId>
+    <dateTime>2024-09-17 13:14:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>19</logId>
+    <inventoryId>19</inventoryId>
+    <dateTime>2024-09-18 13:19:00</dateTime>
     <quantityUsed>1</quantityUsed>
     <reasonForUse/>
   </inventoryusagelog>

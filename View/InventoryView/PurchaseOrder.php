@@ -3,7 +3,7 @@
 //
 $content = '
         <div class="main-content">
-        <form action="../../Control/InventoryController/createPO.php?inventoryId=' . $InventoryDetails['inventoryId'] . '&amp;itemType=' . $InventoryDetails['itemType'] . '&amp;itemID=' . $InventoryDetails['itemID'] . '" method="post" class="poform">
+        <form action="/ZooManagementSystem/Control/InventoryController/createPO.php?inventoryId=' . $InventoryDetails['inventoryId'] . '&amp;itemType=' . $InventoryDetails['itemType'] . '&amp;itemID=' . $InventoryDetails['itemID'] . '" method="post" class="poform">
             
             <h2>Purchase Orders <span>&gt;</span> New Purchase Order #' . $POid . '</h2>
             <p>The purchase order has been generated based on the previous order. You can edit it if changes are required.</p>

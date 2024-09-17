@@ -26,15 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Instantiate control class
-    include_once '../../Model/Command/Inventory.php';
-    include_once '../../Model/Command/InventoryItemFactory.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryItemFactory.php';
 
     // Create item
     $inventoryCreater = new InventoryItemFactory();
     $inventory = $inventoryCreater->createItem($inventoryId, $itemType, NULL, Null);
 
-    include_once '../../Model/Command/InventoryManagement.php';
-    include_once '../../Model/Command/InventoryCommand.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryManagement.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryCommand.php';
 
     // Execute command with item data
     $inventoryManager = new InventoryManagement();
@@ -89,9 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect with status message
     if ($success) {
-        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=viewItembasedOnInventoryID&status=success&inventoryId=$inventoryId&itemType=$itemType");
+        header("Location: /ZooManagementSystem/Control/InventoryController/index.php?controller=inventory&action=viewItembasedOnInventoryID&status=success&inventoryId=$inventoryId&itemType=$itemType");
     } else {
-        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=viewItembasedOnInventoryID&status=error&inventoryId=$inventoryId&itemType=$itemType");
+        header("Location: /ZooManagementSystem/Control/InventoryController/index.php?controller=inventory&action=viewItembasedOnInventoryID&status=error&inventoryId=$inventoryId&itemType=$itemType");
     }
     exit();
 }

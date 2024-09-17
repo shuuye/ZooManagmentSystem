@@ -1,108 +1,45 @@
 <?php
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Config\databaseConfig.php';
+class Supplier extends databaseConfig{
 
-class Supplier {
+    private $db;
 
-    protected $supplierId;
-    protected $supplierName;
-    protected $contactName;
-    protected $contactEmail;
-    protected $contactPhone;
-    protected $address;
-    protected $city;
-    protected $state;
-    protected $postalCode;
-    protected $country;
-    protected $website;
-    protected $rating;
-    protected $lastOrderDate;
-    protected $paymentTerms;
-    protected $deliveryTime;
-    protected $supplierNotes;
-
-    public function __construct($supplierId, $supplierName, $contactName, $contactEmail,
-            $contactPhone, $address, $city, $state, $postalCode,
-            $country, $website, $rating = null, $lastOrderDate = null,
-            $paymentTerms = null, $deliveryTime = null, $supplierNotes = null) {
-        $this->supplierId = $supplierId;
-        $this->supplierName = $supplierName;
-        $this->contactName = $contactName;
-        $this->contactEmail = $contactEmail;
-        $this->contactPhone = $contactPhone;
-        $this->address = $address;
-        $this->city = $city;
-        $this->state = $state;
-        $this->postalCode = $postalCode;
-        $this->country = $country;
-        $this->website = $website;
-        $this->rating = $rating;
-        $this->lastOrderDate = $lastOrderDate;
-        $this->paymentTerms = $paymentTerms;
-        $this->deliveryTime = $deliveryTime;
-        $this->supplierNotes = $supplierNotes;
-    }
-    
-    // Getters and setters for Supplier attributes
-    public function getSupplierId() {
-        return $this->supplierId;
+    public function __construct() {
+        // Initialize database connection
+        $this->db = new databaseConfig();
     }
 
-    public function getSupplierName() {
-        return $this->supplierName;
-    }
+    public function getSupplierRecordById($supplierId) {
+        try {
+            // Get database connection
+            $conn = $this->db->getConnection();
 
-    public function getContactName() {
-        return $this->contactName;
-    }
+            // Prepare SQL query to get supplier record by supplierId
+            $sql = "SELECT * FROM supplier WHERE supplierId = :supplierId";
 
-    public function getContactEmail() {
-        return $this->contactEmail;
-    }
+            // Prepare the statement
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':supplierId', $supplierId, PDO::PARAM_INT);
 
-    public function getContactPhone() {
-        return $this->contactPhone;
-    }
+            // Execute the statement
+            $stmt->execute();
 
-    public function getAddress() {
-        return $this->address;
-    }
+            // Fetch the result
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    public function getCity() {
-        return $this->city;
-    }
-
-    public function getState() {
-        return $this->state;
-    }
-
-    public function getPostalCode() {
-        return $this->postalCode;
-    }
-
-    public function getCountry() {
-        return $this->country;
-    }
-
-    public function getWebsite() {
-        return $this->website;
-    }
-
-    public function getRating() {
-        return $this->rating;
-    }
-
-    public function getLastOrderDate() {
-        return $this->lastOrderDate;
-    }
-
-    public function getPaymentTerms() {
-        return $this->paymentTerms;
-    }
-
-    public function getDeliveryTime() {
-        return $this->deliveryTime;
-    }
-
-    public function getSupplierNotes() {
-        return $this->supplierNotes;
+            if ($result) {
+                return $result; // Return the supplier record as an associative array
+            } else {
+                return null; // No record found for the given supplierId
+            }
+        } catch (PDOException $e) {
+            // Handle database error
+            echo 'Database error: ' . $e->getMessage();
+            return null;
+        }
     }
 }
+
+$suu = new Supplier();
+$result = $suu->getSupplierRecordById(5);
+print_r($result);

@@ -4,7 +4,7 @@
 //put abstract function that has to exist in each inventory(factory pattern)
 //
 
-require_once '../../Model/Inventory/InventoryModel.php';
+require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
 
 abstract class Inventory extends InventoryModel {
 

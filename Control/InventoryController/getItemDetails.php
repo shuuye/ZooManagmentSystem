@@ -6,8 +6,8 @@ if (isset($_GET['inventoryId']) && isset($_GET['itemId']) && $itemType = $_GET['
     $itemType = $_GET['itemType'];
 
     // Instantiate control class
-    include_once '../../Model/Command/Inventory.php';
-    include_once '../../Model/Command/InventoryItemFactory.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryItemFactory.php';
 
     // Create item
     $inventoryCreater = new InventoryItemFactory();

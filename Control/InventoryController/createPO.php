@@ -24,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    include_once '../../Model/Inventory/PurchaseOrder.php';
-    include_once '../../Model/Inventory/PurchaseOrderLineItem.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\PurchaseOrder.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\PurchaseOrderLineItem.php';
 
     // Format the date and time
     $orderDate = date('Y-m-d H:i:s');
@@ -54,10 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lineItem->addNewPOLine();
 
         // Redirect to success page
-        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=showPO&status=successPO");
+        header("Location: index.php?controller=inventory&action=showPO&status=successPO");
     } catch (Exception $e) {
         // Optionally redirect to an error page
-        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=showPO&status=errorPO");
+        header("Location: index.php?controller=inventory&action=showPO&status=errorPO");
     }
 } else {
     echo "<p class='alert'>Invalid request method.</p>";

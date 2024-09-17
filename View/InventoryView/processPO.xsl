@@ -44,9 +44,9 @@
                                         <!-- Use xsl:attribute to construct the href attribute -->
                                         <a>
                                             <xsl:attribute name="href">
-                                                <xsl:value-of select="concat('../../Control/InventoryController/cancelOrder.php?POid=', poId)" />
+                                                <xsl:value-of select="concat('C:\xampp\htdocs\ZooManagementSystem\Control\InventoryController\cancelOrder.php?POid=', poId)" />
                                             </xsl:attribute>
-                                            <img src="../../assests/InventoryImages/btn-close.svg" class="plus-icon" />
+                                            <img src="/ZooManagementSystem/assests/InventoryImages/btn-close.svg" class="plus-icon" />
                                             Cancel order
                                         </a>
                                     </xsl:otherwise>
@@ -56,12 +56,12 @@
                             <!-- Send for Approval Button -->
                             <xsl:choose>
                                 <xsl:when test="status = 'Draft'">
-                                    <a class="sendBtn received" href="{concat('../../Control/InventoryController/approve.php?POid=', poId)}">
+                                    <a class="sendBtn received" href="{concat('C:\xampp\htdocs\ZooManagementSystem\Control\InventoryController\approve.php?POid=', poId)}">
                                         Send for approval
                                     </a>
                                 </xsl:when>
                                 <xsl:when test="status = 'Pending'">
-                                    <a class="sendBtn processing" href="{concat('../../Control/InventoryController/receive.php?POid=', poId)}">
+                                    <a class="sendBtn processing" href="{concat('C:\xampp\htdocs\ZooManagementSystem\Control\InventoryController\receive.php?POid=', poId)}">
                                         Received
                                     </a>
                                 </xsl:when>

@@ -3,8 +3,8 @@
 // use to bind witht the inventory to execute command
 // $inventoryManager->executeCommand(new AddItemCommand($inventory)); --> /Model/Command/InventoryCommand.php
 
-require_once 'Inventory.php';
-require_once 'InventoryCommand.php';
+require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
+require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryCommand.php';
 
 class InventoryManagement {
 

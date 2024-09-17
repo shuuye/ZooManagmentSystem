@@ -2,47 +2,112 @@
 
     require_once 'UserController.php';
     require_once 'InputValidationCtrl.php';
-    require_once __DIR__ . '/../../Model/User/ResetPasswordModel.php';
-    
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
-
-    // Load Composer's autoloader if you're using Composer
-    require 'Public/UserWebService/vendor/autoload.php';
 
     class ForgotPasswordCtrl extends UserController{
         protected $email;
         protected $forgotPasswordEmailInput;
+        protected $newPassword;
+        protected $confirmPassword;
 
         public function __construct() {
             parent::__construct();
+        }
+       
+        private function afterResetPasswordInput($validInput, $email){
+            if (!$validInput) {
+                $_SESSION['userInputData'] = $this->forgotPasswordEmailInput;
+                header("Location: index.php?controller=user&action=resetForgotPassword&email=" . $email);
+                exit();
+            }
+            
+            $hashedPassword = password_hash($this->newPassword, PASSWORD_DEFAULT);
+            $updated = $this->updateDBColumnByEmail('password', $hashedPassword, $email);
+
+            if ($updated){
+                $_SESSION['resetPasswordSuccessfully'] = 'Password Reset Successfully';
+                header("Location: index.php?controller=user&action=successPage");
+                exit();
+            }
+        }
+        
+        private function validateNewPassword() {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->newPassword)) {
+                return 'New Password cannot be empty!';
+            }
+
+            if (!InputValidationCtrl::inputMinLengthValidation($this->newPassword, 6)) {
+                return 'New Password must be at least 6 characters long';
+            }
+
+            return ''; // No error
+        }
+
+        private function validateConfirmPassword() {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->confirmPassword)) {
+                return 'Confirm Password cannot be empty!';
+            }
+
+            if (!InputValidationCtrl::inputMatchValidation($this->confirmPassword, $this->newPassword)) {
+                return 'Confirm Password not matched';
+            }
+
+            return ''; // No error
+        }
+        
+        private function checkResetPasswordInput(){
+            $data = [
+                'newPasswordErr' => $this->validateNewPassword(),
+                'confirmPasswordErr' => $this->validateConfirmPassword()
+            ];
+            
+            $this->forgotPasswordEmailInput = $data;
+        }
+        
+        public function submitNewPasswordAfterForgot(){
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            
+            $email = isset($_GET['email']) ? $_GET['email'] : '';
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $this->forgotPasswordEmailInput = null;
+                // Retrieve form data from the POST request
+                $this->newPassword = $_POST['newPassword'] ?? '';
+                $this->confirmPassword = $_POST['confirmPassword'] ?? '';
+
+                $this->checkResetPasswordInput();
+                
+                if($this->checkEmptyUserInputData()){
+                    $validInput = true;
+                }
+                
+                $this->afterResetPasswordInput($validInput, $email);
+                
+            }
         }
         
         public function resetForgotPassword(){
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
-              
+            $email = isset($_GET['email']) ? $_GET['email'] : '';
+            
             // Render the login form view
             $view = ['resetForgotPasswordView'];
             $data = $this->setRenderData('Reset Forgot Password');
+            $data['email'] = $email;
             
             $this->renderView($view,$data);
         }
         
         private function afterForgotPassword($validInput){
             //only render view when there is error
+            $email = $this->email;
+            $this->email = null;
+            
             if($validInput){
-                // Generate a unique reset token
-                //here send email
-                //if not then just give email then enough
-                $resetToken = bin2hex(random_bytes(32)); // Generate a secure token
-                $expires = date("U") + 3600; // Token expires in 1 hour
-                $email = $this->email;
-
-                $_SESSION['resetPasswordSent'] = 'A password reset link has been sent to your email address. <br>Please check your inbox and follow the instructions to reset your password.';
-                // Redirect to a confirmation page
-                header("Location: index.php?controller=user&action=forgotPassword");
+                header("Location: index.php?controller=user&action=resetForgotPassword&email=" . $email);
                 exit();
 
             }else{

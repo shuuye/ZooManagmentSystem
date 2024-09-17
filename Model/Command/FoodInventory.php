@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Inventory.php';
+require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
 
 class FoodInventory extends Inventory {
 

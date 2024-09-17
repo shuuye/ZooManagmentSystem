@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../Model/Inventory/InventoryModel.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
 
 class PurchaseOrder extends InventoryModel {
 

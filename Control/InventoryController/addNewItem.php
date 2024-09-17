@@ -9,24 +9,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $reorder_threshold = isset($_POST["reorder_threshold"]) ? trim($_POST["reorder_threshold"]) : '';
 
     // Instantiate control class
-    include_once '../../Model/Command/Inventory.php';
-    include_once '../../Model/Command/InventoryItemFactory.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryItemFactory.php';
 
     // Create item
     $inventoryCreater = new InventoryItemFactory();
     $inventory = $inventoryCreater->createItem($item_name, $item_type, $storageLocation, $reorder_threshold);
 
     // Running error handling
-    include_once '../../Model/Command/InventoryManagement.php';
-    include_once '../../Model/Command/InventoryCommand.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryManagement.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryCommand.php';
     $inventoryManager = new InventoryManagement();
     $success = $inventoryManager->executeCommand(new AddItemCommand($inventory));
 
     // Redirect with status message
     if ($success) {
-        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=showMessage&status=success");
+        header("Location:index.php?controller=inventory&action=inventoryTracking&status=success");
     } else {
-        header("Location: ../../Control/InventoryController/index.php?controller=inventory&action=showMessage&status=error");
+        header("Location: index.php?controller=inventory&action=inventoryTracking&status=error");
     }
     exit();
 }

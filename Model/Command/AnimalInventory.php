@@ -1,7 +1,7 @@
 <?php
 
-require_once '../../Config/databaseConfig.php';
-require_once 'Inventory.php';
+require_once 'C:\xampp\htdocs\ZooManagementSystem\Config\databaseConfig.php';
+require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
 
 class AnimalInventory extends Inventory {
 

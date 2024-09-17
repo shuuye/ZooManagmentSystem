@@ -103,11 +103,11 @@ include 'htmlHead.php' ;
 <main>
    
     <div class="container">
-        <a href="createanddeletefunction.php" class="link-box">Event Management</a>
+        <a href="" class="link-box">Event Management</a>
         <a href="index.php?controller=user&action=userManagementMainPanel" class="link-box">User Management</a>
-        <a href="#" class="link-box">Inventory Management Panel</a>
-        <a href="#" class="link-box">Ticketing & Payment Management Panel</a>
-        <a href="#" class="link-box">Animal Management Panel</a>
+        <a href="index.php?controller=inventory&action=index" class="link-box">Inventory Management Panel</a>
+        <a href="adminTicketPage.php" class="link-box">Ticketing & Payment Management Panel</a>
+        <a href="View/AnimalView/animal_home.php" class="link-box">Animal Management Panel</a>
     </div>
 </main>
 

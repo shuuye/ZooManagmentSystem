@@ -19,7 +19,7 @@
                 <!-- New Brand Button -->
                 <div class="new-item" id="newbtn">
                     <a>
-                        <img src="../../assests/InventoryImages/btn-plus.svg" class="plus-icon" />
+                        <img src="/ZooManagementSystem/assests/InventoryImages/btn-plus.svg" class="plus-icon" />
                         New Brand
                     </a>
                 </div>
@@ -28,7 +28,7 @@
             <div id="newItemPop" class="modal">
                 <div class="modal-content">
                     <span class="close">x</span>
-                    <form action="../../Control/InventoryController/newBrand.php" method="POST" id="upload" enctype="multipart/form-data">
+                    <form action="/ZooManagementSystem/Control/InventoryController/newBrand.php" method="POST" id="upload" enctype="multipart/form-data">
                         <table class="displayingTable">
                             <tr>
                                 <th colspan="2">New Habitat Item Brand for <xsl:value-of select="inventory[inventoryId = $inventoryID]/itemName" /></th>
@@ -152,7 +152,7 @@
             <div id="editModal" class="modal">
                 <div class="modal-content">
                     <span class="close-edit-modal">x</span>
-                    <form id="editItemForm" action="../../Control/InventoryController/editRecord.php" method="POST">
+                    <form id="editItemForm" action="/ZooManagementSystem/Control/InventoryController/editRecord.php" method="POST">
                         <input type="hidden" name="inventoryId" id="editInventoryId" />
                         <input type="hidden" name="itemId" id="editItemId" />
                         <input type="hidden" name="itemType" id="itemType" value="Habitat" />
@@ -295,17 +295,17 @@
                                     data-installationInstru="{installation_instructions}" 
                                     data-disposalInstru="{disposal_instructions}" 
                                     data-price="{price}">
-                                <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
+                                <img src="/ZooManagementSystem/assests/InventoryImages/btn-edit.svg" class="edit-icon" />
                             </button>
                         </td>
                         <td>
                             <!-- Delete Button -->
-                            <form action="../../Control/InventoryController/deleteRecord.php" method="POST" style="display:inline;">
+                            <form action="/ZooManagementSystem/Control/InventoryController/deleteRecord.php" method="POST" style="display:inline;">
                                 <input type="hidden" name="inventoryId" value="{inventoryId}" />
                                 <input type="hidden" name="itemID" value="{id}" />
                                 <input type="hidden" name="itemType" value="Habitat" />
                                 <button type="submit" class="delete-btn">
-                                    <img src="../../assests/InventoryImages/btn-close.svg" class="delete-icon" />
+                                    <img src="/ZooManagementSystem/assests/InventoryImages/btn-close.svg" class="delete-icon" />
                                 </button>
                             </form>
                         </td>

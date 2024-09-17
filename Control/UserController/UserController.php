@@ -59,6 +59,14 @@
             
             return $userObj;
         }
+        
+        public function successPage(){
+            $view = ['SuccessMsgView'];
+            $data = $this->setRenderData('Successfully !');
+            //display/render the user view
+
+            $this->renderView($view,$data);
+        }
                 
         protected function navigateUserTo($roleID = null, $justRegistered = false, $goAdminPanel = false, $goStaffPage = false){
             
@@ -76,13 +84,17 @@
                     exit();
                 case 2:
                     if($justRegistered){ 
-                        header("Location: index.php?controller=user&action=login");
+                        $_SESSION['registrationUserSuccess'] = 'Resgistered Successfully';
+                        header("Location: index.php?controller=user&action=successPage");
                     }else{
                         header("Location: index.php");
                     }
                     exit();
                 default:
-                    header("Location: index.php?controller=user&action=login");
+                    if($justRegistered){ 
+                        $_SESSION['registrationUserSuccess'] = 'Resgistered Successfully';
+                        header("Location: index.php?controller=user&action=successPage");
+                    }
                     exit();
             }
         }
@@ -266,6 +278,9 @@
             $action = isset($_GET['action']) ? $_GET['action'] : 'actionFailed';
             
             switch($action){
+                case 'successPage':
+                    $controller = new UserController();
+                    break;
                 case 'login': 
                 case 'submitLoginForm':
                     require_once __DIR__ . '/LoginCtrl.php';
@@ -358,6 +373,7 @@
                 case 'forgotPassword':
                 case 'submitForgotPasswordEmail':
                 case 'resetForgotPassword':
+                case 'submitNewPasswordAfterForgot':
                     require_once __DIR__ . '/ForgotPasswordCtrl.php';
                     $controller = new ForgotPasswordCtrl();
                     break;
