@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_home.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_list.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/AnimalModel.php</file>
@@ -10,6 +11,9 @@
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/test_habitat.js</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/AnimalController.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/public/api/api_habitats.php</file>
+=======
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
+>>>>>>> c5d88967f36540bcbf86c0655b363ba605f4eb8c
         </group>
     </open-files>
 </project-private>

@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_edit.css">
     <title>Add Animal</title>
 </head>
 <body>
+    
+    <nav>
+        <ul>
+            <li><a href="../../View/AnimalView/animal_list.php">Back</a></li>
+        </ul>
+    </nav>
+    
+    <h1>Add New Animal Details </h1>
     <form action="?action=processForm" method="post" enctype="multipart/form-data">
         
         <label for="itemName">Select Item Name:</label>
