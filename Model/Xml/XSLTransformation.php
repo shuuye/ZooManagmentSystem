@@ -27,7 +27,7 @@ class XSLTransformation {
                     throw new Exception("XML file not found: " . $xmlFile);
                 }
             }
-            $this->xml->save('../../Model/Xml/combined.xml');
+            $this->xml->save('C:\xampp\htdocs\ZooManagementSystem\Model\Xml\combined.xml');
         } else {
             if (file_exists($xmlfilename)) {
                 $this->xml->load($xmlfilename);

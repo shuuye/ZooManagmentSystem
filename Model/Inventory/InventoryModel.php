@@ -1,8 +1,6 @@
 <?php
 
-include_once '../../Config/databaseConfig.php';
-
-//include_once '../Command/AnimalInventory.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Config\databaseConfig.php';
 
 class InventoryModel extends databaseConfig {
 
@@ -23,7 +21,7 @@ class InventoryModel extends databaseConfig {
 
     function getInventoryQuantityDB($inventoryId) {
         $this->db = new databaseConfig();
-        $query = "SELECT itemName, quantity FROM inventory WHERE inventoryId = ?";
+        $query = "SELECT itemName, quantity,reorderThreshold FROM inventory WHERE inventoryId = ?";
         $result = $this->db->getConnection()->prepare($query);
         $result->execute([$inventoryId]);
         $data = $result->fetchAll(PDO::FETCH_ASSOC);

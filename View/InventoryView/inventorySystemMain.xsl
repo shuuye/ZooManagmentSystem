@@ -77,7 +77,7 @@
                             </xsl:variable>
                             <tr>
                                 <td>
-                                    <img src="{concat('../../assests/InventoryImages/', $imagePath)}" alt="Product Image" />
+                                    <img src="{concat('/ZooManagementSystem/assests/InventoryImages/', $imagePath)}" alt="Product Image" />
                                 </td>
                                 <td>
                                     <xsl:choose>

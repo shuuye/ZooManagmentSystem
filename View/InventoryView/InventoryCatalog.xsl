@@ -6,12 +6,12 @@
             <h2>Inventory</h2>
             <div class="recordingFunctions">
                 <div class="filter" id="filterbtn">
-                    <img src="../../assests/InventoryImages/btn-filter.svg" class="filter-icon" />
+                    <img src="/ZooManagementSystem/assests/InventoryImages/btn-filter.svg" class="filter-icon" />
                     Filter
                 </div>
                 <div class="new-item" id="newbtn">
                     <a href="?controller=inventory&amp;action=addInventoryItem">
-                        <img src="../../assests/InventoryImages/btn-plus.svg" class="plus-icon" />
+                        <img src="/ZooManagementSystem/assests/InventoryImages/btn-plus.svg" class="plus-icon" />
                         New Item
                     </a>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="modal-content">
                     <span class="close">x</span>
                     <h2>Filter Options</h2>
-                    <form action="../../Control/InventoryController/filter.php" method="POST">
+                    <form action="/ZooManagementSystem/Control/InventoryController/filter.php" method="POST">
                         <label for="filterType">Filter by:</label>
                         <br/>
                         <table class="displayingTable">
@@ -55,7 +55,7 @@
             <div id="editModal" class="modal">
                 <div class="modal-content">
                     <span class="close-edit-modal">x</span>
-                    <form id="editItemForm" action="../../Control/InventoryController/editInventory.php" method="POST">
+                    <form id="editItemForm" action="/ZooManagementSystem/Control/InventoryController/editInventory.php" method="POST">
                         <input type="hidden" name="inventoryId" id="editInventoryId" />
                         <input type="hidden" name="itemType" id="edititemType" />
                         <table class="displayingTable">
@@ -159,16 +159,16 @@
                                     data-storageLocation="{storageLocation}" 
                                     data-reorderThreshold="{reorderThreshold}" 
                                     >
-                                <img src="../../assests/InventoryImages/btn-edit.svg" class="edit-icon" />
+                                <img src="/ZooManagementSystem/assests/InventoryImages/btn-edit.svg" class="edit-icon" />
                             </button>
                         </td>
                         <td>
                             <!-- Delete Button -->
-                            <form action="../../Control/InventoryController/removeInventory.php" method="POST" style="display:inline;">
+                            <form action="/ZooManagementSystem/Control/InventoryController/removeInventory.php" method="POST" style="display:inline;">
                                 <input type="hidden" name="inventoryId" value="{inventoryId}" />
                                 <input type="hidden" name="itemType" value="{itemType}" />
                                 <button type="submit" class="delete-btn">
-                                    <img src="../../assests/InventoryImages/btn-close.svg" class="delete-icon" />
+                                    <img src="/ZooManagementSystem/assests/InventoryImages/btn-close.svg" class="delete-icon" />
                                 </button>
                             </form>
                         </td>

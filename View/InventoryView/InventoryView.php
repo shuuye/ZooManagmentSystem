@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../Model/Inventory/InventoryModel.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\XSLTransformation.php';
 
 class InventoryView extends InventoryModel {
@@ -12,12 +12,14 @@ class InventoryView extends InventoryModel {
     }
 
     public function render($template, $data) {
-        include dirname(__DIR__, 2) . '/View/adminTopNavHeader.php';
-        ob_start();
         extract($data);
+        include dirname(__DIR__, 2) . '/View/adminTopNavHeader.php';
+        include dirname(__DIR__, 2) . '/View/htmlHead.php';
+        ob_start();
         include $template . '.php';
         $template = ob_get_clean();
         include $this->masterPage;
+        
     }
 
     public function renderXML($xmlfilename, $xslfilename, $data) {
@@ -40,6 +42,8 @@ class InventoryView extends InventoryModel {
         include dirname(__DIR__, 2) . '/View/adminTopNavHeader.php';
         ob_start();
         extract($data);
+        include dirname(__DIR__, 2) . '/View/htmlHead.php';
+
         echo $transformedContent;
 
         $renderedContent = ob_get_contents();

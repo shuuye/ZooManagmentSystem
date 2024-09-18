@@ -126,7 +126,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 1</storageLocation>
     <reorderThreshold>100</reorderThreshold>
-    <quantity>121</quantity>
+    <quantity>119</quantity>
   </inventory>
   <inventory>
     <inventoryId>17</inventoryId>
@@ -142,7 +142,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 3</storageLocation>
     <reorderThreshold>150</reorderThreshold>
-    <quantity>141</quantity>
+    <quantity>140</quantity>
   </inventory>
   <inventory>
     <inventoryId>19</inventoryId>
@@ -150,7 +150,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 4</storageLocation>
     <reorderThreshold>50</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>20</inventoryId>
@@ -158,7 +158,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 5</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>21</inventoryId>
@@ -166,7 +166,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 6</storageLocation>
     <reorderThreshold>100</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>110</quantity>
   </inventory>
   <inventory>
     <inventoryId>22</inventoryId>
@@ -174,7 +174,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 7</storageLocation>
     <reorderThreshold>50</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>60</quantity>
   </inventory>
   <inventory>
     <inventoryId>23</inventoryId>
@@ -182,7 +182,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 8</storageLocation>
     <reorderThreshold>30</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>24</inventoryId>
@@ -190,7 +190,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 9</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>30</quantity>
   </inventory>
   <inventory>
     <inventoryId>25</inventoryId>
@@ -198,7 +198,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 10</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>26</inventoryId>
@@ -206,7 +206,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>30</quantity>
   </inventory>
   <inventory>
     <inventoryId>27</inventoryId>
@@ -214,7 +214,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>15</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>28</inventoryId>
@@ -222,7 +222,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>30</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>29</inventoryId>
@@ -230,7 +230,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>40</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>30</inventoryId>
@@ -238,7 +238,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>25</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>31</inventoryId>
@@ -246,7 +246,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>35</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>45</quantity>
   </inventory>
   <inventory>
     <inventoryId>32</inventoryId>
@@ -254,7 +254,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>21</quantity>
   </inventory>
   <inventory>
     <inventoryId>33</inventoryId>
@@ -262,7 +262,7 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>10</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>34</inventoryId>
@@ -310,7 +310,7 @@
     <itemType>Food</itemType>
     <storageLocation>Grain Storage</storageLocation>
     <reorderThreshold>500</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>40</inventoryId>
@@ -326,7 +326,7 @@
     <itemType>Food</itemType>
     <storageLocation>Vegetable Storage</storageLocation>
     <reorderThreshold>100</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
   <inventory>
     <inventoryId>42</inventoryId>
@@ -366,6 +366,6 @@
     <itemType>Habitat</itemType>
     <storageLocation>adfafds</storageLocation>
     <reorderThreshold>33</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>0</quantity>
   </inventory>
 </inventories>

@@ -7,7 +7,7 @@ $inventoryTypes = array_filter($inventoryTypes, function ($type) {
 
 $content = '
 <div class="main-content">
-    <form id="inventory-form" action="../../Control/InventoryController/logUsage.php" method="post">
+    <form id="inventory-form" action="/ZooManagementSystem/Control/InventoryController/logUsage.php" method="post">
         <label for="date-time">Date and Time:</label>
         <input type="datetime-local" id="date-time" name="date-time" value="' . date('Y-m-d\TH:i') . '">
         <br><br>

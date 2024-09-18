@@ -1,9 +1,9 @@
 <?php
 
-include_once 'AnimalInventory.php';
-include_once 'CleaningInventory.php';
-include_once 'FoodInventory.php';
-include_once 'HabitatInventory.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\AnimalInventory.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\CleaningInventory.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\FoodInventory.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\HabitatInventory.php';
 
 //require_once(__DIR__ . '../Command/HabitatInventory.php');
 

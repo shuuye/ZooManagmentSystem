@@ -6,10 +6,107 @@
     <treatments>body_check</treatments>
     <healthStatus>Treatment</healthStatus>
   </HealthRecord>
+<<<<<<< HEAD
   <HealthRecord hRecord_id="23">
     <animal_id>20</animal_id>
     <last_checkup>2024-09-04</last_checkup>
     <treatments>body_check</treatments>
+=======
+  <HealthRecord hRecord_id="2">
+    <animal_id>2</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="3">
+    <animal_id>3</animal_id>
+    <last_checkup>2024-01-15</last_checkup>
+    <treatments>Dental check</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="4">
+    <animal_id>11</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="5">
+    <animal_id>4</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="6">
+    <animal_id>12</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="7">
+    <animal_id>5</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>Dental check</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="8">
+    <animal_id>6</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>Dental check</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="9">
+    <animal_id>7</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>Dental Check</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="10">
+    <animal_id>8</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="11">
+    <animal_id>9</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>Dental check</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="12">
+    <animal_id>10</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Healthy</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="13">
+    <animal_id>13</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="14">
+    <animal_id>14</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="15">
+    <animal_id>15</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="16">
+    <animal_id>16</animal_id>
+    <last_checkup>2024-01-01</last_checkup>
+    <treatments>No treatment</treatments>
+    <healthStatus>Unknown</healthStatus>
+  </HealthRecord>
+  <HealthRecord hRecord_id="21">
+    <animal_id>17</animal_id>
+    <last_checkup>2024-09-17</last_checkup>
+    <treatments>Vaccination</treatments>
+>>>>>>> 630990a5674cdcab70213f05cf5c24f1d0554ed3
     <healthStatus>Treatment</healthStatus>
   </HealthRecord>
 </HealthRecords>

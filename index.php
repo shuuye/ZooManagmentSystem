@@ -15,8 +15,8 @@ if ($controller && $action) {
             $controller = new AdminPanelController();
             break;
         case 'inventory':
-            require_once '/Model/Inventory/InventoryModel.php';
-            require_once '/Control/InventoryController/InventoryController.php';
+            require_once __DIR__ . '/Model/Inventory/InventoryModel.php';
+            require_once __DIR__ . '/Control/InventoryController/InventoryController.php';
             $model = new InventoryModel();
             $controller = new InventoryController($model, new InventoryView('InventoryMasterPage.php'));
             break;

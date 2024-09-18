@@ -7,8 +7,8 @@
     <phoneNumber>0126964456</phoneNumber>
     <email>superAdmin123@gmail.com</email>
     <registrationDateTime>2024-08-01 18:56:44</registrationDateTime>
-    <lastLoginDateTime>2024-09-16 21:48:26</lastLoginDateTime>
-    <lastLogOutDateTime>2024-09-16 21:11:20</lastLogOutDateTime>
+    <lastLoginDateTime>2024-09-17 14:57:39</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-16 18:11:54</lastLogOutDateTime>
     <roleID>1</roleID>
   </user>
   <user id="3">
@@ -40,8 +40,8 @@
     <phoneNumber>53164264656</phoneNumber>
     <email>staff123@gmail.com</email>
     <registrationDateTime>2024-09-10 18:31:38</registrationDateTime>
-    <lastLoginDateTime>2024-09-16 21:46:42</lastLoginDateTime>
-    <lastLogOutDateTime>2024-09-16 21:46:44</lastLogOutDateTime>
+    <lastLoginDateTime>2024-09-16 17:36:50</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-16 17:36:57</lastLogOutDateTime>
     <roleID>3</roleID>
   </user>
   <user id="11">
@@ -62,8 +62,8 @@
     <phoneNumber>1321323212</phoneNumber>
     <email>testing3213@gmail.com</email>
     <registrationDateTime>2024-09-11 15:17:30</registrationDateTime>
-    <lastLoginDateTime>2024-09-16 21:47:38</lastLoginDateTime>
-    <lastLogOutDateTime>2024-09-16 21:48:20</lastLogOutDateTime>
+    <lastLoginDateTime>2024-09-16 19:28:12</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-16 19:30:11</lastLogOutDateTime>
     <roleID>2</roleID>
   </user>
   <user id="14">
@@ -76,16 +76,5 @@
     <lastLoginDateTime/>
     <lastLogOutDateTime/>
     <roleID>3</roleID>
-  </user>
-  <user id="15">
-    <username>chew123</username>
-    <password>$2y$10$mvPpCc9GT6pHMWQFkahoFuPitU4HjMoXK01rYzzvAlyKic9VK7IKS</password>
-    <fullName>chew</fullName>
-    <phoneNumber>0184024465</phoneNumber>
-    <email>chewws-wp21@student.tarc.edu.my</email>
-    <registrationDateTime>2024-09-17 02:18:04</registrationDateTime>
-    <lastLoginDateTime/>
-    <lastLogOutDateTime/>
-    <roleID>2</roleID>
   </user>
 </users>

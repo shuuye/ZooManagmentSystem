@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../Model/Inventory/InventoryModel.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
 
 class PurchaseOrder extends InventoryModel {
 
@@ -42,9 +42,6 @@ class PurchaseOrder extends InventoryModel {
     public function addNewPO() {
         $this->poId = $this->addPOIntoDB($this->supplierId, $this->orderDate, $this->deliveryDate, $this->billingAddress, $this->shippingAddress, $this->totalAmount, $this->status);
 
-        //initialize id by getting it from database
-        echo '<script>alert("New PO added with ID: ' . $this->poId . '");</script>';
-
         return $this->poId;
     }
 
@@ -64,21 +61,4 @@ class PurchaseOrder extends InventoryModel {
         return $success;
     }
    
-
-//    public function showPO($email) {
-//        require_once 'InventoryModel.php';
-//        $inventoryModel = new InventoryModel();
-//        $POdetails = $inventoryModel->getPODetails($email);
-//
-//        // Check if the data is an array and not empty
-//        if (is_array($POdetails) && !empty($POdetails)) {
-//            // You can pass the whole data to the view
-//            $data = $POdetails;
-//        } else {
-//            $data = "Data not found";
-//        }
-//
-//        // Pass the data to the View
-//        require '../../View/InventoryView/fetchPOview.php';
-//    }
 }

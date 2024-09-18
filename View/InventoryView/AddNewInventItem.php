@@ -3,7 +3,7 @@
 
     <h2>Add New Item to Inventory</h2>
 
-    <form action="../../Control/InventoryController/addNewItem.php" method="post">
+    <form action="/ZooManagementSystem/Control/InventoryController/addNewItem.php" method="post">
         <table>
             <tr>
                 <td>Item Name:</td>

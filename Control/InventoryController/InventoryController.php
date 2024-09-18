@@ -2,8 +2,8 @@
 
 //used to route users to the pages
 
-include_once '../../Model/Inventory/InventoryModel.php';
-require_once '../../View/InventoryView/InventoryView.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
+require_once 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryView.php';
 
 class InventoryController extends InventoryModel {
 
@@ -90,6 +90,25 @@ class InventoryController extends InventoryModel {
                     $status = isset($_GET['status']) ? $_GET['status'] : '';
                     $newQuantity = isset($_GET['newQuantity']) ? $_GET['newQuantity'] : '';
                     switch ($status) {
+                        case 'successPO':
+                            echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                            echo "<p class='alert alert-notification'>Out of stock !! A new Purchase Order is automatic generated. </p>";
+                            
+                            break;
+                        case 'errorPO':
+                            echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                            echo "<p class='alert alert-error'>Out of stock !! Falied to automatic generate new Purchase Order.</p>";
+                            break;
+                        case 'successWeb':
+                            echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                            echo "<p class='alert alert-notification'>Out of stock !! A new Purchase Order is automatic generated. </p>";
+                            echo "<p class='alert alert-notification'>The new purchase order is sent to supplier for processing. </p>";
+                            break;
+                        case 'errorWeb':
+                            echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
+                            echo "<p class='alert alert-notification'>Out of stock !! A new Purchase Order is automatic generated. </p>";
+                            echo "<p class='alert alert-error'>Falied to automatic generate new Purchase Order.</p>";
+                            break;
                         case 'success':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
                             break;
@@ -214,27 +233,32 @@ class InventoryController extends InventoryModel {
                     $this->index();
                     break;
             }
-        }else{
-            header("Location: ../../index.php?controller=$controller&action=$action");
+        } else {
+            header("Location: /ZooManagementSystem/index.php?controller=$controller&action=$action");
         }
     }
 
     public function index() {
         $xmlFiles = [
-            '../../Model/Xml/cleaninginventory.xml',
-            '../../Model/Xml/foodinventory.xml',
-            '../../Model/Xml/habitatinventory.xml',
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml',
-            '../../Model/Xml/supplier.xml',
-            '../../Model/Xml/inventoryusagelog.xml',
-            '../../Model/Xml/itemimage.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\cleaninginventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\foodinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\habitatinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\/purchaseorderlineitem.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\supplier.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventoryusagelog.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\itemimage.xml'
         ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\inventorySystemMain.xsl';
         $data = [
             'activePage' => 'Dashboard',
-            'pageCss' => 'inventory.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/inventory.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -243,11 +267,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function inventory() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\InventoryCatalog.xsl';
         $data = [
             'activePage' => 'Inventory Management',
-            'pageCss' => 'mainInventoryTracking.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -259,7 +288,12 @@ class InventoryController extends InventoryModel {
     public function addInventoryItem() {
         $data = [
             'activePage' => 'Add Inventory Item',
-            'pageCss' => 'addInventoryItem.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/addInventoryItem.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => false
         ];
 
@@ -270,7 +304,12 @@ class InventoryController extends InventoryModel {
         $inventoryData = $this->model->getInventory();
         $data = [
             'activePage' => 'Log Usage',
-            'pageCss' => 'InventoryUsage.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/InventoryUsage.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => false,
             'inventoryData' => $inventoryData
         ];
@@ -279,11 +318,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function viewHabitatItem() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\HabitatInventoryCatalog.xsl';
         $data = [
             'activePage' => 'Inventory Management',
-            'pageCss' => 'mainInventoryTracking.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -292,11 +336,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function viewFoodItem() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\FoodInventoryCatalog.xsl';
         $data = [
             'activePage' => 'Inventory Management',
-            'pageCss' => 'mainInventoryTracking.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -305,11 +354,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function viewCleaningItem() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\CleaningInventoryCatalog.xsl';
         $data = [
             'activePage' => 'Inventory Management',
-            'pageCss' => 'mainInventoryTracking.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -319,13 +373,13 @@ class InventoryController extends InventoryModel {
 
     public function viewSpecific($inventoryId, $itemType, $itemID) {
         $xmlFiles = [
-            '../../Model/Xml/cleaninginventory.xml',
-            '../../Model/Xml/foodinventory.xml',
-            '../../Model/Xml/habitatinventory.xml',
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml',
-            '../../Model/Xml/itemImage.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\cleaninginventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\foodinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\habitatinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorderlineitem.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\itemImage.xml'
         ];
 
         switch ($itemType) {
@@ -345,11 +399,16 @@ class InventoryController extends InventoryModel {
 
         $data = [
             'activePage' => 'Inventory Management',
-            'pageCss' => 'InventoryItemDetails.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/InventoryItemDetails.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true,
             'inventoryID' => $inventoryId,
             'itemID' => $itemID,
-            'imageDirectory' => '../../assests/InventoryImages/'
+            'imageDirectory' => '/ZooManagementSystem/assests/InventoryImages/'
         ];
 
         $output = $this->view->renderXML($xmlFiles, $xslFile, $data);
@@ -358,12 +417,12 @@ class InventoryController extends InventoryModel {
 
     public function viewItembasedOnInventoryID($inventoryId, $itemType) {
         $xmlFiles = [
-            '../../Model/Xml/cleaninginventory.xml',
-            '../../Model/Xml/foodinventory.xml',
-            '../../Model/Xml/habitatinventory.xml',
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\cleaninginventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\foodinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\habitatinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorderlineitem.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml'
         ];
 
         switch ($itemType) {
@@ -383,7 +442,12 @@ class InventoryController extends InventoryModel {
 
         $data = [
             'activePage' => 'Inventory Management',
-            'pageCss' => 'mainInventoryTracking.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'inventoryID' => $inventoryId,
             'xslt_transform' => true
         ];
@@ -426,9 +490,14 @@ class InventoryController extends InventoryModel {
             'itemID' => $itemID,
             'price' => $price,
             'supplierDetails' => $supplierDetails,
-            'image' => "../../assests/InventoryImages/" . $imagePath,
+            'image' => "/ZooManagementSystem/assests/InventoryImages/" . $imagePath,
             'activePage' => 'Inventory Management',
-            'pageCss' => 'purchaseorder.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/purchaseorder.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => false
         ];
 
@@ -437,18 +506,23 @@ class InventoryController extends InventoryModel {
 
     public function sendPO($POid) {
         $xmlFiles = [
-            '../../Model/Xml/cleaninginventory.xml',
-            '../../Model/Xml/foodinventory.xml',
-            '../../Model/Xml/habitatinventory.xml',
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml',
-            '../../Model/Xml/supplier.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\cleaninginventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\foodinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\habitatinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorderlineitem.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\supplier.xml'
         ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\processPO.xsl';
         $data = [
             'activePage' => 'Purchase Order Management',
-            'pageCss' => 'processPO.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/processPO.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'POid' => $POid,
             'xslt_transform' => true
         ];
@@ -459,13 +533,18 @@ class InventoryController extends InventoryModel {
 
     public function showPO() {
         $xmlFiles = [
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/supplier.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\supplier.xml'
         ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\showAllPO.xsl';
         $data = [
             'activePage' => 'Purchase Order Management',
-            'pageCss' => 'mainInventoryTracking.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -474,11 +553,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function InventorySummary() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -487,11 +571,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function cleaningInventorySummary() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportcleaningInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -500,11 +589,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function habitatInventorySummary() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReporthabitatInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -513,11 +607,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function foodInventorySummary() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportfoodInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -526,11 +625,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function outStockInventorySummary() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportoutStockInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -539,11 +643,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function inStockInventorySummary() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportInStockInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -552,11 +661,16 @@ class InventoryController extends InventoryModel {
     }
 
     public function lowStockInventorySummary() {
-        $xmlFile = '../../Model/Xml/inventory.xml';
+        $xmlFile = 'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml';
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportLowStockInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -566,18 +680,23 @@ class InventoryController extends InventoryModel {
 
     public function cleaninginventoryRecordReport() {
         $xmlFiles = [
-            '../../Model/Xml/cleaninginventory.xml',
-            '../../Model/Xml/foodinventory.xml',
-            '../../Model/Xml/habitatinventory.xml',
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml',
-            '../../Model/Xml/supplier.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\cleaninginventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\foodinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\habitatinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorderlineitem.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\supplier.xml'
         ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportRecordcleaningInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -587,18 +706,23 @@ class InventoryController extends InventoryModel {
 
     public function foodinventoryRecordReport() {
         $xmlFiles = [
-            '../../Model/Xml/cleaninginventory.xml',
-            '../../Model/Xml/foodinventory.xml',
-            '../../Model/Xml/habitatinventory.xml',
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml',
-            '../../Model/Xml/supplier.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\cleaninginventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\foodinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\habitatinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorderlineitem.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\supplier.xml'
         ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportRecordfoodInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -608,18 +732,23 @@ class InventoryController extends InventoryModel {
 
     public function habitatinventoryRecordReport() {
         $xmlFiles = [
-            '../../Model/Xml/cleaninginventory.xml',
-            '../../Model/Xml/foodinventory.xml',
-            '../../Model/Xml/habitatinventory.xml',
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml',
-            '../../Model/Xml/supplier.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\cleaninginventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\foodinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\habitatinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorderlineitem.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\supplier.xml'
         ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportRecordhabitatInventorySummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 
@@ -629,18 +758,23 @@ class InventoryController extends InventoryModel {
 
     public function poSummaryReport() {
         $xmlFiles = [
-            '../../Model/Xml/cleaninginventory.xml',
-            '../../Model/Xml/foodinventory.xml',
-            '../../Model/Xml/habitatinventory.xml',
-            '../../Model/Xml/purchaseorder.xml',
-            '../../Model/Xml/purchaseorderlineitem.xml',
-            '../../Model/Xml/inventory.xml',
-            '../../Model/Xml/supplier.xml'
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\cleaninginventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\foodinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\habitatinventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorder.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\purchaseorderlineitem.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\inventory.xml',
+            'C:\xampp\htdocs\ZooManagementSystem\Model\Xml\supplier.xml'
         ];
         $xslFile = 'C:\xampp\htdocs\ZooManagementSystem\View\InventoryView\ReportPOsummary.xsl';
         $data = [
             'activePage' => 'Reports',
-            'pageCss' => 'ReportdisplayingTable.css',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+                
+            ],
             'xslt_transform' => true
         ];
 

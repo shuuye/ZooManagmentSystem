@@ -3,8 +3,8 @@
 //This model represents the data for an animal. When the animal's information changes, it will notify all observers. It is the concrete subject.
 //The AnimalModel class implements the subject interface and is responsible for managing animal data. It maintains a list of observers and notifies them when data changes.
 
-include_once '../../Config/databaseConfig.php';
-require_once '../../Model/Inventory/InventoryModel.php';
+include_once 'Config/databaseConfig.php';
+require_once 'Model/Inventory/InventoryModel.php';
 require_once 'subject.php';
 require_once 'HealthObserver.php';
 require_once 'HabitatObserver.php';

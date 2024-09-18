@@ -58,15 +58,17 @@ class UpdateItemCommand implements InventoryCommand {
     private $inventory;
     private $oldQuantity;
     private $newQuantity;
+    private $inventoryId;
 
-    public function __construct($inventory, $newQuantity, $oldQuantity) {
+    public function __construct($inventory, $newQuantity, $oldQuantity,$inventoryId) {
         $this->inventory = $inventory;
         $this->oldQuantity = $oldQuantity;
         $this->newQuantity = $newQuantity;
+        $this->inventoryId = $inventoryId;
     }
 
     public function execute() {
-        $this->inventory->updateInventoryQuantity($this->newQuantity, $this->inventory->getInventoryId());
+        $this->inventory->updateInventoryQuantity($this->newQuantity, $this->inventoryId);
     }
 
     public function undo() {
