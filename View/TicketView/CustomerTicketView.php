@@ -12,7 +12,7 @@ class CustomerTicketView {
             $userModel = $_SESSION['currentUserModel'];
 
             // Display user details
-            echo "Welcome, " . htmlspecialchars($userModel['firstName']) . "!";
+            echo "Welcome, " . htmlspecialchars($userModel['fullName']) . "!";
         } else {
             echo "No user is logged in.";
         }
