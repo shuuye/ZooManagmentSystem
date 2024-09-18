@@ -1,10 +1,10 @@
 <?php
 
-//Routing (category_statistics.php): Connects the URL to the appropriate controller action.
-
+// Routing: Both category and gender in the same request
 require_once '../../Control/AnimalControllerN/CategoryController.php';
 
-
 $controller = new CategoryController();
-$controller->getCategoryCounts();
+
+$categoryData = $controller->getCategoryCounts();
+
 ?>

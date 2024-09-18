@@ -243,6 +243,10 @@
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
+<<<<<<< HEAD
+            $_SESSION['leaveAppliedSuccessfully'] = 'Leave Applied Successfully.';
+=======
+>>>>>>> 630990a5674cdcab70213f05cf5c24f1d0554ed3
             header("Location: index.php?controller=user&action=staffTakeWorkingAttendance");
             exit();
             
@@ -349,4 +353,8 @@
         }
         
     }
+<<<<<<< HEAD
     
+=======
+    
+>>>>>>> 630990a5674cdcab70213f05cf5c24f1d0554ed3

@@ -1,5 +1,4 @@
 <!--This is my whole animal system Home page, if i want to do summary report i will do it here-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +18,21 @@
         </ul>
     </nav>
     
-     <div id="chart">
-    <h2>Animal Categories Pie Chart</h2><!--Web Service 1 one consume-->
-    <canvas id="myPieChart"></canvas>
+    <h1>Animal Dashboard</h1>
+    
+    <div id="chart">
+        <h2>Animal Categories Pie Chart</h2><!--Web Service 1 one consume-->
+        <canvas id="myPieChart"></canvas>
     </div>
-    
-    
+  
+    <div id="Dcount">
+        <h2>Total Animal Health Status Count : </h2>
+        <?php
+        include_once '../../Control/AnimalControllerN/HealthController.php';
+        $controller = new HealthController();
+        $controller->displayHealthStatusCounts();
+        ?>
+    </div>
     
 </body>
 </html>

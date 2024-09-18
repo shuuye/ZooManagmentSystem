@@ -172,7 +172,7 @@ class XmlGenerator extends databaseConfig {
             $xml->load($xmlFileName);
 
             $xpath = new DOMXPath($xml);
-            $entries = $xpath->query($xpathQuery);
+            $entries = $xpath->query($xpathQuery); // Way 1 pass  Query as XPATH
 
             $newXml = new DOMDocument();
             $root = $newXml->createElement("HealthRecords");
@@ -189,9 +189,30 @@ class XmlGenerator extends databaseConfig {
             return null;
         }
     }
+    
+    public function countHealthStatuses($xmlFileName) { // Pam
+    if (file_exists($xmlFileName)) {
+        $xml = new DOMDocument();
+        $xml->load($xmlFileName);
 
+        $xpath = new DOMXPath($xml);
 
+        // Query for different health statuses
+        $statusCounts = [];
+        $statuses = ['Healthy', 'Normal', 'Treatment','Warning']; // List your health statuses here
+        foreach ($statuses as $status) {
+            $query = "//HealthRecord[healthStatus='$status']"; // XPATH count Health status
+            $entries = $xpath->query($query);
+            $statusCounts[$status] = $entries->length;
+        }
 
+        return $statusCounts;
+    } else {
+        echo "The file $xmlFileName does not exist.";
+        return null;
+    }
+}
+    
     public function transformXmlWithXsl($xml, $xsl) {
         $xmlDoc = new DOMDocument();
         $xmlDoc->loadXML($xml);
@@ -200,5 +221,34 @@ class XmlGenerator extends databaseConfig {
         $proc = new XSLTProcessor();
         $proc->importStylesheet($xslDoc);
         return $proc->transformToXML($xmlDoc);
+    }
+
+    // For Vanness Ticket Facade
+    public function createXMLFileFromArray($tableName, $outputFileName, $rootElementName, $elementsName, $attributeForFirstElement, $data) {
+        $xml = new DOMDocument('1.0', 'UTF-8');
+        $xml->formatOutput = true;
+
+        // Create root element
+        $root = $xml->createElement($rootElementName);
+        $xml->appendChild($root);
+
+        foreach ($data as $row) {
+            $elementInRoot = $xml->createElement($elementsName);
+            $firstColumnKey = key($row);
+
+            if ($firstColumnKey === $attributeForFirstElement) {
+                $elementInRoot->setAttribute($attributeForFirstElement, htmlspecialchars($row[$firstColumnKey]));
+                unset($row[$firstColumnKey]);
+            }
+
+            foreach ($row as $column => $value) {
+                $element = $xml->createElement($column, htmlspecialchars($value));
+                $elementInRoot->appendChild($element);
+            }
+
+            $root->appendChild($elementInRoot);
+        }
+
+        $this->saveXmlFile($xml, $outputFileName);
     }
 }

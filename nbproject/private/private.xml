@@ -3,19 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/PurchaseOrder.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/addNewItem.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/public/apiWebService.php</file>
+<<<<<<< HEAD
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/AnimalView/animal_home.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/XmlGenerator.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/FoodManagementController.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/ObserverN/AnimalModel.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/HabitatControllerObserver.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/AnimalControllerN/AnimalController.php</file>
+=======
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryView.php</file>
-            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Model/Inventory/InventoryModel.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/InventoryController.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/index.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/logUsage.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/View/InventoryView/InventoryMasterPage.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Control/InventoryController/addNewItem.php</file>
+            <file>file:/C:/xampp/htdocs/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/index.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/public/testRMIClient.php</file>
             <file>file:/C:/xampp/htdocs/ZooManagementSystem/public/InventoryWebService/RestfulPoNotiService_Consume.php</file>
+>>>>>>> 630990a5674cdcab70213f05cf5c24f1d0554ed3
         </group>
     </open-files>
 </project-private>

@@ -16,10 +16,11 @@ $controller ->handleAddHealthRecordForm();
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/animal_form.css">
     <title>Add Health Record</title>
 </head>
 <body>
-    <h2>Add New Health Record</h2>
+    <h2>Add | Update New Health Record</h2>
     
     <nav>
         <ul>
@@ -43,8 +44,14 @@ $controller ->handleAddHealthRecordForm();
         <label for="last_checkup">Last Checkup:</label>
         <input type="date" name="last_checkup" required>
         <br/>
-        <label for="treatments">Treatments:</label>
-        <textarea name="treatments" required></textarea>
+       <label for="treatments">Treatments:</label>
+        <select name="treatments" id="treatments" required>
+            <option value="">Select a treatment</option>
+            <option value="area_check">Area Check</option>
+            <option value="body_check">Body Check</option>
+            <option value="vaccination">Vaccination</option>
+            <option value="dental_check">Dental Check</option>
+        </select>
         <br/>
         <label for="healthStatus">Health Status:</label>
         <select name="healthStatus" required>

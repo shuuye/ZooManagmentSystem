@@ -3,6 +3,8 @@
     <xsl:template match="/">
         <html>
             <head>
+                <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/health.css"/>
+                <script type="text/javascript" src="../../View/AnimalView/health.js"></script>
                 <title>Animal Health Reports</title>
             </head>
             <body>
@@ -26,6 +28,7 @@
                     </xsl:for-each>
                 </table>
                 <br/>
+                <button type="button" onclick="confirmAndPrint()">Print Report</button>
             </body>
         </html>
     </xsl:template>

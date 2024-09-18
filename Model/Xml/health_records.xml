@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <HealthRecords>
-  <HealthRecord hRecord_id="1">
-    <animal_id>1</animal_id>
-    <last_checkup>2024-01-23</last_checkup>
-    <treatments>Vaccination</treatments>
-    <healthStatus>Healthy</healthStatus>
+  <HealthRecord hRecord_id="22">
+    <animal_id>21</animal_id>
+    <last_checkup>2024-09-05</last_checkup>
+    <treatments>body_check</treatments>
+    <healthStatus>Treatment</healthStatus>
   </HealthRecord>
+<<<<<<< HEAD
+  <HealthRecord hRecord_id="23">
+    <animal_id>20</animal_id>
+    <last_checkup>2024-09-04</last_checkup>
+    <treatments>body_check</treatments>
+=======
   <HealthRecord hRecord_id="2">
     <animal_id>2</animal_id>
     <last_checkup>2024-01-01</last_checkup>
@@ -100,6 +106,7 @@
     <animal_id>17</animal_id>
     <last_checkup>2024-09-17</last_checkup>
     <treatments>Vaccination</treatments>
+>>>>>>> 630990a5674cdcab70213f05cf5c24f1d0554ed3
     <healthStatus>Treatment</healthStatus>
   </HealthRecord>
 </HealthRecords>

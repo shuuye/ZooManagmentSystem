@@ -1,12 +1,3 @@
-body {
-  background-color: #f0f8ff;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
 
 nav {
   background-color: #e0ffff;
@@ -36,3 +27,19 @@ nav li a {
 nav li a:hover {
   background-color: #99ccff;
 }
+
+/* Chart Styles */
+#chart {
+    text-align: center;
+    margin-bottom: 20px;
+    border: 30px solid;
+}
+
+#myPieChart {
+    width: 300px; 
+    height: 300px; 
+    margin: 20px auto;
+}
+
+
+

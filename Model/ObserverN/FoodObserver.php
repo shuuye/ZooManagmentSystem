@@ -1,7 +1,9 @@
 <?php
+require_once 'Observer.php';
+
 class FoodObserver implements Observer {
-    public function update($data) {
-         echo "\nFeeding report has been updated.\n";
+    public function update(subject $subject) {
+         echo "Feeding report updated successfully.\n";
     }
 }
 ?>

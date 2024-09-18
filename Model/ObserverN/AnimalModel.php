@@ -23,7 +23,6 @@ class AnimalModel extends databaseConfig implements subject{
     public function __construct() {
         $this->db = new databaseConfig();
         $this->inventoryModel = new InventoryModel(); 
-        // Add observers
         $this->attach(new HealthObserver());
         $this->attach(new HabitatObserver());
         $this->attach(new AnimalObserver());
@@ -47,7 +46,7 @@ class AnimalModel extends databaseConfig implements subject{
         }
     }
     
-  // Setter and Getter-------------------------------------------------------------------------
+    // Setter and Getter-------------------------------------------------------------------------
   
     // Set habitat data and notify observers
     
@@ -82,7 +81,6 @@ class AnimalModel extends databaseConfig implements subject{
   
     
   // Animal function -------------------------------------------------------------------------------------------------------------------
- 
  // Add new animal details
     public function addAnimal($inventoryId, $animalDetails) {
         $query = "INSERT INTO animalinventory (inventoryId, name, species, subspecies, categories, age, gender, date_of_birth, avg_lifespan, description, height, weight, habitat_id) 
@@ -160,6 +158,7 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt = $this->db->getConnection()->prepare($query);
         $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
         $stmt->bindParam(':image_path', $imagePath);
+        $this->notify();
         return $stmt->execute();
     }
     
@@ -168,7 +167,6 @@ class AnimalModel extends databaseConfig implements subject{
         $statement = $this->db->getConnection()->prepare($query);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
-
         return $statement->fetch(PDO::FETCH_ASSOC); // Return animal as an associative array
     }
     
@@ -190,8 +188,9 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->bindParam(':height', $animalDetails['height']);
         $stmt->bindParam(':weight', $animalDetails['weight']);
         $stmt->bindParam(':habitat_id', $animalDetails['habitat_id'], PDO::PARAM_INT);
-        return $stmt->execute();
         $this->notify();
+        return $stmt->execute();
+        
     }
     
     public function updateAnimalImage($animalId, $imagePath) {
@@ -217,9 +216,8 @@ class AnimalModel extends databaseConfig implements subject{
             error_log("Error updating animal image for animal ID {$animalId}");
             error_log(print_r($stmt->errorInfo(), true));
         }
-
-        return $result;
         $this->notify();
+        return $result;
     }
 
     // Method to delete an animal
@@ -227,8 +225,9 @@ class AnimalModel extends databaseConfig implements subject{
         $query = "DELETE FROM animalinventory WHERE id = :id";
         $stmt = $this->db->getConnection()->prepare($query);
         $stmt->bindParam(':id', $animalId, PDO::PARAM_INT);
-        return $stmt->execute();
         $this->notify();
+        return $stmt->execute();
+        
     }
     
     // Count all animals
@@ -267,8 +266,8 @@ class AnimalModel extends databaseConfig implements subject{
             $stmt->bindParam(':description', $description);
 
             if ($stmt->execute()) {
+                $this->notify();
                 echo "New habitat added successfully.";
-                header('Location: list_habitats.php');
             } else {
                 echo "Failed to add new habitat.";
             }
@@ -320,6 +319,7 @@ class AnimalModel extends databaseConfig implements subject{
             $stmt->bindParam(':description', $description);
 
             if ($stmt->execute()) {
+                $this->notify();
                 echo "Habitat updated successfully.";
                 
             } else {
@@ -346,6 +346,7 @@ class AnimalModel extends databaseConfig implements subject{
         $sql = "DELETE FROM habitats WHERE habitat_id = :habitat_id";
         $stmt = $this->db->getConnection()->prepare($sql);
         $stmt->bindParam(':habitat_id', $habitat_id);
+        $this->notify();
         return $stmt->execute();
     }
     
@@ -388,6 +389,7 @@ class AnimalModel extends databaseConfig implements subject{
       // Retrieve the last inserted ID
       $healthRecordId = $conn->lastInsertId();
       $this->setHealthRecordId($healthRecordId); // Update and notify observers
+      $this->notify();
       return $healthRecordId;
   }
 
@@ -401,6 +403,7 @@ class AnimalModel extends databaseConfig implements subject{
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':health_id', $healthRecordId);
     $stmt->bindParam(':animal_id', $animalId);
+    $this->notify();
     $stmt->execute();
 }
  
@@ -418,7 +421,7 @@ class AnimalModel extends databaseConfig implements subject{
         $stmt->bindParam(':last_checkup', $lastCheckup, PDO::PARAM_STR);
         $stmt->bindParam(':treatments', $treatments, PDO::PARAM_STR);
         $stmt->bindParam(':healthStatus', $healthStatus, PDO::PARAM_STR);
-
+        $this->notify();
         $stmt->execute();
         $this->setHealthRecordId($healthRecordId); // Update and notify observers
     }
@@ -442,7 +445,7 @@ class AnimalModel extends databaseConfig implements subject{
     }
     
     public function getAllFeedingRecords() {
-        $stmt = $this->db->getConnection()->prepare("SELECT * FROM animalfeeding");
+        $stmt = $this->db->getConnection()->prepare("SELECT * FROM animalfeeding ORDER BY animal_id ASC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -498,7 +501,7 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
 
 // Web Servicecs
 
-      // Method to fetch category counts
+     // Method to fetch category counts for chart
     public function getCategoryCounts() {
         $sql = "SELECT categories, COUNT(*) as count FROM animalinventory GROUP BY categories";
         $stmt = $this->db->getConnection()->prepare($sql);
@@ -510,8 +513,8 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
         }
         return $categories;
     }
-    
-     // Method to fetch animal health reports
+
+     // Method to fetch animal health reports old web service 
     public function getAnimalHealthReports() {
         $sql = "SELECT hRecord_id, animal_id, treatments, healthStatus FROM health_records";
         $stmt = $this->db->getConnection()->prepare($sql);
@@ -530,10 +533,6 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
         return $reports;
     }
     
-    
-
-
-
 }
 ?>
 

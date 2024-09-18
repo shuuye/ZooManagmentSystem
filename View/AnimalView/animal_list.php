@@ -16,30 +16,23 @@ $animals = $animalController->displayAnimals($category, $animalsPerPage, $offset
 // Get total number of animals for pagination
 $totalAnimals = $animalController->countAnimals($category); // You need a method to count total animals
 $totalPages = ceil($totalAnimals / $animalsPerPage);
-
 $categories = ['Mammals', 'Birds', 'Amphibians'];
 
-//include_once '../../Control/AnimalControllerN/AnimalController.php';
-//
-//$animalController = new AnimalController();
-//$animalController->route();
-//$category = isset($_GET['category']) ? $_GET['category'] : null;
-//$animals = $animalController->displayAnimals($category);
-//
-//$categories = ['Mammals', 'Birds', 'Amphibians'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
     <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_list.css">
     <title>Animal List</title>
 </head>
-
 <body>
-    <nav>
+    
+     <nav>
         <ul>
             <li><a href="animal_home.php?action=home">Animal Home</a></li>
             <li><a href="index.php?action=showForm">Add New Animal</a></li>
@@ -47,9 +40,12 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
     </nav>
     
     <h1>Animal List</h1>
+
     <div id="animalList">
+        
     <form method="GET" action="">
-        <label for="category">Select Category:</label>
+        
+        <label for="category"> Search By Category: </label>
         <select name="category" id="category" onchange="this.form.submit()">
             <option value="">All Categories</option>
             <?php foreach ($categories as $cat) : ?>
@@ -67,6 +63,10 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
                 <th>Animal ID</th>
                 <th>Name</th>
                 <th>Species</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Date of Born</th>
+                <th>Average Life Span </th>
                 <th>Height</th>
                 <th>Weight</th>
                 <th>Habitat ID</th>
@@ -88,6 +88,10 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
                         <td><?php echo htmlspecialchars($animal['id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['name']); ?></td>
                         <td><?php echo htmlspecialchars($animal['species']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['age']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['gender']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['date_of_birth']); ?></td>
+                        <td><?php echo htmlspecialchars($animal['avg_lifespan']); ?></td>
                         <td><?php echo htmlspecialchars($animal['height']); ?></td>
                         <td><?php echo htmlspecialchars($animal['weight']); ?></td>
                         <td><?php echo htmlspecialchars($animal['habitat_id']); ?></td>

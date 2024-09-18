@@ -1,11 +1,7 @@
 <!--This page is only for display purpose, which is for read only admin see only--> 
 
-
 <?php
-// Include the controller
 require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
-
-// Create an instance of the controller
 $habitatController = new HabitatControllerObserver();
 ?>
 
@@ -16,16 +12,20 @@ $habitatController = new HabitatControllerObserver();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Habitats</title>
     <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
+    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/habitatView.css">
 </head>
 <body>
-    <nav>
+    
+     <nav>
         <ul>
             <li><a href="animal_home.php">Back</a></li>
             <li><a href="add_habitat.php">Add New Habitat</a></li>
             <li><a href="list_habitats.php">Edit and Delete Habitat</a></li>
         </ul>
     </nav>
+    
     <h1> Habitats for View</h1>
+    
     <table>
         <thead>
             <tr>
