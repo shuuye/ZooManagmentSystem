@@ -212,10 +212,7 @@ class XmlGenerator extends databaseConfig {
         return null;
     }
 }
-
-
-
-
+    
     public function transformXmlWithXsl($xml, $xsl) {
         $xmlDoc = new DOMDocument();
         $xmlDoc->loadXML($xml);
@@ -224,5 +221,34 @@ class XmlGenerator extends databaseConfig {
         $proc = new XSLTProcessor();
         $proc->importStylesheet($xslDoc);
         return $proc->transformToXML($xmlDoc);
+    }
+
+    // For Vanness Ticket Facade
+    public function createXMLFileFromArray($tableName, $outputFileName, $rootElementName, $elementsName, $attributeForFirstElement, $data) {
+        $xml = new DOMDocument('1.0', 'UTF-8');
+        $xml->formatOutput = true;
+
+        // Create root element
+        $root = $xml->createElement($rootElementName);
+        $xml->appendChild($root);
+
+        foreach ($data as $row) {
+            $elementInRoot = $xml->createElement($elementsName);
+            $firstColumnKey = key($row);
+
+            if ($firstColumnKey === $attributeForFirstElement) {
+                $elementInRoot->setAttribute($attributeForFirstElement, htmlspecialchars($row[$firstColumnKey]));
+                unset($row[$firstColumnKey]);
+            }
+
+            foreach ($row as $column => $value) {
+                $element = $xml->createElement($column, htmlspecialchars($value));
+                $elementInRoot->appendChild($element);
+            }
+
+            $root->appendChild($elementInRoot);
+        }
+
+        $this->saveXmlFile($xml, $outputFileName);
     }
 }
