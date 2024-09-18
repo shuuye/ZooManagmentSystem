@@ -530,4 +530,14 @@
     <quantity>510</quantity>
     <unitPrice>20.00</unitPrice>
   </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>54</poLineItemId>
+    <poId>54</poId>
+    <inventoryId>44</inventoryId>
+    <cleaningId/>
+    <habitatId/>
+    <foodId>1</foodId>
+    <quantity>20</quantity>
+    <unitPrice>50.00</unitPrice>
+  </purchaseorderlineitem>
 </purchaseorderlineitems>
