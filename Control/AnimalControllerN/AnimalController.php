@@ -172,11 +172,9 @@ class AnimalController extends InventoryModel{
         } else {
             $animals = $this->animalModel->getAnimalsByCategory();
         }
-
         foreach ($animals as &$animal) {
             $animal['image'] = $this->animalModel->getAnimalImage($animal['id']);
         }
-
         return $animals;
     }
 

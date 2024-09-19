@@ -8,7 +8,7 @@ include_once 'C:\xampp\htdocs\ZooManagementSystem\View\adminTopNavHeader.php';
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/ZooManagementSystem/Css/AnimalN/ani_Nav.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
     <script src="chart.js" defer></script>
     <title>Animal Home Page</title>
 </head>
