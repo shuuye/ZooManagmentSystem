@@ -1,127 +1,157 @@
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
+    .topnav {
+        overflow: hidden;
+        background-color: darkblue;
+        height: 30px;
+    }
 
-form {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 20px auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 800px;
-}
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 5px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
 
-h2 {
-    color: #000;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
 
-p {
-    font-size: 14px;
-}
-
-p.error {
-    color: red;
-    font-weight: bold;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-table th, table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-}
-
-table th {
-    background-color: #000;
-    color: #fff;
-}
-
-table td {
-    background-color: #f9f9f9;
-}
-
-input[type="number"], input[type="date"], input[type="submit"] {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 8px;
-    margin-top: 5px;
-}
-
-input[type="submit"] {
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-input[type="submit"]:hover {
-    background-color: #333;
-}
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
 </style>
 
 <?php
 
-class CustomerTicketView {
+class AdminTicketView {
 
-    public static function displayTickets($tickets, $errorMessage = '', $csrfToken = '') {
+    public static function render($tickets, $errorMessage = '') {
+        ?>
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>Admin Ticket Management</title>
+                <link rel="stylesheet" type="text/css" href="../Css/TicketManagement.css">
+            </head>
+            <body>
+                <div class="header">
+                    <div class="topnav">
+                        <a href="index.php?controller=admin&action=displayAdminMainPanel">Admin Main Panel</a>
+                        <?php
+                        if (session_status() === PHP_SESSION_NONE) {
+                            session_start();
+                        }
 
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+                        if (isset($_SESSION['currentUserModel'])) {
+                            echo '<a href="index.php?controller=user&action=logOut" style="float: right">Log Out</a>';
+                            echo '<a href="index.php?controller=user&action=showUserProfile" style="float: right">Profile</a>';
+                            echo '<p style="float: right; color: white; margin-top:7px;">Welcome, ' . $_SESSION['currentUserModel']['username'] . '</p>';
+                        }
+                        ?>
+                    </div>
 
-        if (isset($_SESSION['currentUserModel'])) {
-            $userModel = $_SESSION['currentUserModel'];
-        } else {
-            echo "No user is logged in.";
-        }
+                    <!--place link-->
+                    <div class="topnav" style="background-color: blue;">
+                        <a href="createanddeletefunction.php" class="link-box">Event Management</a>
+                        <a href="index.php?controller=user&action=userManagementMainPanel" class="link-box">User Management</a>
+                        <a href="index.php?controller=inventory&action=index" class="link-box">Inventory Management Panel</a>
+                        <a href="adminTicketPage.php" class="link-box">Ticketing & Payment Management Panel</a>
+                        <a href="View/AnimalView/animal_home.php" class="link-box">Animal Management Panel</a>
+                    </div>
+                    <form method="post" action="index.php" style="display:inline;">
+                        <input type="submit" name="Back" value="Back">
+                    </form>
 
-        echo '<form method="POST" action="">';
+                    <h2>Manage Tickets</h2>
+                </div>
 
-        // Include CSRF token in the form
-        echo '<input type="hidden" name="csrf_token" value="' . htmlspecialchars($csrfToken) . '">';
+                <form method="post">
+                    <label for="action">Choose action:</label>
+                    <select name="action" id="action">
+                        <option value="Add">Add Ticket</option>
+                        <option value="Edit">Edit Ticket</option>
+                        <option value="Delete">Delete Ticket</option>
+                    </select>
+                    <input type="submit" value="Submit">
+                </form>
 
-        echo '<h2>Select Your Tickets</h2>';
+        <?php if (!empty($tickets)) : ?>
+                    <h2>Tickets List</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            <?php foreach ($tickets as $ticket) : ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($ticket['id']); ?></td>
+                                    <td><?php echo htmlspecialchars($ticket['type']); ?></td>
+                                    <td><?php echo htmlspecialchars($ticket['description']); ?></td>
+                                    <td><?php echo htmlspecialchars($ticket['price']); ?></td>
+                                </tr>
+            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <p>No tickets found. The table is empty.</p>
+        <?php endif; ?>
 
-        if (!empty($errorMessage)) {
-            echo '<p style="color: red;">' . htmlspecialchars($errorMessage) . '</p>';
-        }
+                <div id="form-container">
+                    <?php if (isset($_POST['action'])) : ?>
+            <?php if ($_POST['action'] == 'Add') : ?>
+                            <h2>Add Ticket</h2>
+                            <form method="post">
+                                <input type="hidden" name="action" value="Add">
+                                <label for="type">Type:</label>
+                                <input type="text" name="type" id="type" required>
+                                <label for="description">Description:</label>
+                                <input type="text" name="description" id="description" required>
+                                <label for="price">Price:</label>
+                                <input type="number" name="price" id="price" required>
+                                <input type="submit" value="Add Ticket">
+                            </form>
+            <?php elseif ($_POST['action'] == 'Edit') : ?>
+                            <h2>Edit Ticket</h2>
+                            <form method="post">
+                                <input type="hidden" name="action" value="Edit">
+                                <label for="id">ID:</label>
+                                <input type="number" name="id" id="id" required>
+                                <label for="type">Type:</label>
+                                <input type="text" name="type" id="type" required>
+                                <label for="description">Description:</label>
+                                <input type="text" name="description" id="description" required>
+                                <label for="price">Price:</label>
+                                <input type="number" name="price" id="price" required>
+                                <input type="submit" value="Update Ticket">
+                            </form>
+            <?php elseif ($_POST['action'] == 'Delete') : ?>
+                            <h2>Delete Ticket</h2>
+                            <form method="post">
+                                <input type="hidden" name="action" value="Delete">
+                                <label for="id">ID:</label>
+                                <input type="number" name="id" id="id" required>
+                                <input type="submit" value="Delete Ticket">
+                            </form>
+                        <?php endif; ?>
+                    <?php endif; ?>
 
-        echo '<table>';
-        echo '<tr><th>Type</th><th>Description</th><th>Price (RM)</th><th>Quantity</th></tr>';
-
-        foreach ($tickets as $ticket) {
-            echo '<tr>';
-            echo '<td>' . htmlspecialchars($ticket['type']) . '</td>';
-            echo '<td>' . htmlspecialchars($ticket['description']) . '</td>';
-            echo '<td>' . htmlspecialchars($ticket['price']) . '</td>';
-            echo '<td><input type="number" name="quantity[' . htmlspecialchars($ticket['id']) . ']" value="0" min="0" max="10"></td>';
-            echo '</tr>';
-        }
-
-        echo '</table>';
-
-        // Date input for selecting the zoo visit date
-        echo '<label for="visit_date">Select Visit Date:</label>';
-        echo '<input type="date" name="visit_date" required>';
-        echo '<br><br>';
-
-        echo '<input type="submit" value="Proceed to Payment">';
-        echo '</form>';
+                    <?php if ($errorMessage) : ?>
+                        <p style="color: red;"><?php echo htmlspecialchars($errorMessage); ?></p>
+        <?php endif; ?>
+                </div>
+            </body>
+        </html>
+        <?php
     }
 }
-
 ?>
