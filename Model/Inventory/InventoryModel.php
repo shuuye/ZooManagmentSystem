@@ -863,6 +863,45 @@ class InventoryModel extends databaseConfig {
             return null; // No image found for given criteria
         }
     }
+
+    protected function getPODetails($email) {
+
+        $db = new databaseConfig();
+
+        $query = "
+        SELECT 
+            po.poId,
+            po.orderDate,
+            po.deliveryDate,
+            po.totalAmount,
+            po.status,
+            poli.poLineItemId,
+            poli.inventoryId,
+            poli.cleaningId,
+            poli.habitatId,
+            poli.foodId,
+            poli.quantity,
+            poli.unitPrice
+        FROM 
+            purchaseorder po
+        JOIN 
+            purchaseorderlineitem poli ON po.poId = poli.poId
+        JOIN 
+            supplier s ON po.supplierId = s.supplierId
+        WHERE 
+            s.contactEmail = ?";
+        $result = $db->getConnection()->prepare($query);
+
+        $result->execute(array($email));
+
+        // Fetch all results into an array of objects
+        $data = array();
+        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+            $data[] = $row;
+        }
+
+        return $data;
+    }
 }
 
 //$data = [

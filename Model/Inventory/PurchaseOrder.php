@@ -49,16 +49,21 @@ class PurchaseOrder extends InventoryModel {
         $success = $this->removePOfromDB($poId);
         return $success;
     }
-    
-    public function  updatePurchaseOrder($poId,$status) {
+
+    public function updatePurchaseOrder($poId, $status) {
         $success = $this->updatePOStatusDB($poId, $status);
         return $success;
     }
-    
-    
-    public function updateInventoryQuantity($poId){
+
+    public function updateInventoryQuantity($poId) {
         $success = $this->updateInventoryQuantityDB($poId);
         return $success;
     }
-   
+
+    public function gePODetailsDB($email) {
+        $data = $this->getPODetails($email);
+        return $data;
+    }
+
+    
 }

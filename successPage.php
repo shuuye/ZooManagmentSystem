@@ -94,7 +94,7 @@ echo '</table>';
 
 // Display the total amount
 echo '<h2 class="total">Total Amount After Discount: RM' . number_format($totalPrice, 2, '.', '') . '</h2>';
-echo '<a href="home.php" class="confirm-button">Confirm and Return to Home</a>';
+echo '<a href="index.php" class="confirm-button">Confirm and Return to Home</a>';
 
 echo '</body></html>';
 ?>
