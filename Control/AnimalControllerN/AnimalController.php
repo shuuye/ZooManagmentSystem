@@ -1,7 +1,9 @@
 <?php
 
-include_once '../../Model/ObserverN/AnimalModel.php';
-require_once '../../Model/Inventory/InventoryModel.php';
+//include_once '../../Model/ObserverN/AnimalModel.php';
+
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\AnimalModel.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
 
 class AnimalController extends InventoryModel{
 
@@ -15,7 +17,9 @@ class AnimalController extends InventoryModel{
     }
     
    public function route(){
+        $controller = isset($_GET['controller']) ? $_GET['controller'] : "animal";
         $action = isset($_GET['action']) ? $_GET['action'] : 'home';
+        if ($controller == "animal") {
          ob_start();
         switch ($action) {
             case 'home' :
@@ -41,15 +45,20 @@ class AnimalController extends InventoryModel{
                 break;
         }
          ob_end_flush(); // Send output to browser and end buffering
-    }
+    }else {
+            header("Location: /ZooManagementSystem/index.php?controller=$controller&action=$action");
+        }
+   }
     
     public function home(){
-         include '../../View/AnimalView/animal_home.php'; 
+//         include '../../View/AnimalView/animal_home.php'; 
+         include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_home.php';
          exit();
     }
     
     public function animallist(){
-         include '../../View/AnimalView/animal_list.php'; 
+//         include '../../View/AnimalView/animal_list.php'; 
+         include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_list.php';
          exit();
     }
     
@@ -59,7 +68,8 @@ class AnimalController extends InventoryModel{
         error_log("showForm called");
         $itemNames = $this->inventoryModel->getAnimalItemNames();
         $availableHabitats = $this->animalModel->getAvailableHabitats();  // Fetch available habitats
-        include '../../View/AnimalView/animal_form.php'; // Pass the item names to the view
+//        include '../../View/AnimalView/animal_form.php'; // Pass the item names to the view
+        include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_form.php';
         exit();
     }
 
@@ -148,7 +158,9 @@ class AnimalController extends InventoryModel{
         } else {
             $message = "Invalid item name.";
           }
-          include '../../View/AnimalView/animal_list.php'; // Show the result to the user
+//          include '../../View/AnimalView/animal_list.php'; // Show the result to the user
+          include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_list.php';
+          
           exit();
         }
     }
@@ -182,7 +194,9 @@ class AnimalController extends InventoryModel{
         $availableHabitats = $this->animalModel->getAvailableHabitats();
 
         if ($animal) {
-            include '../../View/AnimalView/animal_edit.php';
+//            include '../../View/AnimalView/animal_edit.php';
+            include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_edit.php';
+            
         } else {
             echo "Animal not found.";
         }
@@ -206,8 +220,8 @@ class AnimalController extends InventoryModel{
         // Update the animal details in the model
         $success = $this->animalModel->updateAnimal($animalId, $animalDetails);
         $message = $success ? "Animal updated successfully." : "Failed to update animal.";
-        
-        include '../../View/AnimalView/animal_list.php';
+//        include '../../View/AnimalView/animal_list.php';
+        include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_list.php';
         exit();
     }
  }
@@ -218,7 +232,9 @@ class AnimalController extends InventoryModel{
             $success = $this->animalModel->deleteAnimal($animalId);
             // Prepare the message
             $message = $success ? "Animal deleted successfully." : "Failed to delete animal.";
-            header("Location: animal_list.php?message=" . urlencode($message));
+//            header("Location: animal_list.php?message=" . urlencode($message));
+            header("Location: index.php?controller=animal&action=anilist&message=" . urlencode($message));
+
             exit();
         } else {
             echo "No animal ID provided.";

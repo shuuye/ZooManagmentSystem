@@ -20,6 +20,9 @@ if ($controller && $action) {
             $model = new InventoryModel();
             $controller = new InventoryController($model, new InventoryView('InventoryMasterPage.php'));
             break;
+         case 'animal':
+            require_once __DIR__ . '/Control/AnimalControllerN/AnimalController.php';
+            break;
         // Add more controllers as needed
         default:
             // Handle unknown controller

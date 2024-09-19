@@ -3,13 +3,31 @@
 //This model represents the data for an animal. When the animal's information changes, it will notify all observers. It is the concrete subject.
 //The AnimalModel class implements the subject interface and is responsible for managing animal data. It maintains a list of observers and notifies them when data changes.
 
-include_once 'Config/databaseConfig.php';
-require_once 'Model/Inventory/InventoryModel.php';
-require_once 'subject.php';
-require_once 'HealthObserver.php';
-require_once 'HabitatObserver.php';
-require_once 'AnimalObserver.php';
-require_once 'FoodObserver.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Config\databaseConfig.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\subject.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\HealthObserver.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\HabitatObserver.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\AnimalObserver.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\FoodObserver.php';
+
+// old 2 include 
+
+//require_once '/ZooManagementSystem/Model/Inventory/InventoryModel.php';
+//require_once '/ZooManagementSystem/Model/ObserverN/subject.php';
+//require_once '/ZooManagementSystem/Model/ObserverN/HealthObserver.php';
+//require_once '/ZooManagementSystem/Model/ObserverN/HabitatObserver.php';
+//require_once '/ZooManagementSystem/Model/ObserverN/AnimalObserver.php';
+//require_once '/ZooManagementSystem/Model/ObserverN/FoodObserver.php';
+
+
+//Old include
+//require_once 'Model/Inventory/InventoryModel.php';
+//require_once 'subject.php';
+//require_once 'HealthObserver.php';
+//require_once 'HabitatObserver.php';
+//require_once 'AnimalObserver.php';
+//require_once 'FoodObserver.php';
 
 class AnimalModel extends databaseConfig implements subject{
 

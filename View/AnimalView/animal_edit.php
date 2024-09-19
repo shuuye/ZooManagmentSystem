@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Animal</title>
-    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
-    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/animal_form.css">
+    <link rel="stylesheet" type="text/css" href="/ZooManagementSystem/Css/AnimalN/ani_Nav.css">
+    <link rel="stylesheet" type="text/css" href="/ZooManagementSystem/Css/AnimalN/animal_form.css">
 </head>
 <body>
     
     <nav>
         <ul>
-            <li><a href="../../View/AnimalView/animal_list.php">Back</a></li>
+            <li><a href="index.php?controller=animal&action=anilist">Back</a></li>
         </ul>
     </nav>
     
     <h1>Edit Animal Details</h1>
     <div id="formedit">
         <?php if ($animal): ?>
-       <form method="POST"action="?action=edit&id=<?php echo htmlspecialchars($animal['id']); ?>"  enctype="multipart/form-data">
+       <form method="POST"action="index.php?controller=animal&action=edit&id=<?php echo htmlspecialchars($animal['id']); ?>"  enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($animal['id']); ?>">
 
                 <label for="name">Name:</label>

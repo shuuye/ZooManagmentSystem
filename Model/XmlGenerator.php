@@ -68,7 +68,6 @@ class XmlGenerator extends databaseConfig {
 // Save the XML file in the directory
         $filePath = $directory . "/" . $outputFileName;
         $xml->save($filePath);
-
        // echo "XML file created successfully at $outputFileName";
     }
 

@@ -1,7 +1,11 @@
 <?php
 
-require_once '../../Model/ObserverN/AnimalModel.php';
-require_once '../../Model/XmlGenerator.php';
+
+//require_once '../../Model/ObserverN/AnimalModel.php';
+//require_once '../../Model/XmlGenerator.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\AnimalModel.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\XmlGenerator.php';
+
 
 class HealthController {
     
@@ -29,7 +33,8 @@ class HealthController {
            // Update the animal inventory table with the new health record ID
            $this->animalModel->updateAnimalHealthRecordId($animalId, $healthRecordId);
        }   
-        header('Location: ../../View/AnimalView/list_healthRecords.php');
+//        header('Location: ../../View/AnimalView/list_healthRecords.php');
+       header('Location: /ZooManagementSystem/View/AnimalView/list_healthRecords.php');
         exit();
 
    }

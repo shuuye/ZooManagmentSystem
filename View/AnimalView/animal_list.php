@@ -1,6 +1,7 @@
 <?php
 
-include_once '../../Control/AnimalControllerN/AnimalController.php';
+//include_once '../../Control/AnimalControllerN/AnimalController.php';
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Control\AnimalControllerN\AnimalController.php';
 
 // Get the current page and set the number of animals per page
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
@@ -26,16 +27,16 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css">
-    <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_list.css">
+    <link rel="stylesheet" type="text/css" href="/ZooManagementSystem/Css/AnimalN/ani_Nav.css">
+    <link rel="stylesheet" type="text/css" href="/ZooManagementSystem/Css/AnimalN/ani_list.css">
     <title>Animal List</title>
 </head>
 <body>
     
      <nav>
         <ul>
-            <li><a href="animal_home.php?action=home">Animal Home</a></li>
-            <li><a href="index.php?action=showForm">Add New Animal</a></li>
+            <li><a href="index.php?controller=animal&action=home">Animal Home</a></li>
+            <li><a href="index.php?controller=animal&action=showForm">Add New Animal</a></li>
         </ul>
     </nav>
     
@@ -97,8 +98,8 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
                         <td><?php echo htmlspecialchars($animal['habitat_id']); ?></td>
                         <td><?php echo htmlspecialchars($animal['categories']); ?></td>
                         <td>
-                            <a href="index.php?action=edit&id=<?php echo urlencode($animal['id']); ?>">Edit</a> |
-                            <a href="index.php?action=delete&id=<?php echo urlencode($animal['id']); ?>" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</a>
+                            <a href="index.php?controller=animal&action=edit&id=<?php echo urlencode($animal['id']); ?>">Edit</a> |
+                            <a href="index.php?controller=animal&action=delete&id=<?php echo urlencode($animal['id']); ?>" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</a>
                         </td> <!-- Added Actions links -->
                     </tr>
                 <?php endforeach; ?>
