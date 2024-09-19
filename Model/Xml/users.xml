@@ -7,7 +7,7 @@
     <phoneNumber>0126964456</phoneNumber>
     <email>superAdmin123@gmail.com</email>
     <registrationDateTime>2024-08-01 18:56:44</registrationDateTime>
-    <lastLoginDateTime>2024-09-19 06:16:08</lastLoginDateTime>
+    <lastLoginDateTime>2024-09-19 19:49:03</lastLoginDateTime>
     <lastLogOutDateTime>2024-09-16 18:11:54</lastLogOutDateTime>
     <roleID>1</roleID>
   </user>
@@ -18,8 +18,8 @@
     <phoneNumber>0186458814</phoneNumber>
     <email>admin123@gmail.com</email>
     <registrationDateTime>2022-09-14 19:01:33</registrationDateTime>
-    <lastLoginDateTime>2022-09-07 06:56:34</lastLoginDateTime>
-    <lastLogOutDateTime>2024-09-15 06:56:41</lastLogOutDateTime>
+    <lastLoginDateTime>2024-09-19 17:03:03</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-19 17:04:42</lastLogOutDateTime>
     <roleID>1</roleID>
   </user>
   <user id="4">
@@ -76,5 +76,16 @@
     <lastLoginDateTime/>
     <lastLogOutDateTime/>
     <roleID>3</roleID>
+  </user>
+  <user id="15">
+    <username>customer123</username>
+    <password>$2y$10$u7mtoQovp37M8FGQQs/c5.M0lFAerSAyeA7zSXIa9JZLdtmDtFn2O</password>
+    <fullName>customer</fullName>
+    <phoneNumber>0123698741</phoneNumber>
+    <email>us@gmail.com</email>
+    <registrationDateTime>2024-09-19 23:02:36</registrationDateTime>
+    <lastLoginDateTime>2024-09-19 17:04:46</lastLoginDateTime>
+    <lastLogOutDateTime>2024-09-19 17:02:49</lastLogOutDateTime>
+    <roleID>2</roleID>
   </user>
 </users>
