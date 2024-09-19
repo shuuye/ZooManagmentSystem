@@ -1,11 +1,8 @@
 <?php
 // Include the controller
 include_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
-
-// Create an instance of the controller
-$habitatController = new HabitatControllerObserver();
-// Handle form submission
-$habitatController->handleFormSubmission();
+$habitatController = new HabitatControllerObserver();// Create an instance of the controller
+$habitatController->handleFormSubmission();// Handle form submission
 ?>
 
 <!DOCTYPE html>

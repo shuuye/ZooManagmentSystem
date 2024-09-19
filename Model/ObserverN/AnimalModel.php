@@ -211,32 +211,6 @@ class AnimalModel extends databaseConfig implements subject{
         
     }
     
-    public function updateAnimalImage($animalId, $imagePath) {
-        // Check if the animal already has an image
-        $existingImage = $this->getAnimalImage($animalId);
-
-        if ($existingImage) {
-            // Update existing image
-            $query = "UPDATE animal_image SET image_path = :image_path WHERE animal_id = :animal_id";
-        } else {
-            // Insert new image record
-            $query = "INSERT INTO animal_image (animal_id, image_path) VALUES (:animal_id, :image_path)";
-        }
-
-        $stmt = $this->db->getConnection()->prepare($query);
-        $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_INT);
-        $stmt->bindParam(':image_path', $imagePath);
-
-        $result = $stmt->execute();
-
-        // Log the outcome
-        if (!$result) {
-            error_log("Error updating animal image for animal ID {$animalId}");
-            error_log(print_r($stmt->errorInfo(), true));
-        }
-        $this->notify();
-        return $result;
-    }
 
     // Method to delete an animal
     public function deleteAnimal($animalId) {
@@ -282,9 +256,8 @@ class AnimalModel extends databaseConfig implements subject{
             $stmt->bindParam(':capacity', $capacity);
             $stmt->bindParam(':environment', $environment);
             $stmt->bindParam(':description', $description);
-
+            $this->notify();
             if ($stmt->execute()) {
-                $this->notify();
                 echo "New habitat added successfully.";
             } else {
                 echo "Failed to add new habitat.";
@@ -335,9 +308,8 @@ class AnimalModel extends databaseConfig implements subject{
             $stmt->bindParam(':capacity', $capacity);
             $stmt->bindParam(':environment', $environment);
             $stmt->bindParam(':description', $description);
-
+            $this->notify();
             if ($stmt->execute()) {
-                $this->notify();
                 echo "Habitat updated successfully.";
                 
             } else {
@@ -517,7 +489,7 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
     
 }
 
-// Web Servicecs
+// Web Servicecs 1 
 
      // Method to fetch category counts for chart
     public function getCategoryCounts() {
@@ -531,26 +503,10 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
         }
         return $categories;
     }
-
-     // Method to fetch animal health reports old web service 
-    public function getAnimalHealthReports() {
-        $sql = "SELECT hRecord_id, animal_id, treatments, healthStatus FROM health_records";
-        $stmt = $this->db->getConnection()->prepare($sql);
-        $stmt->execute();
-        
-        $reports = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $reports[] = [
-                'record_id' => $row['hRecord_id'],
-                'animal_id' => $row['animal_id'],
-                'treatments' => $row['treatments'],
-                'health_status' => $row['healthStatus']
-            ];
-        }
-
-        return $reports;
-    }
     
+ // web service 2 
+    
+
 }
 ?>
 

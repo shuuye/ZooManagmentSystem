@@ -10,9 +10,9 @@
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Animal Categories',
+                            label: 'Animal by Categories',
                             data: counts,
-                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FF5733', '#C70039'],
+                            backgroundColor: ['#8a001d', '#6495ed', '#90ee90', '#FF5733', '#C70039'],
                         }]
                     },
                     options: {

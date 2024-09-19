@@ -36,10 +36,8 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
     </nav>
     
     <h1>Animal List</h1>
-
-    <div id="animalList">
-        
-    <form method="GET" action="animal_list.php">
+    
+      <form method="GET" action="animal_list.php">
         <label for="category"> Search By Category: </label>
         <select name="category" id="category" onchange="this.form.submit()">
             <option value="">All Categories</option>
@@ -51,6 +49,7 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
         </select>
     </form>
 
+    <div id="animalList">
     <table>
         <thead>
             <tr>
