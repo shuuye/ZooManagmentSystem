@@ -18,7 +18,7 @@ $habitatController = new HabitatControllerObserver();
     
      <nav>
         <ul>
-            <li><a href="animal_home.php">Back</a></li>
+            <li><a href="animal_home.php">Animal Home</a></li>
             <li><a href="add_habitat.php">Add New Habitat</a></li>
             <li><a href="list_habitats.php">Edit and Delete Habitat</a></li>
         </ul>

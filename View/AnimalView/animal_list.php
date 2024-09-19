@@ -1,22 +1,17 @@
 <?php
 
-//include_once '../../Control/AnimalControllerN/AnimalController.php';
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Control\AnimalControllerN\AnimalController.php';
 
-// Get the current page and set the number of animals per page
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1; // Get the current page and set the number of animals per page
 $animalsPerPage = 10;
 $offset = ($page - 1) * $animalsPerPage;
 
 $animalController = new AnimalController();
-
-// Get the category if it's set
-$category = isset($_GET['category']) ? $_GET['category'] : null;
+$category = isset($_GET['category']) ? $_GET['category'] : null; // Get the category if it's set
 $animals = $animalController->displayAnimals($category, $animalsPerPage, $offset); // Pass limit and offset
-
-// Get total number of animals for pagination
-$totalAnimals = $animalController->countAnimals($category); // You need a method to count total animals
+$totalAnimals = $animalController->countAnimals($category); // Get total number of animals for pagination
 $totalPages = ceil($totalAnimals / $animalsPerPage);
+
 $categories = ['Mammals', 'Birds', 'Amphibians'];
 
 ?>
@@ -44,8 +39,7 @@ $categories = ['Mammals', 'Birds', 'Amphibians'];
 
     <div id="animalList">
         
-    <form method="GET" action="">
-        
+    <form method="GET" action="animal_list.php">
         <label for="category"> Search By Category: </label>
         <select name="category" id="category" onchange="this.form.submit()">
             <option value="">All Categories</option>
