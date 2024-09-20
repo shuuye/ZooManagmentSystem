@@ -8,9 +8,9 @@
   </HealthRecord>
   <HealthRecord hRecord_id="23">
     <animal_id>20</animal_id>
-    <last_checkup>2024-09-04</last_checkup>
-    <treatments>body_check</treatments>
-    <healthStatus>Treatment</healthStatus>
+    <last_checkup>2024-09-10</last_checkup>
+    <treatments>area_check</treatments>
+    <healthStatus>Warning</healthStatus>
   </HealthRecord>
   <HealthRecord hRecord_id="24">
     <animal_id>22</animal_id>

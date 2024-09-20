@@ -64,7 +64,7 @@
                          <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="habitat_id" value="<?php echo $habitat['habitat_id']; ?>">
-                                <input type="submit" value="Delete">
+                                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this habitat?')">
                             </form>
                         </td>
                         
