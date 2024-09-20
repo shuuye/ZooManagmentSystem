@@ -3,19 +3,25 @@
   <Ticket>
     <id>1</id>
     <type>Child</type>
-    <description>10 - 13 years old</description>
-    <price>50.00</price>
+    <description>3 - 13 years old</description>
+    <price>12.00</price>
+  </Ticket>
+  <Ticket>
+    <id>2</id>
+    <type>Adult</type>
+    <description>14 - 59 years old</description>
+    <price>20.00</price>
   </Ticket>
   <Ticket>
     <id>3</id>
     <type>Senior</type>
     <description>60 and above</description>
-    <price>22.00</price>
+    <price>16.00</price>
   </Ticket>
   <Ticket>
     <id>4</id>
-    <type>Adult</type>
-    <description>a</description>
-    <price>28.00</price>
+    <type>Free </type>
+    <description>haha</description>
+    <price>10.00</price>
   </Ticket>
 </Tickets>
