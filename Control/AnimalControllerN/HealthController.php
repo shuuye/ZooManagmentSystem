@@ -13,7 +13,6 @@ class HealthController {
 
     public function __construct() {
         $this->animalModel = new AnimalModel();
-//        $this->healthObserver = new HealthObserver();
     }
     
     public function getAnimalIds() {
@@ -64,7 +63,7 @@ class HealthController {
         
         $xmlGenerator->transformXMLUsingXSLTForDisplay(
             "../../Model/Xml/health_records.xml",
-            "../../Model/ObserverN/health_records.xsl"
+            "../../View/AnimalView/health_records.xsl"
         );
         
         // Load and filter XML with XPath
@@ -76,7 +75,7 @@ class HealthController {
         // Transform the filtered XML using XSLT and save to output file
         $xmlGenerator->transformFilteredXMLUsingXSLT(
             $filteredXmlContent,
-            "../../Model/ObserverN/health2_records.xsl",
+            "../../View/AnimalView/health2_records.xsl",
             "animal_health_report.html"
         ); 
         

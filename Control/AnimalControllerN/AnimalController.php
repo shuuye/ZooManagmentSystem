@@ -51,13 +51,11 @@ class AnimalController extends InventoryModel{
    }
     
     public function home(){
-//         include '../../View/AnimalView/animal_home.php'; 
          include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_home.php';
          exit();
     }
     
     public function animallist(){
-//         include '../../View/AnimalView/animal_list.php'; 
          include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_list.php';
          exit();
     }
@@ -68,7 +66,6 @@ class AnimalController extends InventoryModel{
         error_log("showForm called");
         $itemNames = $this->inventoryModel->getAnimalItemNames();
         $availableHabitats = $this->animalModel->getAvailableHabitats();  // Fetch available habitats
-//        include '../../View/AnimalView/animal_form.php'; // Pass the item names to the view
         include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_form.php';
         exit();
     }
@@ -77,6 +74,17 @@ class AnimalController extends InventoryModel{
     public function processForm() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $itemName = $_POST['itemName'];
+        $invalidCharsPattern = '/[?@#$^~+\-*\/:]/';
+        
+        // Validate the 'name', 'subspecies', and 'description' fields
+        foreach (['name', 'subspecies', 'description'] as $field) {
+            if (preg_match($invalidCharsPattern, $_POST[$field])) {
+                $message = "Invalid characters found in $field. Please remove symbols like ? @ # $ ^ ~ + - * / :";
+                // Re-render the form with the error message or redirect to an error page
+                include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_form.php';
+                return;
+            }
+        }
 
         // Get inventory ID
         $inventoryId = $this->inventoryModel->getInventoryIdByName($itemName);
@@ -158,9 +166,7 @@ class AnimalController extends InventoryModel{
         }  else {
             $message = "Invalid item name.";
           }
-//          include '../../View/AnimalView/animal_list.php'; // Show the result to the user
           include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_list.php';
-          
           exit();
         }
     }
@@ -177,12 +183,10 @@ class AnimalController extends InventoryModel{
         }
         return $animals;
     }
-
     // Count total animals for pagination
-    public function countAnimals($category = null) {
+    public function countAnimals($category = null) { 
         return $category ? $this->animalModel->countAnimalsByCategory($category) : $this->animalModel->countAllAnimals();
     }
-    
     
     public function editAnimal() {
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
@@ -192,14 +196,56 @@ class AnimalController extends InventoryModel{
         $availableHabitats = $this->animalModel->getAvailableHabitats();
 
         if ($animal) {
-//            include '../../View/AnimalView/animal_edit.php';
             include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_edit.php';
-            
         } else {
             echo "Animal not found.";
         }
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $animalId = $_POST['id'];
+        
+        // Input validation
+        $errors = [];
+        if (empty($_POST['name']) || !preg_match('/^[a-zA-Z0-9\s]+$/', $_POST['name'])) {
+            $errors[] = 'Invalid name. Only alphanumeric characters and spaces are allowed.';
+        }
+        if (!is_numeric($_POST['age']) || $_POST['age'] < 0) {
+            $errors[] = 'Invalid age. Please enter a positive number.';
+        }
+        if (empty($_POST['species']) || !preg_match('/^[a-zA-Z0-9\s]+$/', $_POST['species'])) {
+            $errors[] = 'Invalid species. Only alphanumeric characters and spaces are allowed.';
+        }
+        if (!empty($_POST['subspecies']) && !preg_match('/^[a-zA-Z0-9\s]+$/', $_POST['subspecies'])) {
+            $errors[] = 'Invalid subspecies. Only alphanumeric characters and spaces are allowed.';
+        }
+        if (!is_numeric($_POST['avg_lifespan']) || $_POST['avg_lifespan'] < 0) {
+            $errors[] = 'Invalid average lifespan. Please enter a positive number.';
+        }
+        if (empty($_POST['height']) || !is_numeric($_POST['height'])) {
+            $errors[] = 'Invalid height. Please enter a valid number.';
+        }
+        if (empty($_POST['weight']) || !is_numeric($_POST['weight'])) {
+            $errors[] = 'Invalid weight. Please enter a valid number.';
+        }
+        if (empty($_POST['categories']) || !in_array($_POST['categories'], ['Mammals', 'Birds', 'Amphibians'])) {
+            $errors[] = 'Invalid category selection.';
+        }
+        if (empty($_POST['date_of_birth']) || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $_POST['date_of_birth'])) {
+            $errors[] = 'Invalid date of birth. Please enter a valid date in YYYY-MM-DD format.';
+        }
+
+        // If there are errors, show them to the user
+        if (!empty($errors)) {
+            foreach ($errors as $error) {
+                echo "<p style='color:red;'>$error</p>";
+            }
+            // Re-include the form with existing data
+            $animal = $this->animalModel->getAnimalById($animalId);
+            $availableHabitats = $this->animalModel->getAvailableHabitats();
+            include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_edit.php';
+            return;
+        }
+
+        // If validation passes, update the animal details
         $animalDetails = [
             'name' => $_POST['name'],
             'species' => $_POST['species'],
@@ -218,11 +264,10 @@ class AnimalController extends InventoryModel{
         // Update the animal details in the model
         $success = $this->animalModel->updateAnimal($animalId, $animalDetails);
         $message = $success ? "Animal updated successfully." : "Failed to update animal.";
-//        include '../../View/AnimalView/animal_list.php';
         include 'C:\xampp\htdocs\ZooManagementSystem\View\AnimalView\animal_list.php';
         exit();
     }
- }
+}
 
     public function deleteAnimal() {
         if (isset($_GET['id'])) {
@@ -230,7 +275,6 @@ class AnimalController extends InventoryModel{
             $success = $this->animalModel->deleteAnimal($animalId);
             // Prepare the message
             $message = $success ? "Animal deleted successfully." : "Failed to delete animal.";
-//            header("Location: animal_list.php?message=" . urlencode($message));
             header("Location: index.php?controller=animal&action=anilist&message=" . urlencode($message));
 
             exit();

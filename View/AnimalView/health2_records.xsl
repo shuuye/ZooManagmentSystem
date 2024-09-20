@@ -2,21 +2,13 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
         <html>
-             <head>
-             <title>Health Records</title>
-             <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/ani_Nav.css"/>
-             <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/health.css"/>
-              </head>
-              <body>
-                <nav class="navigation">
-                  <ul>
-                    <li><a href="../../View/AnimalView/animal_home.php">Animal Home</a></li>
-                    <li><a href="animal_health_report.html" target="_blank">View Reports</a></li>
-                    <li><a href="../../View/AnimalView/add_health.php">Add | Update Health Record</a></li>
-                    </ul>
-                </nav>
-                
-                <h2>Health Records</h2>
+            <head>
+                <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/health.css"/>
+                <script type="text/javascript" src="health.js"></script>
+                <title>Animal Health Reports</title>
+            </head>
+            <body>
+                <h2>Animal Health in Warning</h2>
                 <table border="1">
                     <tr>
                         <th>Health ID</th>
@@ -36,7 +28,7 @@
                     </xsl:for-each>
                 </table>
                 <br/>
-               
+                <button type="button" onclick="confirmAndPrint()">Print Report</button>
             </body>
         </html>
     </xsl:template>

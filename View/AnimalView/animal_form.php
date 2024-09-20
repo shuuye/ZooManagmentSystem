@@ -79,22 +79,17 @@
         
     </form>
     
+    
+    <script src="/ZooManagementSystem/View/AnimalView/animalimage.js"></script>
+    
       <script>
         const itemSpeciesMap = {
             <?php foreach ($itemNames as $itemName): ?>
             "<?php echo htmlspecialchars($itemName); ?>": "<?php echo htmlspecialchars($itemName); ?>",
             <?php endforeach; ?>
         };
-
-        function updateSpecies() {
-            const selectedItem = document.getElementById('itemName').value;
-            document.getElementById('species').value = itemSpeciesMap[selectedItem];
-        }
-
-        // Initialize the species field when the form loads
-        window.onload = updateSpecies;
     </script>
-    <script src="/ZooManagementSystem/View/AnimalView/animalimage.js"></script>
+    
     
 </body>
 </html>

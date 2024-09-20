@@ -1,14 +1,8 @@
 <?php
-// Include the HealthController
+
 include_once '../../Control/AnimalControllerN/HealthController.php';
-
-// Create an instance of HealthController
 $controller = new HealthController();
-
-// Get the animal IDs without complete health records from the controller
 $animalIds = $controller->getAnimalIds();
-
-// Handle form submission
 $controller ->handleAddHealthRecordForm();
 ?>
 
@@ -23,7 +17,6 @@ $controller ->handleAddHealthRecordForm();
     <nav>
         <ul>
             <li><a href="list_healthRecords.php">View Health</a></li>
-
         </ul>
     </nav>
     <h2>Add | Update New Health Record</h2>
