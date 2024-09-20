@@ -94,6 +94,7 @@
         // Initialize the species field when the form loads
         window.onload = updateSpecies;
     </script>
+    <script src="/ZooManagementSystem/View/AnimalView/animalimage.js"></script>
     
 </body>
 </html>

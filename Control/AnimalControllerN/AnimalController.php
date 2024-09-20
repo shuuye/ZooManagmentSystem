@@ -113,11 +113,11 @@ class AnimalController extends InventoryModel{
             // Handle file upload
             if (isset($_FILES['animal_image']) && $_FILES['animal_image']['error'] === UPLOAD_ERR_OK) {
                 $file = $_FILES['animal_image'];
-                $allowedTypes = ['image/jpeg', 'image/png','image/jpg'];
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
                 $maxFileSize = 2 * 1024 * 1024; // 2MB
 
                 // Validate file type by MIME type
-                if (!in_array($file['type'], $allowedTypes)) {
+                if (!in_array(mime_content_type($file['tmp_name']), $allowedTypes)) {
                     $message = 'Invalid file type.';
                 } elseif ($file['size'] > $maxFileSize) {
                     $message = 'File size exceeds limit.';
@@ -155,7 +155,7 @@ class AnimalController extends InventoryModel{
             } elseif ($_FILES['animal_image']['error'] !== UPLOAD_ERR_NO_FILE) {
                 $message = 'No file uploaded or upload error.';
             }
-        } else {
+        }  else {
             $message = "Invalid item name.";
           }
 //          include '../../View/AnimalView/animal_list.php'; // Show the result to the user
