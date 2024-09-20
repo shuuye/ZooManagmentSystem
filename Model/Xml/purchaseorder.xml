@@ -100,6 +100,7 @@
     <totalAmount>6300.00</totalAmount>
     <status>Completed</status>
   </purchaseorder>
+<<<<<<< HEAD
   <purchaseorder>
     <poId>12</poId>
     <supplierId>5</supplierId>
@@ -160,4 +161,6 @@
     <totalAmount>450.00</totalAmount>
     <status>Pending</status>
   </purchaseorder>
+=======
+>>>>>>> 2fbff7a4ec1e44aedb53954bb24a4712388769ed
 </purchaseorders>

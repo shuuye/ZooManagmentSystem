@@ -110,6 +110,7 @@
     <quantity>140</quantity>
     <unitPrice>45.00</unitPrice>
   </purchaseorderlineitem>
+<<<<<<< HEAD
   <purchaseorderlineitem>
     <poLineItemId>12</poLineItemId>
     <poId>12</poId>
@@ -170,4 +171,6 @@
     <quantity>25</quantity>
     <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
+=======
+>>>>>>> 2fbff7a4ec1e44aedb53954bb24a4712388769ed
 </purchaseorderlineitems>

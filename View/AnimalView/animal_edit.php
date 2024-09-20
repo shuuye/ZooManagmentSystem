@@ -6,6 +6,7 @@
     <title>Edit Animal</title>
     <link rel="stylesheet" type="text/css" href="/ZooManagementSystem/Css/AnimalN/ani_Nav.css">
     <link rel="stylesheet" type="text/css" href="/ZooManagementSystem/Css/AnimalN/animal_form.css">
+    <script src="/ZooManagementSystem/View/AnimalView/animalimage.js"></script>
 </head>
 <body>
     

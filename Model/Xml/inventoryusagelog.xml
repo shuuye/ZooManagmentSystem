@@ -70,6 +70,7 @@
     <quantityUsed>1</quantityUsed>
     <reasonForUse/>
   </inventoryusagelog>
+<<<<<<< HEAD
   <inventoryusagelog>
     <logId>11</logId>
     <inventoryId>19</inventoryId>
@@ -105,4 +106,6 @@
     <quantityUsed>1</quantityUsed>
     <reasonForUse/>
   </inventoryusagelog>
+=======
+>>>>>>> 2fbff7a4ec1e44aedb53954bb24a4712388769ed
 </inventoryusagelogs>

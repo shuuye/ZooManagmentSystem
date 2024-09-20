@@ -46,11 +46,20 @@ class CustomerTicketModel extends databaseConfig {
     }
     
     // Add this method for getting visitors by date
-    public function getVisitorsByDate($visitDate) {
+    /*public function getVisitorsByDate($visitDate) {
         $db = $this->getConnection();
         $sql = "SELECT * FROM ticket_purchases WHERE visit_date = :visit_date";
         $stmt = $db->prepare($sql);
         $stmt->execute([':visit_date' => $visitDate]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }*/
+    
+    public function getVisitorsByDate($visit_date) {
+        $conn = $this->getConnection();
+        $query = "SELECT ticket_id, userID, SUM(quantity) as quantity, visit_date, purchase_date FROM ticket_purchases WHERE visit_date = :visit_date GROUP BY ticket_id, userID, visit_date, purchase_date";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':visit_date', $visit_date);
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
