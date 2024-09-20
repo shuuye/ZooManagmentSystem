@@ -48,16 +48,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Create a new Purchase Order
         $newPO = new PurchaseOrder($supplierId, $orderDate, $formattedDatetime, $billingAddress, $shippingAddress, $total, "Draft");
         $newPOId = $newPO->addNewPO();
-
-        // Add Line Item to the Purchase Order
-        $lineItem = $newPO->addLineItem($newPOId, $inventoryId, $quantity, $price, $cleaningId, $habitatId, $foodId);
-        $lineItem->addNewPOLine();
-
-        // Redirect to success page
-        header("Location: index.php?controller=inventory&action=showPO&status=successPO");
+        echo "newpoid".$newPOId;
+        if ($newPOId != null) {
+            
+            // Add Line Item to the Purchase Order
+            $lineItem = $newPO->addLineItem($newPOId, $inventoryId, $quantity, $price, $cleaningId, $habitatId, $foodId);
+            $lineItem->addNewPOLine();
+            // Redirect to success page
+            header("Location: index.php?controller=inventory&action=showPO&status=successPO");
+            exit();
+        } else {
+            // Redirect back with a failure message
+            header("Location: " . $_SERVER['HTTP_REFERER'] . "&status=POCreationFailed");
+            exit();
+        }
     } catch (Exception $e) {
         // Optionally redirect to an error page
         header("Location: index.php?controller=inventory&action=showPO&status=errorPO");
+        exit();
     }
 } else {
     echo "<p class='alert'>Invalid request method.</p>";

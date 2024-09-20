@@ -1,8 +1,8 @@
 * {
     font-family: sans-serif;
 }
-
 .alert {
+    overflow: hidden; /* Add this line */
     background-color: #f8d7da; /* Light red background */
     color: #721c24; /* Dark red text color */
     border: 1px solid #f5c6cb; /* Light red border */
@@ -11,6 +11,12 @@
     margin: 15px 0; /* Space above and below */
     font-family: Arial, sans-serif; /* Font style */
     font-size: 16px; /* Font size */
+}
+
+.alert ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .alert-success {

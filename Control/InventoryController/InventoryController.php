@@ -23,6 +23,13 @@ class InventoryController extends InventoryModel {
         if ($controller == "inventory") {
             switch ($action) {
                 case 'addInventoryItem':
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    $error = isset($_GET['error']) ? $_GET['error'] : '';
+                    switch ($status) {
+                        case 'errorAddItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
+                    }
                     $this->addInventoryItem();
                     break;
                 case 'habitatItem':
@@ -48,6 +55,7 @@ class InventoryController extends InventoryModel {
                     $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
                     $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
                     $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    $error = isset($_GET['error']) ? $_GET['error'] : '';
                     switch ($status) {
                         case 'success':
                             echo "<p class='alert alert-success'>New brand added successfully.</p>";
@@ -67,6 +75,12 @@ class InventoryController extends InventoryModel {
                         case 'errorRemove':
                             echo "<p class='alert alert-error'>Failed to remove item. Please try again.</p>";
                             break;
+                        case 'errorAddItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
+                        case 'errorEditItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
                     }
                     $this->viewItembasedOnInventoryID($inventoryId, $itemType);
                     break;
@@ -80,6 +94,21 @@ class InventoryController extends InventoryModel {
                     $inventoryId = isset($_GET['inventoryId']) ? $_GET['inventoryId'] : null;
                     $itemType = isset($_GET['itemType']) ? $_GET['itemType'] : null;
                     $itemID = isset($_GET['itemID']) ? $_GET['itemID'] : null;
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    switch ($status) {
+                        case 'POCreationFailed':
+                            echo "<p class='alert alert-error'>One or more fields have invalid values. Please review and try again.</p>";
+                            echo "<p class='alert alert-warning'>
+                                <strong>Tips:</strong><br/>
+                                <ul style='margin: 0; padding-left: 20px;'>
+                                    <li><strong>Shipping Address & Billing Address:</strong> Ensure both addresses are complete and valid. (Min. 5 characters, max. 100 characters; alphanumeric with spaces, commas, periods, and hyphens allowed.)</li>
+                                    <li><strong>Select a Supplier:</strong> Don’t forget to choose a supplier from the list.</li>
+                                    <li><strong>Preferred Shipping Date:</strong> The shipping date must be at least 3 days from today.</li>
+                                    <li><strong>Preferred Shipping Time:</strong> Choose a time between 9:00 AM and 5:00 PM.</li>
+                                </ul>
+                            </p>";
+                            break;
+                    }
                     $this->createPO($inventoryId, $itemType, $itemID);
                     break;
                 case 'sendPO':
@@ -93,7 +122,7 @@ class InventoryController extends InventoryModel {
                         case 'successPO':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
                             echo "<p class='alert alert-notification'>Out of stock !! A new Purchase Order is automatic generated. </p>";
-                            
+
                             break;
                         case 'errorPO':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
@@ -200,7 +229,7 @@ class InventoryController extends InventoryModel {
                     break;
                 case 'inventoryTracking':
                     $status = isset($_GET['status']) ? $_GET['status'] : '';
-
+                    $error = isset($_GET['error']) ? $_GET['error'] : '';
                     switch ($status) {
                         case 'successRemoveInv':
                             echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
@@ -223,6 +252,11 @@ class InventoryController extends InventoryModel {
                         case 'errorEdit':
                             echo "<p class='alert alert-error'>Failed to edit inventory details. Please try again.</p>";
                             break;
+                        case 'errorAddItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
+                        case 'errorEditItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
                         default:
                             break;
                     }
@@ -257,7 +291,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/inventory.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -275,7 +308,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -292,7 +324,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/addInventoryItem.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => false
         ];
@@ -308,7 +339,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/InventoryUsage.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => false,
             'inventoryData' => $inventoryData
@@ -326,7 +356,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -344,7 +373,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -362,7 +390,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -403,7 +430,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/InventoryItemDetails.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true,
             'inventoryID' => $inventoryId,
@@ -446,7 +472,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'inventoryID' => $inventoryId,
             'xslt_transform' => true
@@ -496,7 +521,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/purchaseorder.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => false
         ];
@@ -521,7 +545,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/processPO.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'POid' => $POid,
             'xslt_transform' => true
@@ -543,7 +566,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/mainInventoryTracking.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -561,7 +583,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -579,7 +600,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -597,7 +617,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -615,7 +634,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -633,7 +651,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -651,7 +668,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -669,7 +685,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -695,7 +710,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -721,7 +735,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -747,7 +760,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];
@@ -773,7 +785,6 @@ class InventoryController extends InventoryModel {
                 '/ZooManagementSystem/Css/Inventory/ReportdisplayingTable.css',
                 '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
                 '/ZooManagementSystem/Css/Inventory/displayingTable.css'
-                
             ],
             'xslt_transform' => true
         ];

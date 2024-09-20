@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'reorderThreshold' => $reorderThreshold,
     ];
 
-    print_r($data);
+    
     // Instantiate control classes
     include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
     include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryItemFactory.php';
