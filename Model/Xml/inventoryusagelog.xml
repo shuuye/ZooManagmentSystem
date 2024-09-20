@@ -72,8 +72,36 @@
   </inventoryusagelog>
   <inventoryusagelog>
     <logId>11</logId>
-    <inventoryId>37</inventoryId>
-    <dateTime>2024-09-20 11:32:00</dateTime>
+    <inventoryId>19</inventoryId>
+    <dateTime>2024-09-20 13:30:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>12</logId>
+    <inventoryId>20</inventoryId>
+    <dateTime>2024-09-20 15:29:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>13</logId>
+    <inventoryId>22</inventoryId>
+    <dateTime>2024-09-20 15:34:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>14</logId>
+    <inventoryId>26</inventoryId>
+    <dateTime>2024-09-20 15:54:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>15</logId>
+    <inventoryId>27</inventoryId>
+    <dateTime>2024-09-20 16:04:00</dateTime>
     <quantityUsed>1</quantityUsed>
     <reasonForUse/>
   </inventoryusagelog>

@@ -5,7 +5,7 @@ include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel
 class PurchaseOrder extends InventoryModel {
 
     private $poId;
-    private $supplierId;
+    private ?Supplier $supplier;
     private $orderDate;
     private $deliveryDate;
     private $billingAddress;
@@ -15,7 +15,7 @@ class PurchaseOrder extends InventoryModel {
     private $lineItems = []; // Array of PurchaseOrderLineItem objects
 
     public function __construct(
-            $supplierId = null,
+            ?Supplier $supplier = null,
             $orderDate = null,
             $deliveryDate = null,
             $billingAddress = null,
@@ -23,7 +23,7 @@ class PurchaseOrder extends InventoryModel {
             $totalAmount = null,
             $status = null
     ) {
-        $this->supplierId = $supplierId;
+        $this->supplier = $supplier;
         $this->orderDate = $orderDate;
         $this->deliveryDate = $deliveryDate;
         $this->totalAmount = $totalAmount;
@@ -32,8 +32,8 @@ class PurchaseOrder extends InventoryModel {
         $this->shippingAddress = $shippingAddress;
     }
 
-    public function addLineItem($poId, $inventoryId, $quantity, $unitPrice, $cleaningId = null, $habitatId = null, $foodId = null) {
-        $lineItem = new PurchaseOrderLineItem($poId, $inventoryId, $cleaningId, $habitatId, $foodId, $quantity, $unitPrice);
+    public function addLineItem($poId, $inventoryId, $quantity, $unitPrice, Inventory $inventory) {
+        $lineItem = new PurchaseOrderLineItem($poId, $inventoryId, $inventory, $quantity, $unitPrice);
         $this->lineItems[] = $lineItem;
 
         return $lineItem;
@@ -41,7 +41,7 @@ class PurchaseOrder extends InventoryModel {
 
     public function addNewPO() {
         if ($this->emptyInput()) {
-            $this->poId = $this->addPOIntoDB($this->supplierId, $this->orderDate, $this->deliveryDate, $this->billingAddress, $this->shippingAddress, $this->totalAmount, $this->status);
+            $this->poId = $this->addPOIntoDB($this->supplier->getId(), $this->orderDate, $this->deliveryDate, $this->billingAddress, $this->shippingAddress, $this->totalAmount, $this->status);
             return $this->poId;
         } else {
             return null;
@@ -145,21 +145,13 @@ class PurchaseOrder extends InventoryModel {
 
     private function emptyInput() {
         // Validate each input based on its type and length
-        $supplierIdValid = $this->validateInput($this->supplierId, 'numeric', 1, 20); // assuming ID max 20 digits
+        $supplierIdValid = $this->validateInput($this->supplier->getId(), 'numeric', 1, 20); // assuming ID max 20 digits
         $orderDateValid = $this->validateInput($this->orderDate, 'date'); // no need for length on date
         $deliveryDateValid = $this->validateInput($this->deliveryDate, 'date'); // no need for length on date
         $billingAddressValid = $this->validateInput($this->billingAddress, 'string', 5, 100); // address length 5-255
         $shippingAddressValid = $this->validateInput($this->shippingAddress, 'string', 5, 100); // address length 5-255
         $totalAmountValid = $this->validateInput($this->totalAmount, 'amount'); // no length check for amount
-//        echo '<script>alert("'.$supplierIdValid. '!");</script>';
-//        echo '<script>alert("'.$orderDateValid. '!");</script>';
-//        echo '<script>alert("'.$deliveryDateValid. '!");</script>';
-//               echo '<script>alert("'.$billingAddressValid. '!");</script>';
-//        echo '<script>alert("'.$shippingAddressValid. '!");</script>';
-//        echo '<script>alert("'.$totalAmountValid. '!");</script>';
-//        echo $this->validateInput($this->orderDate, 'date');
-//              exit();
-        // Check if any of the inputs are invalid
+
         if (
                 $supplierIdValid === false ||
                 $orderDateValid === false ||

@@ -4,6 +4,7 @@ require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
 
 class HabitatInventory extends Inventory {
 
+    private $id;
     private $brandName;
     private $description;
     private $habitatType; // e.g. aquarium, terrarium, etc.
@@ -23,10 +24,18 @@ class HabitatInventory extends Inventory {
             $this->installation_instructions = $this->sanitizeInput($installation_instructions);
             $this->disposal_instructions = $this->sanitizeInput($disposal_instructions);
         } catch (Exception $e) {
-            // Log the exception or handle it accordingly
+            
             error_log($e->getMessage());
             throw new Exception("Error initializing HabitatInventory: " . $e->getMessage());
         }
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id): void {
+        $this->id = $id;
     }
 
     public function getBrandName() {
@@ -112,9 +121,9 @@ class HabitatInventory extends Inventory {
             // Add the item to the database
             return $this->addRecordInDB($this->itemType, $data);
         } catch (Exception $e) {
-            // Log the exception or handle it accordingly
+            
             error_log($e->getMessage());
-            return false; // Or handle the error as needed
+            return false; 
         }
     }
 
@@ -122,9 +131,9 @@ class HabitatInventory extends Inventory {
         try {
             return $this->removeRecordFromDB($this->itemType, $records);
         } catch (Exception $e) {
-            // Log the exception or handle it accordingly
+            
             error_log($e->getMessage());
-            return false; // Or handle the error as needed
+            return false; 
         }
     }
 
@@ -132,9 +141,9 @@ class HabitatInventory extends Inventory {
         try {
             return $this->getLastInsertedId("habitatinventory");
         } catch (Exception $e) {
-            // Log the exception or handle it accordingly
+            
             error_log($e->getMessage());
-            return false; // Or handle the error as needed
+            return false; 
         }
     }
 
@@ -142,9 +151,9 @@ class HabitatInventory extends Inventory {
         try {
             return $this->insertItemImage(null, $itemId, null, $uniqueFileName);
         } catch (Exception $e) {
-            // Log the exception or handle it accordingly
+            
             error_log($e->getMessage());
-            return false; // Or handle the error as needed
+            return false; 
         }
     }
 
@@ -158,7 +167,7 @@ class HabitatInventory extends Inventory {
                 return ["error" => "No record found"];
             }
         } catch (Exception $e) {
-            // Log the exception or handle it accordingly
+            
             error_log($e->getMessage());
             return ["error" => "An error occurred while fetching record details"];
         }
@@ -178,9 +187,9 @@ class HabitatInventory extends Inventory {
 
             return $this->editItemRecordInDB("Habitat", $data);
         } catch (Exception $e) {
-            // Log the exception or handle it accordingly
+            
             error_log($e->getMessage());
-            return false; // Or handle the error as needed
+            return false; 
         }
     }
 
@@ -248,9 +257,9 @@ class HabitatInventory extends Inventory {
                 return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
             }
         } catch (Exception $e) {
-            // Log the exception or handle it accordingly
+            
             error_log($e->getMessage());
-            return ''; // Or handle the error as needed
+            return ''; 
         }
     }
 
@@ -264,9 +273,9 @@ class HabitatInventory extends Inventory {
                     $data[$key] = $this->sanitizeInput($value);
                 }
             } catch (Exception $e) {
-                // Log the exception or handle it accordingly
+                
                 error_log($e->getMessage());
-                $data[$key] = ''; // Or handle the error as needed
+                $data[$key] = ''; 
             }
         }
         return $data;

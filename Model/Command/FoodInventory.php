@@ -4,10 +4,10 @@ require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
 
 class FoodInventory extends Inventory {
 
+    private $id;
     private $foodType; // meat, vege, fruit
     private $nutritionInfo;
     private $daily_quantity_required;
-   
 
     public function __construct($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity = null, $foodType = null, $nutritionInfo = null, $daily_quantity_required = null) {
         parent::__construct($itemName, $itemType, $storageLocation, $reorderThreshold, $quantity);
@@ -19,6 +19,15 @@ class FoodInventory extends Inventory {
     }
 
     // Getters and Setters
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id): void {
+        $this->id = $id;
+    }
+
     public function getFoodType() {
         return $this->foodType;
     }
@@ -51,7 +60,7 @@ class FoodInventory extends Inventory {
         if (empty($data['brandName']) || strlen($data['brandName']) < 3 || strlen($data['brandName']) > 50) {
             $errors[] = 'Brand name must be between 3 and 50 characters, only letters, numbers, spaces, commas, periods, and hyphens are allowed.';
         }
-        
+
         if (empty($data['nutritionInfo']) || strlen($data['nutritionInfo']) < 3 || strlen($data['nutritionInfo']) > 200) {
             $errors[] = 'Nutrition info must be between 3 and 200 characters, only letters, numbers, spaces, commas, periods, and hyphens are allowed.';
         }
@@ -112,8 +121,6 @@ class FoodInventory extends Inventory {
         return $this->addRecordInDB($this->itemType, $data);
     }
 
-    // Other methods remain unchanged
-
     public function removeItemRecord($records) {
         return $this->removeRecordFromDB($this->itemType, $records);
     }
@@ -135,7 +142,7 @@ class FoodInventory extends Inventory {
             return ["error" => "No record found"];
         }
     }
-    
+
     public function editItemRecord($data) {
         // Sanitize and validate input data
         $data['brandName'] = $this->sanitizeInput($data['brandName']);
