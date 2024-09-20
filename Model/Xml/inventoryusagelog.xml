@@ -70,4 +70,11 @@
     <quantityUsed>1</quantityUsed>
     <reasonForUse/>
   </inventoryusagelog>
+  <inventoryusagelog>
+    <logId>11</logId>
+    <inventoryId>37</inventoryId>
+    <dateTime>2024-09-20 11:32:00</dateTime>
+    <quantityUsed>1</quantityUsed>
+    <reasonForUse/>
+  </inventoryusagelog>
 </inventoryusagelogs>

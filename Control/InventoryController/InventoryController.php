@@ -115,6 +115,9 @@ class InventoryController extends InventoryModel {
                     $POid = isset($_GET['POid']) ? $_GET['POid'] : null;
                     $this->sendPO($POid);
                     break;
+                case 'reportMain':
+                    $this->reportMain();
+                    break;
                 case 'logusage':
                     $status = isset($_GET['status']) ? $_GET['status'] : '';
                     $newQuantity = isset($_GET['newQuantity']) ? $_GET['newQuantity'] : '';
@@ -127,6 +130,7 @@ class InventoryController extends InventoryModel {
                         case 'errorPO':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
                             echo "<p class='alert alert-error'>Out of stock !! Falied to automatic generate new Purchase Order.</p>";
+                            echo "<p class='alert alert-error'>No purchase order is sent to supplier, please create it manually. </p>";
                             break;
                         case 'successWeb':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
@@ -136,7 +140,7 @@ class InventoryController extends InventoryModel {
                         case 'errorWeb':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
                             echo "<p class='alert alert-notification'>Out of stock !! A new Purchase Order is automatic generated. </p>";
-                            echo "<p class='alert alert-error'>Falied to automatic generate new Purchase Order.</p>";
+                            echo "<p class='alert alert-error'>No purchase order is sent to supplier, please send it manually. </p>";
                             break;
                         case 'success':
                             echo "<p class='alert alert-success'>Inventory usage logged successfully. New available quantity: " . $newQuantity . "</p>";
@@ -331,6 +335,21 @@ class InventoryController extends InventoryModel {
         $this->view->render('AddNewInventItem', $data);
     }
 
+    
+    public function reportMain() {
+        $data = [
+            'activePage' => 'Reports',
+            'cssFiles' => [
+                '/ZooManagementSystem/Css/Inventory/reportMain.css',
+                '/ZooManagementSystem/Css/Inventory/InventoryMasterPage.css',
+                '/ZooManagementSystem/Css/Inventory/displayingTable.css'
+            ],
+            'xslt_transform' => false,
+        ];
+
+        $this->view->render('reportMain', $data);
+    }
+    
     public function logUsage() {
         $inventoryData = $this->model->getInventory();
         $data = [

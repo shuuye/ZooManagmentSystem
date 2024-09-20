@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryManagement.php';
         include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryCommand.php';
         $inventoryManager = new InventoryManagement();
-        $success = $inventoryManager->executeCommand(new UpdateItemCommand($inventory, $newQuantity, $itemDetails['quantity'],$inventoryItemId));
+        $success = $inventoryManager->executeCommand(new UpdateItemCommand($inventory, $newQuantity, $itemDetails['quantity'], $inventoryItemId));
 
         if ($success) {//
             $logsuccess = $inventory->logInventoryUsage($data);
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $newPO = new PurchaseOrder($lowestPriceRecord["supplierId"], $orderDate, $shippingDate,
                             $lowestSupplierDetails["address"], "Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor", $total, "Pending");
                     $newPOId = $newPO->addNewPO();
-
+                    
                     // Add Line Item to the Purchase Order = newpoid inventoryid ]]] quantity = threshold, price = supplyUnitPrice,
                     //id from supplier_record
                     $lineItem = $newPO->addLineItem($newPOId, $inventoryItemId, $itemDetails['reorderThreshold'] + 10, $lowestPriceRecord["supplyUnitPrice"], $lowestPriceRecord["cleaningId"], $lowestPriceRecord["habitatId"], $lowestPriceRecord["foodId"]);
@@ -107,8 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         // Create an instance of the RestfulPoNotiService_Consume class
                         $webService = new RestfulPoNotiService_Consume();
-                        
-                        
+
                         // Pass the formatted strings along with the other details to the web service
                         $webService->sendPOtoSupplier(
                                 $newPOId, // Purchase Order ID
@@ -132,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     exit();
                 } catch (Exception $e) {
                     // Optionally redirect to an error page
-                    header("Location: index.php?controller=inventory&action=logusage&status=errorPo&newQuantity=$newQuantity");
+                    header("Location: index.php?controller=inventory&action=logusage&status=errorPO&newQuantity=$newQuantity");
                     exit();
                 }
             }

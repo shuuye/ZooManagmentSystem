@@ -100,4 +100,14 @@
     <totalAmount>6300.00</totalAmount>
     <status>Completed</status>
   </purchaseorder>
+  <purchaseorder>
+    <poId>12</poId>
+    <supplierId>5</supplierId>
+    <orderDate>2024-09-20 11:32:51</orderDate>
+    <deliveryDate>2024-09-23 11:32:51</deliveryDate>
+    <billingAddress>202 Jalan Makanan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>6750.00</totalAmount>
+    <status>Completed</status>
+  </purchaseorder>
 </purchaseorders>
