@@ -1,3 +1,78 @@
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+}
+
+h2 {
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 14px;
+}
+
+p.error {
+    color: red;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #000;
+    color: #fff;
+}
+
+table td {
+    background-color: #f9f9f9;
+}
+
+input[type="number"], input[type="date"], input[type="submit"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}
+</style>
+
 <?php
 
 class CustomerTicketView {
@@ -10,9 +85,6 @@ class CustomerTicketView {
 
         if (isset($_SESSION['currentUserModel'])) {
             $userModel = $_SESSION['currentUserModel'];
-
-            // Display user details
-            echo "Welcome, " . htmlspecialchars($userModel['fullName']) . "!";
         } else {
             echo "No user is logged in.";
         }

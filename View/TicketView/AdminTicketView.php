@@ -23,6 +23,101 @@
         background-color: #04AA6D;
         color: white;
     }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    h2 {
+        text-align: center;
+        color: #000;
+    }
+
+    table {
+        width: 100%;
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #000;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #000;
+        color: #fff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    .form-container {
+        margin: 20px auto;
+        width: 50%;
+        padding: 20px;
+        border: 1px solid #000;
+        background-color: #fff;
+    }
+
+    label, input, select {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    input[type="submit"] {
+        background-color: #000;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: darkblue;
+        height: 30px;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 5px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
 </style>
 
 <?php
@@ -80,7 +175,7 @@ class AdminTicketView {
                     <input type="submit" value="Submit">
                 </form>
 
-        <?php if (!empty($tickets)) : ?>
+                <?php if (!empty($tickets)) : ?>
                     <h2>Tickets List</h2>
                     <table>
                         <thead>
@@ -92,23 +187,23 @@ class AdminTicketView {
                             </tr>
                         </thead>
                         <tbody>
-            <?php foreach ($tickets as $ticket) : ?>
+                            <?php foreach ($tickets as $ticket) : ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($ticket['id']); ?></td>
                                     <td><?php echo htmlspecialchars($ticket['type']); ?></td>
                                     <td><?php echo htmlspecialchars($ticket['description']); ?></td>
                                     <td><?php echo htmlspecialchars($ticket['price']); ?></td>
                                 </tr>
-            <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 <?php else: ?>
                     <p>No tickets found. The table is empty.</p>
-        <?php endif; ?>
+                <?php endif; ?>
 
                 <div id="form-container">
                     <?php if (isset($_POST['action'])) : ?>
-            <?php if ($_POST['action'] == 'Add') : ?>
+                        <?php if ($_POST['action'] == 'Add') : ?>
                             <h2>Add Ticket</h2>
                             <form method="post">
                                 <input type="hidden" name="action" value="Add">
@@ -120,7 +215,7 @@ class AdminTicketView {
                                 <input type="number" name="price" id="price" required>
                                 <input type="submit" value="Add Ticket">
                             </form>
-            <?php elseif ($_POST['action'] == 'Edit') : ?>
+                        <?php elseif ($_POST['action'] == 'Edit') : ?>
                             <h2>Edit Ticket</h2>
                             <form method="post">
                                 <input type="hidden" name="action" value="Edit">
@@ -134,7 +229,7 @@ class AdminTicketView {
                                 <input type="number" name="price" id="price" required>
                                 <input type="submit" value="Update Ticket">
                             </form>
-            <?php elseif ($_POST['action'] == 'Delete') : ?>
+                        <?php elseif ($_POST['action'] == 'Delete') : ?>
                             <h2>Delete Ticket</h2>
                             <form method="post">
                                 <input type="hidden" name="action" value="Delete">
@@ -147,7 +242,7 @@ class AdminTicketView {
 
                     <?php if ($errorMessage) : ?>
                         <p style="color: red;"><?php echo htmlspecialchars($errorMessage); ?></p>
-        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </body>
         </html>

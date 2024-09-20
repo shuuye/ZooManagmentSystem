@@ -7,7 +7,15 @@
     <phoneNumber>0126964456</phoneNumber>
     <email>superAdmin123@gmail.com</email>
     <registrationDateTime>2024-08-01 18:56:44</registrationDateTime>
+<<<<<<< HEAD
     <lastLoginDateTime>2024-09-19 20:14:53</lastLoginDateTime>
+=======
+<<<<<<< HEAD
+    <lastLoginDateTime>2024-09-20 04:28:56</lastLoginDateTime>
+=======
+    <lastLoginDateTime>2024-09-19 19:49:03</lastLoginDateTime>
+>>>>>>> aa7da916e12ba53740a9b5cc144e76e3121e12e5
+>>>>>>> 7fd460f780a35f325d021db97df72c1fadcf9baa
     <lastLogOutDateTime>2024-09-16 18:11:54</lastLogOutDateTime>
     <roleID>1</roleID>
   </user>

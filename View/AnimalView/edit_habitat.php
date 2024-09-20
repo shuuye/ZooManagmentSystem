@@ -18,10 +18,12 @@ $habitat = $habitatController->getHabitatById($habitat_id);
 
 <body>
    
+    <h2>Habitat Edit Form </h2>
+    
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
     
     <label for="habitat_name">Habitat ID :</label>
-    <input type="" name="habitat_id" value="<?php echo $habitat_id; ?>">
+    <input type="text" name="habitat_id" value="<?php echo $habitat_id; ?>" readonly>
     
     <label for="habitat_name">Habitat Name:</label>
     <input type="text" name="habitat_name" value="<?php echo $habitat['habitat_name']; ?>"><br><br>

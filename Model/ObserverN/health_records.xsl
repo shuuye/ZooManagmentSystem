@@ -8,7 +8,6 @@
              <link rel="stylesheet" type="text/css" href="../../Css/AnimalN/health.css"/>
               </head>
               <body>
-                <h2>Health Records</h2>
                 <nav class="navigation">
                   <ul>
                     <li><a href="../../View/AnimalView/animal_home.php">Animal Home</a></li>
@@ -16,6 +15,8 @@
                     <li><a href="../../View/AnimalView/add_health.php">Add | Update Health Record</a></li>
                     </ul>
                 </nav>
+                
+                <h2>Health Records</h2>
                 <table border="1">
                     <tr>
                         <th>Health ID</th>

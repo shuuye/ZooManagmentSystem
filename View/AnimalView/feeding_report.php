@@ -77,7 +77,7 @@ $controller->handleAddfeedingRecordForm();// Handle form submission
         </select>
 
         <label for="feeding_time">Feeding Time:</label>
-        <input type="datetime-local" name="feeding_time" id="feeding_time" required>
+        <input type="datetime-local" name="feeding_time" id="feeding_time" required max="<?php echo date('Y-m-d\TH:i'); ?>">
 
         <label for="quantity_fed">Quantity Fed:</label>
         <input type="number" step="1" min="1" name="quantity_fed" id="quantity_fed" required>
