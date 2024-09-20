@@ -105,7 +105,13 @@
                         <td>
                             <a class="hrefText">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?controller=inventory&amp;action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                    <xsl:choose>
+                                        <xsl:when test="itemType = 'Animal'">?controller=animal&amp;action=anilist</xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:value-of select="concat('?controller=inventory&amp;action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                    
                                 </xsl:attribute>
                                 <xsl:value-of select="itemName" />
                             </a>
@@ -135,7 +141,11 @@
                         <td> 
                             <a class="hrefText reorder">
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat('?controller=inventory&amp;action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" />
+                                    <xsl:choose>
+                                        <xsl:when test="itemType = 'Animal'">?controller=inventory&amp;action=inventoryTracking</xsl:when>
+                                        <xsl:otherwise><xsl:value-of select="concat('?controller=inventory&amp;action=viewItembasedOnInventoryID&amp;inventoryId=', inventoryId, '&amp;itemType=', itemType)" /></xsl:otherwise>
+                                    </xsl:choose>
+                                    
                                 </xsl:attribute>
                                 <xsl:choose>
                                     <xsl:when test="quantity &lt;= 0">

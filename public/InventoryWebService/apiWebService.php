@@ -1,7 +1,7 @@
 <?php
 
-require_once '../Model/Inventory/PurchaseOrder.php';
-//https://localhost/ZooManagementSystem/public/apiWebService.php?email=mei.ling@example.com
+require_once '../../Model/Inventory/PurchaseOrder.php';
+//https://localhost/ZooManagementSystem/public/InventoryWebService/apiWebService.php?email=mei.ling@example.com
 header("Content-Type:application/json");
 
 if (!empty($_GET['email'])) {

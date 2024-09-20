@@ -32,9 +32,9 @@
                             <li><a href="?controller=inventory&action=generateReport&report=cleaninginventoryRecordReport">Generate Report</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Animal Inventory</a>
+                    <li><a href="?controller=animal&action=anilist">Animal Inventory</a>
                         <ul class="dropdown-submenu">
-                            <li><a href="view-all-animals.php">View All</a></li>
+                            <li><a href="?controller=animal&action=anilist">View All</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,7 +52,7 @@
                                         </ul>-->
             </li>
             <li class="dropdown <?php echo ($activePage == 'Reports') ? 'active' : ''; ?>">
-                <a href="?controller=inventory&action=generateReport&report=inventorySummaryReport" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+                <a href="?controller=inventory&action=reportMain&report=inventorySummaryReport" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="?controller=inventory&action=generateReport&report=inventorySummaryReport">Inventory Summary Report</a></li>
                     <li><a href="?controller=inventory&action=generateReport&report=cleaninginventoryRecordReport">Cleaning Inventory Summary Report</a></li>

@@ -8,32 +8,8 @@
   </HealthRecord>
   <HealthRecord hRecord_id="23">
     <animal_id>20</animal_id>
-    <last_checkup>2024-09-10</last_checkup>
-    <treatments>area_check</treatments>
-    <healthStatus>Warning</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="24">
-    <animal_id>22</animal_id>
-    <last_checkup>2024-09-09</last_checkup>
+    <last_checkup>2024-09-04</last_checkup>
     <treatments>body_check</treatments>
-    <healthStatus>Healthy</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="25">
-    <animal_id>23</animal_id>
-    <last_checkup>2024-09-03</last_checkup>
-    <treatments>body_check</treatments>
-    <healthStatus>Normal</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="26">
-    <animal_id>25</animal_id>
-    <last_checkup>2024-09-03</last_checkup>
-    <treatments>dental_check</treatments>
-    <healthStatus>Normal</healthStatus>
-  </HealthRecord>
-  <HealthRecord hRecord_id="27">
-    <animal_id>26</animal_id>
-    <last_checkup>2024-09-10</last_checkup>
-    <treatments>body_check</treatments>
-    <healthStatus>Healthy</healthStatus>
+    <healthStatus>Treatment</healthStatus>
   </HealthRecord>
 </HealthRecords>

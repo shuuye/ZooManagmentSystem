@@ -30,7 +30,7 @@
     <habitatType>Forest</habitatType>
     <material>Wood</material>
     <expected_lifetime>3</expected_lifetime>
-    <installation_instructions/>
+    <installation_instructions>Securely attach to the habitat structure.</installation_instructions>
     <disposal_instructions>Compost or dispose of in accordance with local regulations.</disposal_instructions>
   </habitatinventory>
   <habitatinventory>

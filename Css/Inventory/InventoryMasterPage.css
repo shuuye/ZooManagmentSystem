@@ -1,6 +1,10 @@
 * {
     font-family: sans-serif;
 }
+
+h2 {
+    text-align: center;
+}
 .alert {
     overflow: hidden; /* Add this line */
     background-color: #f8d7da; /* Light red background */

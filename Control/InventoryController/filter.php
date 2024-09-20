@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $filters = $_POST['filters'];
         if (in_array("Animal", $filters)) {
-            
+            header("Location: index.php?controller=inventory&action=inventoryTracking");
         }
         if (in_array("Habitat", $filters)) {
             header("Location: index.php?controller=inventory&action=habitatItem");

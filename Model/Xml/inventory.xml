@@ -294,7 +294,7 @@
     <itemType>Food</itemType>
     <storageLocation>Vegetable Storage</storageLocation>
     <reorderThreshold>150</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>160</quantity>
   </inventory>
   <inventory>
     <inventoryId>38</inventoryId>

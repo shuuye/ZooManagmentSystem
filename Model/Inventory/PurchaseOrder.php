@@ -131,7 +131,8 @@ class PurchaseOrder extends InventoryModel {
 
             case 'date':
                 // Check if it's a valid date format (YYYY-MM-DD)
-                return (DateTime::createFromFormat('Y-m-d', $input) !== false) ? $input : false;
+
+                return (DateTime::createFromFormat('Y-m-d H:i:s', $input) !== false) ? $input : false;
 
             case 'amount':
                 // Check for a valid decimal number (money format)
@@ -150,14 +151,14 @@ class PurchaseOrder extends InventoryModel {
         $billingAddressValid = $this->validateInput($this->billingAddress, 'string', 5, 100); // address length 5-255
         $shippingAddressValid = $this->validateInput($this->shippingAddress, 'string', 5, 100); // address length 5-255
         $totalAmountValid = $this->validateInput($this->totalAmount, 'amount'); // no length check for amount
-//
-//        echo '<script>alert("'.$supplierIdValid. ' supplierId: ' .$this->supplierId.strlen($this->supplierId).'!");</script>';
-//        echo '<script>alert("'.$orderDateValid. ' orderDate: ' .$this->orderDate.strlen($this->orderDate).'!");</script>';
-//        echo '<script>alert("'.$deliveryDateValid. ' deliveryDate: ' .$this->deliveryDate.strlen($this->deliveryDate).'!");</script>';
-        //       echo '<script>alert("'.$billingAddressValid. ' billingAddress: ' .$this->billingAddress.strlen($this->billingAddress).'!");</script>';
-//        echo '<script>alert("'.$shippingAddressValid. ' shippingAddress: ' .$this->shippingAddress.strlen($this->shippingAddress).'!");</script>';
-//        echo '<script>alert("'.$totalAmountValid. ' totalAmount: ' .$this->totalAmount.strlen($this->totalAmount).'!");</script>';
-        //      exit();
+//        echo '<script>alert("'.$supplierIdValid. '!");</script>';
+//        echo '<script>alert("'.$orderDateValid. '!");</script>';
+//        echo '<script>alert("'.$deliveryDateValid. '!");</script>';
+//               echo '<script>alert("'.$billingAddressValid. '!");</script>';
+//        echo '<script>alert("'.$shippingAddressValid. '!");</script>';
+//        echo '<script>alert("'.$totalAmountValid. '!");</script>';
+//        echo $this->validateInput($this->orderDate, 'date');
+//              exit();
         // Check if any of the inputs are invalid
         if (
                 $supplierIdValid === false ||
