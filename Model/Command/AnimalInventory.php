@@ -151,26 +151,6 @@ class AnimalInventory extends Inventory {
         $this->categories = $categories;
     }
 
-    // Method to add a new animal to the database !!!!!!!!!!!should put in model
-    public function addAnimal() {
-        $db = new databaseConfig();
-        $pdo = $db->getConnection();
-
-        $stmt = $pdo->prepare(
-                "INSERT INTO animalinventory 
-            (name, species, subspecies, categories, age, gender, date_of_birth, avg_lifespan, description, height, weight, healthStatus, habitat_id) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        );
-
-        $stmt->execute([
-            $this->name, $this->species, $this->subspecies, $this->categories, $this->age,
-            $this->gender, $this->date_of_birth, $this->avg_lifespan, $this->description, $this->height,
-            $this->weight, $this->healthStatus, $this->habitatid
-        ]);
-
-        return $pdo->lastInsertId();
-    }
-
     public function removeItemRecord($records) {
         return $this->removeRecordFromDB($this->itemType, $records);
     }
