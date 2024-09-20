@@ -17,7 +17,7 @@
             //if (isset($_SESSION['userModel'])) {
                 //$userModel = $_SESSION['userModel'];
             if(isset($_SESSION['currentUserModel']) && $_SESSION['currentUserModel']['role']['roleID'] == 2){
-                echo "Welcome, " . htmlspecialchars($_SESSION['currentUserModel']['fullName']) . "!";
+                echo "Welcome, " . htmlspecialchars($_SESSION['currentUserModel']['full_name']) . "!";
                 //testing
                 echo '<a href="CustomerTicketPage.php" class="link-box">Book Ticket</a>';
                 
