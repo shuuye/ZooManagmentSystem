@@ -18,9 +18,9 @@
                 $scheduleOwner = $data['scheduleOwner'];
             ?>
             <input type="hidden" name="staffId" value="<?php echo htmlspecialchars($workingSchedule['id']); ?>">
-            <input type="hidden" name="workingDate" value="<?php echo htmlspecialchars($workingSchedule['workingDate']); ?>">
-            <input type="hidden" name="workingStartingTime" value="<?php echo htmlspecialchars($workingSchedule['workingStartingTime']); ?>">
-            <input type="hidden" name="workingOffTime" value="<?php echo htmlspecialchars($workingSchedule['workingOffTime']); ?>">
+            <input type="hidden" name="working_date" value="<?php echo htmlspecialchars($workingSchedule['working_date']); ?>">
+            <input type="hidden" name="working_starting_time" value="<?php echo htmlspecialchars($workingSchedule['working_starting_time']); ?>">
+            <input type="hidden" name="working_off_time" value="<?php echo htmlspecialchars($workingSchedule['working_off_time']); ?>">
             
             <table>
                 <tr>
@@ -36,15 +36,15 @@
                 </tr>
                 <tr>
                     <td>Working Date:</td>
-                    <td><?php echo htmlspecialchars($workingSchedule['workingDate']); ?></td>
+                    <td><?php echo htmlspecialchars($workingSchedule['working_date']); ?></td>
                 </tr>
                 <tr>
                     <td>Working Starting Time:</td>
-                    <td><?php echo htmlspecialchars($workingSchedule['workingStartingTime']); ?></td>
+                    <td><?php echo htmlspecialchars($workingSchedule['working_starting_time']); ?></td>
                 </tr>
                 <tr>
                     <td>Working Off Time:</td>
-                    <td><?php echo htmlspecialchars($workingSchedule['workingOffTime']); ?></td>
+                    <td><?php echo htmlspecialchars($workingSchedule['working_off_time']); ?></td>
                 </tr>
 
             </table>
@@ -62,16 +62,16 @@
                 </tr>
                 <tr>
                     <td>Attendance Date Time:</td>
-                    <td><?php echo empty($attendanceSelected['attendanceDateTime']) ? 'No Attendance Date Time Taken' : htmlspecialchars($attendanceSelected['attendanceDateTime']); ?></td>
+                    <td><?php echo empty($attendanceSelected['attendance_date_time']) ? 'No Attendance Date Time Taken' : htmlspecialchars($attendanceSelected['attendance_date_time']); ?></td>
                 </tr>
                 <tr>
                     <td>Attendance Status:</td>
                     <td>
                         <?php 
-                            if (empty($attendanceSelected['statusID'])) {
+                            if (empty($attendanceSelected['status_id'])) {
                                 echo 'Empty'; 
                             } else {
-                                switch ($attendanceSelected['statusID']) {
+                                switch ($attendanceSelected['status_id']) {
                                     case 1:
                                         echo '<span style="color: blue;">Pending</span>';
                                         break;
@@ -102,7 +102,7 @@
 
                     </td>
                     <td>
-                        <a href="index.php?controller=user&action=workingScheduleManagement&sort=workingDate&filter=week" id="cancelLink"><button type="button">
+                        <a href="index.php?controller=user&action=workingScheduleManagement&sort=working_date&filter=week" id="cancelLink"><button type="button">
                             Cancel
                         </button></a>
                     </td>

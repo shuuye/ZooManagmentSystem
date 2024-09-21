@@ -11,7 +11,7 @@
     $leaveApplicationRemovedSuccessfully = isset($_SESSION['leaveApplicationRemovedSuccessfully']) ? $_SESSION['leaveApplicationRemovedSuccessfully'] : '';
     
     // Get the sort key, filter key, and search query from query parameters
-    $sortKey = isset($_GET['sort']) ? $_GET['sort'] : 'workingDate';
+    $sortKey = isset($_GET['sort']) ? $_GET['sort'] : 'working_date';
     $filterKey = isset($_GET['filter']) ? $_GET['filter'] : 'all';
     $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
 

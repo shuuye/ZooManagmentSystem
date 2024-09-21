@@ -10,7 +10,6 @@ include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\HabitatInventory
 class InventoryItemFactory {
 
     public static function createItem($item_name, $item_type, $storageLocation, $reorder_threshold): Inventory {
-        echo $item_type;
         switch ($item_type) {
             case 'Animal':
                 return new AnimalInventory($item_name, $item_type, $storageLocation, $reorder_threshold);

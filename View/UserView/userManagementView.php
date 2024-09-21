@@ -20,8 +20,8 @@
             return stripos($user['id'], $searchQuery) !== false ||
                    stripos($user['username'], $searchQuery) !== false ||
                    stripos($user['password'], $searchQuery) !== false ||
-                   stripos($user['fullName'], $searchQuery) !== false ||
-                   stripos($user['phoneNumber'], $searchQuery) !== false ||
+                   stripos($user['full_name'], $searchQuery) !== false ||
+                   stripos($user['phone_number'], $searchQuery) !== false ||
                    stripos($user['email'], $searchQuery) !== false ||
                    stripos($user['registrationDateTime'], $searchQuery) !== false ||
                    stripos($user['lastLoginDateTime'], $searchQuery) !== false ||
@@ -74,8 +74,8 @@
                         <th><a href="?controller=user&action=userManagement&sort=id&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">ID &#8597;</a></th>
                         <th><a href="?controller=user&action=userManagement&sort=username&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Username &#8597;</a></th>
                         <th><a href="?controller=user&action=userManagement&sort=password&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Password &#8597;</a></th>
-                        <th><a href="?controller=user&action=userManagement&sort=fullName&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Full Name &#8597;</a></th>
-                        <th><a href="?controller=user&action=userManagement&sort=phoneNumber&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Phone Number &#8597;</a></th>
+                        <th><a href="?controller=user&action=userManagement&sort=full_name&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Full Name &#8597;</a></th>
+                        <th><a href="?controller=user&action=userManagement&sort=phone_number&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Phone Number &#8597;</a></th>
                         <th><a href="?controller=user&action=userManagement&sort=email&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Email &#8597;</a></th>
                         <th><a href="?controller=user&action=userManagement&sort=registrationDateTime&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Registration Date &#8597;</a></th>
                         <th><a href="?controller=user&action=userManagement&sort=lastLoginDateTime&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Last Login Date Time &#8597;</a></th>
@@ -136,8 +136,8 @@
                                             $password = $user['password'];
                                             echo htmlspecialchars(strlen($password) > 25 ? substr($password, 0, 25) . '...' : $password);
                                             ?></td>
-                                        <td><?php echo htmlspecialchars($user['fullName']); ?></td>
-                                        <td><?php echo htmlspecialchars($user['phoneNumber']); ?></td>
+                                        <td><?php echo htmlspecialchars($user['full_name']); ?></td>
+                                        <td><?php echo htmlspecialchars($user['phone_number']); ?></td>
                                         <td><?php echo htmlspecialchars($user['email']); ?></td>
                                         <td><?php echo htmlspecialchars($user['registrationDateTime']); ?></td>
                                         <td><?php echo !empty($user['lastLoginDateTime']) ? htmlspecialchars($user['lastLoginDateTime']) : 'Not Logged In Yet'; ?></td>

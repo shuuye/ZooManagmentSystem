@@ -78,6 +78,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $supplierRecord = new SupplierRecord();
                 $lowestPriceRecord = $supplierRecord->getFirstBrandWithLowestPrice($inventoryItemId);
                 //Array ( [supplierId] => 2 [inventoryId] => 26 [supplyUnitPrice] => 50.00 [cleaningId] => 1 [habitatId] => [foodId] => )
+                // Determine which ID is not empty and set the corresponding item ID
+                // Initialize all IDs as null
+                $foodId = null;
+                $habitatId = null;
+                $cleaningId = null;
+
+            // Check which ID field is not empty and assign $itemID to it
+                $foodId = !empty($lowestPriceRecord["foodId"]) ? $lowestPriceRecord["foodId"] : null;
+                $habitatId = !empty($lowestPriceRecord["habitatId"]) ? $lowestPriceRecord["habitatId"] : null;
+                $cleaningId = !empty($lowestPriceRecord["cleaningId"]) ? $lowestPriceRecord["cleaningId"] : null;
+
+                // Set the ID for the inventory based on which ID is non-null
+                if (!empty($habitatId)) {
+                    $inventory->setId($habitatId);
+                } elseif (!empty($foodId)) {
+                    $inventory->setId($foodId);
+                } elseif (!empty($cleaningId)) {
+                    $inventory->setId($cleaningId);
+                }
+
+
 
                 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\Supplier.php';
                 $supplier = new Supplier();
@@ -87,18 +108,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 //[city] => Subang Jaya [state] => Selangor [postalCode] => 47500 [country] => Malaysia [
                 //website] => www.foodsuppliers.com.my [rating] => 4.30 [lastOrderDate] => 2024-05-05 
                 //[paymentTerms] => Net 30 [deliveryTime] => 7 [supplierNotes] => Good variety of products. )
+                $supplier->setId($lowestPriceRecord["supplierId"]);
 
                 $total = $itemDetails['reorderThreshold'] * $lowestPriceRecord["supplyUnitPrice"];
 
                 try {
                     // Create a new Purchase Order = orderdate shipping date shipping address ]]]] billingaddress = supplier  total = reorderthreshold * supplyunitPrice
-                    $newPO = new PurchaseOrder($lowestPriceRecord["supplierId"], $orderDate, $shippingDate,
+                    $newPO = new PurchaseOrder($supplier, $orderDate, $shippingDate,
                             $lowestSupplierDetails["address"], "Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor", $total, "Pending");
                     $newPOId = $newPO->addNewPO();
-                    
+
                     // Add Line Item to the Purchase Order = newpoid inventoryid ]]] quantity = threshold, price = supplyUnitPrice,
                     //id from supplier_record
-                    $lineItem = $newPO->addLineItem($newPOId, $inventoryItemId, $itemDetails['reorderThreshold'] + 10, $lowestPriceRecord["supplyUnitPrice"], $lowestPriceRecord["cleaningId"], $lowestPriceRecord["habitatId"], $lowestPriceRecord["foodId"]);
+                    $lineItem = $newPO->addLineItem($newPOId, $inventoryItemId, $itemDetails['reorderThreshold'] + 10, $lowestPriceRecord["supplyUnitPrice"], $inventory);
                     $lineItem->addNewPOLine();
 
                     try {

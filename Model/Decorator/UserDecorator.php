@@ -35,8 +35,8 @@
         public function setId($id) { $this->user->setId($id); }
         public function setUsername($username) { $this->user->setUsername($username); }
         public function setPassword($password) { $this->user->setPassword($password); }
-        public function setFullName($fullName) { $this->user->setFullName($fullName); }
-        public function setPhoneNumber($phoneNumber) { $this->user->setPhoneNumber($phoneNumber); }
+        public function setFullName($full_name) { $this->user->setFullName($full_name); }
+        public function setPhoneNumber($phone_number) { $this->user->setPhoneNumber($phone_number); }
         public function setEmail($email) { $this->user->setEmail($email); }
         public function setRegistrationDateTime($registrationDateTime) { $this->user->setRegistrationDateTime($registrationDateTime); }
         public function setLastLoginDateTime($lastLoginDateTime) { $this->user->setLastLoginDateTime($lastLoginDateTime); }

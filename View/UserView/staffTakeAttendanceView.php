@@ -25,26 +25,26 @@ $attendances = $data['staffOwnAttendanceArray'];
 $attendanceToday = false;
 $validTime = false;
 $id = '';
-$workingStartingTime = '';
-$workingOffTime = '';
-$workingDate = '';
+$working_starting_time = '';
+$working_off_time = '';
+$working_date = '';
 $attendanceStatus = '';
 
 foreach ($attendances as $attendance) {
-    if ($attendance['workingDate'] === $currentDate) {
+    if ($attendance['working_date'] === $currentDate) {
         $attendanceToday = true;
         $id = $attendance['id'];
-        $workingStartingTime = $attendance['workingStartingTime'];
-        $workingOffTime = $attendance['workingOffTime'];
-        $workingDate = $attendance['workingDate'];
-        $attendanceStatus = $attendance['statusID'];
+        $working_starting_time = $attendance['working_starting_time'];
+        $working_off_time = $attendance['working_off_time'];
+        $working_date = $attendance['working_date'];
+        $attendanceStatus = $attendance['status_id'];
         
         // Convert times to timestamps for comparison
-        $startTime = strtotime($workingStartingTime);
-        $offTime = strtotime($workingOffTime);
+        $startTime = strtotime($working_starting_time);
+        $offTime = strtotime($working_off_time);
         $currentTimestamp = strtotime($currentTime);
         
-        // Check if current time is between workingStartingTime and workingOffTime
+        // Check if current time is between working_starting_time and working_off_time
         if ($currentTimestamp >= $startTime && $currentTimestamp <= $offTime) {
             $validTime = true;
         }
@@ -96,7 +96,7 @@ foreach ($attendances as $attendance) {
     <?php if ($validTime): ?>
         <?php if ($attendanceStatus != 2): ?>
             <!-- If there's work today and the current time is valid, display "Take Attendance" -->
-            <h3 style="text-align: center; margin-top: 30px;">Take Attendance For : <?php echo $workingDate; ?> from <?php echo $workingStartingTime; ?> to <?php echo $workingOffTime; ?></h3>
+            <h3 style="text-align: center; margin-top: 30px;">Take Attendance For : <?php echo $working_date; ?> from <?php echo $working_starting_time; ?> to <?php echo $working_off_time; ?></h3>
 
             <form action="index.php?controller=user&action=takeAttendance" method="POST" enctype="multipart/form-data">
                 <style>
@@ -105,9 +105,9 @@ foreach ($attendances as $attendance) {
                     }
                 </style>
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($id, ENT_QUOTES, 'UTF-8'); ?>">
-                <input type="hidden" name="workingStartingTime" value="<?php echo htmlspecialchars($workingStartingTime, ENT_QUOTES, 'UTF-8'); ?>">
-                <input type="hidden" name="workingOffTime" value="<?php echo htmlspecialchars($workingOffTime, ENT_QUOTES, 'UTF-8'); ?>">
-                <input type="hidden" name="workingDate" value="<?php echo htmlspecialchars($workingDate, ENT_QUOTES, 'UTF-8'); ?>">
+                <input type="hidden" name="working_starting_time" value="<?php echo htmlspecialchars($working_starting_time, ENT_QUOTES, 'UTF-8'); ?>">
+                <input type="hidden" name="working_off_time" value="<?php echo htmlspecialchars($working_off_time, ENT_QUOTES, 'UTF-8'); ?>">
+                <input type="hidden" name="working_date" value="<?php echo htmlspecialchars($working_date, ENT_QUOTES, 'UTF-8'); ?>">
 
                 <!-- Hidden fields for latitude and longitude -->
                 <input type="hidden" id="latitude" name="latitude" value="">
@@ -162,14 +162,14 @@ foreach ($attendances as $attendance) {
             <!-- If it's attendance is taken, display an error message with working schedule -->
             <div class="attendance-message" style="text-align: center; font-size: 18pt; color: green;">
                 The Attendance is Taken 
-                <br> Working Schedule: <?php echo $workingDate; ?> from <?php echo $workingStartingTime; ?> to <?php echo $workingOffTime; ?>
+                <br> Working Schedule: <?php echo $working_date; ?> from <?php echo $working_starting_time; ?> to <?php echo $working_off_time; ?>
             </div>
         <?php endif; ?>
     <?php else: ?>
         <!-- If it's outside of working hours, display an error message with working schedule -->
         <div class="attendance-message" style="text-align: center; font-size: 18pt; color: red;">
             You are outside of the valid working time! 
-            <br> Working Schedule: <?php echo $workingDate; ?> from <?php echo $workingStartingTime; ?> to <?php echo $workingOffTime; ?>
+            <br> Working Schedule: <?php echo $working_date; ?> from <?php echo $working_starting_time; ?> to <?php echo $working_off_time; ?>
         </div>
     <?php endif; ?>
 <?php else: ?>

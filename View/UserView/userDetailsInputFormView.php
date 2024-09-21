@@ -192,46 +192,46 @@
         <?php endif; ?>
         
         <tr>
-            <td><label for="fullName">Full Name:</label></td>
+            <td><label for="full_name">Full Name:</label></td>
             <td>
                 <input type="text" 
-                        id="fullName" 
-                        name="fullName" 
+                        id="full_name" 
+                        name="full_name" 
                         autocomplete="off" 
                         required
                         value="<?php 
                            if (isset($data['selectedUser']) && isset($data['action'])) {
-                               if ($data['action'] == 'edit' && isset($data['selectedUser']['fullName'])) {
-                                   echo $data['selectedUser']['fullName']; 
+                               if ($data['action'] == 'edit' && isset($data['selectedUser']['full_name'])) {
+                                   echo $data['selectedUser']['full_name']; 
                                }
                            }
                        ?>"
                 >
             </td>
             <td class="error"><?php if (isset($data['userInputData'])): ?>
-                <?php echo getError($data['userInputData'], 'fullNameErr'); ?>
+                <?php echo getError($data['userInputData'], 'full_nameErr'); ?>
             <?php endif; ?>
             </td>
         </tr>
         <tr>
-            <td><label for="phoneNumber">Contact Number:</label></td>
+            <td><label for="phone_number">Contact Number:</label></td>
             <td>
                 <input type="text" 
-                        id="phoneNumber" 
-                        name="phoneNumber" 
+                        id="phone_number" 
+                        name="phone_number" 
                         autocomplete="off" 
                         required
                         value="<?php 
                            if (isset($data['selectedUser']) && isset($data['action'])) {
-                               if ($data['action'] == 'edit' && isset($data['selectedUser']['phoneNumber'])) {
-                                   echo $data['selectedUser']['phoneNumber']; 
+                               if ($data['action'] == 'edit' && isset($data['selectedUser']['phone_number'])) {
+                                   echo $data['selectedUser']['phone_number']; 
                                }
                            }
                        ?>"
                 >
             </td>
             <td class="error"><?php if (isset($data['userInputData'])): ?>
-                <?php echo getError($data['userInputData'], 'phoneNumberErr'); ?>
+                <?php echo getError($data['userInputData'], 'phone_numberErr'); ?>
             <?php endif; ?>
             </td>
         </tr>

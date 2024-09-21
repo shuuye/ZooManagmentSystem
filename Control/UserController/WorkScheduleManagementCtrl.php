@@ -11,9 +11,9 @@
 
     class WorkScheduleManagementCtrl extends StaffUserManagementCtrl{
         protected $staffId;
-        protected $workingDate;
-        protected $workingStartingTime;
-        protected $workingOffTime;
+        protected $working_date;
+        protected $working_starting_time;
+        protected $working_off_time;
         
         protected $workingScheduleInputData;
         
@@ -54,21 +54,21 @@
             }
 
             $staffId = isset($_GET['id']) ? $_GET['id'] : null;
-            $workingDate = isset($_GET['workingDate']) ? $_GET['workingDate'] : null;
-            $workingStartingTime = isset($_GET['workingStartingTime']) ? $_GET['workingStartingTime'] : null;
-            $workingOffTime = isset($_GET['workingOffTime']) ? $_GET['workingOffTime'] : null;
+            $working_date = isset($_GET['working_date']) ? $_GET['working_date'] : null;
+            $working_starting_time = isset($_GET['working_starting_time']) ? $_GET['working_starting_time'] : null;
+            $working_off_time = isset($_GET['working_off_time']) ? $_GET['working_off_time'] : null;
 
             // Fetch the working schedule from the database
             $workingScheduleModel = new WorkingScheduleModel();
-            $workingScheduleDetails = $workingScheduleModel->getWorkingScheduleByPrimaryKey($staffId, $workingDate, $workingStartingTime, $workingOffTime);
+            $workingScheduleDetails = $workingScheduleModel->getWorkingScheduleByPrimaryKey($staffId, $working_date, $working_starting_time, $working_off_time);
 
             if (empty($workingScheduleDetails)) {
                 // If no matching schedule is found, pass an empty array or default values
                 $selectedWorkingSchedule = [
                     'id' => $staffId,
-                    'workingDate' => $workingDate, // Keep the user's input for the working date
-                    'workingStartingTime' => $workingStartingTime,
-                    'workingOffTime' => $workingOffTime
+                    'working_date' => $working_date, // Keep the user's input for the working date
+                    'working_starting_time' => $working_starting_time,
+                    'working_off_time' => $working_off_time
                 ];
                 // Optionally, you can set a flag to indicate that no data was found
                 $noDataFound = true;
@@ -121,7 +121,7 @@
         private function deleteWorkingScheduleConfirmatinMsg($workingScheduleDetails){
             $staff = $this->getUserDetailsByIDFromDB($workingScheduleDetails['id']);
             $attendanceModel = new AttendanceModel();
-            $attendanceSelected = $attendanceModel->getAttendanceByPrimaryKey($workingScheduleDetails['id'], $workingScheduleDetails['workingDate'], $workingScheduleDetails['workingStartingTime'], $workingScheduleDetails['workingOffTime']);
+            $attendanceSelected = $attendanceModel->getAttendanceByPrimaryKey($workingScheduleDetails['id'], $workingScheduleDetails['working_date'], $workingScheduleDetails['working_starting_time'], $workingScheduleDetails['working_off_time']);
             $data = [
                 'pageTitle' => 'Delete Work Schedule Confirmation',
                 'selectedWorkingScheduleDetails' => $workingScheduleDetails,
@@ -138,25 +138,25 @@
             $workingSchedule = $this->getWorkingScheduleDetails();
             
             $workingScheduleModel = new WorkingScheduleModel();
-            $workingScheduleDetails = $workingScheduleModel->getWorkingScheduleByPrimaryKey($workingSchedule['staffId'], $workingSchedule['workingDate'], $workingSchedule['workingStartingTime'], $workingSchedule['workingOffTime']);
+            $workingScheduleDetails = $workingScheduleModel->getWorkingScheduleByPrimaryKey($workingSchedule['staffId'], $workingSchedule['working_date'], $workingSchedule['working_starting_time'], $workingSchedule['working_off_time']);
             $this->deleteWorkingScheduleConfirmatinMsg($workingScheduleDetails[0]);
         }
 
         private function getWorkingScheduleDetails() {
             // Check if each GET parameter is set and retrieve them
             $staffId = isset($_GET['id']) ? $_GET['id'] : null;
-            $workingDate = isset($_GET['workingDate']) ? $_GET['workingDate'] : null;
-            $workingStartingTime = isset($_GET['workingStartingTime']) ? $_GET['workingStartingTime'] : null;
-            $workingOffTime = isset($_GET['workingOffTime']) ? $_GET['workingOffTime'] : null;
+            $working_date = isset($_GET['working_date']) ? $_GET['working_date'] : null;
+            $working_starting_time = isset($_GET['working_starting_time']) ? $_GET['working_starting_time'] : null;
+            $working_off_time = isset($_GET['working_off_time']) ? $_GET['working_off_time'] : null;
 
             // Check if all parameters are provided
-            if ($staffId && $workingDate && $workingStartingTime && $workingOffTime) {
+            if ($staffId && $working_date && $working_starting_time && $working_off_time) {
                 // Return the details if all parameters are set
                 return [
                     'staffId' => $staffId,
-                    'workingDate' => $workingDate,
-                    'workingStartingTime' => $workingStartingTime,
-                    'workingOffTime' => $workingOffTime
+                    'working_date' => $working_date,
+                    'working_starting_time' => $working_starting_time,
+                    'working_off_time' => $working_off_time
                 ];
             } else {
                 // Handle the case where some parameters are missing
@@ -176,7 +176,7 @@
                 $_SESSION['deleteSuccess'] = 'Working Schedule Deleted Successfully.';
             }
             
-            header("Location: index.php?controller=user&action=workingScheduleManagement&sort=workingDate&filter=week");
+            header("Location: index.php?controller=user&action=workingScheduleManagement&sort=working_date&filter=week");
             exit();
         }
         
@@ -185,10 +185,10 @@
 
             // Remove from user table
             $workingScheduleModel = new WorkingScheduleModel();
-            $deleteFail = !$workingScheduleModel->isPrimaryKeyExistInWorkingScheduleDB($workingScheduleDetails['id'], $workingScheduleDetails['workingDate'], $workingScheduleDetails['workingStartingTime'], $workingScheduleDetails['workingOffTime']) ? true : $deleteFail;
+            $deleteFail = !$workingScheduleModel->isPrimaryKeyExistInWorkingScheduleDB($workingScheduleDetails['id'], $workingScheduleDetails['working_date'], $workingScheduleDetails['working_starting_time'], $workingScheduleDetails['working_off_time']) ? true : $deleteFail;
             
             if (!$deleteFail) {
-                $workingScheduleModel->removeWorkingScheduleByPrimaryKey($workingScheduleDetails['id'], $workingScheduleDetails['workingDate'], $workingScheduleDetails['workingStartingTime'], $workingScheduleDetails['workingOffTime']);
+                $workingScheduleModel->removeWorkingScheduleByPrimaryKey($workingScheduleDetails['id'], $workingScheduleDetails['working_date'], $workingScheduleDetails['working_starting_time'], $workingScheduleDetails['working_off_time']);
             }
 
             // Finalize deletion process
@@ -204,7 +204,7 @@
             $this->setWorkingScheduleTemp();
             
             $workingScheduleModel = new WorkingScheduleModel();
-            $workingScheduleDetails = $workingScheduleModel->getWorkingScheduleByPrimaryKey($this->staffId, $this->workingDate, $this->workingStartingTime, $this->workingOffTime);
+            $workingScheduleDetails = $workingScheduleModel->getWorkingScheduleByPrimaryKey($this->staffId, $this->working_date, $this->working_starting_time, $this->working_off_time);
 
             $this->removeWorkingScheduleData($workingScheduleDetails[0]);
         }
@@ -215,15 +215,15 @@
         
         private function validateWorkingDate() {
             $today = new DateTime();
-            $workingDate = new DateTime($this->workingDate ?? '');
+            $working_date = new DateTime($this->working_date ?? '');
 
             // Check if the working date is set
-            if (empty($this->workingDate)) {
+            if (empty($this->working_date)) {
                 return 'Working date is required.';
             }
 
             // Check if the working date is at least 1 day after today
-            if ($workingDate <= $today->modify('+1 day')) {
+            if ($working_date <= $today->modify('+1 day')) {
                 return 'Working date must be at least 1 day after today.';
             }
 
@@ -234,15 +234,15 @@
         private function validateWorkingStartingTime() {
             $startTime = DateTime::createFromFormat('H:i', '08:00');
             $endTime = DateTime::createFromFormat('H:i', '22:00');
-            $workingStartingTime = DateTime::createFromFormat('H:i', $this->workingStartingTime ?? '');
+            $working_starting_time = DateTime::createFromFormat('H:i', $this->working_starting_time ?? '');
 
             // Check if the starting time is set
-            if (empty($this->workingStartingTime)) {
+            if (empty($this->working_starting_time)) {
                 return 'Working starting time is required.';
             }
 
             // Check if the starting time is within the allowed range
-            if ($workingStartingTime < $startTime || $workingStartingTime > $endTime) {
+            if ($working_starting_time < $startTime || $working_starting_time > $endTime) {
                 return 'Working starting time must be between 08:00 AM and 10:00 PM.';
             }
 
@@ -253,21 +253,21 @@
         private function validateWorkingOffTime() {
             $startTime = DateTime::createFromFormat('H:i', '12:00');
             $endTime = DateTime::createFromFormat('H:i', '22:00');
-            $workingStartingTime = DateTime::createFromFormat('H:i', $this->workingStartingTime ?? '');
-            $workingOffTime = DateTime::createFromFormat('H:i', $this->workingOffTime ?? '');
+            $working_starting_time = DateTime::createFromFormat('H:i', $this->working_starting_time ?? '');
+            $working_off_time = DateTime::createFromFormat('H:i', $this->working_off_time ?? '');
 
             // Check if the working off time is set
-            if (empty($this->workingOffTime)) {
+            if (empty($this->working_off_time)) {
                 return 'Working off time is required.';
             }
 
             // Check if the working off time is within the allowed range
-            if ($workingOffTime < $startTime || $workingOffTime > $endTime) {
+            if ($working_off_time < $startTime || $working_off_time > $endTime) {
                 return 'Working off time must be between 12:00 PM and 10:00 PM.';
             }
 
             // Check if working off time is at least 2 hours after starting time
-            $interval = $workingOffTime->diff($workingStartingTime);
+            $interval = $working_off_time->diff($working_starting_time);
             if ($interval->h < 2) {
                 return 'Working off time must be at least 2 hours after working starting time.';
             }
@@ -278,13 +278,13 @@
 
         private function checkWorkingScheduleInput() {
             $data = [
-                'workingDateErr' => $this->validateWorkingDate(),
-                'workingStartingTimeErr' => $this->validateWorkingStartingTime(),
-                'workingOffTimeErr' => $this->validateWorkingOffTime(),
+                'working_dateErr' => $this->validateWorkingDate(),
+                'working_starting_timeErr' => $this->validateWorkingStartingTime(),
+                'working_off_timeErr' => $this->validateWorkingOffTime(),
             ];
 
             $workingScheduleModel = new WorkingScheduleModel();
-            if($workingScheduleModel->isPrimaryKeyExistInWorkingScheduleDB($this->staffId, $this->workingDate, $this->workingStartingTime, $this->workingOffTime)){
+            if($workingScheduleModel->isPrimaryKeyExistInWorkingScheduleDB($this->staffId, $this->working_date, $this->working_starting_time, $this->working_off_time)){
                 $data['workingScheduleExistedErr'] = 'Working Schedule is Already Existed!';
             }
             $this->workingScheduleInputData = $data;
@@ -292,18 +292,18 @@
         
         private function setWorkingScheduleTemp(){
             $this->staffId = $_POST['staffId'] ?? '';
-            $this->workingDate = $_POST['workingDate'] ?? '';
-            $this->workingStartingTime = $_POST['workingStartingTime'] ?? '';
-            $this->workingOffTime = $_POST['workingOffTime'] ?? '';
+            $this->working_date = $_POST['working_date'] ?? '';
+            $this->working_starting_time = $_POST['working_starting_time'] ?? '';
+            $this->working_off_time = $_POST['working_off_time'] ?? '';
             
         }
         
         private function setOldWorkingScheduleTemp(){
             return [
                 "id" => $_POST['oldId'] ?? '',
-                "workingDate" => $_POST['oldWorkingDate'] ?? '',
-                "workingStartingTime" => $_POST['oldWorkingStartingTime'] ?? '',
-                "workingOffTime" => $_POST['oldWorkingOffTime'] ?? '',
+                "working_date" => $_POST['oldWorkingDate'] ?? '',
+                "working_starting_time" => $_POST['oldWorkingStartingTime'] ?? '',
+                "working_off_time" => $_POST['oldWorkingOffTime'] ?? '',
             ];
         }
         
@@ -318,12 +318,12 @@
         
         private function addDefaultAttendanceForNewWorkingSchedule(){
             $attendanceCtrl = new AttendanceManagementCtrl();
-            $attendanceCtrl->addDefaultAttendanceToDB($this->staffId, $this->workingDate, $this->workingStartingTime, $this->workingOffTime);
+            $attendanceCtrl->addDefaultAttendanceToDB($this->staffId, $this->working_date, $this->working_starting_time, $this->working_off_time);
         }
         
         private function removeAttendanceForDeletedWorkingSchedule(){
             $attendanceCtrl = new AttendanceManagementCtrl();
-            $attendanceCtrl->removeAttendanceForDeletedWorkingSchedule($this->staffId, $this->workingDate, $this->workingStartingTime, $this->workingOffTime);
+            $attendanceCtrl->removeAttendanceForDeletedWorkingSchedule($this->staffId, $this->working_date, $this->working_starting_time, $this->working_off_time);
         }
         
         private function actionAfterWorkingScheduleAddedSuccessfully(){
@@ -332,7 +332,7 @@
                 session_start();
             }
             $_SESSION['workingScheduleAddedSuccess'] = 'Working Schedule Added Successfully.';
-            header("Location: index.php?controller=user&action=workingScheduleManagement&sort=workingDate&filter=week");
+            header("Location: index.php?controller=user&action=workingScheduleManagement&sort=working_date&filter=week");
             exit();
             
         }
@@ -342,7 +342,7 @@
                 session_start();
             }
             $_SESSION['workingScheduleEditedSuccess'] = 'Working Schedule Edited Successfully.';
-            header("Location: index.php?controller=user&action=workingScheduleManagement&sort=workingDate&filter=week");
+            header("Location: index.php?controller=user&action=workingScheduleManagement&sort=working_date&filter=week");
             exit();
             
         }
@@ -357,7 +357,7 @@
         private function editingWorkingScheduleFailedAction(){
             $this->workingScheduleInputData['inputFormErr'] = 'Working Schedule Editing Failed';
             $_SESSION['workingScheduleInputData'] = $this->workingScheduleInputData;
-            header("Location: index.php?controller=user&action=editWorkingSchedule&id=$this->staffId&workingDate=$this->workingDate&workingStartingTime=$this->workingStartingTime&workingOffTime=$this->workingOffTime");
+            header("Location: index.php?controller=user&action=editWorkingSchedule&id=$this->staffId&working_date=$this->working_date&working_starting_time=$this->working_starting_time&working_off_time=$this->working_off_time");
             exit();
         }
         
@@ -366,7 +366,7 @@
             if($validInput){
                 // create new schedule to db
                 $workingScheduleModel = new WorkingScheduleModel();
-                $lastestNewWorkingSchedule = $workingScheduleModel->addWorkingScheduleIntoDB($this->staffId, $this->workingDate, $this->workingStartingTime, $this->workingOffTime);
+                $lastestNewWorkingSchedule = $workingScheduleModel->addWorkingScheduleIntoDB($this->staffId, $this->working_date, $this->working_starting_time, $this->working_off_time);
                 
                 if($lastestNewWorkingSchedule != false){ // created working Schedule successfully
                     $this->addDefaultAttendanceForNewWorkingSchedule(); //add default attendance when the working schedule is added
@@ -384,9 +384,9 @@
         private function updateWorkingSchedule($oldWorkingSchedule) {
             // Check if any primary key fields have changed
             $isStaffIdChanged = $this->staffId !== $oldWorkingSchedule['id'];
-            $isWorkingDateChanged = $this->workingDate !== $oldWorkingSchedule['workingDate'];
-            $isWorkingStartingTimeChanged = $this->workingStartingTime !== $oldWorkingSchedule['workingStartingTime'];
-            $isWorkingOffTimeChanged = $this->workingOffTime !== $oldWorkingSchedule['workingOffTime'];
+            $isWorkingDateChanged = $this->working_date !== $oldWorkingSchedule['working_date'];
+            $isWorkingStartingTimeChanged = $this->working_starting_time !== $oldWorkingSchedule['working_starting_time'];
+            $isWorkingOffTimeChanged = $this->working_off_time !== $oldWorkingSchedule['working_off_time'];
 
             // If any primary key field has changed, we need to delete and re-insert the record
             if ($isStaffIdChanged || $isWorkingDateChanged || $isWorkingStartingTimeChanged || $isWorkingOffTimeChanged) {
@@ -395,24 +395,24 @@
                 
                 $workingScheduleModel->removeWorkingScheduleByPrimaryKey(
                     $oldWorkingSchedule['id'],
-                    $oldWorkingSchedule['workingDate'],
-                    $oldWorkingSchedule['workingStartingTime'],
-                    $oldWorkingSchedule['workingOffTime']
+                    $oldWorkingSchedule['working_date'],
+                    $oldWorkingSchedule['working_starting_time'],
+                    $oldWorkingSchedule['working_off_time']
                 );
                 
                 $attendanceModel = new AttendanceModel();
-                if($attendanceModel->isPrimaryKeyExistInAttendanceDB($oldWorkingSchedule['id'], $oldWorkingSchedule['workingDate'], $oldWorkingSchedule['workingStartingTime'], $oldWorkingSchedule['workingOffTime'])){
+                if($attendanceModel->isPrimaryKeyExistInAttendanceDB($oldWorkingSchedule['id'], $oldWorkingSchedule['working_date'], $oldWorkingSchedule['working_starting_time'], $oldWorkingSchedule['working_off_time'])){
                     //if the attendance for the working schedule is exist, is should be remove too
-                    $this->removeAttendanceForDeletedWorkingSchedule($oldWorkingSchedule['id'], $oldWorkingSchedule['workingDate'], $oldWorkingSchedule['workingStartingTime'], $oldWorkingSchedule['workingOffTime']);
+                    $this->removeAttendanceForDeletedWorkingSchedule($oldWorkingSchedule['id'], $oldWorkingSchedule['working_date'], $oldWorkingSchedule['working_starting_time'], $oldWorkingSchedule['working_off_time']);
                 }
                 
                 // Add the new working schedule with the updated values
-                if (!$workingScheduleModel->isPrimaryKeyExistInWorkingScheduleDB($this->staffId, $this->workingDate, $this->workingStartingTime, $this->workingOffTime)) {
+                if (!$workingScheduleModel->isPrimaryKeyExistInWorkingScheduleDB($this->staffId, $this->working_date, $this->working_starting_time, $this->working_off_time)) {
                     $workingScheduleModel->addWorkingScheduleIntoDB(
                         $this->staffId, 
-                        $this->workingDate, 
-                        $this->workingStartingTime, 
-                        $this->workingOffTime
+                        $this->working_date, 
+                        $this->working_starting_time, 
+                        $this->working_off_time
                     );
                     $this->addDefaultAttendanceForNewWorkingSchedule();//add default attendance when the working schedule is added
                 }

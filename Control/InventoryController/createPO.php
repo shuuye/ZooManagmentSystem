@@ -24,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\Supplier.php';
+    $supplier = new Supplier($supplierId);
+
     include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\PurchaseOrder.php';
     include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\PurchaseOrderLineItem.php';
 
@@ -39,20 +42,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Determine the item IDs based on the item type
-    $foodId = $itemType === 'Food' ? $itemID : null;
-    $habitatId = $itemType === 'Habitat' ? $itemID : null;
-    $cleaningId = $itemType === 'Cleaning' ? $itemID : null;
+    // Instantiate control classes
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
+    include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryItemFactory.php';
 
+    // Create the appropriate item
+    $inventoryCreater = new InventoryItemFactory();
+    $inventory = $inventoryCreater->createItem($inventoryId, $itemType, null, null);
+    $inventory->setId($itemID);
+    
     try {
         // Create a new Purchase Order
-        $newPO = new PurchaseOrder($supplierId, $orderDate, $formattedDatetime, $billingAddress, $shippingAddress, $total, "Draft");
+        $newPO = new PurchaseOrder($supplier, $orderDate, $formattedDatetime, $billingAddress, $shippingAddress, $total, "Draft");
         $newPOId = $newPO->addNewPO();
-        echo "newpoid".$newPOId;
+
         if ($newPOId != null) {
-            
+
             // Add Line Item to the Purchase Order
-            $lineItem = $newPO->addLineItem($newPOId, $inventoryId, $quantity, $price, $cleaningId, $habitatId, $foodId);
+            $lineItem = $newPO->addLineItem($newPOId, $inventoryId, $quantity, $price, $inventory);
             $lineItem->addNewPOLine();
             // Redirect to success page
             header("Location: index.php?controller=inventory&action=showPO&status=successPO");

@@ -45,20 +45,20 @@
         
         <?php 
                 if (isset($data['selectedAttendance']) && isset($data['action'])) {
-                    if ($data['action'] == 'edit' && isset($data['selectedAttendance']['workingDate'])) {
+                    if ($data['action'] == 'edit' && isset($data['selectedAttendance']['working_date'])) {
                         // Correctly output the hidden input field
-                        echo '<input type="hidden" name="workingDate" value="' . htmlspecialchars($data['selectedAttendance']['workingDate']) . '">';
+                        echo '<input type="hidden" name="working_date" value="' . htmlspecialchars($data['selectedAttendance']['working_date']) . '">';
                     }
                 }
                 ?>
         <?php if ((isset($data['action']) && isset($data['selectedAttendance'])) || (isset($data['action']) && $data['action'] == 'edit')): ?>
                 <tr>
-                    <td><label for="workingDate">Working Date:</label></td>
+                    <td><label for="working_date">Working Date:</label></td>
                     <td>
-                        <input type="text" id="workingDate" name="workingDate" 
+                        <input type="text" id="working_date" name="working_date" 
                                autocomplete="off" 
                                required 
-                               value="<?php echo htmlspecialchars($data['selectedAttendance']['workingDate']) ?>"
+                               value="<?php echo htmlspecialchars($data['selectedAttendance']['working_date']) ?>"
                                disabled
                                >
                     </td>
@@ -67,20 +67,20 @@
                 
         <?php 
                 if (isset($data['selectedAttendance']) && isset($data['action'])) {
-                    if ($data['action'] == 'edit' && isset($data['selectedAttendance']['workingStartingTime'])) {
+                    if ($data['action'] == 'edit' && isset($data['selectedAttendance']['working_starting_time'])) {
                         // Correctly output the hidden input field
-                        echo '<input type="hidden" name="workingStartingTime" value="' . htmlspecialchars($data['selectedAttendance']['workingStartingTime']) . '">';
+                        echo '<input type="hidden" name="working_starting_time" value="' . htmlspecialchars($data['selectedAttendance']['working_starting_time']) . '">';
                     }
                 }
                 ?>
         <?php if ((isset($data['action']) && isset($data['selectedAttendance'])) || (isset($data['action']) && $data['action'] == 'edit')): ?>
                 <tr>
-                    <td><label for="workingStartingTime">Working Starting Time:</label></td>
+                    <td><label for="working_starting_time">Working Starting Time:</label></td>
                     <td>
-                        <input type="text" id="workingStartingTime" name="workingStartingTime" 
+                        <input type="text" id="working_starting_time" name="working_starting_time" 
                                autocomplete="off" 
                                required 
-                               value="<?php echo htmlspecialchars($data['selectedAttendance']['workingStartingTime']) ?>"
+                               value="<?php echo htmlspecialchars($data['selectedAttendance']['working_starting_time']) ?>"
                                disabled
                                >
                     </td>
@@ -89,20 +89,20 @@
                 
         <?php 
                 if (isset($data['selectedAttendance']) && isset($data['action'])) {
-                    if ($data['action'] == 'edit' && isset($data['selectedAttendance']['workingOffTime'])) {
+                    if ($data['action'] == 'edit' && isset($data['selectedAttendance']['working_off_time'])) {
                         // Correctly output the hidden input field
-                        echo '<input type="hidden" name="workingOffTime" value="' . htmlspecialchars($data['selectedAttendance']['workingOffTime']) . '">';
+                        echo '<input type="hidden" name="working_off_time" value="' . htmlspecialchars($data['selectedAttendance']['working_off_time']) . '">';
                     }
                 }
                 ?>
         <?php if ((isset($data['action']) && isset($data['selectedAttendance'])) || (isset($data['action']) && $data['action'] == 'edit')): ?>
                 <tr>
-                    <td><label for="workingOffTime">Working Off Time:</label></td>
+                    <td><label for="working_off_time">Working Off Time:</label></td>
                     <td>
-                        <input type="text" id="workingOffTime" name="workingOffTime" 
+                        <input type="text" id="working_off_time" name="working_off_time" 
                                autocomplete="off" 
                                required 
-                               value="<?php echo htmlspecialchars($data['selectedAttendance']['workingOffTime']) ?>"
+                               value="<?php echo htmlspecialchars($data['selectedAttendance']['working_off_time']) ?>"
                                disabled
                                >
                     </td>
@@ -112,28 +112,28 @@
         
         <?php
             // Determine the default attendance status
-            $defaultAttendanceStatus = isset($data['selectedAttendance']['statusID']) ? $data['selectedAttendance']['statusID'] : 1;
+            $defaultAttendanceStatus = isset($data['selectedAttendance']['status_id']) ? $data['selectedAttendance']['status_id'] : 1;
 
             // Check if the user is authenticated and has the appropriate permissions
             if (isset($_SESSION['currentUserModel']) && isset($_SESSION['currentUserModel']['role']['roleID']) && isset($_SESSION['currentUserModel']['adminType']) && isset($_SESSION['currentUserModel']['permissions'])) {
                 if ($_SESSION['currentUserModel']['role']['roleID'] == 1 && in_array('edit', $_SESSION['currentUserModel']['permissions'])) {
                     // Generate the dropdown list
-                    echo '<label for="statusID">Select Attendance Status:</label>';
-                    echo '<select name="statusID" id="statusID">';
+                    echo '<label for="status_id">Select Attendance Status:</label>';
+                    echo '<select name="status_id" id="status_id">';
 
                     // Iterate over attendanceStatusArray to populate the dropdown
                     foreach ($data['attendanceStatusArray'] as $status) {
-                        $selected = ($status['statusID'] == $defaultAttendanceStatus) ? 'selected' : '';
-                        echo '<option value="' . htmlspecialchars($status['statusID']) . '" ' . $selected . '>' . htmlspecialchars($status['statusName']) . '</option>';
+                        $selected = ($status['status_id'] == $defaultAttendanceStatus) ? 'selected' : '';
+                        echo '<option value="' . htmlspecialchars($status['status_id']) . '" ' . $selected . '>' . htmlspecialchars($status['statusName']) . '</option>';
                     }
 
                     echo '</select>';
                 } else {
-                    echo '<input type="hidden" name="statusID" value="' . htmlspecialchars($defaultAttendanceStatus) . '">';
+                    echo '<input type="hidden" name="status_id" value="' . htmlspecialchars($defaultAttendanceStatus) . '">';
                 }
             } else {
                 // Default role for guests or non-authenticated users
-                echo '<input type="hidden" name="statusID" value="' . htmlspecialchars($defaultAttendanceStatus) . '">';
+                echo '<input type="hidden" name="status_id" value="' . htmlspecialchars($defaultAttendanceStatus) . '">';
             }
         ?>
         
@@ -145,7 +145,7 @@
                 
             </td>
             <td>
-                <a href="index.php?controller=user&action=attendanceManagement&sort=workingDate&filter=week" id="cancelLink"><button type="button">
+                <a href="index.php?controller=user&action=attendanceManagement&sort=working_date&filter=week" id="cancelLink"><button type="button">
                     Cancel
                 </button></a>
             </td>

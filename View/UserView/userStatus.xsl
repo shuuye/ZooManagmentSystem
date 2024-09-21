@@ -35,8 +35,8 @@
                         <tr>
                             <td><xsl:value-of select="@id" /></td>
                             <td><xsl:value-of select="username" /></td>
-                            <td><xsl:value-of select="fullName" /></td>
-                            <td><xsl:value-of select="phoneNumber" /></td>
+                            <td><xsl:value-of select="full_name" /></td>
+                            <td><xsl:value-of select="phone_number" /></td>
                             <td><xsl:value-of select="email" /></td>
 
                             <!-- Status with conditional logic for Active/Inactive and New -->

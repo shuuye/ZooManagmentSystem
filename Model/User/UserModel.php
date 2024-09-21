@@ -127,7 +127,7 @@
         protected function insertNewUserToDB($newUsername, $newPassword, $newFullName, $newPhoneNumber, $newEmail, $newRoleID){
             $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
             $stmt = $this->db->prepare( //set the registration date time to current date time, and lastLoginDate to null
-                "INSERT INTO users (username, password, fullName, phoneNumber, email, registrationDateTime, lastLoginDateTime, lastLogOutDateTime, roleID) 
+                "INSERT INTO users (username, password, full_name, phone_number, email, registrationDateTime, lastLoginDateTime, lastLogOutDateTime, roleID) 
                  VALUES (:newUsername, :newPassword, :newFullName, :newPhoneNumber, :newEmail, NOW(), null, null, :newRoleID)"
             ); 
             $stmt->bindParam(':newUsername', $newUsername);

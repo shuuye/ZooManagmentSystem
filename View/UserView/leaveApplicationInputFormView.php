@@ -26,8 +26,8 @@
         $options = '';
         foreach ($workingSchedules as $schedule) {
             if ($selectedStaffId && $schedule['staffId'] == $selectedStaffId) {
-                $value = htmlspecialchars($schedule['workingDate']) . '|' . htmlspecialchars($schedule['workingStartingTime']) . '|' . htmlspecialchars($schedule['workingOffTime']);
-                $text = htmlspecialchars($schedule['workingDate'] . ' - ' . $schedule['workingStartingTime'] . ' to ' . $schedule['workingOffTime']);
+                $value = htmlspecialchars($schedule['working_date']) . '|' . htmlspecialchars($schedule['working_starting_time']) . '|' . htmlspecialchars($schedule['working_off_time']);
+                $text = htmlspecialchars($schedule['working_date'] . ' - ' . $schedule['working_starting_time'] . ' to ' . $schedule['working_off_time']);
                 $options .= '<option value="' . $value . '">' . $text . '</option>';
             }
         }
@@ -69,8 +69,8 @@
         workingSchedules.forEach(function(schedule) {
             if (schedule.id == staffId) {
                 var option = document.createElement('option');
-                option.value = schedule.workingDate + '|' + schedule.workingStartingTime + '|' + schedule.workingOffTime;
-                option.text = schedule.workingDate + ' - ' + schedule.workingStartingTime + ' to ' + schedule.workingOffTime;
+                option.value = schedule.working_date + '|' + schedule.working_starting_time + '|' + schedule.working_off_time;
+                option.text = schedule.working_date + ' - ' + schedule.working_starting_time + ' to ' + schedule.working_off_time;
                 leaveScheduleDropdown.add(option);
             }
         });

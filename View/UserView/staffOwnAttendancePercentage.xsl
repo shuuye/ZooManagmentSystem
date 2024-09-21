@@ -6,9 +6,9 @@
 
     <xsl:template match="/">
         <!-- Initialize variables to store counts -->
-        <xsl:variable name="totalPresent" select="count(attendances/attendance[@id = $ownId and statusID = 2])" />
-        <xsl:variable name="totalAbsent" select="count(attendances/attendance[@id = $ownId and statusID = 3])" />
-        <xsl:variable name="totalLeave" select="count(attendances/attendance[@id = $ownId and statusID = 4])" />
+        <xsl:variable name="totalPresent" select="count(attendances/attendance[@id = $ownId and status_id = 2])" />
+        <xsl:variable name="totalAbsent" select="count(attendances/attendance[@id = $ownId and status_id = 3])" />
+        <xsl:variable name="totalLeave" select="count(attendances/attendance[@id = $ownId and status_id = 4])" />
         
         <!-- Total attendance count (Present, Absent, Leave) -->
         <xsl:variable name="totalAttendance" select="$totalPresent + $totalAbsent + $totalLeave" />

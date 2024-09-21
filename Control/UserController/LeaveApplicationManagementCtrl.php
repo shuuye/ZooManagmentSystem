@@ -152,13 +152,13 @@
                 $params['leaveEndTime'],
                 $params['approved']
             )) {
-                $statusID = $params['approved'] ? 4 : 1;
+                $status_id = $params['approved'] ? 4 : 1;
                 $attendanceModel->updateStatusIDFromAttendanceByPrimaryKey(
                     $params['id'],
                     $params['leaveDate'],
                     $params['leaveStartTime'],
                     $params['leaveEndTime'],
-                    $statusID
+                    $status_id
                 );
 
                 header("Location: index.php?controller=user&action=leaveApplicationManagement&sort=leaveDate&filter=week");

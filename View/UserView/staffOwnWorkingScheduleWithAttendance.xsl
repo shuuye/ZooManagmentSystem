@@ -16,24 +16,24 @@
             <!-- Loop through each attendance where the id matches ownId -->
             <xsl:for-each select="attendances/attendance[@id = $ownId]">
                 <tr>
-                    <!-- Display workingDate, workingStartingTime, workingOffTime -->
-                    <td><xsl:value-of select="workingDate" /></td>
-                    <td><xsl:value-of select="workingStartingTime" /></td>
-                    <td><xsl:value-of select="workingOffTime" /></td>
+                    <!-- Display working_date, working_starting_time, working_off_time -->
+                    <td><xsl:value-of select="working_date" /></td>
+                    <td><xsl:value-of select="working_starting_time" /></td>
+                    <td><xsl:value-of select="working_off_time" /></td>
                     
-                    <!-- Determine and display status based on statusID -->
+                    <!-- Determine and display status based on status_id -->
                     <td>
                         <xsl:choose>
-                            <xsl:when test="statusID = 1">
+                            <xsl:when test="status_id = 1">
                                 <span style="color: blue;">Pending</span>
                             </xsl:when>
-                            <xsl:when test="statusID = 2">
+                            <xsl:when test="status_id = 2">
                                 <span style="color: green;">Present</span>
                             </xsl:when>
-                            <xsl:when test="statusID = 3">
+                            <xsl:when test="status_id = 3">
                                 <span style="color: red;">Absent</span>
                             </xsl:when>
-                            <xsl:when test="statusID = 4">
+                            <xsl:when test="status_id = 4">
                                 <span style="color: yellow;">Leave</span>
                             </xsl:when>
                             <xsl:otherwise>

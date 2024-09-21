@@ -9,9 +9,9 @@
             $this->db = $this->getConnection();
         }
         
-        public function getAttendanceStatusByID($statusID) {
-            $stmt = $this->db->prepare("SELECT * FROM attendancestatus WHERE statusID = :statusID");
-            $stmt->bindParam(':statusID', $statusID);
+        public function getAttendanceStatusByID($status_id) {
+            $stmt = $this->db->prepare("SELECT * FROM attendancestatus WHERE status_id = :status_id");
+            $stmt->bindParam(':status_id', $status_id);
             $stmt->execute();
 
             $attendanceStatus = $stmt->fetch(PDO::FETCH_ASSOC);

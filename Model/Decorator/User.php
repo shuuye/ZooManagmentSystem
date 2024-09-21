@@ -8,8 +8,8 @@
         protected $id;
         protected $username;
         protected $password;
-        protected $fullName;
-        protected $phoneNumber;
+        protected $full_name;
+        protected $phone_number;
         protected $email;
         protected $registrationDateTime;
         protected $lastLoginDateTime;
@@ -35,8 +35,8 @@
             $this->id = $user['id'];
             $this->username = $user['username'];
             $this->password = $user['password'];
-            $this->fullName = $user['fullName'];
-            $this->phoneNumber = $user['phoneNumber'];
+            $this->full_name = $user['full_name'];
+            $this->phone_number = $user['phone_number'];
             $this->email = $user['email'];
             $this->registrationDateTime = $user['registrationDateTime'];
             $this->lastLoginDateTime = $user['lastLoginDateTime'];
@@ -120,8 +120,8 @@
                     'id' => $this->id,
                     'username' => $this->username,
                     'password' => $this->password,
-                    'fullName' => $this->fullName,
-                    'phoneNumber' => $this->phoneNumber,
+                    'full_name' => $this->full_name,
+                    'phone_number' => $this->phone_number,
                     'email' => $this->email,
                     'registrationDateTime' => $this->registrationDateTime,
                     'lastLoginDateTime' => $this->lastLoginDateTime,
@@ -149,11 +149,11 @@
         }
 
         public function getFullName() {
-            return $this->fullName;
+            return $this->full_name;
         }
 
         public function getPhoneNumber() {
-            return $this->phoneNumber;
+            return $this->phone_number;
         }
 
         public function getEmail() {
@@ -191,12 +191,12 @@
             $this->password = $password;
         }
 
-        public function setFullName($fullName): void {
-            $this->fullName = $fullName;
+        public function setFullName($full_name): void {
+            $this->full_name = $full_name;
         }
 
-        public function setPhoneNumber($phoneNumber): void {
-            $this->phoneNumber = $phoneNumber;
+        public function setPhoneNumber($phone_number): void {
+            $this->phone_number = $phone_number;
         }
 
         public function setEmail($email): void {

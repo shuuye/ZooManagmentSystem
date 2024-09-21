@@ -29,9 +29,9 @@
                 foreach ($workingSchedulesModelArray as $schedule) {
                     $workingSchedulesArray[] = [
                         'id' => $schedule['id'],
-                        'workingDate' => $schedule['workingDate'],
-                        'workingStartingTime' => $schedule['workingStartingTime'],
-                        'workingOffTime' => $schedule['workingOffTime']
+                        'working_date' => $schedule['working_date'],
+                        'working_starting_time' => $schedule['working_starting_time'],
+                        'working_off_time' => $schedule['working_off_time']
                     ];
                 }
             }
@@ -54,13 +54,13 @@
                 foreach ($attendanceModelArray as $attendance) {
                     $attendancesArray[] = [
                         'id' => $attendance['id'],
-                        'workingDate' => $attendance['workingDate'],
-                        'workingStartingTime' => $attendance['workingStartingTime'],
-                        'workingOffTime' => $attendance['workingOffTime'],
+                        'working_date' => $attendance['working_date'],
+                        'working_starting_time' => $attendance['working_starting_time'],
+                        'working_off_time' => $attendance['working_off_time'],
                         'photo' => $attendance['photo'],
                         'location' => $attendance['location'],
-                        'attendanceDateTime' => $attendance['attendanceDateTime'],
-                        'statusID' => $attendance['statusID'],
+                        'attendance_date_time' => $attendance['attendance_date_time'],
+                        'status_id' => $attendance['status_id'],
                     ];
                 }
             }
@@ -82,7 +82,7 @@
             if($attendanceStatusModelArray != false){
                 foreach ($attendanceStatusModelArray as $attendancesStatus) {
                     $attendancesStatusArray[] = [
-                        'statusID' => $attendancesStatus['statusID'],
+                        'status_id' => $attendancesStatus['status_id'],
                         'statusName' => $attendancesStatus['statusName']
                     ];
                 }

@@ -186,7 +186,7 @@
                 $this->resetFullNameFailedAction();
                 return;
             }
-            $this->updateDBColumnByID('fullName', $this->newFullName, $this->id);
+            $this->updateDBColumnByID('full_name', $this->newFullName, $this->id);
             // Execute post-edit action
             $this->resetFullNameSuccessfullyAction();
         }
@@ -241,7 +241,7 @@
                 $this->resetPhoneNumberFailedAction();
                 return;
             }
-            $this->updateDBColumnByID('phoneNumber', $this->newPhoneNumber, $this->id);
+            $this->updateDBColumnByID('phone_number', $this->newPhoneNumber, $this->id);
             // Execute post-edit action
             $this->resetPhoneNumberSuccessfullyAction();
         }

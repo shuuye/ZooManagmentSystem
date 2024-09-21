@@ -78,7 +78,7 @@
 
 
 <?php if (isset($data['selectedWorkingSchedule']) && isset($data['action'])): ?>
-    <?php if ($data['action'] == 'edit' && isset($data['selectedWorkingSchedule']['workingOffTime'])): ?>
+    <?php if ($data['action'] == 'edit' && isset($data['selectedWorkingSchedule']['working_off_time'])): ?>
         <h4>Editing this working Schedule will might also cause its current attendance be clear and reset.</h4>
     <?php endif; ?>
 <?php endif; ?>
@@ -109,67 +109,67 @@
         ?>
         
         <tr>
-            <td><label for="workingDate">Working Date:</label></td>
+            <td><label for="working_date">Working Date:</label></td>
             <td>
                 <input type="date" 
-                        id="workingDate" 
-                        name="workingDate" 
+                        id="working_date" 
+                        name="working_date" 
                         required
                         value="<?php 
                            if (isset($data['selectedWorkingSchedule']) && isset($data['action'])) {
-                               if ($data['action'] == 'edit' && isset($data['selectedWorkingSchedule']['workingDate'])) {
-                                   echo htmlspecialchars($data['selectedWorkingSchedule']['workingDate']);
+                               if ($data['action'] == 'edit' && isset($data['selectedWorkingSchedule']['working_date'])) {
+                                   echo htmlspecialchars($data['selectedWorkingSchedule']['working_date']);
                                }
                            }
                        ?>"
                  >
             </td>
             <td class="error"><?php if (isset($data['workingScheduleInputData'])): ?>
-                <?php echo getError($data['workingScheduleInputData'], 'workingDateErr'); ?>
+                <?php echo getError($data['workingScheduleInputData'], 'working_dateErr'); ?>
             <?php endif; ?>
             </td>
         </tr>
         
         <tr>
-            <td><label for="workingStartingTime">Working Starting Time:</label></td>
+            <td><label for="working_starting_time">Working Starting Time:</label></td>
             <td>
                 <input type="time" 
-                       id="workingStartingTime" 
-                       name="workingStartingTime" 
+                       id="working_starting_time" 
+                       name="working_starting_time" 
                        required
                        value="<?php 
                           if (isset($data['selectedWorkingSchedule']) && isset($data['action'])) {
-                              if ($data['action'] == 'edit' && isset($data['selectedWorkingSchedule']['workingStartingTime'])) {
-                                  echo htmlspecialchars(date('H:i', strtotime($data['selectedWorkingSchedule']['workingStartingTime']))); 
+                              if ($data['action'] == 'edit' && isset($data['selectedWorkingSchedule']['working_starting_time'])) {
+                                  echo htmlspecialchars(date('H:i', strtotime($data['selectedWorkingSchedule']['working_starting_time']))); 
                               }
                           }
                       ?>"
                 >
             </td>
             <td class="error"><?php if (isset($data['workingScheduleInputData'])): ?>
-                <?php echo getError($data['workingScheduleInputData'], 'workingStartingTimeErr'); ?>
+                <?php echo getError($data['workingScheduleInputData'], 'working_starting_timeErr'); ?>
             <?php endif; ?>
             </td>
         </tr>
         
         <tr>
-            <td><label for="workingOffTime">Working Off Time:</label></td>
+            <td><label for="working_off_time">Working Off Time:</label></td>
             <td>
                 <input type="time" 
-                       id="workingOffTime" 
-                       name="workingOffTime" 
+                       id="working_off_time" 
+                       name="working_off_time" 
                        required
                        value="<?php 
                           if (isset($data['selectedWorkingSchedule']) && isset($data['action'])) {
-                              if ($data['action'] == 'edit' && isset($data['selectedWorkingSchedule']['workingOffTime'])) {
-                                  echo htmlspecialchars(date('H:i', strtotime($data['selectedWorkingSchedule']['workingOffTime'])));
+                              if ($data['action'] == 'edit' && isset($data['selectedWorkingSchedule']['working_off_time'])) {
+                                  echo htmlspecialchars(date('H:i', strtotime($data['selectedWorkingSchedule']['working_off_time'])));
                               }
                           }
                       ?>"
                 >
             </td>
             <td class="error"><?php if (isset($data['workingScheduleInputData'])): ?>
-                <?php echo getError($data['workingScheduleInputData'], 'workingOffTimeErr'); ?>
+                <?php echo getError($data['workingScheduleInputData'], 'working_off_timeErr'); ?>
             <?php endif; ?>
             </td>
         </tr>
@@ -193,7 +193,7 @@
             </td>
             <td>
                 
-                <a href="index.php?controller=user&action=workingScheduleManagement&sort=workingDate&filter=week" id="cancelLink"><button type="button">
+                <a href="index.php?controller=user&action=workingScheduleManagement&sort=working_date&filter=week" id="cancelLink"><button type="button">
                     Cancel
                 </button></a>
             </td>
@@ -205,9 +205,9 @@
                 if ($data['action'] == 'edit') {
                     // Correctly output the hidden input field
                     echo '<input type="hidden" name="oldId" value="' . htmlspecialchars($data['selectedWorkingSchedule']['id']) . '">';
-                    echo '<input type="hidden" name="oldWorkingDate" value="' . htmlspecialchars($data['selectedWorkingSchedule']['workingDate']) . '">';
-                    echo '<input type="hidden" name="oldWorkingStartingTime" value="' . htmlspecialchars($data['selectedWorkingSchedule']['workingStartingTime']) . '">';
-                    echo '<input type="hidden" name="oldWorkingOffTime" value="' . htmlspecialchars($data['selectedWorkingSchedule']['workingOffTime']) . '">';
+                    echo '<input type="hidden" name="oldWorkingDate" value="' . htmlspecialchars($data['selectedWorkingSchedule']['working_date']) . '">';
+                    echo '<input type="hidden" name="oldWorkingStartingTime" value="' . htmlspecialchars($data['selectedWorkingSchedule']['working_starting_time']) . '">';
+                    echo '<input type="hidden" name="oldWorkingOffTime" value="' . htmlspecialchars($data['selectedWorkingSchedule']['working_off_time']) . '">';
                 }
             }
         ?>

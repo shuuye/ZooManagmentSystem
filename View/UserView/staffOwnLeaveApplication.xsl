@@ -17,7 +17,7 @@
             <!-- Loop through each attendance where the id matches ownId -->
             <xsl:for-each select="leaveApplications/leaveApplication[@id = $ownId]">
                 <tr>
-                    <!-- Display workingDate, workingStartingTime, workingOffTime -->
+                    <!-- Display working_date, working_starting_time, working_off_time -->
                     <td><xsl:value-of select="leaveDate" /></td>
                     <td><xsl:value-of select="leaveStartTime" /></td>
                     <td><xsl:value-of select="leaveEndTime" /></td>

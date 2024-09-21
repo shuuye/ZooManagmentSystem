@@ -21,8 +21,8 @@
         public function setId($id);
         public function setUsername($username);
         public function setPassword($password);
-        public function setFullName($fullName);
-        public function setPhoneNumber($phoneNumber);
+        public function setFullName($full_name);
+        public function setPhoneNumber($phone_number);
         public function setEmail($email);
         public function setRegistrationDateTime($registrationDateTime);
         public function setLastLoginDateTime($lastLoginDateTime);

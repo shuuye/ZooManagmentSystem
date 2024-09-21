@@ -188,8 +188,8 @@
                         <td id="id"></td>
                         <td id="username"></td>
                         <td id="password"></td>
-                        <td id="fullName"></td>
-                        <td id="phoneNumber"></td>
+                        <td id="full_name"></td>
+                        <td id="phone_number"></td>
                         <td id="email"></td>
                         <td id="registrationDate"></td>
                         <td id="lastLoginDateTime"></td>
@@ -236,8 +236,8 @@
                     document.getElementById('id').textContent = userData.id;
                     document.getElementById('username').textContent = userData.username;
                     document.getElementById('password').textContent = userData.password.length > 25 ? userData.password.slice(0, 25) + '...' : userData.password;
-                    document.getElementById('fullName').textContent = userData.fullName;
-                    document.getElementById('phoneNumber').textContent = userData.phoneNumber;
+                    document.getElementById('full_name').textContent = userData.full_name;
+                    document.getElementById('phone_number').textContent = userData.phone_number;
                     document.getElementById('email').textContent = userData.email;
                     document.getElementById('registrationDate').textContent = userData.registrationDateTime;
                     document.getElementById('lastLoginDateTime').textContent = userData.lastLoginDateTime || 'Not Logged In Yet';

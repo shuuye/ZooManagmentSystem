@@ -17,12 +17,8 @@ class RestfulPoNotiService_Consume extends databaseConfig {
         $iv = openssl_random_pseudo_bytes(16); // Generate a random IV
         $binaryKey = hex2bin($this->encryptionKey);
         $encryptedData = openssl_encrypt(json_encode($data), 'aes-256-cbc', $binaryKey, OPENSSL_RAW_DATA, $iv);
-        echo "Length of Encrypted Data: " . strlen($encryptedData) . " bytes<br>";
-
-        echo "Client before encode" . $iv . $encryptedData . "<br>";
-        echo "Client after encode " . base64_encode($iv . $encryptedData) . "<br>";
         $encodedData = base64_encode($encryptedData);
-        echo "Base64 Encoded Length: " . strlen($encodedData) . " bytes<br>";
+        
 
         return base64_encode($iv . $encryptedData); // IV needs to be sent along with the encrypted data
     }
@@ -50,7 +46,7 @@ class RestfulPoNotiService_Consume extends databaseConfig {
             'shippingAddress' => $shippingAddress,
             'total' => $total
         );
-
+        
         // Encrypt the data before sending
         $encryptedData = $this->encryptData($data);
 

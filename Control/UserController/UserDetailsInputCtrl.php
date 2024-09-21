@@ -8,8 +8,8 @@
         protected $username;
         protected $password;
         protected $confirmPassword;
-        protected $fullName;
-        protected $phoneNumber;
+        protected $full_name;
+        protected $phone_number;
         protected $email;
         protected $role;
         protected $userInputData;
@@ -88,7 +88,7 @@
                 //if yes only do registration
                 
                 // register user to db
-                $lastestNewUser = parent::registerNewUser($this->username, $this->password, $this->fullName, $this->phoneNumber, $this->email, $this->role['roleID']);
+                $lastestNewUser = parent::registerNewUser($this->username, $this->password, $this->full_name, $this->phone_number, $this->email, $this->role['roleID']);
                 
                 if($lastestNewUser != false){ // created user successfully
                     $this->actionAfterRegisteredSuccessfully($lastestNewUser);
@@ -150,18 +150,18 @@
         
         private function updateData($editingUser){
             // Check which fields have changed
-            $isFullNameChanged = $this->fullName !== $editingUser['fullName'];
-            $isPhoneNumberChanged = $this->phoneNumber !== $editingUser['phoneNumber'];
+            $isFullNameChanged = $this->full_name !== $editingUser['full_name'];
+            $isPhoneNumberChanged = $this->phone_number !== $editingUser['phone_number'];
             $isEmailChanged = $this->email !== $editingUser['email'];
             $isRoleChanged = $this->role['roleID'] !== $editingUser['roleID'];
 
             // Perform updates if there are changes
             if ($isFullNameChanged) {
-                $this->updateDBColumnByID('fullName', $this->fullName, $this->id);
+                $this->updateDBColumnByID('full_name', $this->full_name, $this->id);
             }
 
             if ($isPhoneNumberChanged) {
-                $this->updateDBColumnByID('phoneNumber', $this->phoneNumber, $this->id);
+                $this->updateDBColumnByID('phone_number', $this->phone_number, $this->id);
             }
 
             if ($isEmailChanged) {
@@ -261,14 +261,14 @@
                 $this->username = $_POST['username'] ?? '';
                 $this->password = $_POST['password'] ?? '';
                 $this->confirmPassword = $_POST['confirmPassword'] ?? '';
-                $this->fullName = $_POST['fullName'] ?? '';
-                $this->phoneNumber = $_POST['phoneNumber'] ?? '';
+                $this->full_name = $_POST['full_name'] ?? '';
+                $this->phone_number = $_POST['phone_number'] ?? '';
                 $this->email = $_POST['email'] ?? '';
                 $this->role = $this->setFullRole($_POST['roleID'] ?? '');
             }else{
                 $this->id = $_POST['id'] ?? '';
-                $this->fullName = $_POST['fullName'] ?? '';
-                $this->phoneNumber = $_POST['phoneNumber'] ?? '';
+                $this->full_name = $_POST['full_name'] ?? '';
+                $this->phone_number = $_POST['phone_number'] ?? '';
                 $this->email = $_POST['email'] ?? '';
                 $this->role = $this->setFullRole($_POST['roleID'] ?? '');
             }
@@ -279,8 +279,8 @@
             if (InputValidationCtrl::inputIsEmptyValidation($this->username)) {
                 return 'Username cannot be empty!';$this->password = $_POST['password'] ?? '';
                 $this->confirmPassword = $_POST['confirmPassword'] ?? '';
-                $this->fullName = $_POST['fullName'] ?? '';
-                $this->phoneNumber = $_POST['phoneNumber'] ?? '';
+                $this->full_name = $_POST['full_name'] ?? '';
+                $this->phone_number = $_POST['phone_number'] ?? '';
                 $this->email = $_POST['email'] ?? '';
                 $this->role = $this->setFullRole($_POST['roleID'] ?? '');
             }
@@ -321,11 +321,11 @@
         }
         
         private function validateFullName() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->fullName)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->full_name)) {
                 return 'Name cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputFormatValidation($this->fullName, "/^[a-zA-Z ]*$/")) {
+            if (!InputValidationCtrl::inputFormatValidation($this->full_name, "/^[a-zA-Z ]*$/")) {
                 return 'Only letters and white space allowed';
             }
 
@@ -333,11 +333,11 @@
         }
         
         private function validatePhoneNumber() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->phoneNumber)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->phone_number)) {
                 return 'Phone Number cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputFormatValidation($this->phoneNumber, "/^\d{10,11}$/")) {
+            if (!InputValidationCtrl::inputFormatValidation($this->phone_number, "/^\d{10,11}$/")) {
                 return 'Invalid phone number format (10 to 11 digits required, without dashes "-")';
             }
 
@@ -378,15 +378,15 @@
                     'usernameErr' => $this->validateUsername(),
                     'passwordErr' => $this->validatePassword(),
                     'confirmPasswordErr' => $this->validateConfirmPassword(),
-                    'fullNameErr' => $this->validateFullName(),
-                    'phoneNumberErr' => $this->validatePhoneNumber(),
+                    'full_nameErr' => $this->validateFullName(),
+                    'phone_numberErr' => $this->validatePhoneNumber(),
                     'emailErr' => $this->validateEmail()
                 ];
                 
             }else{
                 $data = [
-                    'fullNameErr' => $this->validateFullName(),
-                    'phoneNumberErr' => $this->validatePhoneNumber(),
+                    'full_nameErr' => $this->validateFullName(),
+                    'phone_numberErr' => $this->validatePhoneNumber(),
                     'emailErr' => $this->validateEmail()
                 ];
             }

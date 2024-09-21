@@ -89,11 +89,11 @@
                 </tr>
                 <tr>
                     <td>Full Name:</td>
-                    <td><?php echo htmlspecialchars($user['fullName']); ?></td>
+                    <td><?php echo htmlspecialchars($user['full_name']); ?></td>
                 </tr>
                 <tr>
                     <td>Phone Number:</td>
-                    <td><?php echo htmlspecialchars($user['phoneNumber']); ?></td>
+                    <td><?php echo htmlspecialchars($user['phone_number']); ?></td>
                 </tr>
                 <tr>
                     <td>Email:</td>

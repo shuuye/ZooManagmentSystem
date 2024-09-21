@@ -4,6 +4,7 @@ require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
 
 class CleaningInventory extends Inventory {
 
+    private $id;
     private $cleaningType; // which type of cleaning item it is
     private $size;
     private $usageInstructions;
@@ -28,6 +29,14 @@ class CleaningInventory extends Inventory {
 
     public function getUsageInstructions() {
         return $this->usageInstructions;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id): void {
+        $this->id = $id;
     }
 
     // Update quantity and optionally size
@@ -86,7 +95,7 @@ class CleaningInventory extends Inventory {
         $data['brandName'] = $this->sanitizeInput($data['brandName']);
         $data['size'] = $this->sanitizeInput($data['size']);
         $data['instruction'] = $this->sanitizeInput($data['instruction']);
-        
+
         $validationResult = $this->validateInputs($data);
 
         if (!$validationResult['success']) {
@@ -147,7 +156,6 @@ class CleaningInventory extends Inventory {
             }
             // Sanitize the input (for HTML contexts, though we now ensure alphanumeric)
             return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
-            
         }
     }
 }

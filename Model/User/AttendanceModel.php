@@ -9,18 +9,18 @@
             $this->db = $this->getConnection();
         }
         
-        public function isPrimaryKeyExistInAttendanceDB($id, $workingDate, $workingStartingTime, $workingOffTime) {
+        public function isPrimaryKeyExistInAttendanceDB($id, $working_date, $working_starting_time, $working_off_time) {
             // Prepare the statement with the validated column name
             $query = "SELECT COUNT(*) FROM attendance 
                         WHERE id = :id
-                        AND workingDate = :workingDate
-                        AND workingStartingTime = :workingStartingTime
-                        AND workingOffTime = :workingOffTime";
+                        AND working_date = :working_date
+                        AND working_starting_time = :working_starting_time
+                        AND working_off_time = :working_off_time";
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':workingDate', $workingDate, PDO::PARAM_STR);
-            $stmt->bindParam(':workingStartingTime', $workingStartingTime, PDO::PARAM_STR);
-            $stmt->bindParam(':workingOffTime', $workingOffTime, PDO::PARAM_STR);
+            $stmt->bindParam(':working_date', $working_date, PDO::PARAM_STR);
+            $stmt->bindParam(':working_starting_time', $working_starting_time, PDO::PARAM_STR);
+            $stmt->bindParam(':working_off_time', $working_off_time, PDO::PARAM_STR);
             
             $stmt->execute();
             $count = $stmt->fetchColumn();
@@ -34,20 +34,20 @@
             return $count > 0;
         }
         
-        public function removeAttendanceByPrimaryKey($id, $workingDate, $workingStartingTime, $workingOffTime) {
+        public function removeAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time) {
             // Prepare the DELETE query
             $query = "DELETE FROM attendance
                         WHERE id = :id
-                        AND workingDate = :workingDate
-                        AND workingStartingTime = :workingStartingTime
-                        AND workingOffTime = :workingOffTime";
+                        AND working_date = :working_date
+                        AND working_starting_time = :working_starting_time
+                        AND working_off_time = :working_off_time";
             
             // Bind the ID parameter
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':workingDate', $workingDate, PDO::PARAM_STR);
-            $stmt->bindParam(':workingStartingTime', $workingStartingTime, PDO::PARAM_STR);
-            $stmt->bindParam(':workingOffTime', $workingOffTime, PDO::PARAM_STR);
+            $stmt->bindParam(':working_date', $working_date, PDO::PARAM_STR);
+            $stmt->bindParam(':working_starting_time', $working_starting_time, PDO::PARAM_STR);
+            $stmt->bindParam(':working_off_time', $working_off_time, PDO::PARAM_STR);
 
             // Execute the query and check if the operation was successful
             if ($stmt->execute()) {
@@ -63,64 +63,64 @@
             }
         }
         
-        public function updateStatusIDFromAttendanceByPrimaryKey($id, $workingDate, $workingStartingTime, $workingOffTime, $statusID) {
+        public function updateStatusIDFromAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time, $status_id) {
             // Prepare the Update query
-            $query = "UPDATE attendance SET statusID = :statusID
+            $query = "UPDATE attendance SET status_id = :status_id
                         WHERE id = :id
-                        AND workingDate = :workingDate
-                        AND workingStartingTime = :workingStartingTime
-                        AND workingOffTime = :workingOffTime";
+                        AND working_date = :working_date
+                        AND working_starting_time = :working_starting_time
+                        AND working_off_time = :working_off_time";
             
             // Bind the ID parameter
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':workingDate', $workingDate, PDO::PARAM_STR);
-            $stmt->bindParam(':workingStartingTime', $workingStartingTime, PDO::PARAM_STR);
-            $stmt->bindParam(':workingOffTime', $workingOffTime, PDO::PARAM_STR);
-            $stmt->bindParam(':statusID', $statusID, PDO::PARAM_INT);
+            $stmt->bindParam(':working_date', $working_date, PDO::PARAM_STR);
+            $stmt->bindParam(':working_starting_time', $working_starting_time, PDO::PARAM_STR);
+            $stmt->bindParam(':working_off_time', $working_off_time, PDO::PARAM_STR);
+            $stmt->bindParam(':status_id', $status_id, PDO::PARAM_INT);
 
             if ($stmt->execute()) {
-                return $this->getAttendanceByPrimaryKey($id, $workingDate, $workingStartingTime, $workingOffTime);
+                return $this->getAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time);
             }
             return false;
         }
         
-        public function updateColumnFromAttendanceByPrimaryKey($id, $workingDate, $workingStartingTime, $workingOffTime, $columnName, $updatingData) {
+        public function updateColumnFromAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time, $columnName, $updatingData) {
             // Prepare the update query
             $query = "UPDATE attendance SET $columnName = :updatingData
                         WHERE id = :id
-                        AND workingDate = :workingDate
-                        AND workingStartingTime = :workingStartingTime
-                        AND workingOffTime = :workingOffTime";
+                        AND working_date = :working_date
+                        AND working_starting_time = :working_starting_time
+                        AND working_off_time = :working_off_time";
             
             // Bind the ID parameter
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':workingDate', $workingDate, PDO::PARAM_STR);
-            $stmt->bindParam(':workingStartingTime', $workingStartingTime, PDO::PARAM_STR);
-            $stmt->bindParam(':workingOffTime', $workingOffTime, PDO::PARAM_STR);
+            $stmt->bindParam(':working_date', $working_date, PDO::PARAM_STR);
+            $stmt->bindParam(':working_starting_time', $working_starting_time, PDO::PARAM_STR);
+            $stmt->bindParam(':working_off_time', $working_off_time, PDO::PARAM_STR);
             $stmt->bindParam(':updatingData', $updatingData);
 
             if ($stmt->execute()) {
-                return $this->getAttendanceByPrimaryKey($id, $workingDate, $workingStartingTime, $workingOffTime);
+                return $this->getAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time);
             }
             return false;
         }
 
 
-        public function getAttendanceByPrimaryKey($id, $workingDate, $workingStartingTime, $workingOffTime){
+        public function getAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time){
             try {
                 // Ensure that the $id is an integer and other values are sanitized if needed
                 $query = "SELECT * FROM attendance 
                           WHERE id = :id
-                          AND workingDate = :workingDate
-                          AND workingStartingTime = :workingStartingTime
-                          AND workingOffTime = :workingOffTime";
+                          AND working_date = :working_date
+                          AND working_starting_time = :working_starting_time
+                          AND working_off_time = :working_off_time";
                 $stmt = $this->db->prepare($query);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                $stmt->bindParam(':workingDate', $workingDate, PDO::PARAM_STR);
-                $stmt->bindParam(':workingStartingTime', $workingStartingTime, PDO::PARAM_STR);
-                $stmt->bindParam(':workingOffTime', $workingOffTime, PDO::PARAM_STR);
+                $stmt->bindParam(':working_date', $working_date, PDO::PARAM_STR);
+                $stmt->bindParam(':working_starting_time', $working_starting_time, PDO::PARAM_STR);
+                $stmt->bindParam(':working_off_time', $working_off_time, PDO::PARAM_STR);
                 $stmt->execute();
 
                 // Use fetch if expecting a single record
@@ -144,25 +144,25 @@
             return !empty($attendance) ? $attendance : null; // Return null if no admins are found
         }
                
-        public function addDefaultAttendanceIntoDB($id, $workingDate, $workingStartingTime, $workingOffTime){
+        public function addDefaultAttendanceIntoDB($id, $working_date, $working_starting_time, $working_off_time){
             
-            if($this->isPrimaryKeyExistInAttendanceDB($id, $workingDate, $workingStartingTime, $workingOffTime)){
+            if($this->isPrimaryKeyExistInAttendanceDB($id, $working_date, $working_starting_time, $working_off_time)){
                 throw new RuntimeException("Record already exists for the given details.");
             }
             
             // SQL query to insert data into the workingSchedule table
-            $query = "INSERT INTO attendance (id, workingDate, workingStartingTime, workingOffTime, photo, location, attendanceDateTime, statusID)
-                      VALUES (:id, :workingDate, :workingStartingTime, :workingOffTime, null, null, null, 1)";
+            $query = "INSERT INTO attendance (id, working_date, working_starting_time, working_off_time, photo, location, attendance_date_time, status_id)
+                      VALUES (:id, :working_date, :working_starting_time, :working_off_time, null, null, null, 1)";
 
             // Prepare and execute the query (assuming you are using PDO)
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':workingDate', $workingDate, PDO::PARAM_STR);
-            $stmt->bindParam(':workingStartingTime', $workingStartingTime, PDO::PARAM_STR);
-            $stmt->bindParam(':workingOffTime', $workingOffTime, PDO::PARAM_STR);
+            $stmt->bindParam(':working_date', $working_date, PDO::PARAM_STR);
+            $stmt->bindParam(':working_starting_time', $working_starting_time, PDO::PARAM_STR);
+            $stmt->bindParam(':working_off_time', $working_off_time, PDO::PARAM_STR);
 
             if ($stmt->execute()) {
-                return $this->getAttendanceByPrimaryKey($id, $workingDate, $workingStartingTime, $workingOffTime);
+                return $this->getAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time);
             }
             return false;
         }

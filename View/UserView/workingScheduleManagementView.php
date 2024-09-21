@@ -12,24 +12,24 @@
     $workingScheduleDeletionFailed = isset($_SESSION['deleteFailed']) ? $_SESSION['deleteFailed'] : '';
     
     // Get the sort key, filter key, and search query from query parameters
-    $sortKey = isset($_GET['sort']) ? $_GET['sort'] : 'workingDate';
+    $sortKey = isset($_GET['sort']) ? $_GET['sort'] : 'working_date';
     $filterKey = isset($_GET['filter']) ? $_GET['filter'] : 'all';
     $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
 
     // Filter the workingSchedulesArray based on the filter key
     $filteredSchedules = array_filter($data['workingSchedulesArray'], function($schedule) use ($filterKey) {
         $currentDate = new DateTime(); // Get the current date and time
-        $workingDate = new DateTime($schedule['workingDate']); // Convert working date to DateTime object
+        $working_date = new DateTime($schedule['working_date']); // Convert working date to DateTime object
 
         switch ($filterKey) {
             case 'today':
-                return $workingDate->format('Y-m-d') === $currentDate->format('Y-m-d');
+                return $working_date->format('Y-m-d') === $currentDate->format('Y-m-d');
             case 'week':
-                return $workingDate->format('W') === $currentDate->format('W') && $workingDate->format('Y') === $currentDate->format('Y');
+                return $working_date->format('W') === $currentDate->format('W') && $working_date->format('Y') === $currentDate->format('Y');
             case 'month':
-                return $workingDate->format('Y-m') === $currentDate->format('Y-m');
+                return $working_date->format('Y-m') === $currentDate->format('Y-m');
             case 'year':
-                return $workingDate->format('Y') === $currentDate->format('Y');
+                return $working_date->format('Y') === $currentDate->format('Y');
             case 'all':
             default:
                 return true; // No filter applied
@@ -40,9 +40,9 @@
        // Further filter based on search query
         $initialFilteredSchedules = array_filter($filteredSchedules, function($schedule) use ($searchQuery) {
             return stripos($schedule['id'], $searchQuery) !== false ||
-                   stripos($schedule['workingDate'], $searchQuery) !== false ||
-                   stripos($schedule['workingStartingTime'], $searchQuery) !== false ||
-                   stripos($schedule['workingOffTime'], $searchQuery) !== false;
+                   stripos($schedule['working_date'], $searchQuery) !== false ||
+                   stripos($schedule['working_starting_time'], $searchQuery) !== false ||
+                   stripos($schedule['working_off_time'], $searchQuery) !== false;
         });
 
         // Check if the initial filter resulted in any results
@@ -76,19 +76,19 @@
         });
     }
     
-    // Function to get the status name by statusID
-    function getStatusNameByID($statusArray, $statusID) {
+    // Function to get the status name by status_id
+    function getStatusNameByID($statusArray, $status_id) {
         foreach ($statusArray as $status) {
-            if ($status['statusID'] == $statusID) {
+            if ($status['status_id'] == $status_id) {
                 return htmlspecialchars($status['statusName']);
             }
         }
         return 'Unknown';
     }
 
-    // Function to get the color based on statusID
-    function getStatusColor($statusID) {
-        switch ($statusID) {
+    // Function to get the color based on status_id
+    function getStatusColor($status_id) {
+        switch ($status_id) {
             case 1:
                 return 'blue';
             case 2:
@@ -194,9 +194,9 @@
                         <th colspan="3">Action</th>
                         <th><a href="?controller=user&action=workingScheduleManagement&sort=id&filter=<?php echo htmlspecialchars($filterKey); ?>&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">ID &#8597;</a></th>
                         <th><a href="?controller=user&action=workingScheduleManagement&sort=username&filter=<?php echo htmlspecialchars($filterKey); ?>&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Username &#8597;</a></th>
-                        <th><a href="?controller=user&action=workingScheduleManagement&sort=workingDate&filter=<?php echo htmlspecialchars($filterKey); ?>&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Working Date &#8597;</a></th>
-                        <th><a href="?controller=user&action=workingScheduleManagement&sort=workingStartingTime&filter=<?php echo htmlspecialchars($filterKey); ?>&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Working Starting Time &#8597;</a></th>
-                        <th><a href="?controller=user&action=workingScheduleManagement&sort=workingOffTime&filter=<?php echo htmlspecialchars($filterKey); ?>&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Working Off <br> Time &#8597;</a></th>
+                        <th><a href="?controller=user&action=workingScheduleManagement&sort=working_date&filter=<?php echo htmlspecialchars($filterKey); ?>&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Working Date &#8597;</a></th>
+                        <th><a href="?controller=user&action=workingScheduleManagement&sort=working_starting_time&filter=<?php echo htmlspecialchars($filterKey); ?>&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Working Starting Time &#8597;</a></th>
+                        <th><a href="?controller=user&action=workingScheduleManagement&sort=working_off_time&filter=<?php echo htmlspecialchars($filterKey); ?>&search=<?php echo htmlspecialchars($searchQuery); ?>" class="full-clickable">Working Off <br> Time &#8597;</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -208,9 +208,9 @@
                         <?php foreach ($filteredSchedules as $workingSchedule): ?>
                             <?php
                             $allAttributesPresent = !empty($workingSchedule['id']) && 
-                                                    !empty($workingSchedule['workingDate']) && 
-                                                    !empty($workingSchedule['workingStartingTime']) && 
-                                                    !empty($workingSchedule['workingOffTime']);
+                                                    !empty($workingSchedule['working_date']) && 
+                                                    !empty($workingSchedule['working_starting_time']) && 
+                                                    !empty($workingSchedule['working_off_time']);
                             $hasEditPermission = isset($_SESSION['currentUserModel']['permissions']) && in_array('edit', $_SESSION['currentUserModel']['permissions']);
                             ?>
 
@@ -219,18 +219,18 @@
                                     <td colspan="<?php echo $hasEditPermission ? '1' : '3'; ?>">
                                         <a href="javascript:void(0)" onclick="showWorkingScheduleAttendance(
                                             '<?php echo htmlspecialchars($workingSchedule['id']); ?>',
-                                            '<?php echo htmlspecialchars($workingSchedule['workingDate']); ?>',
-                                            '<?php echo htmlspecialchars($workingSchedule['workingStartingTime']); ?>',
-                                            '<?php echo htmlspecialchars($workingSchedule['workingOffTime']); ?>'
+                                            '<?php echo htmlspecialchars($workingSchedule['working_date']); ?>',
+                                            '<?php echo htmlspecialchars($workingSchedule['working_starting_time']); ?>',
+                                            '<?php echo htmlspecialchars($workingSchedule['working_off_time']); ?>'
                                         )">Details</a>
                                     </td>
 
                                     <?php if ($hasEditPermission): ?>
                                         <td>
                                             <a href="index.php?controller=user&action=editWorkingSchedule&id=<?php echo htmlspecialchars($workingSchedule['id']); ?>
-                                                &workingDate=<?php echo htmlspecialchars($workingSchedule['workingDate']); ?>
-                                                &workingStartingTime=<?php echo htmlspecialchars($workingSchedule['workingStartingTime']); ?>
-                                                &workingOffTime=<?php echo htmlspecialchars($workingSchedule['workingOffTime']); ?>
+                                                &working_date=<?php echo htmlspecialchars($workingSchedule['working_date']); ?>
+                                                &working_starting_time=<?php echo htmlspecialchars($workingSchedule['working_starting_time']); ?>
+                                                &working_off_time=<?php echo htmlspecialchars($workingSchedule['working_off_time']); ?>
                                             ">Edit</a>
                                         </td>
                                     <?php endif; ?>
@@ -238,9 +238,9 @@
                                     <?php if ($hasEditPermission): ?>
                                         <td>
                                             <a href="index.php?controller=user&action=deleteWorkingSchedule&id=<?php echo htmlspecialchars($workingSchedule['id']); ?>
-                                                &workingDate=<?php echo htmlspecialchars($workingSchedule['workingDate']); ?>
-                                                &workingStartingTime=<?php echo htmlspecialchars($workingSchedule['workingStartingTime']); ?>
-                                                &workingOffTime=<?php echo htmlspecialchars($workingSchedule['workingOffTime']); ?>
+                                                &working_date=<?php echo htmlspecialchars($workingSchedule['working_date']); ?>
+                                                &working_starting_time=<?php echo htmlspecialchars($workingSchedule['working_starting_time']); ?>
+                                                &working_off_time=<?php echo htmlspecialchars($workingSchedule['working_off_time']); ?>
                                             ">Delete</a>
                                         </td>
                                     <?php endif; ?>
@@ -262,9 +262,9 @@
                                     </td>
 
                                     <!-- Working Schedule Data -->
-                                    <td><?php echo htmlspecialchars($workingSchedule['workingDate']); ?></td>
-                                    <td><?php echo htmlspecialchars($workingSchedule['workingStartingTime']); ?></td>
-                                    <td><?php echo htmlspecialchars($workingSchedule['workingOffTime']); ?></td>
+                                    <td><?php echo htmlspecialchars($workingSchedule['working_date']); ?></td>
+                                    <td><?php echo htmlspecialchars($workingSchedule['working_starting_time']); ?></td>
+                                    <td><?php echo htmlspecialchars($workingSchedule['working_off_time']); ?></td>
                                 </tr>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -305,12 +305,12 @@
                     <tr>
                         <td id="id"></td>
                         <td id="attendanceStatus"></td>
-                        <td id="workingDate"></td>
-                        <td id="workingStartingTime"></td>
-                        <td id="workingOffTime"></td>
+                        <td id="working_date"></td>
+                        <td id="working_starting_time"></td>
+                        <td id="working_off_time"></td>
                         <td id="photo"></td>
                         <td id="location"></td>
-                        <td id="attendanceDateTime"></td>
+                        <td id="attendance_date_time"></td>
                     </tr>
                 </tbody>
             </table>
@@ -343,13 +343,13 @@
             
             const attendancesArray = <?php echo json_encode($data['attendancesArray']); ?>;
             const attendancesStatusArray = <?php echo json_encode($data['attendancesStatusArray']); ?>;
-            function showWorkingScheduleAttendance(id, workingDate, workingStartingTime, workingOffTime) {
+            function showWorkingScheduleAttendance(id, working_date, working_starting_time, working_off_time) {
                 // Find the attendance in the attendancesArray
                 const attendanceData = attendancesArray.find(attendance => 
                     attendance.id == id &&
-                    attendance.workingDate == workingDate &&
-                    attendance.workingStartingTime == workingStartingTime &&
-                    attendance.workingOffTime == workingOffTime
+                    attendance.working_date == working_date &&
+                    attendance.working_starting_time == working_starting_time &&
+                    attendance.working_off_time == working_off_time
                 );
 
                 if (attendanceData) {
@@ -358,15 +358,15 @@
 
                     // Populate the table with attendance data
                     document.getElementById('id').textContent = attendanceData.id || 'Empty';
-                    document.getElementById('workingDate').textContent = attendanceData.workingDate || 'Empty';
-                    document.getElementById('workingStartingTime').textContent = attendanceData.workingStartingTime || 'Empty';
-                    document.getElementById('workingOffTime').textContent = attendanceData.workingOffTime || 'Empty';
+                    document.getElementById('working_date').textContent = attendanceData.working_date || 'Empty';
+                    document.getElementById('working_starting_time').textContent = attendanceData.working_starting_time || 'Empty';
+                    document.getElementById('working_off_time').textContent = attendanceData.working_off_time || 'Empty';
                     document.getElementById('photo').textContent = attendanceData.photo || 'No Photo Provided';
                     document.getElementById('location').textContent = attendanceData.location || 'No Location Provided';
-                    document.getElementById('attendanceDateTime').textContent = attendanceData.attendanceDateTime || 'No Attendance Date Time Provided';
+                    document.getElementById('attendance_date_time').textContent = attendanceData.attendance_date_time || 'No Attendance Date Time Provided';
 
                     // Find and display the corresponding attendance status
-                    const status = attendancesStatusArray.find(status => status.statusID == attendanceData.statusID);
+                    const status = attendancesStatusArray.find(status => status.status_id == attendanceData.status_id);
                     if (status) {
                         const statusColorMap = {
                             1: 'blue',
@@ -374,7 +374,7 @@
                             3: 'red',
                             4: 'yellow'
                         };
-                        const statusColor = statusColorMap[status.statusID] || 'black';
+                        const statusColor = statusColorMap[status.status_id] || 'black';
                         document.getElementById('attendanceStatus').textContent = status.statusName;
                         document.getElementById('attendanceStatus').style.color = statusColor;
                     } else {

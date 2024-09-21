@@ -1,12 +1,24 @@
 <?php
-include_once 'C:\xampp\htdocs\ZooManagementSystem\Config\databaseConfig.php';
-class Supplier extends databaseConfig{
 
+include_once 'C:\xampp\htdocs\ZooManagementSystem\Config\databaseConfig.php';
+
+class Supplier extends databaseConfig {
+
+    private $id;
     private $db;
 
-    public function __construct() {
+    public function __construct($id = null) {
         // Initialize database connection
         $this->db = new databaseConfig();
+        $this->id = $id;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id): void {
+        $this->id = $id;
     }
 
     public function getSupplierRecordById($supplierId) {
@@ -39,6 +51,7 @@ class Supplier extends databaseConfig{
         }
     }
 }
+
 //
 //$suu = new Supplier();
 //$result = $suu->getSupplierRecordById(5);

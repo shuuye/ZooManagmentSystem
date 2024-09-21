@@ -67,8 +67,8 @@ if (isset($_SESSION['currentUserModel'])) {
         ?>
         <tr>
             <th>Full Name:</th>
-            <td><?php echo htmlspecialchars($userData['fullName']); ?></td>
-            <td><a href="#" onclick="toggleRow('fullNameChangeForm')">change</a></td>
+            <td><?php echo htmlspecialchars($userData['full_name']); ?></td>
+            <td><a href="#" onclick="toggleRow('full_nameChangeForm')">change</a></td>
         </tr>
         <?php 
             if(isset($_SESSION['userInputData']['inputFullNameErr'])){
@@ -88,8 +88,8 @@ if (isset($_SESSION['currentUserModel'])) {
         ?>
         <tr>
             <th>Phone Number:</th>
-            <td><?php echo htmlspecialchars($userData['phoneNumber']); ?></td>
-            <td><a href="#" onclick="toggleRow('phoneNumberChangeForm')">change</a></td>
+            <td><?php echo htmlspecialchars($userData['phone_number']); ?></td>
+            <td><a href="#" onclick="toggleRow('phone_numberChangeForm')">change</a></td>
         </tr>
         <?php 
             if(isset($_SESSION['userInputData']['inputPhoneNumberErr'])){
@@ -198,7 +198,7 @@ if (isset($_SESSION['currentUserModel'])) {
     </div>
     
     <!-- Full Name Change Form -->
-    <div class="fullNameChangeForm" id="fullNameChangeForm" style="display: <?php if(isset($_SESSION['userInputData']['inputFullNameErr'])){
+    <div class="full_nameChangeForm" id="full_nameChangeForm" style="display: <?php if(isset($_SESSION['userInputData']['inputFullNameErr'])){
                                                                                         echo htmlspecialchars('block');
                                                                                     }else{
                                                                                         echo htmlspecialchars('none');
@@ -212,7 +212,7 @@ if (isset($_SESSION['currentUserModel'])) {
                 <tbody>
                     <tr>
                         <th>Current Full Name:</th>
-                        <td><?php echo htmlspecialchars($userData['fullName']); ?></td>
+                        <td><?php echo htmlspecialchars($userData['full_name']); ?></td>
                     </tr>
                     <tr>
                         <th>New Full Name:</th>
@@ -223,7 +223,7 @@ if (isset($_SESSION['currentUserModel'])) {
                     </tr>
                     <tr>
                         <td><button>Submit</button></td>
-                        <td><button type="button" onclick="clearAndHideForm('fullNameChangeForm')">Cancel</button></td>
+                        <td><button type="button" onclick="clearAndHideForm('full_nameChangeForm')">Cancel</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -231,7 +231,7 @@ if (isset($_SESSION['currentUserModel'])) {
     </div>
     
     <!-- Phone Number Change Form -->
-    <div class="phoneNumberChangeForm" id="phoneNumberChangeForm" style="display: <?php if(isset($_SESSION['userInputData']['inputPhoneNumberErr'])){
+    <div class="phone_numberChangeForm" id="phone_numberChangeForm" style="display: <?php if(isset($_SESSION['userInputData']['inputPhoneNumberErr'])){
                                                                                         echo htmlspecialchars('block');
                                                                                     }else{
                                                                                         echo htmlspecialchars('none');
@@ -244,7 +244,7 @@ if (isset($_SESSION['currentUserModel'])) {
                 <tbody>
                     <tr>
                         <th>Current Phone Number:</th>
-                        <td><?php echo htmlspecialchars($userData['phoneNumber']); ?></td>
+                        <td><?php echo htmlspecialchars($userData['phone_number']); ?></td>
                     </tr>
                     <tr>
                         <th>New Phone Number:</th>
@@ -255,7 +255,7 @@ if (isset($_SESSION['currentUserModel'])) {
                     </tr>
                     <tr>
                         <td><button>Submit</button></td>
-                        <td><button type="button" onclick="clearAndHideForm('phoneNumberChangeForm')">Cancel</button></td>
+                        <td><button type="button" onclick="clearAndHideForm('phone_numberChangeForm')">Cancel</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -266,7 +266,7 @@ if (isset($_SESSION['currentUserModel'])) {
         // Function to toggle the visibility of elements (both rows and divs)
         function toggleRow(rowId) {
             // Hide all forms first
-            var forms = ['passwordChangeForm', 'fullNameChangeForm', 'phoneNumberChangeForm'];
+            var forms = ['passwordChangeForm', 'full_nameChangeForm', 'phone_numberChangeForm'];
             forms.forEach(function(formId) {
                 document.getElementById(formId).style.display = 'none';
             });
