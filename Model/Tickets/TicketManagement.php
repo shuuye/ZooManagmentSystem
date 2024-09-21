@@ -65,8 +65,8 @@ class TicketManagement extends DatabaseConfig {
             if ($exists) {
                 // Update the ticket if it exists
                 $query = "UPDATE tickets 
-                          SET type = :type, description = :description, price = :price 
-                          WHERE id = :id";
+                      SET type = :type, description = :description, price = :price 
+                      WHERE id = :id";
                 $stmt = $this->pdo->prepare($query);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 $stmt->bindParam(':type', $type, PDO::PARAM_STR);
@@ -74,13 +74,13 @@ class TicketManagement extends DatabaseConfig {
                 $stmt->bindParam(':price', $price, PDO::PARAM_STR);
                 $stmt->execute();
 
-                return ['success' => true, 'message' => 'Ticket updated successfully.'];
+                return true; // Return true for successful update
             } else {
-                return ['success' => false, 'message' => 'Ticket with ID ' . $id . ' does not exist.'];
+                return false; // Return false if ticket does not exist
             }
         } catch (PDOException $e) {
             // Handle database errors
-            return ['success' => false, 'message' => 'Database error: ' . $e->getMessage()];
+            return false; // Return false on error
         }
     }
 
