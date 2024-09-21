@@ -18,10 +18,4 @@
     <description>60 and above</description>
     <price>16.00</price>
   </Ticket>
-  <Ticket>
-    <id>4</id>
-    <type>Free </type>
-    <description>haha</description>
-    <price>10.00</price>
-  </Ticket>
 </Tickets>
