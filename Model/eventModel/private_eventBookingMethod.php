@@ -193,7 +193,7 @@ public function checkIfBookingDuplicate($customerid, $eventId, $date, $location)
             SELECT 
                 (SELECT COUNT(*) FROM privateeventbooking 
                  WHERE event_id = :event_id AND date = :date AND customerid != :customerid) AS privateCount,
-                (SELECT COUNT(*) FROM publiceventbooking 
+                (SELECT COUNT(*) FROM public_event
                  WHERE date = :date AND location = :location) AS publicCount
         ";
         
