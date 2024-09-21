@@ -296,8 +296,6 @@
                         <th>Working Date</th>
                         <th>Working Starting Time</th>
                         <th>Working Off Time</th>
-                        <th>Photo</th>
-                        <th>Location</th>
                         <th>Attendance Date Time</th>
                     </tr>
                 </thead>
@@ -308,8 +306,6 @@
                         <td id="working_date"></td>
                         <td id="working_starting_time"></td>
                         <td id="working_off_time"></td>
-                        <td id="photo"></td>
-                        <td id="location"></td>
                         <td id="attendance_date_time"></td>
                     </tr>
                 </tbody>
@@ -361,8 +357,6 @@
                     document.getElementById('working_date').textContent = attendanceData.working_date || 'Empty';
                     document.getElementById('working_starting_time').textContent = attendanceData.working_starting_time || 'Empty';
                     document.getElementById('working_off_time').textContent = attendanceData.working_off_time || 'Empty';
-                    document.getElementById('photo').textContent = attendanceData.photo || 'No Photo Provided';
-                    document.getElementById('location').textContent = attendanceData.location || 'No Location Provided';
                     document.getElementById('attendance_date_time').textContent = attendanceData.attendance_date_time || 'No Attendance Date Time Provided';
 
                     // Find and display the corresponding attendance status
