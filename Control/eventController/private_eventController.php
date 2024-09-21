@@ -125,7 +125,7 @@ class private_eventController extends private_eventBookingMethod{
     if ($this->model->checkIfBookingExists($customerid, $eventId, $date)) {
             $errors['duplicate'] = 'Same Private Event cannot be reserve at the same date';
             $this->logEvent('Same Private Event cannot be reserve at the same date','ERROR');
-        } else if ($this->model->checkIfBookingDuplicate($customerid, $eventId, $date)) {
+        } else if ($this->model->checkIfBookingDuplicate($customerid, $eventId, $date,$location)) {
             $errors['duplicate'] = 'This event date has been booked, Please select another date or select another private event!';
             $this->logEvent('This event date has been booked, Please select another date or select another private event!','ERROR');
         } 
