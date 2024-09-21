@@ -1,84 +1,65 @@
-#  To run the file
-# http://localhost:5000/api/visitor_summary?visit_date=2024-09-20 (the date can change)
-
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 import mysql.connector
-from mysql.connector import Error
-from collections import defaultdict
+from flask_cors import CORS
 
+# Initialize the Flask app
 app = Flask(__name__)
+CORS(app)
 
+# MySQL database connection
 def get_db_connection():
-    try:
-        conn = mysql.connector.connect(
-            host='localhost',
-            database='zooManagementdb',
-            user='alibaba',
-            password='alibaba123'
-        )
-        if conn.is_connected():
-            return conn
-    except Error as e:
-        print("Error while connecting to MySQL", e)
-        return None
+    return mysql.connector.connect(
+        host="localhost",
+        user="alibaba",
+        password="alibaba123",
+        database="zooManagementdb"
+    )
 
-def fetch_visitors_by_date(visit_date):
-    conn = get_db_connection()
-    if conn is None:
-        return {"error": "Database connection failed."}
-    
-    cursor = conn.cursor(dictionary=True)
-    query = """
-        SELECT tp.ticket_id, tp.quantity, tp.visit_date, t.type
+# Route to get visitors summary by date
+@app.route('/visitor_summary', methods=['GET'])
+def visitor_summary():
+    visit_date = request.args.get('visit_date')
+
+    if not visit_date:
+        return jsonify({"error": "Visit date is required."}), 400
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        # Query to join ticket_purchases with tickets to get type
+        query = """
+        SELECT tp.ticket_id, t.type, SUM(tp.quantity) AS total_quantity, tp.visit_date
         FROM ticket_purchases tp
         JOIN tickets t ON tp.ticket_id = t.id
         WHERE tp.visit_date = %s
-    """
-    cursor.execute(query, (visit_date,))
-    visitors = cursor.fetchall()
-    
-    cursor.close()
-    conn.close()
-    
-    return visitors
-    
-    
+        GROUP BY tp.ticket_id, t.type, tp.visit_date
+        """
+        cursor.execute(query, (visit_date,))
+        result = cursor.fetchall()
 
-@app.route('/api/visitor_summary', methods=['GET'])
-def visitor_summary():
-    visit_date = request.args.get('visit_date')
-    if not visit_date:
-        return jsonify({"error": "Visit date is required."}), 400
-    
-    visitors = fetch_visitors_by_date(visit_date)
-    if "error" in visitors:
-        return jsonify(visitors), 500
+        if not result:
+            return jsonify({
+                "visit_date": visit_date,
+                "total_visitors": 0,
+                "visitors": []
+            })
 
-    # Calculate total visitors as the sum of all quantities
-    total_visitors = sum(visitor['quantity'] for visitor in visitors)
+        total_visitors = sum([row['total_quantity'] for row in result])
 
-    # Group by ticket_id and sum quantities
-    ticket_summary = defaultdict(lambda: {"quantity": 0, "type": ""})
-    for visitor in visitors:
-        ticket_summary[visitor['ticket_id']]["quantity"] += visitor['quantity']
-        ticket_summary[visitor['ticket_id']]["type"] = visitor['type']
+        return jsonify({
+            "visit_date": visit_date,
+            "total_visitors": total_visitors,
+            "visitors": result
+        })
 
-    # Format the final response
-    formatted_visitors = [
-        {
-            "ticket_id": ticket_id,
-            "type": ticket_info["type"],
-            "quantity": ticket_info["quantity"],
-            "visit_date": visit_date
-        }
-        for ticket_id, ticket_info in ticket_summary.items()
-    ]
+    except mysql.connector.Error as err:
+        return jsonify({"error": str(err)}), 500
+    finally:
+        if conn.is_connected():
+            cursor.close()
+            conn.close()
 
-    return jsonify({
-        "total_visitors": total_visitors,
-        "visit_date": visit_date,
-        "visitors": formatted_visitors
-    })
-
+# Run the Flask app
 if __name__ == '__main__':
     app.run(debug=True)
