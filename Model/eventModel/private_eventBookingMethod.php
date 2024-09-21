@@ -181,34 +181,42 @@ class private_eventBookingMethod extends databaseConfig {
     }
     
     
-    public function checkIfBookingDuplicate($customerid, $eventId, $date) {
+public function checkIfBookingDuplicate($customerid, $eventId, $date, $location) {
     if ($this->connection === null) {
-         $this->logEvent("Database connection is not set.", 'ERROR');
+        $this->logEvent("Database connection is not set.", 'ERROR');
         throw new Exception("Database connection is not set.");
     }
 
     try {
-        // Query to check if the event is booked by any other customer on the same date
-        $query = "SELECT COUNT(*) FROM privateeventbooking 
-                  WHERE event_id = :event_id AND date = :date AND customerid != :customerid";
+        // Query to check if the event is booked by any other customer on the same date and location
+        $query = "
+            SELECT 
+                (SELECT COUNT(*) FROM privateeventbooking 
+                 WHERE event_id = :event_id AND date = :date AND customerid != :customerid) AS privateCount,
+                (SELECT COUNT(*) FROM publiceventbooking 
+                 WHERE date = :date AND location = :location) AS publicCount
+        ";
         
         // Prepare and bind parameters
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':event_id', $eventId, PDO::PARAM_INT);
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':customerid', $customerid, PDO::PARAM_INT); // Exclude current customer
+        $stmt->bindParam(':location', $location); // Bind location for public bookings
         $stmt->execute();
 
         // Fetch the result
-        $exists = $stmt->fetchColumn();
-        // Return true if a booking by another customer exists, false otherwise
-        return $exists > 0;
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Check if any booking exists in either table
+        return $result['privateCount'] > 0 || $result['publicCount'] > 0;
     } catch (Exception $e) {
         // Log error and rethrow
-        $this->logEvent("Failed to check if booking exists for another customer: " . $e->getMessage(), 'ERROR');
-        throw new Exception("Failed to check if booking exists for another customer: " . $e->getMessage());
+        $this->logEvent("Failed to check if booking exists: " . $e->getMessage(), 'ERROR');
+        throw new Exception("Failed to check if booking exists: " . $e->getMessage());
     }
 }
+
 
     
     
