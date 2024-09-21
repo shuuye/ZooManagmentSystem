@@ -103,14 +103,14 @@ include 'htmlHead.php' ;
 <main>
    
     <div class="container">
-        <a href="" class="link-box">Event Management</a>
+        <a href="/ZooManagementSystem/createanddeletefunction.php" class="link-box">Event Management</a>
         <a href="index.php?controller=user&action=userManagementMainPanel" class="link-box">User Management</a>
         <a href="index.php?controller=inventory&action=index" class="link-box">Inventory Management Panel</a>
         <?php
         if ($_SESSION['currentUserModel']['id'] == '3') {
-            echo'<a href="displayTicketsXslt.php" class="link-box">Ticketing & Payment Management Panel</a>';
+            echo'<a href="/ZooManagementSystem/displayTicketsXslt.php" class="link-box">Ticketing & Payment Management Panel</a>';
         } else {
-            echo'<a href="adminTicketPage.php" class="link-box">Ticketing & Payment Management Panel</a>';
+            echo'<a href="/ZooManagementSystem/adminTicketPage.php" class="link-box">Ticketing & Payment Management Panel</a>';
         }
         ?>
         <a href="View/AnimalView/animal_home.php" class="link-box">Animal Management Panel</a>

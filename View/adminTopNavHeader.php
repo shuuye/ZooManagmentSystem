@@ -43,14 +43,14 @@
     
     <!--place link-->
     <div class="topnav" style="background-color: blue;">
-        <a href="createanddeletefunction.php" class="link-box">Event Management</a>
+        <a href="/ZooManagementSystem/createanddeletefunction.php" class="link-box">Event Management</a>
         <a href="index.php?controller=user&action=userManagementMainPanel" class="link-box">User Management</a>
         <a href="index.php?controller=inventory&action=index" class="link-box">Inventory Management Panel</a>
         <?php
         if ($_SESSION['currentUserModel']['id'] == '3') {
-            echo'<a href="displayTicketsXslt.php" class="link-box">Ticketing Management Panel</a>';
+            echo'<a href="/ZooManagementSystem/displayTicketsXslt.php" class="link-box">Ticketing Management Panel</a>';
         } else {
-            echo'<a href="adminTicketPage.php" class="link-box">Ticketing & Payment Management Panel</a>';
+            echo'<a href="/ZooManagementSystem/adminTicketPage.php" class="link-box">Ticketing & Payment Management Panel</a>';
         }
         ?>
         <a href="/ZooManagementSystem/View/AnimalView/animal_home.php" class="link-box">Animal Management Panel</a>
