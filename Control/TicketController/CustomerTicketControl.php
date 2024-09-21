@@ -47,7 +47,7 @@ class CustomerTicketControl {
             // Validate visit date: must be greater than today
             $today = date('Y-m-d');
             if ($visitDate <= $today) {
-                return 'Visit date must be greater than today.';
+                return 'Visit date cannot less than today.';
             }
 
             if ($validQuantities) {
