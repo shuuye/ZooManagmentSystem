@@ -11,23 +11,6 @@ include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\HabitatObserve
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\AnimalObserver.php';
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\FoodObserver.php';
 
-// old 2 include 
-
-//require_once '/ZooManagementSystem/Model/Inventory/InventoryModel.php';
-//require_once '/ZooManagementSystem/Model/ObserverN/subject.php';
-//require_once '/ZooManagementSystem/Model/ObserverN/HealthObserver.php';
-//require_once '/ZooManagementSystem/Model/ObserverN/HabitatObserver.php';
-//require_once '/ZooManagementSystem/Model/ObserverN/AnimalObserver.php';
-//require_once '/ZooManagementSystem/Model/ObserverN/FoodObserver.php';
-
-
-//Old include
-//require_once 'Model/Inventory/InventoryModel.php';
-//require_once 'subject.php';
-//require_once 'HealthObserver.php';
-//require_once 'HabitatObserver.php';
-//require_once 'AnimalObserver.php';
-//require_once 'FoodObserver.php';
 
 class AnimalModel extends databaseConfig implements subject{
 
@@ -65,7 +48,6 @@ class AnimalModel extends databaseConfig implements subject{
     }
     
     // Setter and Getter-------------------------------------------------------------------------
-  
     // Set habitat data and notify observers
     
     //Animal  
@@ -504,9 +486,6 @@ public function addOrUpdateFeedingRecord($animal_id, $food_id, $feeding_time, $q
         return $categories;
     }
     
- // web service 2 
-    
-
 }
 ?>
 

@@ -1,8 +1,5 @@
 <?php
 
-
-//require_once '../../Model/ObserverN/AnimalModel.php';
-//require_once '../../Model/XmlGenerator.php';
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\AnimalModel.php';
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\XmlGenerator.php';
 

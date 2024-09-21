@@ -1,7 +1,5 @@
 <?php
 
-//include_once '../../Model/ObserverN/AnimalModel.php';
-
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\ObserverN\AnimalModel.php';
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
 
