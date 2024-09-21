@@ -28,6 +28,10 @@ nav li a:hover {
   background-color: #99ccff;
 }
 
+body h1{
+    text-align: center;
+}
+
 /* Chart Styles */
 #chart {
     text-align: center;
