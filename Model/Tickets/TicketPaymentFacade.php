@@ -19,10 +19,10 @@ class TicketPaymentFacade {
     // Process the ticket purchase
     public function purchaseTickets($userId, $visitDate, $quantities) {
         try {
-            // Step 1: Process the ticket purchase
+            // Process the ticket purchase
             $this->ticketModel->processPurchase($userId, $visitDate, $quantities);
 
-            // Step 2: Generate the XML file for the purchase
+            // Generate the XML file for the purchase
             $ticketIds = array_keys($quantities);
             $tickets = $this->ticketModel->getTicketsByIds($ticketIds);
 
