@@ -5,13 +5,20 @@
     <quantity>2</quantity>
     <price>12.00</price>
     <total>24</total>
-    <visit_date>2024-09-21</visit_date>
+    <visit_date>2024-09-22</visit_date>
   </Ticket>
   <Ticket id="2">
     <type>Adult</type>
     <quantity>1</quantity>
     <price>20.00</price>
     <total>20</total>
-    <visit_date>2024-09-21</visit_date>
+    <visit_date>2024-09-22</visit_date>
+  </Ticket>
+  <Ticket id="3">
+    <type>Senior</type>
+    <quantity>2</quantity>
+    <price>16.00</price>
+    <total>32</total>
+    <visit_date>2024-09-22</visit_date>
   </Ticket>
 </Tickets>
