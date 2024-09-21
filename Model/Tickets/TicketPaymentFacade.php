@@ -51,33 +51,6 @@ class TicketPaymentFacade {
             throw new Exception("Error in purchase process: " . $e->getMessage());
         }
     }
-
-    // Generate XML for the purchase details
-    private function generatePurchaseXML($userId, $visitDate, $tickets, $quantities) {
-        $purchaseData = [];
-
-        foreach ($tickets as $ticket) {
-            $ticketId = $ticket['id'];
-            $purchaseData[] = [
-                'ticket_id' => $ticketId,
-                'type' => $ticket['type'],
-                'description' => $ticket['description'],
-                'quantity' => $quantities[$ticketId],
-                'visit_date' => $visitDate,
-                'price' => $ticket['price']
-            ];
-        }
-
-        // Call the XmlGenerator to create an XML file from this array
-        $this->xmlGenerator->createXMLFileFromArray(
-                'ticket_purchases',
-                'ticket_purchases.xml',
-                'TicketPurchases',
-                'Purchase',
-                'ticket_id',
-                $purchaseData
-        );
-    }
 }
 
 ?>
