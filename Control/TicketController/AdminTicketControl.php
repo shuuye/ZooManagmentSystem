@@ -7,7 +7,7 @@ require_once __DIR__ . '/../../Model/XmlGenerator.php';  // Include the XmlGener
 class AdminTicketControl {
 
     private $model;
-    private $errorMessage;
+    private $errorMessage = '';
 
     public function __construct() {
         $this->model = new TicketManagement();
@@ -62,6 +62,8 @@ class AdminTicketControl {
             $type = $_POST['type'];
             $description = $_POST['description'];
             $price = $_POST['price'];
+
+            // Call updateTicket and check for success
             $success = $this->model->updateTicket($id, $type, $description, $price);
 
             if (!$success) {
@@ -69,18 +71,32 @@ class AdminTicketControl {
             } else {
                 $this->generateTicketsXml();  // Regenerate XML file after editing a ticket
             }
+        } else {
+            $this->errorMessage = "Error: Please fill in all required fields.";
         }
         $this->showForm();
     }
 
     private function handleDelete() {
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
-            $this->model->deleteTicket($id);
-            $this->generateTicketsXml();  // Regenerate XML file after deleting a ticket
+    if (isset($_POST['id'])) {
+        $id = $_POST['id'];
+        
+        // Call deleteTicket and check for success
+        $result = $this->model->deleteTicket($id);
+
+        // Check if deletion was successful
+        if (!$result['success']) {
+            $this->errorMessage = $result['message']; // Set error message from deleteTicket
+        } else {
+            $this->generateTicketsXml();  // Regenerate XML file after successful deletion
         }
-        $this->showForm();
+    } else {
+        $this->errorMessage = "Error: Ticket ID is required.";
     }
+
+    $this->showForm();
+}
+
 
     private function showForm() {
         $tickets = $this->model->getTickets();
