@@ -81,7 +81,7 @@
             $defaultStaffPostition = isset($data['selectedUser']['position']) ? $data['selectedUser']['position'] : 'General Staff';
             // Handle the display of the position dropdown or hidden input
             if (isset($_SESSION['currentUserModel']) && isset($_SESSION['currentUserModel']['role']['roleID']) && isset($_SESSION['currentUserModel']['adminType']) && isset($_SESSION['currentUserModel']['permissions'])) {
-                if ($_SESSION['currentUserModel']['role']['roleID'] == 1 && $_SESSION['currentUserModel']['adminType'] == 'SuperAdmin' && in_array('manage admin', $_SESSION['currentUserModel']['permissions'])) {
+                if ($_SESSION['currentUserModel']['role']['roleID'] == 1 && in_array('edit', $_SESSION['currentUserModel']['permissions'])) {
                     echo '
                     <tr>
                         <td>Position:</td>
