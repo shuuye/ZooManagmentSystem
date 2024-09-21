@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__ . '/../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();//only allow the logged in admin to access
     
     class AdminPanelController{
         
