@@ -28,9 +28,8 @@
 <header>
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
-        <a href="index.php?controller=user&action=showMembership">Membership</a><!--set thing you gonna navigate for customer here-->
-        <a href="#contact">Contact</a>
-
+        <a href="index.php?controller=user&action=showMembership">Membership</a>
+        <!--set thing you gonna navigate for customer here-->
         <?php
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
