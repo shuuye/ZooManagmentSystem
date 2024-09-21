@@ -107,7 +107,7 @@ include 'htmlHead.php' ;
         <a href="index.php?controller=user&action=userManagementMainPanel" class="link-box">User Management</a>
         <a href="index.php?controller=inventory&action=index" class="link-box">Inventory Management Panel</a>
         <?php
-        if ($_SESSION['currentUserModel']['id'] == '3') {
+        if (isset($_SESSION['currentUserModel']) && $_SESSION['currentUserModel']['role']['roleID'] == 1 && !in_array('edit', $_SESSION['currentUserModel']['permissions'])){
             echo'<a href="/ZooManagementSystem/displayTicketsXslt.php" class="link-box">Ticketing & Payment Management Panel</a>';
         } else {
             echo'<a href="/ZooManagementSystem/adminTicketPage.php" class="link-box">Ticketing & Payment Management Panel</a>';
