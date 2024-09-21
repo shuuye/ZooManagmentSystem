@@ -108,7 +108,6 @@ class eventBookingView {
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
         <a href="index.php?controller=user&action=showMembership">Membership</a>
-        <a href="#contact">Contact</a>
         <!-- ticket -->
         <a href="CustomerTicketPage.php">Ticket</a>
         
@@ -302,7 +301,6 @@ class eventBookingView {
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
         <a href="index.php?controller=user&action=showMembership">Membership</a>
-        <a href="#contact">Contact</a>
         <!-- ticket -->
         <a href="CustomerTicketPage.php">Ticket</a>
         
@@ -577,7 +575,6 @@ class eventBookingView {
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
         <a href="index.php?controller=user&action=showMembership">Membership</a>
-        <a href="#contact">Contact</a>
         <!-- ticket -->
         <a href="CustomerTicketPage.php">Ticket</a>
         
@@ -787,7 +784,6 @@ class eventBookingView {
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
         <a href="index.php?controller=user&action=showMembership">Membership</a>
-        <a href="#contact">Contact</a>
         <!-- ticket -->
         <a href="CustomerTicketPage.php">Ticket</a>
         
@@ -1055,7 +1051,6 @@ public function displayPublicBookingSummary($customerid, $fullname, $eventId, $t
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
         <a href="index.php?controller=user&action=showMembership">Membership</a>
-        <a href="#contact">Contact</a>
         <!-- ticket -->
         <a href="CustomerTicketPage.php">Ticket</a>
         
@@ -1287,7 +1282,6 @@ public function displayPrivateBookingSummary($booking) {
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
         <a href="index.php?controller=user&action=showMembership">Membership</a>
-        <a href="#contact">Contact</a>
         <!-- ticket -->
         <a href="CustomerTicketPage.php">Ticket</a>
         
@@ -1510,7 +1504,6 @@ public function displayAllPrivateEventReservation($bookings) {
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
         <a href="index.php?controller=user&action=showMembership">Membership</a>
-        <a href="#contact">Contact</a>
         <!-- ticket -->
         <a href="CustomerTicketPage.php">Ticket</a>
         
@@ -1720,7 +1713,6 @@ public function displayAllPublicEventReservation($bookings) {
     <div class="topnav">
         <a href="index.php"><img src="assests/Logo-Zoo-Negara.png" alt="Zoo Negara Home Page" width="60px" height="50px"/></a>
         <a href="index.php?controller=user&action=showMembership">Membership</a>
-        <a href="#contact">Contact</a>
         <!-- ticket -->
         <a href="CustomerTicketPage.php">Ticket</a>
         
