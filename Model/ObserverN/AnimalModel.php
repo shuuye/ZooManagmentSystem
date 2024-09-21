@@ -290,8 +290,8 @@ class AnimalModel extends databaseConfig implements subject{
             $stmt->bindParam(':capacity', $capacity);
             $stmt->bindParam(':environment', $environment);
             $stmt->bindParam(':description', $description);
-            $this->notify();
             if ($stmt->execute()) {
+                $this->notify();
                 echo "Habitat updated successfully.";
                 
             } else {
@@ -314,14 +314,24 @@ class AnimalModel extends databaseConfig implements subject{
         }
     }
     
+
     public function deleteHabitat($habitat_id) {
         $sql = "DELETE FROM habitats WHERE habitat_id = :habitat_id";
         $stmt = $this->db->getConnection()->prepare($sql);
         $stmt->bindParam(':habitat_id', $habitat_id);
         $this->notify();
         return $stmt->execute();
-    }
+       }
     
+    public function hasAnimalsInHabitat($habitat_id) {
+        $sql = "SELECT COUNT(*) FROM animalinventory WHERE habitat_id = :habitat_id";
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->bindParam(':habitat_id', $habitat_id);
+        $stmt->execute();
+        // Fetch the count of animals
+        $count = $stmt->fetchColumn();
+        return $count > 0; // Return true if there are animals in the habitat
+    }
     
     // health function ----------------Use Xml and database update both-----------------------------------------------------------------------------
     // Health record functions -------------------------------------------------------------------------

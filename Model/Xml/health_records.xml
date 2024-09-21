@@ -36,4 +36,10 @@
     <treatments>body_check</treatments>
     <healthStatus>Healthy</healthStatus>
   </HealthRecord>
+  <HealthRecord hRecord_id="28">
+    <animal_id>34</animal_id>
+    <last_checkup>2024-09-10</last_checkup>
+    <treatments>body_check</treatments>
+    <healthStatus>Warning</healthStatus>
+  </HealthRecord>
 </HealthRecords>

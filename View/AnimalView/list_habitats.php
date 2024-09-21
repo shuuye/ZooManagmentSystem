@@ -1,11 +1,13 @@
 <!--This page is for edit and delete table, which for modification table display.--> 
 <?php
+    session_start();
     // Include the controller
     require_once '../../Control/AnimalControllerN/HabitatControllerObserver.php';
     // Create an instance of the controller
     $habitatController = new HabitatControllerObserver();
     // Handle form submissions
     $habitatController->handleFormSubmission();
+    
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +29,17 @@
     </nav>
     
     <h1>Edit and Delete of Habitats</h1>
+    
+    <!-- Display error message if it exists -->
+    <?php if (isset($_SESSION['error_message'])): ?>
+        <div class="error-message" style="color: red;">
+            <?php
+            echo $_SESSION['error_message'];
+            unset($_SESSION['error_message']); // Clear the message after displaying
+            ?>
+        </div>
+    <?php endif; ?>
+    
     <table>
         <thead>
             <tr>
