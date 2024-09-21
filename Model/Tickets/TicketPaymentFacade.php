@@ -10,10 +10,38 @@ class TicketPaymentFacade {
     private $paymentModel;
     private $xmlGenerator;
 
-    public function __construct() {
-        $this->ticketModel = new CustomerTicketModel();
-        $this->paymentModel = new PaymentModel();
-        $this->xmlGenerator = new XmlGenerator();
+    // Constructor to initialize the models
+    public function __construct($ticketModel = null, $paymentModel = null, $xmlGenerator = null) {
+        $this->ticketModel = $ticketModel ?? new CustomerTicketModel();
+        $this->paymentModel = $paymentModel ?? new PaymentModel();
+        $this->xmlGenerator = $xmlGenerator ?? new XmlGenerator();
+    }
+
+    // Getters and Setters for ticketModel
+    public function getTicketModel() {
+        return $this->ticketModel;
+    }
+
+    public function setTicketModel($ticketModel) {
+        $this->ticketModel = $ticketModel;
+    }
+
+    // Getters and Setters for paymentModel
+    public function getPaymentModel() {
+        return $this->paymentModel;
+    }
+
+    public function setPaymentModel($paymentModel) {
+        $this->paymentModel = $paymentModel;
+    }
+
+    // Getters and Setters for xmlGenerator
+    public function getXmlGenerator() {
+        return $this->xmlGenerator;
+    }
+
+    public function setXmlGenerator($xmlGenerator) {
+        $this->xmlGenerator = $xmlGenerator;
     }
 
     // Process the ticket purchase

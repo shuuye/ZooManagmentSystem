@@ -68,10 +68,10 @@ class public_eventController extends public_eventBookingMethod {
 
     public function validateAndProcessTicketPurchase($customerid, $fullname,$eventId, $ticket_number, $type, $title, $location, $price, $date, $starttime, $endtime) {
         $errors = [];
-        // Validate the inputs
+         //Validate the inputs
         if (!$this->model->isCapacityAvailable($eventId, $ticket_number)) {
-            $errors['duplicate'] = 'No tickets left to be purchased.';
-            $this->logEvent('No tickets left to be purchased.', 'ERROR');
+            $errors['duplicate'] = 'The requested number of tickets exceeds available capacity.';
+            $this->logEvent('The requested number of tickets exceeds available capacity.', 'ERROR');
         }
 
         if (!empty($errors)) {

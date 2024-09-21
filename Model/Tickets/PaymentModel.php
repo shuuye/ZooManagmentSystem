@@ -3,22 +3,49 @@
 require_once __DIR__ . '/../../Config/databaseConfig.php';
 
 class PaymentModel extends databaseConfig {
+    
+    private $filePath;
+    private $xmlData;
 
+    // Constructor with optional filePath initialization
+    public function __construct($filePath = null) {
+        $this->filePath = $filePath ?? __DIR__ . '/../Xml/ticket_purchases.xml';
+    }
+
+    // Getter and Setter for filePath
+    public function getFilePath() {
+        return $this->filePath;
+    }
+
+    public function setFilePath($filePath) {
+        $this->filePath = $filePath;
+    }
+
+    // Getter and Setter for XML data
+    public function getXmlData() {
+        return $this->xmlData;
+    }
+
+    public function setXmlData($xmlData) {
+        $this->xmlData = $xmlData;
+    }
+
+    // Method to retrieve ticket purchases from XML file
     public function getTicketPurchases() {
-        $filePath = __DIR__ . '/../Xml/ticket_purchases.xml';
-
-        if (!file_exists($filePath)) {
+        if (!file_exists($this->filePath)) {
             throw new Exception("XML file not found.");
         }
 
-        $xml = simplexml_load_file($filePath);
+        $xml = simplexml_load_file($this->filePath);
         if ($xml === false) {
             throw new Exception("Failed to load XML file.");
         }
 
+        $this->setXmlData($xml);  // Store XML data if needed later
         return $xml;
     }
 
+    // Method to calculate the total price of tickets
     public function calculateTotalPrice() {
         $ticketPurchases = $this->getTicketPurchases();
         $totalPrice = 0;
@@ -35,13 +62,14 @@ class PaymentModel extends databaseConfig {
 
             // Apply discount if available
             if ($discount > 0) {
-                $totalPrice = $totalPrice - ($totalPrice * $discount );
+                $totalPrice = $totalPrice - ($totalPrice * $discount);
             }
         }
 
         return $totalPrice;
     }
 
+    // Method to save payment details to the database
     public function savePaymentDetails($transactionId, $amount, $userId) {
         $db = $this->getConnection();
 
