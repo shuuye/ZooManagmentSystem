@@ -1,5 +1,5 @@
 #  To run the file
-# http://127.0.0.1:5000/api/visitor_summary?visit_date=2024-09-20 (the date can change)
+# http://localhost:5000/api/visitor_summary?visit_date=2024-09-20 (the date can change)
 
 from flask import Flask, request, jsonify
 import mysql.connector
