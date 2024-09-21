@@ -13,9 +13,7 @@
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
-                        
-            //if (isset($_SESSION['userModel'])) {
-                //$userModel = $_SESSION['userModel'];
+            
             if(isset($_SESSION['currentUserModel']) && $_SESSION['currentUserModel']['role']['roleID'] == 2){
                 echo "Welcome, " . htmlspecialchars($_SESSION['currentUserModel']['full_name']) . "!";
                 //testing
