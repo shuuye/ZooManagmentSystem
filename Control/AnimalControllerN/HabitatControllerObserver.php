@@ -5,6 +5,8 @@ require_once '../../Model/ObserverN/AnimalModel.php';
 class HabitatControllerObserver {
     
     private $animalModel;
+    private ?HabitatInventory $HabitatInventory;
+    private $habitatList = [];
     
 
     public function __construct() {

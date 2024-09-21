@@ -41,5 +41,17 @@ nav li a:hover {
     margin: 20px auto;
 }
 
+#Dcount {
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  border-radius: 5px; 
+  width: 300px; 
+  margin: 20px auto; 
+}
+
+#Dcount h2 {
+  margin-top: 0; /* remove margin top from the h2 element */
+}
 
 

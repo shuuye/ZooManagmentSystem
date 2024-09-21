@@ -32,7 +32,6 @@ include_once 'C:\xampp\htdocs\ZooManagementSystem\View\adminTopNavHeader.php';
     <div id="Dcount">
         <h2>Total Animal Health Status Count : </h2>
         <?php
-//      include_once '../../Control/AnimalControllerN/HealthController.php';
         include 'C:\xampp\htdocs\ZooManagementSystem\Control\AnimalControllerN\HealthController.php';
         $controller = new HealthController();
         $controller->displayHealthStatusCounts();

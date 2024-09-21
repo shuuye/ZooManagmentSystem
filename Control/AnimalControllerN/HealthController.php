@@ -7,6 +7,8 @@ include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\XmlGenerator.php';
 class HealthController {
     
     private $animalModel;
+    private ?AnimalInventory $AnimalInventory;
+    private $animalHealth = [];
 
     public function __construct() {
         $this->animalModel = new AnimalModel();

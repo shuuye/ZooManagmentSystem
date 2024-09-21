@@ -4,6 +4,10 @@ include_once '../../Model/ObserverN/AnimalModel.php';
 
 class FoodManagementController {
     private $model;
+    private ?AnimalInventory $AnimalInventory;
+    private ?FoodInventory $FoodInventory;
+    private $AnimalFood = [];
+    private $FoodList = [];
 
     public function __construct() {
         $this->model = new AnimalModel();

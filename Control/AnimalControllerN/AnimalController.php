@@ -7,6 +7,8 @@ class AnimalController extends InventoryModel{
 
     private $animalModel;
     private $inventoryModel;
+    private ?AnimalInventory $AnimalInventory;
+    private $AnimalList = [];
 
     public function __construct() {
         $this->animalModel = new AnimalModel();
