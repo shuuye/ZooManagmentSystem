@@ -30,7 +30,7 @@ class TicketPaymentFacade {
 
     public function processPayment($paymentDetails) {
         // Pass ticket and payment details to the PaymentSystem
-        return $this->paymentSystem->processPayment($_SESSION['selected_tickets'], $paymentDetails);
+        return $this->paymentModel->processPayment($_SESSION['selected_tickets'], $paymentDetails);
     }
 
     // Getters and Setters for ticketModel
