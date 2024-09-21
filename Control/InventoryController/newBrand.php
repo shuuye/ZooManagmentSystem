@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data['installationInstru'] = isset($_POST['installationInstru']) ? trim($_POST['installationInstru']) : '';
         $data['disposalInstru'] = isset($_POST['disposalInstru']) ? trim($_POST['disposalInstru']) : '';
     }
-
+    
     // Instantiate control class
     include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';
     include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\InventoryItemFactory.php';
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute command with item data
     $inventoryManager = new InventoryManagement();
     $success = $inventoryManager->executeCommand(new AddItemRecordCommand($inventory, $data));
-   
+
     $itemId = $inventory->getLastRecordID();
 
     // Handle image upload

@@ -61,12 +61,12 @@ class FoodInventory extends Inventory {
             $errors[] = 'Brand name must be between 3 and 50 characters, only letters, numbers, spaces, commas, periods, and hyphens are allowed.';
         }
 
-        if (empty($data['nutritionInfo']) || strlen($data['nutritionInfo']) < 3 || strlen($data['nutritionInfo']) > 200) {
+        if (empty($data['nutritionInformation']) || strlen($data['nutritionInformation']) < 3 || strlen($data['nutritionInformation']) > 200) {
             $errors[] = 'Nutrition info must be between 3 and 200 characters, only letters, numbers, spaces, commas, periods, and hyphens are allowed.';
         }
 
         // Validate daily quantity required (numeric and non-negative)
-        if (!is_numeric($data['quantity']) || $data['quantity'] <= 0) {
+        if (!is_numeric($data['dailyQuatntity']) || $data['dailyQuatntity'] <= 0) {
             $errors[] = 'Daily quantity required must be a positive number, only letters, numbers, spaces, commas, periods, and hyphens are allowed.';
         }
 
