@@ -109,7 +109,7 @@
                 <a href="/ZooManagementSystem/privatereservationlist.php">Private Event Reservation List</a>
             </div>
         </div>
-        <a href="public/EventWebServices/generateqr.php">QR Code Generator</a>
+        <a href="../../public/EventWebServices/generateqr.php">QR Code Generator</a>
 
         
         <?php 
