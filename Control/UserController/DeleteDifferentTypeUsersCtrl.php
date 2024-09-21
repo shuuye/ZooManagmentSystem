@@ -2,7 +2,7 @@
 
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();
+    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();// only allow admin with edit permission to access
 
     require_once __DIR__ . '/../../Model/User/CustomerModel.php';
     require_once __DIR__ . '/../../Model/User/AdminModel.php';
@@ -55,6 +55,7 @@
         }
 
         private function removeRoleSpecificData($roleID, $userId) {
+            //remove user based on role
             switch ($roleID) {
                 case 1:
                     return $this->removeAdminData($userId);
@@ -68,16 +69,19 @@
         }
 
         private function removeAdminData($userId) {
+            //remove selected admin from admin table if it is existed
             $adminModel = new AdminModel();
             return $adminModel->isExistInAdminDB($userId, 'id') ? $adminModel->removeAdminByID($userId) : false;
         }
 
         private function removeCustomerData($userId) {
+            //remove selected customer from customer table if it is existed
             $customerModel = new CustomerModel();
             return $customerModel->isExistInCustomerDB($userId, 'id') ? $customerModel->removeCustomerByID($userId) : false;
         }
 
         private function removeStaffData($userId) {
+            //remove selected staff from staff table if it is existed
             $staffModel = new StaffModel();
             return $staffModel->isExistInStaffDB($userId, 'id') ? $staffModel->removeStaffByID($userId) : false;
         }
@@ -93,9 +97,11 @@
             } else {
                 $userId = $id;
             }
+            //get user details from database user table
             $userDetails = $this->getUserDetailsByIDFromDB($userId);
             $this->initializeSession();
 
+            //validate whether the admin have the permission to manage admin
             if ($this->isAdminRole($userDetails['roleID'])) {
                 if (!$this->hasAdminDeletePermission()) {
                     $this->redirectNoPermission();
@@ -106,13 +112,14 @@
         
         public function deleteUser($id = 0) {
             $userId = $this->getUserId($id);
-
+            //get user details from database user table
             $userDetails = $this->getUserDetailsByIDFromDB($userId);
 
             $this->deleteConfirmatinMsg($userDetails);
         }
 
         private function getUserId($id) {
+            //get id from URL
             return ($id == 0) ? (isset($_GET['id']) ? $_GET['id'] : null) : $id;
         }
 
@@ -127,6 +134,7 @@
         }
 
         private function hasAdminDeletePermission() {
+            //if admin didnot have permission to manage admin, they are not allow to do any modification of others admin
             return isset($_SESSION['currentUserModel']['role']['roleID']) &&
                    $_SESSION['currentUserModel']['role']['roleID'] == 1 &&
                    in_array('manage admin', $_SESSION['currentUserModel']['permissions']);

@@ -57,6 +57,7 @@
             <form action="index.php?controller=user&action=submitForgotPasswordEmail" method="POST">
                 <label for="email">Enter your email address:</label>
                 <input type="email" id="email" name="email" required placeholder="example@example.com">
+                <!--display the msg in session and unset the session after the msg displayed-->
                 <div class="error"><?php if (isset($_SESSION['userInputData'])): ?>
                     <?php echo getError($_SESSION['userInputData'], 'emailErr'); ?>
                     <?php unset($_SESSION['userInputData']); ?>

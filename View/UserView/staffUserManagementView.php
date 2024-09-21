@@ -5,7 +5,7 @@
     
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();//only allow the logged in admin to access
 
     // Get the sort key and search query from query parameters
     $sortKey = isset($_GET['sort']) ? $_GET['sort'] : 'id';
@@ -13,7 +13,7 @@
 
     if (!empty($searchQuery)) {
         $filteredStaff = array_filter($data['staffsArray'], function($staff) use ($searchQuery) {
-            // Check if search query matches id, username, or adminType
+            // Check if search query matches id, username, or position
             $basicMatch = stripos($staff['id'], $searchQuery) !== false ||
                           stripos($staff['username'], $searchQuery) !== false ||
                           stripos($staff['position'], $searchQuery) !== false;
@@ -63,7 +63,6 @@
                 </thead>
                 <tbody>
                     <?php
-                        // Determine if there are any admins with a valid id
                         $hasCompletestaffs = !empty($filteredStaff);
                         ?>
 

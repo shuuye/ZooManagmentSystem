@@ -5,7 +5,7 @@
     
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();//only allow the logged in admin to access
 
     // Get the sort key and search query from query parameters
     $sortKey = isset($_GET['sort']) ? $_GET['sort'] : 'id';
@@ -37,7 +37,7 @@
     }
 
     // Sorting logic remains unchanged
-    // Sorting logic for 'roleName'
+    // Sorting logic for 'permission'
     usort($filteredAdmin, function($a, $b) use ($sortKey) {
         // If sorting by 'permissions', convert the array to a string for comparison
         if ($sortKey === 'permissions') {
@@ -89,7 +89,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        // Determine if there are any admins with a valid id
+                        // Determine if there are empty data passed in
                         $hasCompleteAdmins = !empty($filteredAdmin);
                         ?>
 

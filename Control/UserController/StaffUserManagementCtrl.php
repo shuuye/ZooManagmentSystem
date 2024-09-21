@@ -153,7 +153,7 @@
             $data['usersArray'] = $usersArray;
             $data['staffsArray'] = $staffsArray;
             $view = ['adminTopNavHeader','userManagementTopNav','staffManagementTopNav','staffUserManagementView'];
-            //display/render the user view
+            //display/render the view
 
             $this->renderView($view,$data);
             

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events>
+  <event id="25">
+    <type>Private</type>
+    <title>123</title>
+    <location>ZOO</location>
+    <description>100</description>
+  </event>
+  <event id="46">
+    <type>Private</type>
+    <title>wedding</title>
+    <location>PO</location>
+    <description>12</description>
+  </event>
+  <event id="47">
+    <type>Public</type>
+    <title>Wildlife Documentary Screening</title>
+    <location>ZOO AMPHITHEATER</location>
+    <description>A public outdoor screening of famous wildlife documentaries, showcasing the beauty and diversity of the animal kingdom.</description>
+    <date>2024-09-28</date>
+    <starttime>10:00:00</starttime>
+    <endtime>13:00:00</endtime>
+    <price>15.00</price>
+    <capacity>150</capacity>
+  </event>
+  <event id="48">
+    <type>Public</type>
+    <title>Safari Night Adventure</title>
+    <location>SAFARI ZONE</location>
+    <description>Join a guided night walk through the safari zone to experience the wonder of nocturnal animals in their natural environment</description>
+    <date>2024-09-28</date>
+    <starttime>10:00:00</starttime>
+    <endtime>17:00:00</endtime>
+    <price>25.00</price>
+    <capacity>200</capacity>
+  </event>
+  <event id="49">
+    <type>Public</type>
+    <title>Meet the Reptiles</title>
+    <location>REPTILE HOUSE</location>
+    <description>Get up close and personal with some of the world's most fascinating reptiles, learning about their habits and biology.</description>
+    <date>2024-09-30</date>
+    <starttime>10:00:00</starttime>
+    <endtime>13:00:00</endtime>
+    <price>10.00</price>
+    <capacity>50</capacity>
+  </event>
+  <event id="50">
+    <type>Public</type>
+    <title>Zoo Festival</title>
+    <location>ZOO PLAZA</location>
+    <description>A fun-filled weekend festival featuring live music, food stalls, animal encounters, and entertainment for all zoo visitors.</description>
+    <date>2024-09-30</date>
+    <starttime>10:00:00</starttime>
+    <endtime>18:00:00</endtime>
+    <price>30.00</price>
+    <capacity>500</capacity>
+  </event>
+  <event id="51">
+    <type>Public</type>
+    <title>Penguin Feeding Frenzy</title>
+    <location>PENGUIN PAVILION</location>
+    <description>Watch the penguins dive into action during their feeding time and learn interesting facts about their lives.</description>
+    <date>2024-10-10</date>
+    <starttime>13:00:00</starttime>
+    <endtime>15:00:00</endtime>
+    <price>12.00</price>
+    <capacity>100</capacity>
+  </event>
+  <event id="52">
+    <type>Private</type>
+    <title>Corporate Wildlife Dinner</title>
+    <location>VIP LOUNGE</location>
+    <description>An exclusive wildlife-themed dinner event for corporate guests, including a private animal encounter and networking opportunities.</description>
+    <deposit>1000.00</deposit>
+    <number_of_attendees>20</number_of_attendees>
+  </event>
+  <event id="53">
+    <type>Private</type>
+    <title>Animal Care Workshop</title>
+    <location>BEHIND THE SCENES AREA</location>
+    <description>Learn the ins and outs of animal care in this private workshop, including hands-on activities and training with zookeepers.</description>
+    <deposit>500.00</deposit>
+    <number_of_attendees>20</number_of_attendees>
+  </event>
+  <event id="55">
+    <type>Private</type>
+    <title>Enchanted Butterfly Wedding</title>
+    <location>BUTTERFLY GARDEN</location>
+    <description>Celebrate your special day in the magical Butterfly Garden, surrounded by fluttering butterflies. This package includes a ceremony amidst lush greenery, a romantic dinner, and a special butterfly release to mark the beginning of your new journey together.</description>
+    <deposit>1500.00</deposit>
+    <number_of_attendees>50</number_of_attendees>
+  </event>
+</events>

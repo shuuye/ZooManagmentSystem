@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInStaff();
+    $webConfig->restrictAccessForNonLoggedInStaff();//only allow the logged in staff to access
     
     $leaveAppliedSuccessfully = isset($_SESSION['leaveAppliedSuccessfully']) ? $_SESSION['leaveAppliedSuccessfully'] : '';
 ?>

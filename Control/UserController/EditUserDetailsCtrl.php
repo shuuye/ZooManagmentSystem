@@ -34,6 +34,7 @@
         }
         
         private function updateCurrentAdminSession($adminType){
+            //set permission based on admin Type
             $_SESSION['currentUserModel']['adminType'] = $adminType;
             switch ($adminType){
                 case 'ReadOnlyAdmin':
@@ -59,17 +60,19 @@
             $id = $this->getPostData('id');
             $adminType = $this->getPostData('adminType');
 
+            //get user details from database user table based on id
             $userDetails = $this->getUserDetailsByIDFromDB($id);
             $this->initializeSession();
 
+            //validate whether the admin have the permission to manage admin
             if ($this->isAdminRole($userDetails['roleID']) && !$this->hasAdminEditPermission()) {
                 $this->redirectNoPermission();
             }
-
+            //update admin type
             $this->updateAdminType($id, $adminType);
             $this->updateSessionIfNecessary($id, $adminType);
 
-            $this->afterEdit(1);
+            $this->afterEdit(1); // 1= admin
         }
 
         private function isPostRequest() {
@@ -81,6 +84,7 @@
         }
 
         private function updateAdminType($id, $adminType) {
+            //update admin type by using database admin table data
             $adminModel = new AdminModel();
 
             if ($adminModel->getAdminTypeByID($id) !== null) {
@@ -110,11 +114,12 @@
 
             $customerModel = new CustomerModel();
             
+            //update customer details if it existed in the database
             if($customerModel->getMembershipIDByID($id) != null){
                     $customerModel->updateDBColumnByID('membershipID', $membershipID, $id);
             }
 
-            $this->afterEdit(3);
+            $this->afterEdit(2); // 2 = customer
         }
         
         public function submitStaffDetailsForm(){
@@ -131,7 +136,7 @@
                     $staffModel->updateDBColumnByID('position', $position, $id);
             }
 
-            $this->afterEdit(2);
+            $this->afterEdit(3); //3=staff
         }
                 
         private function initializeSession() {
@@ -145,6 +150,7 @@
         }
 
         private function hasAdminEditPermission() {
+            //if admin didnot have permission to manage admin, they are not allow to do any modification of others admin
             return isset($_SESSION['currentUserModel']['role']['roleID']) &&
                    $_SESSION['currentUserModel']['role']['roleID'] == 1 &&
                    in_array('manage admin', $_SESSION['currentUserModel']['permissions']);

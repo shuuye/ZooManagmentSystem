@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();//only allow the logged in admin to access
 
     // Check for registration success and edit success
     $registrationSuccess = isset($_SESSION['registrationSuccess']) ? $_SESSION['registrationSuccess'] : '';
@@ -41,7 +41,7 @@
                 justify-content: space-around;
             }
         </style>
-        <!-- Display message -->
+        <!--display the msg in session and unset the session after the msg displayed-->
         <?php if (!empty($registrationSuccess)): ?>
             <div class="successSessionMsg" >
                 <?php echo htmlspecialchars($registrationSuccess); ?>

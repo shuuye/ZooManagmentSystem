@@ -4,7 +4,7 @@
     }
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();
+    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();//only allow the admin that have permission to edit
 
     function getError($data, $key) {
         return isset($data[$key]) && $data[$key] !== '' ? htmlspecialchars($data[$key]) : '';
@@ -28,8 +28,6 @@
     // Get membership
     $membershipModel = new MembershipModel();
     $memberships = $membershipModel->getAllMembership();
-
-    // Form HTML
 
 ?>
 <h1>Customer Details Editing Form</h1>

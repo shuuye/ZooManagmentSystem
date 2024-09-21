@@ -27,6 +27,7 @@
         }
         
         public function updateDBColumnByID($columnName, $updatingData, $id){
+            //update the column data with the value passed in when the id is matched
             $updateStmt = $this->db->prepare("UPDATE staff SET $columnName  = :updatingData WHERE id = :id");
             $updateStmt->bindParam(':updatingData', $updatingData);
             $updateStmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -50,11 +51,11 @@
 
             // Execute the query and check if the operation was successful
             if ($stmt->execute()) {
-                // Check if any row was affected (i.e., a customer was deleted)
+                // Check if any row was affected (i.e., a staff was deleted)
                 if ($stmt->rowCount() > 0) {
                     return true; // Customer was successfully deleted
                 } else {
-                    return false; // No customer was found with the given ID
+                    return false; // No staff was found with the given ID
                 }
             } else {
                 // Query execution failed
@@ -70,7 +71,7 @@
 
             $position = $stmt->fetchColumn();
             
-            return $position ?: null; // Return null if no membershipID is found
+            return $position ?: null; // Return null if no position is found
             
         }
         
@@ -81,11 +82,11 @@
             
             $staff = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-            return !empty($staff) ? $staff : null; // Return null if no admins are found
+            return !empty($staff) ? $staff : null; // Return null if no staff are found
         }
         
         public function addStaffIntoDB($id, $position = 'General Staff'){
-                        
+            //add staff details to the staff table        
             $stmt = $this->db->prepare(
                 "INSERT INTO staff (id, position) 
                  VALUES (:id, :position)"

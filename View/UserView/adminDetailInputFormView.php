@@ -4,6 +4,7 @@
     }
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
+    //only allow the admin that have permission to edit
     $webConfig->restrictAccessForLoggedInEditPermissionAdmin();
 
 
@@ -25,7 +26,7 @@
     </style>
     <table>
         <?php 
-
+                //set the hidden data
                 if (isset($data['selectedUser']) && isset($data['action'])) {
                     if ($data['action'] == 'edit' && isset($data['selectedUser']['id'])) {
                         // Correctly output the hidden input field
@@ -38,6 +39,7 @@
                 }
                 ?>
         <?php if ((isset($data['action']) && isset($data['selectedUser'])) || (isset($data['action']) && $data['action'] == 'edit')): ?>
+        <!--set the selected user id and not allow user to input-->
                 <tr>
                     <td><label for="id">Username ID:</label></td>
                     <td>
@@ -64,6 +66,7 @@
                                    echo $data['selectedUser']['username']; 
                                }
                            }
+                           //if it purpose is to edit, it should set the value of selected user
                        ?>"
                        <?php 
                            if (isset($data['selectedUser']) && isset($data['action'])) {
@@ -71,6 +74,7 @@
                                    echo 'disabled'; 
                                }
                            }
+                           //if it purpose is to edit, it should set the input to disabled
                        ?>>
             </td>
         </tr>

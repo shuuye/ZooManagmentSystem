@@ -5,7 +5,7 @@
     
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();//only allow the logged in admin to access
 
     // Get the sort key and search query from query parameters
     $sortKey = isset($_GET['sort']) ? $_GET['sort'] : 'id';
@@ -27,6 +27,7 @@
     }
 
     // Sorting logic remains unchanged
+     // Sorting logic for 'membership'
     usort($filteredCustomer, function($a, $b) use ($sortKey) {
         switch ($sortKey) {
             // Sorting by membershipID
@@ -104,7 +105,6 @@
                 </thead>
                 <tbody>
                     <?php
-                        // Determine if there are any customers with a valid id
                         $hasCompleteCustomers = !empty($filteredCustomer);
                         
                         ?>

@@ -203,8 +203,8 @@ class HabitatInventory extends Inventory {
         }
 
         // Validate description (required, min 5, max 255 characters)
-        if (empty($data['description']) || strlen($data['description']) < 5 || strlen($data['description']) > 255) {
-            $errors[] = 'Description must be between 5 and 255 characters, only letters, numbers, spaces, commas, periods, and hyphens are allowed.';
+        if (empty($data['description']) || strlen($data['description']) < 1 || strlen($data['description']) > 255) {
+            $errors[] = 'Description must be between 1 and 255 characters, only letters, numbers, spaces, commas, periods, and hyphens are allowed.';
         }
 
         // Validate habitat type (required, min 1, max 50 characters)

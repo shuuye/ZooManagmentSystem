@@ -14,7 +14,7 @@
         }
        
         private function afterResetPasswordInput($validInput, $email){
-            if (!$validInput) {
+            if (!$validInput) {//if user inputed all valid data
                 $_SESSION['userInputData'] = $this->forgotPasswordEmailInput;
                 header("Location: index.php?controller=user&action=resetForgotPassword&email=" . $email);
                 exit();
@@ -31,11 +31,11 @@
         }
         
         private function validateNewPassword() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->newPassword)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->newPassword)) { //check empty
                 return 'New Password cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputMinLengthValidation($this->newPassword, 6)) {
+            if (!InputValidationCtrl::inputMinLengthValidation($this->newPassword, 6)) { // password cannot less than 6 character
                 return 'New Password must be at least 6 characters long';
             }
 
@@ -43,11 +43,11 @@
         }
 
         private function validateConfirmPassword() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->confirmPassword)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->confirmPassword)) { // check empty
                 return 'Confirm Password cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputMatchValidation($this->confirmPassword, $this->newPassword)) {
+            if (!InputValidationCtrl::inputMatchValidation($this->confirmPassword, $this->newPassword)) { //confirm password must matched with new password
                 return 'Confirm Password not matched';
             }
 
@@ -78,7 +78,7 @@
 
                 $this->checkResetPasswordInput();
                 
-                if($this->checkEmptyUserInputData()){
+                if($this->checkEmptyUserInputData()){ // check if there is not error/invalid input
                     $validInput = true;
                 }
                 
@@ -91,6 +91,7 @@
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
+            //get email from URL
             $email = isset($_GET['email']) ? $_GET['email'] : '';
             
             // Render the login form view
@@ -106,7 +107,7 @@
             $email = $this->email;
             $this->email = null;
             
-            if($validInput){
+            if($validInput){//all input is valid
                 header("Location: index.php?controller=user&action=resetForgotPassword&email=" . $email);
                 exit();
 
@@ -118,15 +119,15 @@
         }
         
         private function validateEmail() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->email)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->email)) { //check empty
                 return 'Email cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputFilterValidation($this->email, FILTER_VALIDATE_EMAIL)) {
+            if (!InputValidationCtrl::inputFilterValidation($this->email, FILTER_VALIDATE_EMAIL)) { //check the email format
                 return 'Invalid Email format';
             }
 
-            if(!$this->isExistInUserDB($this->email, 'email')){
+            if(!$this->isExistInUserDB($this->email, 'email')){ // check whether the email is existed in the database
                 return 'Email Not Registered';
             }
             
@@ -161,7 +162,7 @@
                 $this->email = $_POST['email'] ?? '';
                 $this->checkUserInput();
                 
-                if($this->checkEmptyUserInputData()){
+                if($this->checkEmptyUserInputData()){ // check is there any error/ invlid input
                     $validInput = true;
                 }
                 
@@ -174,7 +175,7 @@
                 session_start();
             }
               
-            // Render the login form view
+            // Render the forgot password form view
             $view = ['forgotPasswordView'];
             $data = $this->setRenderData('Forgot Password');
             

@@ -13,7 +13,7 @@
             return $data;
         }
         
-        public static function inputIsEmptyValidation($input){
+        public static function inputIsEmptyValidation($input){ //check empty
             $preparedInput = self::prepareInput($input);
             if (is_null($preparedInput) || $preparedInput === '') {
             //if(empty($input)){

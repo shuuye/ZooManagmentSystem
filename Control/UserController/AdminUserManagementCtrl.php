@@ -2,7 +2,7 @@
 
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();// only allow admin to access
 
     require_once 'UserController.php';
 
@@ -12,6 +12,7 @@
 
         }
         public function editAdmin($id = 0){
+            //set the user details with admin details (permission, adminType)
             $admin = $this->setAdminDetails($this->setUserObj($id));
             
             $data = [
@@ -22,8 +23,6 @@
                         
             $view = ['adminDetailInputFormView'];
             $this->renderView($view, $data);
-
-            //alter the admin Details
         }
 
         public function adminUserManagement() {
@@ -33,17 +32,17 @@
         public function index(){
             $result = $this->processUsers();
             
-            //set role for each data
+            //set array data for user and admin role
             $usersArray = $result['usersArray'];
             $adminsArray = $result['adminsArray'];
             
-            //set render data (set the user, customer, admin)
+            //set render data (set the user, admin)
             $data = $this->setRenderData('User Management Panel');
             $data['usersArray'] = $usersArray;
             $data['adminsArray'] = $adminsArray;
             $view = ['adminTopNavHeader','userManagementTopNav','adminUserManagementView'];
-            //display/render the user view
-
+            
+            //display/render the view
             $this->renderView($view,$data);
             
         }

@@ -119,11 +119,11 @@
                 throw new RuntimeException("Record already exists for the given details.");
             }
             
-            // SQL query to insert data into the workingSchedule table
+            // SQL query to insert data into the leaveappliccation table
             $query = "INSERT INTO leaveapplication (id, reason, evidencePhoto, leaveDate, leaveStartTime, leaveEndTime, approved)
                       VALUES (:id, :reason, :evidencePhoto, :leaveDate, :leaveStartTime, :leaveEndTime, false)";
 
-            // Prepare and execute the query (assuming you are using PDO)
+            // Prepare and execute the query 
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->bindParam(':reason', $reason, PDO::PARAM_STR);

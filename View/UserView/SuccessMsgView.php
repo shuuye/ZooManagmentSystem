@@ -4,6 +4,7 @@
             session_start();
     }
     
+    //set the session data
     $registrationUserSuccess = isset($_SESSION['registrationUserSuccess']) ? $_SESSION['registrationUserSuccess'] : '';
     $resetPasswordSuccessfully = isset($_SESSION['resetPasswordSuccessfully']) ? $_SESSION['resetPasswordSuccessfully'] : '';
 ?>
@@ -14,11 +15,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <!--display the set data and unset the session after displayed the msg-->
         <?php if (!empty($registrationUserSuccess)): ?>
             <div class="successSessionMsg" style="margin: 10% auto;" >
                 <?php echo htmlspecialchars($registrationUserSuccess); ?>
             </div>
-            <?php unset($_SESSION['registrationUserSuccess']); // Clear the session message after displaying ?>
+            <?php unset($_SESSION['registrationUserSuccess']);  ?>
         <?php endif; ?>
 
         <?php if (!empty($resetPasswordSuccessfully)): ?>

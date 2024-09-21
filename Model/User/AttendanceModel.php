@@ -65,6 +65,7 @@
         
         public function updateStatusIDFromAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time, $status_id) {
             // Prepare the Update query
+            //update the status with the value passed in when the primary key is matched
             $query = "UPDATE attendance SET status_id = :status_id
                         WHERE id = :id
                         AND working_date = :working_date
@@ -87,6 +88,7 @@
         
         public function updateColumnFromAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time, $columnName, $updatingData) {
             // Prepare the update query
+            //update the column data with the value passed in when the primary key is matched
             $query = "UPDATE attendance SET $columnName = :updatingData
                         WHERE id = :id
                         AND working_date = :working_date
@@ -110,7 +112,6 @@
 
         public function getAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time){
             try {
-                // Ensure that the $id is an integer and other values are sanitized if needed
                 $query = "SELECT * FROM attendance 
                           WHERE id = :id
                           AND working_date = :working_date
@@ -141,7 +142,7 @@
             
             $attendance = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-            return !empty($attendance) ? $attendance : null; // Return null if no admins are found
+            return !empty($attendance) ? $attendance : null; // Return null if no attendance are found
         }
                
         public function addDefaultAttendanceIntoDB($id, $working_date, $working_starting_time, $working_off_time){
@@ -150,11 +151,11 @@
                 throw new RuntimeException("Record already exists for the given details.");
             }
             
-            // SQL query to insert data into the workingSchedule table
+            // SQL query to insert data into the attendance table
             $query = "INSERT INTO attendance (id, working_date, working_starting_time, working_off_time, photo, location, attendance_date_time, status_id)
                       VALUES (:id, :working_date, :working_starting_time, :working_off_time, null, null, null, 1)";
 
-            // Prepare and execute the query (assuming you are using PDO)
+            // Prepare and execute the query 
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->bindParam(':working_date', $working_date, PDO::PARAM_STR);

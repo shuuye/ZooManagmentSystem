@@ -78,7 +78,7 @@
             
             $workingschedule = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
-            return $workingschedule ?: null; // Return null if no admin type is found
+            return $workingschedule ?: null; // Return null if no working schedule is found
         }
         
         public function getAllWorkingSchedule(){
@@ -99,7 +99,7 @@
             $query = "INSERT INTO workingSchedule (id, working_date, working_starting_time, working_off_time)
                       VALUES (:id, :working_date, :working_starting_time, :working_off_time)";
 
-            // Prepare and execute the query (assuming you are using PDO)
+            // Prepare and execute the query 
             $stmt = $this->db->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->bindParam(':working_date', $working_date, PDO::PARAM_STR);

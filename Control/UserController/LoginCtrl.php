@@ -32,7 +32,6 @@
             
             $data = $this->setRenderData('Login');
             $data['userLoginInputData'] = $this->userLoginInputData;
-            //$data['cssFiles'] = [ //another css file];
                 
             // Render the login form view
             $view = ['loginFormView'];
@@ -41,6 +40,7 @@
         }
         
         private function setUserRoleDetails($loggedInUser){
+            //set the user full details by thier role
             $role = $loggedInUser->getRole();
             switch ($role->getRoleID()) {
                 case 1:
@@ -90,11 +90,10 @@
             //only render view when there is error
             if($validInput){
                 $loggedInUser = $this->loginUser($this->loginUsername, $this->loginPassword);
-                if($loggedInUser != false){
+                if($loggedInUser != false){ // auth user = true
                     $this->actionAfterLoggedInSuccessFully($loggedInUser);
                     exit();
-                }else{
-                    //$errorMessage = 'Invalid username or password';
+                }else{// auth user = true
                     $this->userLoginInputData['loginErr'] = 'Invalid username or password!';
                     $this->loginFailedAction();
                 }
@@ -108,15 +107,15 @@
                 session_start();
             }
             $validInput = true;
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {//get username and password from POST
                 $this->loginUsername = $_POST['username'] ?? '';
                 $this->loginPassword = $_POST['password'] ?? '';
 
-                if(InputValidationCtrl::inputIsEmptyValidation($this->loginUsername)){
+                if(InputValidationCtrl::inputIsEmptyValidation($this->loginUsername)){ // check empty
                     $this->userLoginInputData['usernameErr'] = 'Username cannot be empty!';
                     $validInput = false;
                 } 
-                if (InputValidationCtrl::inputIsEmptyValidation($this->loginPassword)) {
+                if (InputValidationCtrl::inputIsEmptyValidation($this->loginPassword)) {// check empty
                     $this->userLoginInputData['passwordErr'] = 'Password cannot be empty!';
                     $validInput = false;
                 } 

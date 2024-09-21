@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../Config/webConfig.php';
 $webConfig = new webConfig();
-$webConfig->restrictAccessForNonLoggedInUser();
+$webConfig->restrictAccessForNonLoggedInUser();//only allow the logged in user to access
 
 $selectedMembership = $data['selectedMembership'];
 $fee = $selectedMembership['fee'];

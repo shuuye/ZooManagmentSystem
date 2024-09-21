@@ -128,7 +128,7 @@ class CleaningInventory extends Inventory {
         }
 
         // Validate usage instructions (optional, max 200 characters)
-        if (empty($data['instruction']) || strlen($data['instruction']) < 1 || strlen($data['instruction']) > 200) {
+        if (empty($data['usageInstructions']) || strlen($data['usageInstructions']) < 1 || strlen($data['usageInstructions']) > 200) {
             $errors[] = 'Usage instructions must between 1 and 50 characters, only letters, numbers, spaces, commas, periods, and hyphens are allowed.';
         }
 

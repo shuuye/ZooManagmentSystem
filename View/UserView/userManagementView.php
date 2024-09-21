@@ -4,7 +4,7 @@
     }
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();//only allow the logged in admin to access
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -85,7 +85,6 @@
                 </thead>
                 <tbody>
                     <?php
-                        // Determine if there are any users with a valid id
                         $hasCompleteUser = !empty($filteredUsers);
                         ?>
                         <?php if ($hasCompleteUser): ?>

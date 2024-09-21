@@ -4,7 +4,7 @@
     }
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();
+    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();//only allow the admin that have permission to edit
 
 
     function getError($data, $key) {

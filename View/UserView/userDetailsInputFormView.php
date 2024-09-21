@@ -67,11 +67,10 @@
     $roleModel = new RolesModel;
     $roles = $roleModel->getAllRoles();
 
-    // Form HTML
-
 ?>
 
 <?php 
+//display different header based on user role
     if(isset($_SESSION['currentUserModel']) && $_SESSION['currentUserModel']['role']['roleID'] == 2){
         include 'View/clientTopNavHeader.php';
     }else if(!isset ($_SESSION['currentUserModel'])){

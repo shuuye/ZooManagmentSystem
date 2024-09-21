@@ -14,7 +14,7 @@
         private function setAdminUserDetails() {
             // Get details from the previous decorator
             $details = parent::getCurrentUserDetails();
-            // Add the 'edit' permission
+            // Add the 'manage admin' permission
             $details['permissions'][] = 'manage admin';
             // Store the updated details
             $this->adminDetails = $details;

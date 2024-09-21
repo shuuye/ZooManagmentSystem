@@ -32,8 +32,6 @@
             
             $data = $this->setRenderData('Sign Up');
             $data['userInputData'] = $this->userInputData;
-            
-            //$data['cssFiles'] = [ //another css file];
 
             // Render the registration form view
             $view = ['userDetailsInputFormView'];
@@ -60,7 +58,8 @@
                 }
             $_SESSION['registrationSuccess'] = 'User Registration Successfully.';
             if($_POST['submitAs'] === 'register'){
-                //is registering user
+                //is registering user/
+                // register user roles data based on role id
                 switch ($role->getRoleID()) {
                     case '1':
                         $this->addNewAdmin($lastestNewUser->getId());
@@ -117,11 +116,11 @@
             
             $role = $this->setFullRole($editBy['role']['roleID']);
             $userObj = new User ($editBy, $role);
+            
             if($_POST['submitAs'] === 'adminEdit'){
-                //if the $editBy['id']
+                // if it is edit by admin
                 $this->navigateUserTo($userObj->getRole(), true);// meaning that the user just registered
             }else{
-                //go next
                 $this->navigateUserTo($role);
             }
             
@@ -131,19 +130,49 @@
             // when role change should delete the previous role data and set the default new one
             require_once __DIR__ . '/../../Model/User/CustomerModel.php';
             require_once __DIR__ . '/../../Model/User/AdminModel.php';
-            
+            //here
             $adminModel = new AdminModel();
             $customerModel = new CustomerModel();
+            $staffModel = new StaffModel();
             $newRoleID = $this->role['roleID'];
             
             if ($newRoleID == 1) { // Assuming 1 represents admin
-                // Set default admin type
-                $customerModel->removeCustomerByID($editingUser['id']);
-                $adminModel->addAdminIntoDB($editingUser['id']);
+                if($editingUser['roleID'] == 2){
+                    //remove customer data if the editing user is customer
+                    // Set default admin type
+                    $customerModel->removeCustomerByID($editingUser['id']);
+                    $adminModel->addAdminIntoDB($editingUser['id']);
+                }elseif($editingUser['roleID'] == 3){
+                    //remove staff data if the editing user is staff
+                    // Set default admin type
+                    $staffModel->removeStaffByID($editingUser['id']);
+                    $adminModel->addAdminIntoDB($editingUser['id']);
+                }
+                
             } else if ($newRoleID == 2) { // Assuming 2 represents customer
-                // Set default customer membershipID
-                $adminModel->removeAdminByID($editingUser['id']);
-                $customerModel->addCustomerIntoDB($editingUser['id']);
+                if($editingUser['roleID'] == 1){
+                    //remove admin data if the editing user is admin
+                    // Set default customer membershipID
+                    $adminModel->removeAdminByID($editingUser['id']);
+                    $customerModel->addCustomerIntoDB($editingUser['id']);
+                }elseif($editingUser['roleID'] == 3){
+                    //remove staff data if the editing user is staff
+                    // Set default admin type
+                    $staffModel->removeStaffByID($editingUser['id']);
+                    $customerModel->addCustomerIntoDB($editingUser['id']);
+                }
+            }else if ($newRoleID == 3) { // Assuming 2 represents staff
+                if($editingUser['roleID'] == 1){
+                    //remove admin data if the editing user is admin
+                    // Set default staff 
+                    $adminModel->removeAdminByID($editingUser['id']);
+                    $staffModel->addStaffIntoDB($editingUser['id']);
+                }elseif($editingUser['roleID'] == 2){
+                    //remove customer data if the editing user is customer
+                    // Set default staff 
+                    $staffModel->removeStaffByID($editingUser['id']);
+                    $staffModel->addStaffIntoDB($editingUser['id']);
+                }
             }
         }
         
@@ -238,12 +267,14 @@
         }
 
         private function hasAdminEditPermission() {
+            //check whether the logged in admin have permission to manage other admin
             return isset($_SESSION['currentUserModel']['role']['roleID']) &&
                    $_SESSION['currentUserModel']['role']['roleID'] == 1 &&
                    in_array('manage admin', $_SESSION['currentUserModel']['permissions']);
         }
 
         private function redirectNoPermission() {
+            //refuse to edit admin if the logged admin did not have permission to edit
             $_SESSION['editingFailed'] = 'Admin Details Editing Failed, U have no permission to manage admin.';
             header('Location: index.php?controller=user&action=userManagementMainPanel');
             exit;
@@ -257,6 +288,7 @@
         }
         
         private function setUserTemp(){
+            //get data from POST
             if($_POST['submitAs'] === 'register'){
                 $this->username = $_POST['username'] ?? '';
                 $this->password = $_POST['password'] ?? '';
@@ -266,6 +298,7 @@
                 $this->email = $_POST['email'] ?? '';
                 $this->role = $this->setFullRole($_POST['roleID'] ?? '');
             }else{
+                //editing
                 $this->id = $_POST['id'] ?? '';
                 $this->full_name = $_POST['full_name'] ?? '';
                 $this->phone_number = $_POST['phone_number'] ?? '';
@@ -297,11 +330,11 @@
         }
 
         private function validatePassword() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->password)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->password)) { //check empty
                 return 'Password cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputMinLengthValidation($this->password, 6)) {
+            if (!InputValidationCtrl::inputMinLengthValidation($this->password, 6)) { //password should more or same than 6 character
                 return 'Password must be at least 6 characters long';
             }
 
@@ -309,11 +342,11 @@
         }
 
         private function validateConfirmPassword() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->confirmPassword)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->confirmPassword)) {  //check empty
                 return 'Confirm Password cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputMatchValidation($this->confirmPassword, $this->password)) {
+            if (!InputValidationCtrl::inputMatchValidation($this->confirmPassword, $this->password)) { //confirm password need to matched with the password
                 return 'Confirm Password not matched';
             }
 
@@ -321,11 +354,11 @@
         }
         
         private function validateFullName() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->full_name)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->full_name)) { //check empty
                 return 'Name cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputFormatValidation($this->full_name, "/^[a-zA-Z ]*$/")) {
+            if (!InputValidationCtrl::inputFormatValidation($this->full_name, "/^[a-zA-Z ]*$/")) { //only allowe letter and space
                 return 'Only letters and white space allowed';
             }
 
@@ -333,11 +366,11 @@
         }
         
         private function validatePhoneNumber() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->phone_number)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->phone_number)) { //check empty
                 return 'Phone Number cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputFormatValidation($this->phone_number, "/^\d{10,11}$/")) {
+            if (!InputValidationCtrl::inputFormatValidation($this->phone_number, "/^\d{10,11}$/")) { //onyl allowed 10 to 11 digit without dash
                 return 'Invalid phone number format (10 to 11 digits required, without dashes "-")';
             }
 
@@ -345,15 +378,15 @@
         }
         
         private function validateEmail() {
-            if (InputValidationCtrl::inputIsEmptyValidation($this->email)) {
+            if (InputValidationCtrl::inputIsEmptyValidation($this->email)) { //check empty
                 return 'Email cannot be empty!';
             }
 
-            if (!InputValidationCtrl::inputFilterValidation($this->email, FILTER_VALIDATE_EMAIL)) {
+            if (!InputValidationCtrl::inputFilterValidation($this->email, FILTER_VALIDATE_EMAIL)) { //check email format
                 return 'Invalid Email format';
             }
 
-            if($_POST['submitAs'] === 'register'){
+            if($_POST['submitAs'] === 'register'){ // if they are registering as new user, the email should not duplicate with the data in users table 
                 if (parent::isExistInUserDB($this->email, 'email')) {
                     return 'Email is already registered before. Please try another.';
                 }
@@ -373,6 +406,7 @@
         }
         
         private function checkUserInput(){
+            //check user input
             if($_POST['submitAs'] === 'register'){
                 $data = [
                     'usernameErr' => $this->validateUsername(),

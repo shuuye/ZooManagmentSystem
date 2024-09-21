@@ -5,7 +5,7 @@
     
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();//only allow the logged in admin to access
     
     $leaveAppliedSuccessfully = isset($_SESSION['leaveAppliedSuccessfully']) ? $_SESSION['leaveAppliedSuccessfully'] : '';
     $leaveApplicationRemovedSuccessfully = isset($_SESSION['leaveApplicationRemovedSuccessfully']) ? $_SESSION['leaveApplicationRemovedSuccessfully'] : '';
@@ -85,6 +85,7 @@
                 justify-content: space-around;
             }
         </style>
+        <!--display the msg in session and unset the session after the msg displayed-->
         <?php if (!empty($leaveAppliedSuccessfully)): ?>
             <div class="successSessionMsg">
                 <?php echo htmlspecialchars($leaveAppliedSuccessfully); ?>
@@ -151,7 +152,6 @@
                 </thead>
                 <tbody>
                     <?php
-                    // Determine if there are any working schedules with all required attributes
                     $hasCompleteLeaveApplivation = !empty($filteredLeaveApplication);
 
                     if ($hasCompleteLeaveApplivation): ?>

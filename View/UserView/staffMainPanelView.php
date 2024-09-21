@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/../../Config/webConfig.php';
 $webConfig = new webConfig();
-$webConfig->restrictAccessForNonLoggedInStaff();
+$webConfig->restrictAccessForNonLoggedInStaff();//only allow the logged in staff to access
 
 $cssFiles = ['homeCss.css'];
 $pageTitle = 'Staff Main Panel';

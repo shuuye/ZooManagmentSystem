@@ -25,20 +25,20 @@
         public function workingScheduleManagement(){
             $result = $this->processUsers();
             
-            //set role for each data
+            //set data
             $staffsArray = $result['staffsArray'];
             $workingSchedulesArray = $this->processWorkingSchedule();
             $attendancesArray = $this->processWorkingAttendance();
             $attendancesStatusArray = $this->processAttendanceStatus();
             
-            //set render data (set the user, customer, admin)
+            //set render data 
             $data = $this->setRenderData('Working Schedule Management Panel');
             $data['staffsArray'] = $staffsArray;
             $data['workingSchedulesArray'] = $workingSchedulesArray['workingSchedulesArray'];
             $data['attendancesArray'] = $attendancesArray['attendancesArray'];
             $data['attendancesStatusArray'] = $attendancesStatusArray['attendancesStatusArray'];
             $view = ['adminTopNavHeader','userManagementTopNav','staffManagementTopNav','workingScheduleManagementView'];
-            //display/render the user view
+            //display/render the view
 
             $this->renderView($view,$data);
         }
@@ -52,7 +52,7 @@
                 $this->workingScheduleInputData = $_SESSION['workingScheduleInputData'];
                 unset($_SESSION['workingScheduleInputData']); // Clear the session data
             }
-
+            //get data from url
             $staffId = isset($_GET['id']) ? $_GET['id'] : null;
             $working_date = isset($_GET['working_date']) ? $_GET['working_date'] : null;
             $working_starting_time = isset($_GET['working_starting_time']) ? $_GET['working_starting_time'] : null;
@@ -105,15 +105,15 @@
             
             $result = $this->processUsers();
             
-            //set role for each data
+            //set data
             $staffsArray = $result['staffsArray'];
             
-            //set render data (set the user, customer, admin)
+            //set render data
             $data = $this->setRenderData('Working Schedule Management Panel');
             $data['staffsArray'] = $staffsArray;
             $data['workingScheduleInputData'] = $this->workingScheduleInputData;
             $view = ['workingScheduleInputFormView'];
-            //display/render the user view
+            //display/render the view
 
             $this->renderView($view,$data);
         }
@@ -121,6 +121,7 @@
         private function deleteWorkingScheduleConfirmatinMsg($workingScheduleDetails){
             $staff = $this->getUserDetailsByIDFromDB($workingScheduleDetails['id']);
             $attendanceModel = new AttendanceModel();
+            //get the selected attendance details from database by using primary key
             $attendanceSelected = $attendanceModel->getAttendanceByPrimaryKey($workingScheduleDetails['id'], $workingScheduleDetails['working_date'], $workingScheduleDetails['working_starting_time'], $workingScheduleDetails['working_off_time']);
             $data = [
                 'pageTitle' => 'Delete Work Schedule Confirmation',
@@ -138,7 +139,9 @@
             $workingSchedule = $this->getWorkingScheduleDetails();
             
             $workingScheduleModel = new WorkingScheduleModel();
+            //get the selected workSchedule details from database by using primary key
             $workingScheduleDetails = $workingScheduleModel->getWorkingScheduleByPrimaryKey($workingSchedule['staffId'], $workingSchedule['working_date'], $workingSchedule['working_starting_time'], $workingSchedule['working_off_time']);
+            
             $this->deleteWorkingScheduleConfirmatinMsg($workingScheduleDetails[0]);
         }
 
@@ -183,8 +186,9 @@
         private function removeWorkingScheduleData($workingScheduleDetails) {
             $deleteFail = false;
 
-            // Remove from user table
+            // Remove from workingschedule table if the selected working schedule is existed
             $workingScheduleModel = new WorkingScheduleModel();
+            //get the selected workSchedule details from database by using primary key
             $deleteFail = !$workingScheduleModel->isPrimaryKeyExistInWorkingScheduleDB($workingScheduleDetails['id'], $workingScheduleDetails['working_date'], $workingScheduleDetails['working_starting_time'], $workingScheduleDetails['working_off_time']) ? true : $deleteFail;
             
             if (!$deleteFail) {
@@ -204,6 +208,7 @@
             $this->setWorkingScheduleTemp();
             
             $workingScheduleModel = new WorkingScheduleModel();
+            //get the selected workSchedule details from database by using primary key
             $workingScheduleDetails = $workingScheduleModel->getWorkingScheduleByPrimaryKey($this->staffId, $this->working_date, $this->working_starting_time, $this->working_off_time);
 
             $this->removeWorkingScheduleData($workingScheduleDetails[0]);

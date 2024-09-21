@@ -4,15 +4,14 @@
     }
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();
+    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();//only allow the admin that have permission to edit
     
-    // Form HTML
 ?>
 
 <html>
     <body>
         <form action="index.php?controller=user&action=confirmWorkScheduleDeletion" method="POST">
-            <!-- Hidden input to pass user ID -->
+            <!-- Hidden input to pass working schedule primary key -->
             <?php 
                 $workingSchedule = $data['selectedWorkingScheduleDetails'];
                 $scheduleOwner = $data['scheduleOwner'];

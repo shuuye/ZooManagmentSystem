@@ -21,7 +21,7 @@
         public function getCurrentUserDetails() {
             return $this->user->getCurrentUserDetails();
         }
-        // Implement getters and setters if needed
+
         public function getId() { return $this->user->getId(); }
         public function getUsername() { return $this->user->getUsername(); }
         public function getPassword() { return $this->user->getPassword(); }

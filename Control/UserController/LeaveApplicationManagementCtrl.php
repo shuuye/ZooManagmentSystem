@@ -17,11 +17,13 @@
         private $leaveApplicationInputData;
         
         public function addLeaveApplicationIntoDB($id, $reason, $evidencePhoto, $leaveDate, $leaveStartTime, $leaveEndTime){
+            // add leave application into leaveappliation table in database
             $leaveApplicationModel = new LeaveApplicationModel();
             $leaveApplicationModel->addLeaveApplicationIntoDB($id, $reason, $evidencePhoto, $leaveDate, $leaveStartTime, $leaveEndTime);
         }
         
         public function removeLeaveApplication($id, $leaveDate, $leaveStartTime, $leaveEndTime){
+            // remove leave application from leaveappliation table in database
             $leaveApplicationModel = new LeaveApplicationModel();
             $removed = $leaveApplicationModel->removeLeaveApplicationFromDB($id, $leaveDate, $leaveStartTime, $leaveEndTime);
             
@@ -29,6 +31,7 @@
         }
         
         public function confirmLeaveApplicationDeletion(){
+            // get data from POST
             $id = isset($_POST['id']) ? $_POST['id'] : null;
             $leaveDate = isset($_POST['leaveDate']) ? $_POST['leaveDate'] : null;
             $leaveStartTime = isset($_POST['leaveStartTime']) ? $_POST['leaveStartTime'] : null;
@@ -90,15 +93,15 @@
             $result = $this->processUsers();
             $workingSchedulesArray = $this->processWorkingSchedule();
             
-            //set role for each data
+            //set staffs data
             $staffsArray = $result['staffsArray'];
             
-            //set render data (set the user, customer, admin)
+            //set render data 
             $data = $this->setRenderData('Leave Application Management Panel');
             $data['workingSchedulesArray'] = $workingSchedulesArray['workingSchedulesArray'];
             $data['staffsArray'] = $staffsArray;
             $view = ['leaveApplicationInputFormView'];
-            //display/render the user view
+            //display/render the view
 
             $this->renderView($view,$data);
         }
@@ -106,11 +109,11 @@
         public function leaveApplicationManagement(){
             $leaveApplicationsArray = $this->processLeaveApplication();
             
-            //set render data (set the user, customer, admin)
+            //set render data 
             $data = $this->setRenderData('Leave Application Management Panel');
             $data['leaveApplicationsArray'] = $leaveApplicationsArray['leaveApplicationsArray'];
             $view = ['adminTopNavHeader','userManagementTopNav','staffManagementTopNav','leaveApplicationManagementView'];
-            //display/render the user view
+            //display/render the view
 
             $this->renderView($view,$data);
         }
@@ -128,6 +131,7 @@
         }
 
         private function getLeaveApprovalParameters() {
+            //get data from URL
             return [
                 'id' => isset($_GET['id']) ? $_GET['id'] : null,
                 'leaveDate' => isset($_GET['leaveDate']) ? $_GET['leaveDate'] : null,
@@ -152,8 +156,10 @@
                 $params['leaveEndTime'],
                 $params['approved']
             )) {
+                //if the approved status from leaveapplication changed (approved or not apporove the leave, 
+                //the attendance status from attendance table for the selected staff should be update too
                 $status_id = $params['approved'] ? 4 : 1;
-                $attendanceModel->updateStatusIDFromAttendanceByPrimaryKey(
+                $attendanceModel->updateStatusIDFromAttendanceByPrimaryKey(  
                     $params['id'],
                     $params['leaveDate'],
                     $params['leaveStartTime'],
@@ -162,7 +168,7 @@
                 );
 
                 header("Location: index.php?controller=user&action=leaveApplicationManagement&sort=leaveDate&filter=week");
-                exit(); // Always use exit() after header redirection
+                exit(); 
             }
         }
         
@@ -325,6 +331,7 @@
         }
         
         private function setApplyLeaveInputTemp() {
+            ///get data from POST
             $this->id = $_POST['staffId'] ?? '';
             $this->reason = $_POST['reason'] ?? '';
 
@@ -348,7 +355,7 @@
                 $this->leaveApplicationInputData = null;
                 $this->setApplyLeaveInputTemp();
                 $this->checkLeaveApplicationInput();
-                if($this->checkEmptyLeaveApplicationInputData()){
+                if($this->checkEmptyLeaveApplicationInputData()){ //  check is there any error/invalid input
                     $validInput = true;
                 }
                 

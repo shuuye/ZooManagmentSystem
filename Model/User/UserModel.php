@@ -80,6 +80,7 @@
         }
         
         protected function updateDBColumnByID($columnName, $updatingData, $id){
+            //update the column data with the value passed in when the id is matched
             $updateStmt = $this->db->prepare("UPDATE users SET $columnName  = :updatingData WHERE id = :id");
             $updateStmt->bindParam(':updatingData', $updatingData);
             $updateStmt->bindParam(':id', $id, PDO::PARAM_INT);

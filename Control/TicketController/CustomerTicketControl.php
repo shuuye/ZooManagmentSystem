@@ -24,7 +24,7 @@ class CustomerTicketControl {
 
     private function processPurchase($tickets) {
         $errorMessage = '';
-        
+
         if (isset($_POST['visit_date'])) {
             $visitDate = $_POST['visit_date'];
             $quantities = $_POST['quantity'];
@@ -56,8 +56,8 @@ class CustomerTicketControl {
                     $facade = new TicketPaymentFacade();
                     $facade->purchaseTickets($userId, $visitDate, $quantities);
 
-                    // Redirect to payment page after successful purchase
-                    header('Location: paymentPage.php');
+                    // After successful purchase
+                    echo '<script>window.location.href = "paymentPage.php";</script>';
                     exit;
                 } catch (Exception $e) {
                     return 'Error processing your purchase. Please try again.';

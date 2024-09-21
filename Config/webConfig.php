@@ -9,6 +9,7 @@ class webConfig {
     }
     
     public function restrictAccessForNonLoggedInUser(){
+        //only allow the logged in user to access
         if (!isset($_SESSION['currentUserModel'])) {
             header('Location: index.php?controller=user&action=login');
             exit;
@@ -16,6 +17,7 @@ class webConfig {
     }
     
     public function restrictAccessForNonLoggedInAdmin(){
+        //only allow the logged in admin to access
         $this->restrictAccessForNonLoggedInUser();
         if(isset($_SESSION['currentUserModel']) && $_SESSION['currentUserModel']['role']['roleID'] != 1){
             header('Location: index.php?controller=user&action=login');
@@ -24,6 +26,7 @@ class webConfig {
     }
     
     public function restrictAccessForNonLoggedInStaff(){
+        //only allow the logged in staff to access
         $this->restrictAccessForNonLoggedInUser();
         if(isset($_SESSION['currentUserModel']) && $_SESSION['currentUserModel']['role']['roleID'] != 3){
             header('Location: index.php?controller=user&action=login');
@@ -32,6 +35,7 @@ class webConfig {
     }
     
     public function restrictAccessForLoggedInEditPermissionAdmin(){
+        //only allow the admin that have permission to edit
         $this->restrictAccessForNonLoggedInAdmin();
         if (isset($_SESSION['currentUserModel']) && $_SESSION['currentUserModel']['role']['roleID'] == 1 && !in_array('edit', $_SESSION['currentUserModel']['permissions'])){
             header('Location: index.php?controller=user&action=userManagementMainPanel');

@@ -2,6 +2,7 @@
     require_once __DIR__ . '/../User/RolesModel.php';
     
     require_once __DIR__ . '/../User/UserModel.php';
+    require_once __DIR__ . '/../Decorator/Role.php';
     require_once 'UserInterface.php';
 
     class User extends UserModel implements UserInterface {
@@ -14,7 +15,7 @@
         protected $registrationDateTime;
         protected $lastLoginDateTime;
         protected $lastLogOutDateTime;
-        protected $role;
+        protected Role $role;
 
         public function __construct($user = null, $role = null) {
             parent::__construct(); // Initialize the database connection
@@ -44,7 +45,7 @@
 
             // Set role details
             if ($role) {
-                $roleSetting = new RolesModel();
+                $roleSetting = new Role();
                 $roleSetting->setRoleID($role['roleID']);
                 $roleSetting->setRoleName($role['roleName']);
                 $this->role = $roleSetting;
@@ -103,8 +104,6 @@
         // Register a new user in the database
         public function addNewUser($newUsername, $newPassword, $newFullName, $newPhoneNumber, $newEmail, $newRoleID) {
             $createNewStatus = $this->addNewUserIntoDB($newUsername, $newPassword, $newFullName, $newPhoneNumber, $newEmail, $newRoleID);
-            echo $createNewStatus . "hi";
-            exit();
             if ($createNewStatus) {
                 $latestNewUser = $this->setLatestNewUser();
                 $this->addNewUserRoleDetails($latestNewUser);

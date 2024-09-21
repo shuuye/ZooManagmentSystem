@@ -27,6 +27,7 @@
         }
         
         public function updateDBColumnByID($columnName, $updatingData, $id){
+            //update the column data with the value passed in when the id is matched
             $updateStmt = $this->db->prepare("UPDATE customer SET $columnName  = :updatingData WHERE id = :id");
             $updateStmt->bindParam(':updatingData', $updatingData);
             $updateStmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -85,7 +86,7 @@
         }
         
         public function addCustomerIntoDB($id, $membershipID = 1){
-                        
+            //add the customer details to table   
             $stmt = $this->db->prepare(
                 "INSERT INTO customer (id, membershipID) 
                  VALUES (:id, :membershipID)"

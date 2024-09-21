@@ -4,7 +4,7 @@
     }
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();
+    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();//only allow the admin that have permission to edit
 
     function getError($data, $key) {
         return isset($data[$key]) && $data[$key] !== '' ? htmlspecialchars($data[$key]) : '';
@@ -62,11 +62,10 @@
     // Get roles
     $staffs = $data['staffsArray'];
 
-    // Form HTML
-
 ?>
 
 <?php 
+//display different header based on user purpose
     if(isset($data['action'])){
         if ($data['action'] == 'edit'){
             echo '<h1>Editing Working Schedule Form</h1>';

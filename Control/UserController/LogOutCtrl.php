@@ -7,6 +7,7 @@
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
+            //update the log out time
             $this->updateLastLogOutDateTimeToDB($_SESSION['currentUserModel']['username']);
             
             if (isset($_SESSION['currentUserModel'])) {

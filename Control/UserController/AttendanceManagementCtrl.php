@@ -2,7 +2,7 @@
 
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();// only allow admin to access
 
     require_once 'StaffUserManagementCtrl.php';
     require_once __DIR__ . '/../../Model/User/WorkingScheduleModel.php';
@@ -11,12 +11,14 @@
     class AttendanceManagementCtrl extends StaffUserManagementCtrl{
         
         public function addDefaultAttendanceToDB($id, $working_date, $working_starting_time, $working_off_time){
+            //add new attendance to database but with default attendance status (1, which is also 'Pending' meaning the pending for any action)
             $attendanceModel = new AttendanceModel();
             $attendanceModel->addDefaultAttendanceIntoDB($id, $working_date, $working_starting_time, $working_off_time);
         }
         
         public function removeAttendanceForDeletedWorkingSchedule($id, $working_date, $working_starting_time, $working_off_time){
             $attendanceModel = new AttendanceModel();
+            // remove the attendance from database by using the primary key of attendance table
             $attendanceModel->removeAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time);
         }
         
@@ -49,7 +51,7 @@
         }
                 
         public function editAttendanceStatus() {
-            // Existing code
+            // Get all the parameters from the URL
             $id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null;
             $working_date = isset($_GET['working_date']) ? htmlspecialchars($_GET['working_date']) : null;
             $working_starting_time = isset($_GET['working_starting_time']) ? htmlspecialchars($_GET['working_starting_time']) : null;
@@ -57,8 +59,9 @@
             $status_id = isset($_GET['status_id']) ? htmlspecialchars($_GET['status_id']) : null;
 
             $attendanceModel = new AttendanceModel();
+            //get the selected attendance from database by primary key passed in
             $selectedAttendance = $attendanceModel->getAttendanceByPrimaryKey($id, $working_date, $working_starting_time, $working_off_time);
-
+            //get all the status from database
             $attendanceStatusArray = $this->processAttendanceStatus();
 
             $data = [
@@ -69,20 +72,21 @@
             ];
 
             $view = ['attendanceStatusEditingFromView'];
+            //render the view with data set
             $this->renderView($view, $data);
         }
 
         public function attendanceManagement(){
-            //set role for each data
+            //set attendance data
             $attendancesArray = $this->processWorkingAttendance();
             $attendancesStatusArray = $this->processAttendanceStatus();
             
-            //set render data (set the user, customer, admin)
+            //set render data (set the attendance)
             $data = $this->setRenderData('Attendance Management Panel');
             $data['attendancesArray'] = $attendancesArray['attendancesArray'];
             $data['attendancesStatusArray'] = $attendancesStatusArray['attendancesStatusArray'];
             $view = ['adminTopNavHeader','userManagementTopNav','staffManagementTopNav','attendanceManagementView'];
-            //display/render the user view
+            //display/render the view
 
             $this->renderView($view,$data);
         }

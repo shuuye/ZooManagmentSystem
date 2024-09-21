@@ -15,11 +15,11 @@
 
             $membership = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // Check if a role was found and return the entire row
+            // Check if a membership was found and return the entire row
             if ($membership) {
                 return $membership; // Returns an associative array with all membership data
             } else {
-                return null; // Return null if no member is found
+                return null; // Return null if no membership is found
             }
         }
         
@@ -29,11 +29,11 @@
 
             $membership = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            // Check if a role was found and return the entire row
+            // Check if a membership was found and return the entire row
             if ($membership) {
                 return $membership; // Returns an associative array with all membership data
             } else {
-                return null; // Return null if no member is found
+                return null; // Return null if no membership is found
             }
         }
 

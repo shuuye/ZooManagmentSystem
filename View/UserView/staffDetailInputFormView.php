@@ -4,7 +4,7 @@
     }
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();
+    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();//only allow the admin that have permission to edit
 
 
     function getError($data, $key) {
@@ -77,11 +77,11 @@
         
         
         <?php
-            // Determine the default adminType
+            // Determine the default position
             $defaultStaffPostition = isset($data['selectedUser']['position']) ? $data['selectedUser']['position'] : 'General Staff';
-            // Handle the display of the adminType dropdown or hidden input
+            // Handle the display of the position dropdown or hidden input
             if (isset($_SESSION['currentUserModel']) && isset($_SESSION['currentUserModel']['role']['roleID']) && isset($_SESSION['currentUserModel']['adminType']) && isset($_SESSION['currentUserModel']['permissions'])) {
-                if ($_SESSION['currentUserModel']['role']['roleID'] == 1 && $_SESSION['currentUserModel']['adminType'] == 'SuperAdmin' && in_array('manage admin', $_SESSION['currentUserModel']['permissions'])) {
+                if ($_SESSION['currentUserModel']['role']['roleID'] == 1 && in_array('edit', $_SESSION['currentUserModel']['permissions'])) {
                     echo '
                     <tr>
                         <td>Position:</td>
@@ -93,7 +93,7 @@
                     echo '<input type="hidden" name="position" value="' . $defaultStaffPostition . '" />';
                 }
             } else {
-                // Default role for guests or non-authenticated users
+                // Default position for guests or non-authenticated users
                 echo '<input type="hidden" name="position" value="' . $defaultStaffPostition . '" />';
             }
         ?>

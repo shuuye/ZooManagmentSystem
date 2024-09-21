@@ -47,6 +47,7 @@
         }
         
         protected function setUserObj($id){
+            //set the user object here
             $userId = '';
             if($id == 0){
                 $userId = isset($_GET['id']) ? $_GET['id'] : null;
@@ -63,7 +64,7 @@
         public function successPage(){
             $view = ['SuccessMsgView'];
             $data = $this->setRenderData('Successfully !');
-            //display/render the user view
+            //display/render the view
 
             $this->renderView($view,$data);
         }
@@ -100,6 +101,7 @@
         }
         
         protected function setPermissionByType($adminType, $decoratedUserModel) {
+            //set admin permission by adminType
             require_once __DIR__ . '/../../Model/Decorator/AdminReadDecorator.php';
             require_once __DIR__ . '/../../Model/Decorator/AdminEditDecorator.php';
             require_once __DIR__ . '/../../Model/Decorator/AdminManagerDecorator.php';
@@ -122,6 +124,7 @@
         }
         
         protected function setAdminDetails($userObj){
+            // set admin full details (combine user object data with admin decorator data)
             require_once __DIR__ . '/../../Model/Decorator/AdminDecorator.php';
             $decoratedUserModel = new AdminDecorator($userObj);
             $adminDetails = $decoratedUserModel->getCurrentUserDetails();
@@ -136,6 +139,7 @@
         }
         
         protected function setCustomerDetails($userObj){
+            // set customer full details (combine user object data with customer decorator data)
             require_once __DIR__ . '/../../Model/Decorator/CustomerDecorator.php';
             $decoratedUserModel = new CustomerDecorator($userObj);
             $userDetails = $decoratedUserModel->getCurrentUserDetails();
@@ -144,6 +148,7 @@
         }
         
         protected function setStaffDetails($userObj){
+            // set staff full details (combine user object data with staff decorator data)
             require_once __DIR__ . '/../../Model/Decorator/StaffDecorator.php';
             $decoratedUserModel = new StaffDecorator($userObj);
             $userDetails = $decoratedUserModel->getCurrentUserDetails();
@@ -175,6 +180,7 @@
                 return false;
             }else{
                 $newCustomer = new CustomerModel();
+                //update the customer to customer table
                 $newCustomer->addCustomerIntoDB($id, $membershipID);
             }
             return $newCustomer;
@@ -185,6 +191,7 @@
                 return false;
             }else{
                 $newAdmin = new AdminModel();
+                //update the admin to admin table
                 $newAdmin->addAdminIntoDB($id, $type);
             }
             return $newAdmin;
@@ -195,6 +202,7 @@
                 return false;
             }else{
                 $newStaff = new StaffModel();
+                //update the staff to staff table
                 $newStaff->addStaffIntoDB($id, $position);
             }
             return $newStaff;
@@ -205,6 +213,7 @@
                 session_start();
             }
             // Use inherited methods from UserModel
+            //auth user with username and password with using model method (model will verify user with users table in database)
             $loginUser = $this->model->authUserInDB($loginUsername, $loginPassword);
             if ($loginUser != false) {
                 // Store all user detail in session

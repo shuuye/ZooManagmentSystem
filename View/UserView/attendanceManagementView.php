@@ -5,14 +5,14 @@
     
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForNonLoggedInAdmin();
+    $webConfig->restrictAccessForNonLoggedInAdmin();///only allow the logged in admin to access
     
     // Get the sort key, filter key, and search query from query parameters
     $sortKey = isset($_GET['sort']) ? $_GET['sort'] : 'working_date';
     $filterKey = isset($_GET['filter']) ? $_GET['filter'] : 'all';
     $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
 
-    // Filter the workingSchedulesArray based on the filter key
+    // Filter the attendancesArray based on the filter key
     $filteredAttendance = array_filter($data['attendancesArray'], function($attendance) use ($filterKey) {
         $currentDate = new DateTime(); // Get the current date and time
         $working_date = new DateTime($attendance['working_date']); // Convert working date to DateTime object
@@ -67,6 +67,7 @@
     }
 
     // Sorting logic remains unchanged
+    // Sorting logic for 'statusName'
     if ($sortKey == 'statusName') {
         usort($data['attendancesStatusArray'], function($a, $b) use ($sortKey) {
             return strcmp($a[$sortKey], $b[$sortKey]);

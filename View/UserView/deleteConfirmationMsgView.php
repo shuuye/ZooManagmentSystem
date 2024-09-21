@@ -4,7 +4,7 @@
     }
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
-    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();
+    $webConfig->restrictAccessForLoggedInEditPermissionAdmin();//only allow the admin that have permission to edit
 
 
     if (!isset($data['selectedUser']['id'])) {
@@ -50,6 +50,7 @@
         return $permissions;
     }
 
+    //set the selected user full details
     if(isset($data['selectedUser'])){
         $user = $data['selectedUser'];
         $id = $data['selectedUser']['id'];
@@ -66,7 +67,6 @@
             $position = $staffModel->getPositionByID($id);
         }
     }
-    // Form HTML
 ?>
 
 <html>
