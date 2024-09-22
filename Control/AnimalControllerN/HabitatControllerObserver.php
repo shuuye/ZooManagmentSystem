@@ -94,8 +94,17 @@ public function handleFormSubmission() {
         if (isset($_POST['action']) && $_POST['action'] == 'delete') {
             $habitat_id = $_POST['habitat_id'];
             $AnimalModel = new AnimalModel(); // assuming you have a HabitatModel class
+            
+             // Check if the habitat can be deleted
+           if ($AnimalModel->hasAnimalsInHabitat($habitat_id)) {
+                $_SESSION['error_message'] = "This Habitat still has animals and cannot be removed currently.";
+                header('Location: ' . $_SERVER['PHP_SELF']);
+                exit();
+            }
+
+            // Proceed with deletion if no animals are associated
             $AnimalModel->deleteHabitat($habitat_id);
-            header('Location: ' . $_SERVER['PHP_SELF']); // redirect back to the list page
+            header('Location: ' . $_SERVER['PHP_SELF']);
             exit();
         } else {
             $habitatData = $_POST;

@@ -17,6 +17,22 @@ class TicketPaymentFacade {
         $this->xmlGenerator = $xmlGenerator ?? new XmlGenerator();
     }
 
+    public function displayAvailableTickets() {
+        // Fetch and display available tickets using the TicketModel
+        return $this->ticketModel->getAvailableTickets();
+    }
+
+    public function handleTicketSelection($selectedTickets, $visitDate) {
+        // Store selected tickets and visit date in session
+        $_SESSION['selected_tickets'] = $selectedTickets;
+        $_SESSION['visit_date'] = $visitDate;
+    }
+
+    public function processPayment($paymentDetails) {
+        // Pass ticket and payment details to the PaymentSystem
+        return $this->paymentModel->processPayment($_SESSION['selected_tickets'], $paymentDetails);
+    }
+
     // Getters and Setters for ticketModel
     public function getTicketModel() {
         return $this->ticketModel;

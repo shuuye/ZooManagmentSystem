@@ -10,16 +10,26 @@ if (session_status() === PHP_SESSION_NONE) {
 
 class CustomerTicketControl {
 
+    private $model;
+
+    public function __construct() {
+        $this->model = new CustomerTicketModel(); // Initialize the model
+        $this->facade = new TicketPaymentFacade(); // Initialize the facade
+    }
+
     public function route() {
-        $model = new CustomerTicketModel();
-        $tickets = $model->getAvailableTickets();
+        $tickets = $this->model->getAvailableTickets();
         $errorMessage = '';
 
+        // Generate a CSRF token
+        $csrfToken = bin2hex(random_bytes(32)); // Create a random CSRF token
+        $_SESSION['csrf_token'] = $csrfToken;   // Store the CSRF token in the session
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errorMessage = $this->processPurchase($tickets);
         }
 
-        CustomerTicketView::displayTickets($tickets, $errorMessage);
+        CustomerTicketView::displayTickets($tickets, $errorMessage, $csrfToken);
     }
 
     private function processPurchase($tickets) {
@@ -47,7 +57,7 @@ class CustomerTicketControl {
             // Validate visit date: must be greater than today
             $today = date('Y-m-d');
             if ($visitDate <= $today) {
-                return 'Visit date must be greater than today.';
+                return 'Visit date must be after today date.';
             }
 
             if ($validQuantities) {

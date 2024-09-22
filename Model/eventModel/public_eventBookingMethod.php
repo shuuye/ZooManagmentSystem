@@ -121,19 +121,21 @@ class public_eventBookingMethod extends databaseConfig {
 }
 
 
-    public function isCapacityAvailable($eventId, $numberofTickets) {
-        if ($this->connection === null) {
+public function isCapacityAvailable($eventId, $numberofTickets) {
+    if ($this->connection === null) {
         $this->logEvent("Database connection is not set.", 'ERROR');
         throw new Exception("Database connection is not set.");
     }
 
     try {
-        $query = "SELECT IFNULL(SUM(ticket_number), 0) FROM publiceventbooking WHERE event_id = :event_id";
+        // Get the current total number of tickets booked for this event
+        $query = "SELECT IFNULL(SUM(ticket_number), 0) AS total_tickets FROM publiceventbooking WHERE event_id = :event_id";
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':event_id', $eventId, PDO::PARAM_INT);
         $stmt->execute();
-        $currentBookedTickets = $stmt->fetchColumn();
+        $currentBookedTickets = $stmt->fetchColumn(); // This will give you the sum of tickets
 
+        // Get the capacity of the event
         $query = "SELECT capacity FROM public_event WHERE event_id = :event_id";
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':event_id', $eventId, PDO::PARAM_INT);
@@ -141,16 +143,33 @@ class public_eventBookingMethod extends databaseConfig {
         $capacity = $stmt->fetchColumn();
 
         if ($capacity === false) {
-            $this->logEvent("Event not found." , 'ERROR');
+            $this->logEvent("Event not found.", 'ERROR');
             throw new Exception("Event not found.");
         }
 
-        return ($currentBookedTickets + $numberofTickets) <= $capacity;
-    }catch (Exception $e) {
+        // Calculate remaining capacity
+        $remainingCapacity = $capacity - $currentBookedTickets;
+
+        // Check remaining capacity and return appropriate response
+        if ($remainingCapacity === 0) {
+            echo "No more capacity available. Remaining capacity: 0";
+            return false;  // No capacity left
+        } elseif ($remainingCapacity >= $numberofTickets) {
+            echo "Capacity is available. Remaining capacity: $remainingCapacity";
+            return true;  // Capacity is available
+        } else {
+            echo "Insufficient capacity. Remaining capacity: $remainingCapacity";
+            return false;  // Not enough capacity
+        }
+
+    } catch (Exception $e) {
         $this->logEvent("Failed to check capacity: " . $e->getMessage(), 'ERROR');
         throw new Exception("Failed to check capacity: " . $e->getMessage());
     }
 }
+
+
+
 
     // Modify bookingPublicEvent to return the last inserted booking_id
     public function bookingPublicEvent($customerid, $fullname, $eventId, $title, $price, $date, $starttime, $endtime, $location, $type, $ticket_number, $totalprice) {
