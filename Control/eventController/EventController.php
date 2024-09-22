@@ -29,7 +29,7 @@ class EventController extends EventFactory {
 }
 
    public function validateEvent($type, $title, $description, $location, $date = null, $starttime = null, $endtime = null, $price = null, $capacity = null, $deposit = null, $numberOfAttendees = null) {
-    $errors = [];
+       $errors = [];
 
     // Validate the inputs
     if (empty($title)) {
@@ -110,9 +110,8 @@ class EventController extends EventFactory {
         $this->view->displayForm($errors, $type, $title, $price, $date, $starttime, $endtime, $location, $description, $capacity, $deposit, $numberOfAttendees);
         return;
     }
-
     try {
-        $event = $this->model->createEvent($type, $title, $description, $location, $date, $starttime, $endtime, $price, $capacity, $deposit, $numberOfAttendees);
+        $event = $this->model->createEvent($type, $title, $description, $location, $price, $capacity, $date, $starttime, $endtime, $deposit, $numberOfAttendees);   
         $this->view->displayEvent($event);
     } catch (Exception $e) {
         $this->view->displayError($e->getMessage());
