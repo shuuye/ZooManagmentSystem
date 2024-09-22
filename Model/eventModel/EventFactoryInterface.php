@@ -8,7 +8,8 @@ interface EventFactoryInterface {
     public function isPrivateEventExists($location);
     public function getPublicBookingsCountByEventId($eventIds);
     public function getPrivateBookingsCountByEventId($eventIds);
-    
+    public function insertPublicEvent(PublicEvent $event);
+    public function insertPrivateEvent(PrivateEvent $event);
     
     
 }

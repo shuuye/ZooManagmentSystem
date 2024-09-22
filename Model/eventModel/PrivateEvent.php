@@ -10,6 +10,22 @@ class PrivateEvent extends Event {
         $this->deposit = $deposit;
         $this->numberOfAttendees = $numberOfAttendees;
     }
+    
+    public function getId() {
+        return parent::getId(); // Use the parent's getter
+    }
+
+    public function getTitle() {
+        return parent::getTitle(); // Use the parent's getter
+    }
+
+    public function getDescription() {
+        return parent::getDescription(); // Use the parent's getter
+    }
+
+    public function getLocation() {
+        return parent::getLocation(); // Use the parent's getter
+    }
 
     public function getDate() {
         return null;
