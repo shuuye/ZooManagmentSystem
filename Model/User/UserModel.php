@@ -91,6 +91,18 @@
                 return false;
             }
         }
+        
+        protected function updateDBColumnByEmail($columnName, $password, $email) {
+            //update the column data with the value passed in when the id is matched
+            $updateStmt = $this->db->prepare("UPDATE users SET $columnName  = :password WHERE email = :email");
+            $updateStmt->bindParam(':password', $password);
+            $updateStmt->bindParam(':email', $email);
+            if($updateStmt->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
         // Authenticate a user by checking the username and password
         protected function authUserInDB($username, $password) {
