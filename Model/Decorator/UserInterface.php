@@ -1,5 +1,5 @@
 <?php
-
+    /*Author Name: Chew Wei Seng*/
     interface UserInterface {
         public function authUser($username, $password); // Authenticates user with username and password
         public function addNewUser($newUsername, $newPassword, $newFullName, $newPhoneNumber, $newEmail, $newRoleID); // Registers a new user

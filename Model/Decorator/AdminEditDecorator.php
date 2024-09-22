@@ -1,5 +1,5 @@
 <?php
-
+    /*Author Name: Chew Wei Seng*/
     require_once 'UserDecorator.php';
 
     class AdminEditDecorator extends UserDecorator {

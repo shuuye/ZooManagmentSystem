@@ -1,5 +1,5 @@
 <?php
-
+    /*Author Name: Chew Wei Seng*/
 class Role {
     protected $roleID;
     protected $roleName;

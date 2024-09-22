@@ -1,5 +1,5 @@
 <?php
-
+    /*Author name: Chew Wei Seng*/
     require_once 'UserController.php';
     require_once 'InputValidationCtrl.php';
 
