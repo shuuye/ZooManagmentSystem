@@ -1,4 +1,5 @@
 <?php
+    /*Author Name: Chew Wei Seng*/
 require_once __DIR__ . '/../../Config/webConfig.php';
 $webConfig = new webConfig();
 $webConfig->restrictAccessForNonLoggedInUser();//only allow the logged in user to access
