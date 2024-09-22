@@ -10,6 +10,15 @@
     <status>Active</status>
   </batch>
   <batch>
+    <batchId>2</batchId>
+    <inventoryId>30</inventoryId>
+    <quantity>20</quantity>
+    <manufactureDate>2024-07-01</manufactureDate>
+    <expiryDate>2025-07-01</expiryDate>
+    <supplierId>1</supplierId>
+    <status>Active</status>
+  </batch>
+  <batch>
     <batchId>3</batchId>
     <inventoryId>34</inventoryId>
     <quantity>15</quantity>
