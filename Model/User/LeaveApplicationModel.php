@@ -1,4 +1,5 @@
 <?php    
+    /*Author Name: Chew Wei Seng*/
     require_once __DIR__ . '/../../Config/databaseConfig.php';
 
     class LeaveApplicationModel extends databaseConfig {
