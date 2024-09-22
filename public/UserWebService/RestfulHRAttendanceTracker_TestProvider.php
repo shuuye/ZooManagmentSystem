@@ -1,4 +1,6 @@
 <?php
+    /*Author Name: Chew Wei Seng*/
+
     // URL of the API endpoint
     $url = 'http://localhost:8080/attendanceDetails';
 
