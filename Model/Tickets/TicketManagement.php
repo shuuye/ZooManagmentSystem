@@ -138,7 +138,7 @@ class TicketManagement extends DatabaseConfig {
 
         // Generate XML using XmlGenerator
         $xmlGenerator = new XmlGenerator();
-        $xmlGenerator->createXMLFileFromArray("tickets", "selectedTickets.xml", "Tickets", "Ticket", "id", $tickets);
+        $xmlGenerator->createXMLFileFromArray("tickets", "tickets.xml", "Tickets", "Ticket", "id", $tickets);
     }
 }
 
