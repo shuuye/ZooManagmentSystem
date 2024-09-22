@@ -25,10 +25,14 @@ $habitatController->handleFormSubmission();// Handle form submission
     <h1>Add New Habitat</h1>
     
     <form action="add_habitat.php" method="POST">
+        
+        <!-- CSRF token for security -->
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+        
         <input type="hidden" name="habitat_id" id="habitat_id"> <!-- Hidden field for habitat ID -->
 
         <label for="habitat_name">Habitat Name:</label>
-        <input type="text" id="habitat_name" name="habitat_name" required><br>
+        <input type="text" id="habitat_name" name="habitat_name" required maxlength="15"><br>
 
         <label for="availability">Availability:</label>
         <select id="availability" name="availability" required>
@@ -49,7 +53,7 @@ $habitatController->handleFormSubmission();// Handle form submission
         </select><br>
 
         <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea><br>
+        <textarea id="description" name="description" required ></textarea><br>
 
         <button type="submit" name="submit">Save Habitat</button>
     </form>

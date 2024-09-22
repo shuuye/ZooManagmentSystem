@@ -15,6 +15,9 @@ class HabitatControllerObserver {
 
     // Function to add or update a habitat based on ID
         public function saveHabitat($habitatData) {
+          
+        $habitatData = array_map('htmlspecialchars', $habitatData);// Sanitize input data, Memory Management
+           
         $availabilityOptions = array('Available', 'Unavailable');
         $environmentOptions = array('hot', 'cold', 'water');
 
@@ -29,7 +32,9 @@ class HabitatControllerObserver {
         if (!is_numeric($habitatData['capacity']) || $habitatData['capacity'] < 1) {
             throw new Exception('Invalid capacity value');
         }
-
+        
+        $habitatData['description'] = substr($habitatData['description'], 0, 12); // Truncate input strings
+        
         // Save habitat data
         if (isset($habitatData['habitat_id']) && !empty($habitatData['habitat_id'])) {
             // Update existing habitat
@@ -52,6 +57,8 @@ class HabitatControllerObserver {
             );
         }
         $this->animalModel->setHabitatData($habitatData); // Set habitatData on AnimalModel instance for observer notify
+        
+        unset($habitatData);// Free memory, Memory Management
         header('Location: ../../View/AnimalView/habitatViewOnly.php');
         exit();
     }
