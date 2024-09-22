@@ -1,4 +1,5 @@
 <?php
+    /*Author Name: Chew Wei Seng*/
 class Membership {
     // Protected attributes
     protected $membershipID;
