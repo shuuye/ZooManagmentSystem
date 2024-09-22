@@ -1,5 +1,5 @@
 <?php
-
+/*Author name: Lim Shuye*/
 //used to route users to the pages
 
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';
@@ -29,12 +29,15 @@ class InventoryController extends InventoryModel {
                         case 'errorAddItem':
                             echo "<p class='alert alert-error'>" . $error . "</p>";
                             break;
+                        case 'errorEditItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
                     }
                     $this->addInventoryItem();
                     break;
                 case 'habitatItem':
                     $status = isset($_GET['status']) ? $_GET['status'] : '';
-
+                    $error = isset($_GET['error']) ? $_GET['error'] : '';
                     switch ($status) {
                         case 'successRemoveInv':
                             echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
@@ -42,13 +45,52 @@ class InventoryController extends InventoryModel {
                         case 'errorRemoveInv':
                             echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
                             break;
+                        case 'errorAddItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
+                        case 'errorEditItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
                     }
                     $this->viewHabitatItem();
                     break;
                 case 'foodItem':
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    $error = isset($_GET['error']) ? $_GET['error'] : '';
+                    switch ($status) {
+                        case 'successRemoveInv':
+                            echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
+                            break;
+                        case 'errorRemoveInv':
+                            echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
+                            break;
+                        case 'errorAddItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
+                        case 'errorEditItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
+                    }
                     $this->viewFoodItem();
                     break;
                 case 'cleaningItem':
+                    $status = isset($_GET['status']) ? $_GET['status'] : '';
+                    $error = isset($_GET['error']) ? $_GET['error'] : '';
+                    switch ($status) {
+                        case 'successRemoveInv':
+                            echo "<p class='alert alert-success'>Inventory removed successfully.</p>";
+                            break;
+                        case 'errorRemoveInv':
+                            echo "<p class='alert alert-error'>Failed to remove Inventory. Please try again.</p>";
+                            break;
+                        case 'errorAddItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
+                        case 'errorEditItem':
+                            echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
+                    }
+
                     $this->viewCleaningItem();
                     break;
                 case 'viewItembasedOnInventoryID':
@@ -261,6 +303,7 @@ class InventoryController extends InventoryModel {
                             break;
                         case 'errorEditItem':
                             echo "<p class='alert alert-error'>" . $error . "</p>";
+                            break;
                         default:
                             break;
                     }
@@ -335,7 +378,6 @@ class InventoryController extends InventoryModel {
         $this->view->render('AddNewInventItem', $data);
     }
 
-    
     public function reportMain() {
         $data = [
             'activePage' => 'Reports',
@@ -349,7 +391,7 @@ class InventoryController extends InventoryModel {
 
         $this->view->render('reportMain', $data);
     }
-    
+
     public function logUsage() {
         $inventoryData = $this->model->getInventory();
         $data = [

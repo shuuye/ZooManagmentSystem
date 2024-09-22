@@ -1,4 +1,5 @@
 <?php
+/*Author name: Lim Shuye*/
 // Controller for adding a new item
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Grab data

@@ -1,4 +1,6 @@
 <?php
+/*Author name: Vanness Chaw Jun Kit*/
+
 require_once __DIR__ . '/Control/TicketController/AdminTicketControl.php';
 
 $controller = new AdminTicketControl();

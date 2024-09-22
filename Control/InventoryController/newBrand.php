@@ -1,5 +1,5 @@
 <?php
-
+/*Author name: Lim Shuye*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve values from the POST request
     $brandName = isset($_POST['brandName']) ? trim($_POST['brandName']) : '';

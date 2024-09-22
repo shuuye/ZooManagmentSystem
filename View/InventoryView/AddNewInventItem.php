@@ -1,4 +1,7 @@
-<?php $content ='
+<?php 
+/*Author name: Lim Shuye*/
+
+$content ='
 <div class="main-content">
 
     <h2>Add New Item to Inventory</h2>

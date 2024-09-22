@@ -142,7 +142,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 3</storageLocation>
     <reorderThreshold>150</reorderThreshold>
-    <quantity>141</quantity>
+    <quantity>150</quantity>
   </inventory>
   <inventory>
     <inventoryId>19</inventoryId>
@@ -150,7 +150,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 4</storageLocation>
     <reorderThreshold>50</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>60</quantity>
   </inventory>
   <inventory>
     <inventoryId>20</inventoryId>
@@ -190,7 +190,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 9</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>30</quantity>
   </inventory>
   <inventory>
     <inventoryId>25</inventoryId>
@@ -230,14 +230,6 @@
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
     <reorderThreshold>40</reorderThreshold>
-    <quantity>1</quantity>
-  </inventory>
-  <inventory>
-    <inventoryId>30</inventoryId>
-    <itemName>Sanitizer</itemName>
-    <itemType>Cleaning</itemType>
-    <storageLocation>Cleaning Supply Room</storageLocation>
-    <reorderThreshold>25</reorderThreshold>
     <quantity>1</quantity>
   </inventory>
   <inventory>
@@ -366,6 +358,22 @@
     <itemType>Habitat</itemType>
     <storageLocation>adfafds</storageLocation>
     <reorderThreshold>33</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>2</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>47</inventoryId>
+    <itemName>Toilet Paper</itemName>
+    <itemType>Cleaning</itemType>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>50</reorderThreshold>
+    <quantity>0</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>48</inventoryId>
+    <itemName>Toilet Paper</itemName>
+    <itemType>Cleaning</itemType>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>50</reorderThreshold>
+    <quantity>0</quantity>
   </inventory>
 </inventories>

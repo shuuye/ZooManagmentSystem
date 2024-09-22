@@ -1,5 +1,5 @@
 <?php
-
+/*Author name: Lim Shuye*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the filters array is set and not empty
     if (isset($_POST['filters']) && !empty($_POST['filters'])) {

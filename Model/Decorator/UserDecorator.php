@@ -1,5 +1,5 @@
-
 <?php
+    /*Author Name: Chew Wei Seng*/
     require_once 'UserInterface.php';
 
     abstract class UserDecorator implements UserInterface {

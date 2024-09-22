@@ -1,5 +1,5 @@
 <?php
-
+    /*Author Name: Chew Wei Seng*/
     if (session_status() === PHP_SESSION_NONE) {
             session_start();
     }

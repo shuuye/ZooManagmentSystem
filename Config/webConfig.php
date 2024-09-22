@@ -1,4 +1,5 @@
 <?php
+/*Author name: Chew Wei Seng*/
 
 class webConfig {
     

@@ -1,4 +1,6 @@
 <?php
+/*Author name: Vanness Chaw Jun Kit*/
+
 // Create a new DOMDocument instance for XML and XSLT
 $xml = new DOMDocument;
 $xsl = new DOMDocument;

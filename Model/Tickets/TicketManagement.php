@@ -1,4 +1,5 @@
 <?php
+/*Author name: Vanness Chaw Jun Kit*/
 
 require_once __DIR__ . '/../../Config/databaseConfig.php';
 require_once __DIR__ . '/../XmlGenerator.php'; // Include XML Generator
@@ -138,7 +139,7 @@ class TicketManagement extends DatabaseConfig {
 
         // Generate XML using XmlGenerator
         $xmlGenerator = new XmlGenerator();
-        $xmlGenerator->createXMLFileFromArray("tickets", "selectedTickets.xml", "Tickets", "Ticket", "id", $tickets);
+        $xmlGenerator->createXMLFileFromArray("tickets", "tickets.xml", "Tickets", "Ticket", "id", $tickets);
     }
 }
 

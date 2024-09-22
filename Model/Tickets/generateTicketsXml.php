@@ -1,4 +1,5 @@
 <?php
+/*Author name: Vanness Chaw Jun Kit*/
 
 require_once '../XmlGenerator.php';
 

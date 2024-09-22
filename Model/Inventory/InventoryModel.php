@@ -1,4 +1,6 @@
 <?php
+/*Author name: Lim Shuye*/
+
 
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Config\databaseConfig.php';
 

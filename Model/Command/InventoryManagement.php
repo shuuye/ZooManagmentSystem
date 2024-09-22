@@ -1,4 +1,6 @@
 <?php
+/*Author name: Lim Shuye*/
+
 
 // use to bind witht the inventory to execute command
 // $inventoryManager->executeCommand(new AddItemCommand($inventory)); --> /Model/Command/InventoryCommand.php

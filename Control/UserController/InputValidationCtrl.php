@@ -1,5 +1,5 @@
 <?php
-
+    /*Author name: Chew Wei Seng*/
     class InputValidationCtrl{
         // Sanitize input data
         public static function prepareInput($data) {

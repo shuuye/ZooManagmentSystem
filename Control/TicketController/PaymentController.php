@@ -1,4 +1,5 @@
 <?php
+/*Author name: Vanness Chaw Jun Kit*/
 
 require_once __DIR__ . '/../../Model/Tickets/PaymentModel.php';
 require_once __DIR__ . '/../../View/TicketView/PaymentView.php';

@@ -1,4 +1,6 @@
 <?php
+    /*Author Name: Chew Wei Seng*/
+
 class RestfulLocationService_Consume {
     private $apiKey;
     private $apiUrl = 'https://maps.googleapis.com/maps/api/geocode/json'; // Replace with actual API URL
