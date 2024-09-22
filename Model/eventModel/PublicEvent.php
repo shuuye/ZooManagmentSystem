@@ -8,27 +8,29 @@ class PublicEvent extends Event {
     private $endtime;
     private $capacity;
 
-    public function __construct($id, $title,$price, $date, $starttime, $endtime, $location, $description, $capacity) {
-        parent::__construct($id, $title, $description, $location);
+    public function __construct($id, $title, $description, $location, $price, $date, $starttime, $endtime, $capacity) {
+        parent::__construct($id, $title, $description, $location); // Call the parent constructor
         $this->price = $price;
         $this->date = $date;
         $this->starttime = $starttime;
         $this->endtime = $endtime;
         $this->capacity = $capacity;
     }
-
-    public function getDate() {
-        return $this->date;
+    public function getId() {
+        return parent::getId(); // Use the parent's getter
     }
 
-    public function getStartTime() {
-        return $this->starttime;
+    public function getTitle() {
+        return parent::getTitle(); // Use the parent's getter
     }
 
-    public function getEndTime() {
-        return $this->endtime;
+    public function getDescription() {
+        return parent::getDescription(); // Use the parent's getter
     }
 
+    public function getLocation() {
+        return parent::getLocation(); // Use the parent's getter
+    }
     public function getType() {
         return 'Public';
     }
@@ -38,7 +40,7 @@ class PublicEvent extends Event {
     }
 
     public function getNumberOfAttendees() {
-        return null;
+        return null; // Adjust based on your logic
     }
 
     public function getCapacity() {
@@ -46,7 +48,19 @@ class PublicEvent extends Event {
     }
 
     public function getDeposit() {
-        return null;
+        return null; // Adjust based on your logic
+    }
+
+    public function getEndTime() {
+        return $this->endtime;
+    }
+
+    public function getStartTime() {
+        return $this->starttime;
+    }
+
+    public function getDate() {
+        return $this->date;
     }
 }
 ?>
