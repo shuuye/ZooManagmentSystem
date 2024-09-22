@@ -3,7 +3,6 @@ require_once 'Config/databaseConfig.php';
 require_once 'PublicEvent.php';
 require_once 'PrivateEvent.php';
 require_once 'EventFactoryInterface.php';
-require_once 'createXMLFromDatabase.php';
 
 class EventFactory extends databaseConfig implements EventFactoryInterface {
     private $connection;
