@@ -262,26 +262,6 @@ class AnimalModel extends databaseConfig implements subject{
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
-//        try {
-//            $pdo = $this->db->getConnection();
-//            $sql = "INSERT INTO habitats (habitat_name, availability, capacity, environment, description) 
-//                    VALUES (:habitat_name, :availability, :capacity, :environment, :description)";
-//            $stmt = $pdo->prepare($sql);
-//
-//            $stmt->bindParam(':habitat_name', $habitat_name);
-//            $stmt->bindParam(':availability', $availability);
-//            $stmt->bindParam(':capacity', $capacity);
-//            $stmt->bindParam(':environment', $environment);
-//            $stmt->bindParam(':description', $description);
-//            $this->notify();
-//            if ($stmt->execute()) {
-//                echo "New habitat added successfully.";
-//            } else {
-//                echo "Failed to add new habitat.";
-//            }
-//        } catch (PDOException $e) {
-//            echo "Error: " . $e->getMessage();
-//        }
     }
     
     public function getAvailableHabitats() { //use at add animal form
