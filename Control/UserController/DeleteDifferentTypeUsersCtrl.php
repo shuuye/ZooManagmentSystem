@@ -1,5 +1,5 @@
 <?php
-
+    /*Author name: Chew Wei Seng*/
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
     $webConfig->restrictAccessForLoggedInEditPermissionAdmin();// only allow admin with edit permission to access
