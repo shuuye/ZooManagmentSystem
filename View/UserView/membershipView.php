@@ -1,4 +1,5 @@
 <?php
+    /*Author Name: Chew Wei Seng*/
     $membershipArray = $data['membershipArray'];
     $membershipAldBuy = isset($_SESSION['membershipAldBuy']) ? $_SESSION['membershipAldBuy'] : '';
     $membershipPurchaseSuccessFully = isset($_SESSION['membershipPurchaseSuccessFully']) ? $_SESSION['membershipPurchaseSuccessFully'] : '';
