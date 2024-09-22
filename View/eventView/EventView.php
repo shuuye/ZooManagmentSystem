@@ -5,10 +5,28 @@ class EventView {
     public function displayAllEvents($events, $selectedType, $errors = []) {
         // Ensure $selectedType defaults to "Public" if no filter is selected
 
+        
         if ($selectedType === null) {
             $selectedType = "Public";
         }
+        
         ?>
+        <header>
+                <div class="topnav">
+                    <a href="index.php?controller=admin&action=displayAdminMainPanel">Admin Main Panel</a>
+                    <?php
+                    if (session_status() === PHP_SESSION_NONE) {
+                        session_start();
+                    }
+
+                    if (isset($_SESSION['currentUserModel'])) {
+                        echo '<a href="index.php?controller=user&action=logOut" style="float: right">Log Out</a>';
+                        echo '<a href="index.php?controller=user&action=showUserProfile" style="float: right">Profile</a>';
+                        echo '<p style="float: right; color: white; margin-top:7px;">Welcome, ' . $_SESSION['currentUserModel']['username'] . '</p>';
+                    }
+                    ?>
+                </div>
+            </header>
         <!DOCTYPE html>
         <html lang="en">
             <head>
@@ -119,23 +137,7 @@ class EventView {
                         }
                     };
                 </script>
-            </head>
-            <header>
-                <div class="topnav">
-                    <a href="index.php?controller=admin&action=displayAdminMainPanel">Admin Main Panel</a>
-                    <?php
-                    if (session_status() === PHP_SESSION_NONE) {
-                        session_start();
-                    }
-
-                    if (isset($_SESSION['currentUserModel'])) {
-                        echo '<a href="index.php?controller=user&action=logOut" style="float: right">Log Out</a>';
-                        echo '<a href="index.php?controller=user&action=showUserProfile" style="float: right">Profile</a>';
-                        echo '<p style="float: right; color: white; margin-top:7px;">Welcome, ' . $_SESSION['currentUserModel']['username'] . '</p>';
-                    }
-                    ?>
-                </div>
-            </header>
+            </head>         
             <body>
                 <h1>Events</h1>
                 <?php if (!empty($errors)) : ?>
