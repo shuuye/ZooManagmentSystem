@@ -1,5 +1,5 @@
 <?php
-
+    /*Author Name: Chew Wei Seng*/
 require_once __DIR__ . '/../../Model/User/UserModel.php';
 
 class UserView extends UserModel {
