@@ -1,4 +1,6 @@
 <?php
+/*Author name: Lim Shuye*/
+
 
 // used to store all command to play with the inventory 
 // $inventoryManager->executeCommand(new AddItemCommand($inventory)); --> /Model/Command/InventoryCommand.php

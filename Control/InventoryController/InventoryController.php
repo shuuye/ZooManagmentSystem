@@ -1,5 +1,5 @@
 <?php
-
+/*Author name: Lim Shuye*/
 //used to route users to the pages
 
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Inventory\InventoryModel.php';

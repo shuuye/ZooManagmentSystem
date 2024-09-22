@@ -1,5 +1,5 @@
 <?php
-
+//<!-- Author name: Lim Shuye -->
 $inventoryTypes = array_unique(array_column($inventoryData, 'itemType'));
 $inventoryTypes = array_filter($inventoryTypes, function ($type) {
     return $type !== "Animal";

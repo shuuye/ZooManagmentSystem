@@ -1,4 +1,5 @@
 <?php
+/*Author name: Lim Shuye*/
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['inventoryId']) && isset($_POST['itemType'])) {
         $inventoryId = intval($_POST['inventoryId']);

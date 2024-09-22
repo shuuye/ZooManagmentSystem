@@ -1,4 +1,6 @@
 <?php
+/*Author name: Lim Shuye*/
+
 
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\AnimalInventory.php';
 include_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\CleaningInventory.php';

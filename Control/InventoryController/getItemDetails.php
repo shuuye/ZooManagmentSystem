@@ -1,5 +1,5 @@
 <?php
-
+/*Author name: Lim Shuye*/
 if (isset($_GET['inventoryId']) && isset($_GET['itemId']) && $itemType = $_GET['itemType']) {
     $inventoryId = $_GET['inventoryId'];
     $itemId = $_GET['itemId'];

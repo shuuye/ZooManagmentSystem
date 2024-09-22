@@ -1,3 +1,5 @@
+<!-- Author name: Lim Shuye -->
+
 <?php
 
 require_once '../../Config/databaseConfig.php';

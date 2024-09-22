@@ -1,4 +1,6 @@
 <?php
+/*Author name: Lim Shuye*/
+
 
 require_once 'C:\xampp\htdocs\ZooManagementSystem\Config\databaseConfig.php';
 require_once 'C:\xampp\htdocs\ZooManagementSystem\Model\Command\Inventory.php';

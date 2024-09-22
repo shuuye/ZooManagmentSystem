@@ -150,4 +150,14 @@
     <quantity>1</quantity>
     <unitPrice>30.00</unitPrice>
   </purchaseorderlineitem>
+  <purchaseorderlineitem>
+    <poLineItemId>16</poLineItemId>
+    <poId>16</poId>
+    <inventoryId>24</inventoryId>
+    <cleaningId/>
+    <habitatId>9</habitatId>
+    <foodId/>
+    <quantity>30</quantity>
+    <unitPrice>23.00</unitPrice>
+  </purchaseorderlineitem>
 </purchaseorderlineitems>

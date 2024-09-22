@@ -118,7 +118,7 @@
     <billingAddress>202 Jalan Makanan</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
     <totalAmount>2250.00</totalAmount>
-    <status>Pending</status>
+    <status>Completed</status>
   </purchaseorder>
   <purchaseorder>
     <poId>15</poId>
@@ -128,6 +128,16 @@
     <billingAddress>789 Jalan Habitat</billingAddress>
     <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
     <totalAmount>30.00</totalAmount>
-    <status>Draft</status>
+    <status>Completed</status>
+  </purchaseorder>
+  <purchaseorder>
+    <poId>16</poId>
+    <supplierId>4</supplierId>
+    <orderDate>2024-09-22 09:14:17</orderDate>
+    <deliveryDate>2024-09-25 09:14:17</deliveryDate>
+    <billingAddress>101 Jalan Haiwan</billingAddress>
+    <shippingAddress>Jalan Taman Zooview, Taman Zooview, 68000 Ampang, Selangor</shippingAddress>
+    <totalAmount>460.00</totalAmount>
+    <status>Completed</status>
   </purchaseorder>
 </purchaseorders>

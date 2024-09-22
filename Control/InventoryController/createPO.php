@@ -1,5 +1,5 @@
 <?php
-
+/*Author name: Lim Shuye*/
 // Ensure form data has been sent via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve values from the POST request

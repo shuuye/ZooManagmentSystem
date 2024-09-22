@@ -1,5 +1,5 @@
 <?php
-
+/*Author name: Lim Shuye*/
 // Ensure form data has been sent via GET
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Retrieve values from the GET request

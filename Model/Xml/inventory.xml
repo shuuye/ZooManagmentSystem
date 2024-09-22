@@ -150,7 +150,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 4</storageLocation>
     <reorderThreshold>50</reorderThreshold>
-    <quantity>0</quantity>
+    <quantity>60</quantity>
   </inventory>
   <inventory>
     <inventoryId>20</inventoryId>
@@ -190,7 +190,7 @@
     <itemType>Habitat</itemType>
     <storageLocation>Habitat Storage 9</storageLocation>
     <reorderThreshold>20</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>30</quantity>
   </inventory>
   <inventory>
     <inventoryId>25</inventoryId>
@@ -358,10 +358,18 @@
     <itemType>Habitat</itemType>
     <storageLocation>adfafds</storageLocation>
     <reorderThreshold>33</reorderThreshold>
-    <quantity>1</quantity>
+    <quantity>2</quantity>
   </inventory>
   <inventory>
     <inventoryId>47</inventoryId>
+    <itemName>Toilet Paper</itemName>
+    <itemType>Cleaning</itemType>
+    <storageLocation>Cleaning Supply Room</storageLocation>
+    <reorderThreshold>50</reorderThreshold>
+    <quantity>0</quantity>
+  </inventory>
+  <inventory>
+    <inventoryId>48</inventoryId>
     <itemName>Toilet Paper</itemName>
     <itemType>Cleaning</itemType>
     <storageLocation>Cleaning Supply Room</storageLocation>
