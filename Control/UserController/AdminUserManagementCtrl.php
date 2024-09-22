@@ -1,4 +1,5 @@
 <?php
+/*Author name: Chew Wei Seng*/
 
     require_once __DIR__ . '/../../Config/webConfig.php';
     $webConfig = new webConfig();
