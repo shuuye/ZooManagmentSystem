@@ -6,4 +6,4 @@ Zoo Management System developed to manage inventory, animal care, and other oper
 - Additional: XSLT for XML generation and data transformation, Web Services
 
 ## Link for screenshots and detailed explanation of each module in this project:
-- https://github.com/shuuye/ZooManagementSystem/blob/main/Zoo%20Management%20Screenshots.pdf
+- [https://github.com/shuuye/ZooManagementSystem/blob/main/Zoo%20Management%20Screenshots.pdf](https://github.com/shuuye/ZooManagmentSystem/blob/main/Zoo%20Management%20Screenshots.pdf)
